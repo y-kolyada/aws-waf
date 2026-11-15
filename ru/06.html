@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Действия и ответы · devops-aws-waf · ai|</title>
 <!-- meta: built by tools/build-meta.py - do not edit by hand -->
-<meta name="description" content="Лид страницы: о чём она и кому нужна.">
+<meta name="description" content="Полная механика вердиктов AWS WAFv2: терминирующие действия Allow и Block, нетерминирующий аудит Count, поведенческие испытания CAPTCHA и Challenge...">
 <link rel="canonical" href="https://y-kolyada.github.io/aws-waf/ru/06.html">
 <link rel="alternate" hreflang="ru" href="https://y-kolyada.github.io/aws-waf/ru/06.html">
 <link rel="alternate" hreflang="en" href="https://y-kolyada.github.io/aws-waf/en/06.html">
@@ -15,12 +15,12 @@
 <meta property="og:type" content="article">
 <meta property="og:site_name" content="devops-aws-waf">
 <meta property="og:title" content="Действия и ответы">
-<meta property="og:description" content="Лид страницы: о чём она и кому нужна.">
+<meta property="og:description" content="Полная механика вердиктов AWS WAFv2: терминирующие действия Allow и Block, нетерминирующий аудит Count, поведенческие испытания CAPTCHA и Challenge...">
 <meta property="og:url" content="https://y-kolyada.github.io/aws-waf/ru/06.html">
 <meta property="og:locale" content="ru_RU">
 <meta name="twitter:card" content="summary">
 <link rel="icon" href="../assets/img/favicon.svg" type="image/svg+xml">
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"TechArticle","headline":"Действия и ответы","description":"Лид страницы: о чём она и кому нужна.","url":"https://y-kolyada.github.io/aws-waf/ru/06.html","inLanguage":"ru","isPartOf":{"@type":"WebSite","name":"devops-aws-waf","url":"https://y-kolyada.github.io/aws-waf/"}}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"TechArticle","headline":"Действия и ответы","description":"Полная механика вердиктов AWS WAFv2: терминирующие действия Allow и Block, нетерминирующий аудит Count, поведенческие испытания CAPTCHA и Challenge...","url":"https://y-kolyada.github.io/aws-waf/ru/06.html","inLanguage":"ru","isPartOf":{"@type":"WebSite","name":"devops-aws-waf","url":"https://y-kolyada.github.io/aws-waf/"}}</script>
 <!-- /meta -->
 <link rel="stylesheet" href="../assets/style.css?v=1">
 <script>
@@ -94,20 +94,65 @@
 
   <main id="main">
     <h1>Действия и ответы</h1>
-    <p class="page-size" data-words="49">Слов: 49</p>
-    <p class="lead">Лид страницы: о чём она и кому нужна. Одно предложение, не длиннее 160 знаков.</p>
+    <p class="page-size" data-words="1042">Слов: 1042</p>
+    <p class="lead">Полная механика вердиктов AWS WAFv2: терминирующие действия Allow и Block, нетерминирующий аудит Count, поведенческие испытания CAPTCHA и Challenge, кастомизация кодов 403/429, статические тела ошибок и инъекция заголовков в upstream-трафик.</p>
 
     <div class="box key" id="key-idea">
       <h2>Главная мысль страницы <a class="anchor-link" href="#key-idea" aria-label="ссылка на этот блок">#</a></h2>
-      <p>Текст этого раздела ещё не написан.</p>
+      <p>Действие правила в AWS WAFv2 (Action) определяет судьбу запроса после совпадения условий. Спецификация правила поддерживает ровно пять взаимоисключающих вердиктов: Allow, Block, Count, Captcha и Challenge. Выбор вердикта разделяет правила на две фундаментальные категории: терминирующие (Terminating actions: Allow, Block, а также Captcha/Challenge при отсутствии валидного токена) и нетерминирующие (Non-terminating: Count). Понимание жизненного цикла обработки вердиктов, правил инъекции HTTP-заголовков в бэкенд и механизмов кастомизации кодов завершения позволяет строить бесшовный пользовательский опыт без ущерба для безопасности периметра.</p>
     </div>
 
-    <h2 id="first">1 · Раздел 1 <a class="anchor-link" href="#first">#</a></h2>
-    <p>Текст этого раздела ещё не написан.</p>
+    <h2 id="actions-overview">1 · Модель действий и логика терминации <a class="anchor-link" href="#actions-overview">#</a></h2>
+    <p>В процессе инспекции HTTP-пакета модуль AWS WAF последовательно перебирает правила Web ACL в порядке возрастания их приоритета Priority (от 0 и выше). Когда условие Statement внутри правила возвращает булево значение true, WAF немедленно обращается к блоку Action этого правила.</p>
+    <p>Если назначено терминирующее действие (Allow или Block), дальнейшее выполнение Web ACL мгновенно прекращается: последующие правила с более высоким приоритетом даже не вычисляются. Запрос либо немедленно отправляется на защищаемый ресурс (при действии Allow), либо блокируется прямо на границе AWS (при действии Block) с возвратом HTTP-ответа клиенту без обращения к исходным серверам.</p>
+    <p>Если ни одно из правил Web ACL не сработало, судьбу запроса решает блок DefaultAction самого списка Web ACL. В спецификации Web ACL параметр DefaultAction допускает строго два варианта: либо Allow, либо Block. В подавляющем большинстве архитектур публичных веб-приложений используется модель «Default Action: Allow» в сочетании с набором запрещающих правил (Blacklist model), тогда как для закрытых внутренних API применяется модель строгого белого списка («Default Action: Block»).</p>
 
-    <div class="box key" id="artifacts">
-      <h2>Артефакты: что у вас есть после этой страницы <a class="anchor-link" href="#artifacts">#</a></h2>
-      <p>Текст этого раздела ещё не написан.</p>
+    <h2 id="allow-and-headers">2 · Действие Allow и модификация запроса: InsertHeaders <a class="anchor-link" href="#allow-and-headers">#</a></h2>
+    <p>Действие Allow не просто пропускает сетевой пакет дальше по стеку. В WAFv2 блок Allow содержит параметр CustomRequestHandling, позволяющий осуществлять инъекцию дополнительных HTTP-заголовков в запрос перед его передачей на бэкенд.</p>
+    <p>Параметр InsertHeaders конфигурирует массив объектов, каждый из которых состоит из пары Name и Value. Это предоставляет мощные возможности для интеграции WAF с внутренними микросервисами:</p>
+    <ul>
+      <li><strong>Передача контекста инспекции:</strong> WAF может добавить заголовок <code>X-WAF-Verified: true</code> или <code>X-Security-Tier: high</code>, информируя приложение о том, что клиент успешно прошел жесткие проверки периметра.</li>
+      <li><strong>Связывание с идентификатором сессии:</strong> Бэкенд может извлекать кастомный заголовок для сопоставления логов балансировщика ALB с записями в распределенном трейсинге OpenTelemetry.</li>
+      <li><strong>Защита от спуфинга:</strong> Поскольку WAF перезаписывает или добавляет указанный заголовок на границе облака, злоумышленник из внешней сети не может подделать его значение, если на целевом ALB настроено доверие только заголовкам, пришедшим через проверенную цепочку.</li>
+    </ul>
+
+    <h2 id="block-and-custom-responses">3 · Действие Block, коды 403/429 и CustomResponseBodies <a class="anchor-link" href="#block-and-custom-responses">#</a></h2>
+    <p>По умолчанию при срабатывании правила с действием Block сервис AWS WAF возвращает клиенту стандартный HTTP-статус <code>403 Forbidden</code> с пустым телом или встроенным сообщением об ошибке. Однако в реальных эксплуатационных сценариях этого недостаточно.</p>
+    <p>Блок Block.CustomResponse настраивает ровно три ключевых параметра:</p>
+    <ul>
+      <li><strong>ResponseCode:</strong> Целое число в диапазоне от 200 до 599. Это позволяет возвращать HTTP 429 Too Many Requests для правил ограничения частоты (Rate-based rules), либо даже HTTP 200 или 404 для маскировки присутствия защитной системы (Deception techniques).</li>
+      <li><strong>CustomResponseBodyKey:</strong> Строковый идентификатор, ссылающийся на одно из тел ответов, заранее объявленных в секции CustomResponseBodies корневого объекта Web ACL.</li>
+      <li><strong>ResponseHeaders:</strong> Массив дополнительных заголовков, возвращаемых заблокированному клиенту (например, <code>Retry-After: 300</code>, <code>Content-Type: application/json</code> или <code>X-Incident-ID: waf-block</code>).</li>
+    </ul>
+    <p>В секции CustomResponseBodies каждый элемент описывается ключом и структурой из двух полей: ContentType (допустимы значения TEXT_PLAIN, TEXT_HTML, APPLICATION_JSON) и Content (строка с телом ответа размером до 4096 байт). Это позволяет возвращать структурированные JSON-ошибки для мобильных приложений или стилизованные страницы-заглушки для браузеров.</p>
+
+    <h2 id="count-mode">4 · Действие Count: нетерминирующий аудит и канареечный анализ <a class="anchor-link" href="#count-mode">#</a></h2>
+    <p>Действие Count является нетерминирующим (Non-terminating). Когда запрос совпадает с условиями правила с действием Count, WAF не прерывает обработку: он регистрирует факт срабатывания правила в метриках CloudWatch, при необходимости навешивает на запрос метки (RuleLabels) и передает управление следующему по приоритету правилу.</p>
+    <p>Действие Count незаменимо при решении трех критических инженерных задач:</p>
+    <ul>
+      <li><strong>Канареечное тестирование новых правил:</strong> Перед тем как активировать жесткую блокировку для нового регулярного выражения или географического правила, его запускают в режиме Count на 7-14 дней. Инженеры анализируют метрику CountedRequests и семплы в CloudWatch, подтверждая отсутствие ложных срабатываний (False Positives) на легитимном трафике.</li>
+      <li><strong>Маркировка и классификация трафика:</strong> Правило в режиме Count может обнаружить запрос из дата-центра или с подозрительным User-Agent и присвоить ему метку <code>waf:tier:datacenter</code>. Последующие правила могут использовать эту метку для селективного ужесточения лимитов частоты.</li>
+      <li><strong>Переопределение управляемых правил:</strong> В блоке ManagedRuleGroupStatement администратор может переопределить любое встроенное правило поставщика (OverrideAction или RuleActionOverrides) в режим Count, если конкретная сигнатура конфликтует с легитимным бизнес-процессом приложения.</li>
+    </ul>
+
+    <h2 id="captcha-action">5 · Действие CAPTCHA: интерактивные испытания и ImmunityTime <a class="anchor-link" href="#captcha-action">#</a></h2>
+    <p>Действие Captcha переводит проверку подозрительного клиента в интерактивный режим. Если клиент еще не имеет валидного токена WAF, WAF перехватывает запрос и возвращает страницу с графической или аудио-головоломкой AWS WAF Captcha.</p>
+    <p>После успешного решения головоломки WAF генерирует криптографически подписанный токен (WAF Token), который сохраняется в браузере клиента в виде куки или передается в заголовке. Конфигурация CaptchaConfig на уровне правила или всего Web ACL содержит параметр ImmunityTimeProperty с полем ImmunityTime. Это целое число в секундах (по умолчанию 300 секунд, диапазон от 60 до 259200 секунд / 3 суток), в течение которого клиент признается доверенным и освобождается от повторного решения капчи.</p>
+    <p>Интерактивная капча эффективна против примитивных скриптов парсинга и спам-ботов, однако она прерывает пользовательский сценарий (User Experience friction) и принципиально не подходит для фоновых AJAX-запросов и нативных мобильных приложений без встроенного рендеринга HTML.</p>
+
+    <h2 id="challenge-action">6 · Действие Challenge: бесшумная криптографическая верификация браузера <a class="anchor-link" href="#challenge-action">#</a></h2>
+    <p>Действие Challenge представляет собой современную бесшумную (Silent browser challenge) альтернативу классической капче. При срабатывании действия Challenge WAF возвращает клиенту легковесную промежуточную HTML-страницу с обфусцированным скриптом JavaScript.</p>
+    <p>Этот скрипт исполняется движком браузера в фоновом режиме за доли секунды (обычно 100-300 мс). Он решает криптографическое доказательство выполнения работы (Proof-of-Work puzzle), собирает аппаратные телеметрические данные клиентской среды (Canvas rendering, WebGL, наличие реального экрана, событий мыши, отсутствие признаков Headless Chrome и Selenium WebDriver) и отправляет подтверждение на эндпоинт WAF.</p>
+    <p>При успешной верификации клиент получает WAF Token с временем жизни, настроенным через ChallengeConfig.ImmunityTimeProperty. Повторные запросы выполняются прозрачно для пользователя: браузер просто передает полученный токен, и правило Challenge пропускает трафик дальше без каких-либо видимых экранов или задержек. Если же запрос отправлен примитивной утилитой вроде curl или скриптом Python requests, не имеющим полноценного JS-движка, клиент не сможет решить криптографическую задачу и будет заблокирован.</p>
+
+    <div class="box" id="artifacts">
+      <h2>Артефакты страницы <a class="anchor-link" href="#artifacts" aria-label="ссылка на этот блок">#</a></h2>
+      <ul>
+        <li>Пять вердиктов индивидуального правила Action: <code>Allow</code>, <code>Block</code>, <code>Count</code>, <code>Captcha</code>, <code>Challenge</code>.</li>
+        <li>Параметры блока Block.CustomResponse: <code>ResponseCode</code>, <code>CustomResponseBodyKey</code>, <code>ResponseHeaders</code>.</li>
+        <li>Спецификация CustomResponseBodies: допустимые типы <code>APPLICATION_JSON</code>, <code>TEXT_HTML</code>, <code>TEXT_PLAIN</code>, лимит тела 4096 байт.</li>
+        <li>Конфигурация времени иммунитета <code>ImmunityTimeProperty.ImmunityTime</code> для Captcha и Challenge (от 60 до 259200 секунд).</li>
+      </ul>
     </div>
   
 
@@ -121,9 +166,8 @@
   </main>
 
 </div>
+
 </div>
 <script src="../assets/swa.js?v=1"></script>
-<script src="../assets/terms.js?v=1"></script>
-<script src="../assets/cp.js?v=1"></script>
 </body>
 </html>

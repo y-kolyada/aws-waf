@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Защита от ботов · devops-aws-waf · ai|</title>
 <!-- meta: built by tools/build-meta.py - do not edit by hand -->
-<meta name="description" content="Лид страницы: о чём она и кому нужна.">
+<meta name="description" content="Многоуровневая эвристика фильтрации автоматизированных угроз: AWS WAF Bot Control (Common и Targeted), защита учетных записей ATP и ACFP, клиентские SDK для...">
 <link rel="canonical" href="https://y-kolyada.github.io/aws-waf/ru/07.html">
 <link rel="alternate" hreflang="ru" href="https://y-kolyada.github.io/aws-waf/ru/07.html">
 <link rel="alternate" hreflang="en" href="https://y-kolyada.github.io/aws-waf/en/07.html">
@@ -15,12 +15,12 @@
 <meta property="og:type" content="article">
 <meta property="og:site_name" content="devops-aws-waf">
 <meta property="og:title" content="Защита от ботов">
-<meta property="og:description" content="Лид страницы: о чём она и кому нужна.">
+<meta property="og:description" content="Многоуровневая эвристика фильтрации автоматизированных угроз: AWS WAF Bot Control (Common и Targeted), защита учетных записей ATP и ACFP, клиентские SDK для...">
 <meta property="og:url" content="https://y-kolyada.github.io/aws-waf/ru/07.html">
 <meta property="og:locale" content="ru_RU">
 <meta name="twitter:card" content="summary">
 <link rel="icon" href="../assets/img/favicon.svg" type="image/svg+xml">
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"TechArticle","headline":"Защита от ботов","description":"Лид страницы: о чём она и кому нужна.","url":"https://y-kolyada.github.io/aws-waf/ru/07.html","inLanguage":"ru","isPartOf":{"@type":"WebSite","name":"devops-aws-waf","url":"https://y-kolyada.github.io/aws-waf/"}}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"TechArticle","headline":"Защита от ботов","description":"Многоуровневая эвристика фильтрации автоматизированных угроз: AWS WAF Bot Control (Common и Targeted), защита учетных записей ATP и ACFP, клиентские SDK для...","url":"https://y-kolyada.github.io/aws-waf/ru/07.html","inLanguage":"ru","isPartOf":{"@type":"WebSite","name":"devops-aws-waf","url":"https://y-kolyada.github.io/aws-waf/"}}</script>
 <!-- /meta -->
 <link rel="stylesheet" href="../assets/style.css?v=1">
 <script>
@@ -94,20 +94,62 @@
 
   <main id="main">
     <h1>Защита от ботов</h1>
-    <p class="page-size" data-words="49">Слов: 49</p>
-    <p class="lead">Лид страницы: о чём она и кому нужна. Одно предложение, не длиннее 160 знаков.</p>
+    <p class="page-size" data-words="1085">Слов: 1085</p>
+    <p class="lead">Многоуровневая эвристика фильтрации автоматизированных угроз: AWS WAF Bot Control (Common и Targeted), защита учетных записей ATP и ACFP, клиентские SDK для Web и Mobile, механизмы криптографической аттестации и токены WAF.</p>
 
     <div class="box key" id="key-idea">
       <h2>Главная мысль страницы <a class="anchor-link" href="#key-idea" aria-label="ссылка на этот блок">#</a></h2>
-      <p>Текст этого раздела ещё не написан.</p>
+      <p>Современные веб-роботы давно перестали быть простыми скриптами curl: они используют безголовые браузеры (Headless Chrome, Puppeteer, Playwright), распределенные сети живых мобильных прокси (Residential Proxies) и воспроизводят движения мыши реальных пользователей. AWS WAF решает эту проблему через стек специализированных управляемых подписок: Bot Control (разделенный на уровни Common и Targeted), Account Takeover Prevention (ATP) и Account Creation Fraud Prevention (ACFP). В комбинации с клиентскими JavaScript/Mobile SDK и криптографическими WAF Token этот стек отсекает 99.9% автоматизированного парсинга, брутфорса и мошенничества до того, как запрос коснется вычислительных ресурсов бэкенда.</p>
     </div>
 
-    <h2 id="first">1 · Раздел 1 <a class="anchor-link" href="#first">#</a></h2>
-    <p>Текст этого раздела ещё не написан.</p>
+    <h2 id="bot-control-architecture">1 · Архитектура Bot Control: уровни Common и Targeted <a class="anchor-link" href="#bot-control-architecture">#</a></h2>
+    <p>Набор правил <code>AWSManagedRules<wbr>BotControlRuleSet</code> представляет собой флагманское решение AWS для категоризации и отражения автоматизированного трафика. Набор функционирует на двух принципиально различных уровнях инспекции (Inspection Levels):</p>
+    <ul>
+      <li><strong>Common Inspection (Базовый уровень, 10 WCU):</strong> Анализирует стандартные сигнатуры ботов, заголовки HTTP (User-Agent, Accept-Language), известные поисковые краулеры (Verified Bots: Googlebot, Bingbot), инструменты веб-парсинга (Scrapy, Postman, curl, python-requests) и публичные облачные провайдеры трафика. Уровень Common работает исключительно на стороне сервера без внедрения клиентских скриптов. Он идеально подходит для первичной фильтрации фонового паразитного трафика и дешевого парсинга контента.</li>
+      <li><strong>Targeted Inspection (Целевой уровень, 50 WCU):</strong> Создан для нейтрализации изощренных целевых ботов (Sophisticated bots), обходящих простые сигнатурные фильтры за счет ротации IP-адресов и эмуляции реальных устройств. Targeted уровень требует интеграции AWS WAF JavaScript SDK или нативных мобильных SDK. Он проводит активную телеметрическую валидацию браузера, анализирует TLS/JA3/JA4 отпечатки, отслеживает динамику заполнения форм и применяет бесшумные криптографические испытания Challenge.</li>
+    </ul>
+    <p>В процессе анализа Bot Control навешивает на каждый запрос специализированные метки (Labels), такие как <code>awswaf:managed:aws:bot-control:bot:category:search_engine</code> или <code>awswaf:managed:aws:bot-control:bot:name:googlebot</code>. Это позволяет инженеру гибко управлять поведением брандмауэра: например, безусловно разрешать верифицированные поисковые роботы (Verified Search Engines), но жестко блокировать неавторизованные скрейперы контента.</p>
 
-    <div class="box key" id="artifacts">
-      <h2>Артефакты: что у вас есть после этой страницы <a class="anchor-link" href="#artifacts">#</a></h2>
-      <p>Текст этого раздела ещё не написан.</p>
+    <h2 id="bot-signals">2 · Сигналы детекции: User-Agent, JA3/JA4, поведенческий анализ и IP reputation <a class="anchor-link" href="#bot-signals">#</a></h2>
+    <p>Анализатор Bot Control строит вердикт на основе многомерного вектора признаков (Signal matrix). Ключевым компонентом архитектуры является анализ сетевого и транспортного уровней:</p>
+    <p>Отпечатки JA3 и JA4 формируются непосредственно на этапе TLS-рукопожатия (ClientHello) еще до того, как WAF расшифрует первый байт HTTP-трафика. Они фиксируют точные последовательности поддерживаемых шифров (Cipher Suites), версий протокола TLS, расширений эллиптических кривых и форматов подписи. Реальный браузер Google Chrome на операционной системе macOS имеет строго определенный отпечаток JA4, который кардинально отличается от отпечатка Python urllib или Golang net/http, даже если бот подставил точный User-Agent от Chrome в HTTP-заголовок запроса.</p>
+    <p>При несовпадении заголовка User-Agent и TLS-отпечатка WAF немедленно присваивает запросу метку подделки <code>awswaf:managed:aws:bot-control:signal:user_agent_mismatch</code>. Это позволяет с абсолютной надежностью выявлять маскирующиеся скрипты автоматизации.</p>
+    <p>Кроме того, Bot Control непрерывно сверяет IP-адрес источника с глобальными базами данных Amazon Threat Intelligence, выявляя центры обработки данных (AWS, GCP, Azure, DigitalOcean), публичные VPN-шлюзы, выходные узлы анонимной сети Tor и пулы Residential прокси-серверов. Запросы из дата-центров, обращающиеся к клиентским веб-интерфейсам, получают высокую оценку риска и подвергаются дополнительной проверке.</p>
+
+    <h2 id="atp-protection">3 · Account Takeover Prevention (ATP): защита от Credential Stuffing <a class="anchor-link" href="#atp-protection">#</a></h2>
+    <p>Набор правил <code>AWSManagedRules<wbr>ATPRuleSet</code> специализируется на защите эндпоинтов аутентификации от атак перебора паролей (Credential Stuffing и Brute Force). Злоумышленники выгружают миллиарды пар логин/пароль из общедоступных утечек данных и распределенно проверяют их на форме авторизации целевого портала.</p>
+    <p>ATP конфигурируется путем указания пути к форме входа (LoginPath, например, <code>/api/v1/auth/login</code>), формата пейлоада (JSON или URL_ENCODED) и полей, содержащих имя пользователя и пароль (UsernameField и PasswordField). ATP выполняет две фундаментальные проверки:</p>
+    <ul>
+      <li><strong>Compromised Credentials Check:</strong> WAF сравнивает криптографический хэш введенной комбинации логина и пароля с глобальной базой скомпрометированных учетных данных AWS (содержащей миллиарды записей из реальных даркнет-утечек) без раскрытия открытого пароля администраторам сервиса.</li>
+      <li><strong>Поведенческий анализ частоты попыток:</strong> Отслеживание аномальных всплесков неудачных авторизаций с одного IP-адреса, подсети провайдера или кластера токенов устройств.</li>
+    </ul>
+    <p>При обнаружении скомпрометированных учетных данных ATP присваивает запросу метку <code>awswaf:managed:aws:atp:signal:compromised_credentials</code>. Архитекторы могут настроить правило так, чтобы оно либо полностью блокировало такой вход, либо пропускало его на бэкенд со специальным заголовком <code>X-Force-Password-Reset: true</code>, принуждая пользователя обновить пароль.</p>
+
+    <h2 id="acfp-protection">4 · Account Creation Fraud Prevention (ACFP): защита от фальшивых регистраций <a class="anchor-link" href="#acfp-protection">#</a></h2>
+    <p>Набор правил <code>AWSManagedRules<wbr>ACFPRuleSet</code> решает зеркальную задачу на эндпоинтах регистрации новых пользователей (RegistrationPath, например, <code>/api/v1/auth/register</code>). Массовое создание фальшивых учетных записей используется злоумышленниками для накрутки приветственных бонусов, мошенничества с реферальными ссылками, спама и захвата бесплатных вычислительных ресурсов (Free tier abuse).</p>
+    <p>ACFP валидирует входные параметры формы регистрации: синтаксическую структуру email-адреса, соответствие домена почты базам одноразовых почтовых сервисов (Disposable email providers), валидность телефонного номера, а также скорость заполнения формы. Бот, генерирующий форму регистрации программно, заполняет десятки полей за 50 миллисекунд; реальный человек тратит на это от 15 до 45 секунд. ACFP присваивает запросам метки риска и автоматически инициирует проверку Captcha или Challenge при малейших аномалиях скорости ввода данных.</p>
+
+    <h2 id="client-sdk">5 · Клиентские SDK: интеграция в Web, iOS и Android для генерации токенов <a class="anchor-link" href="#client-sdk">#</a></h2>
+    <p>Для полноценного функционирования уровней Targeted Bot Control, ATP и ACFP необходимо присутствие легковесного клиентского агента на стороне пользователя. AWS WAF предоставляет официальные SDK для ключевых клиентских платформ:</p>
+    <ul>
+      <li><strong>AWS WAF JavaScript SDK:</strong> Подключается на стороне фронтенда через тег <code>&lt;script src="https://.../challenge.js"&gt;&lt;/script&gt;</code>. Скрипт загружается асинхронно, собирает аппаратную телеметрию пользовательского устройства (Canvas rendering, WebGL, свойства экрана, события мыши и клавиатуры) и вызывает метод <code>AwsWafIntegration.getToken()</code>.</li>
+      <li><strong>Mobile SDKs (iOS Swift / Android Kotlin):</strong> Встраиваются непосредственно в нативные мобильные приложения. SDK взаимодействует с криптографическими сервисами мобильной ОС для подтверждения целостности устройства (Apple App Attest, Google Play Integrity API) и генерирует заголовок <code>x-amzn-waf-action-token</code>.</li>
+    </ul>
+    <p>Интеграция SDK гарантирует, что к моменту отправки критического API-запроса клиент уже обладает валидным криптографическим токеном, исключая задержки и прерывания пользовательских сценариев. При работе в одностраничных приложениях (SPA) библиотека SDK автоматически перехватывает сетевые вызовы fetch и XMLHttpRequest, прозрачно внедряя токен в заголовки исходящих запросов.</p>
+
+    <h2 id="token-domains">6 · Токены WAF: валидация подписи, время жизни и кросс-доменные политики <a class="anchor-link" href="#token-domains">#</a></h2>
+    <p>WAF Token представляет собой криптографически подписанный токен, создаваемый инфраструктурой AWS WAF. Токен содержит зашифрованные метаданные: временную метку генерации (Timestamp), срок жизни (TTL), отпечаток клиентской среды, статус решения капчи и идентификатор Web ACL.</p>
+    <p>В конфигурации Web ACL параметр TokenDomains определяет строгий список доменных имен, для которых этот токен является валидным (например, <code>example.com</code> и <code>api.example.com</code>). Это обеспечивает безопасное кросс-доменное взаимодействие (CORS/SSO), когда пользователь решает проверку на основном домене портала, а последующие вызовы к микросервисам API автоматически принимают этот же токен без повторных испытаний.</p>
+    <p>Если токен просрочен, подделан или скопирован на другое устройство с несовпадающим JA4-отпечатком, WAF признает его недействительным (Missing/Invalid Token) и немедленно форсирует повторную проверку или блокировку соединения. Конфигурация ChallengeConfig.ImmunityTimeProperty определяет интервал иммунитета (по умолчанию 300 секунд), в течение которого легитимный токен освобождает пользователя от фоновых криптографических испытаний.</p>
+
+    <div class="box" id="artifacts">
+      <h2>Артефакты страницы <a class="anchor-link" href="#artifacts" aria-label="ссылка на этот блок">#</a></h2>
+      <ul>
+        <li>Уровни инспекции Bot Control: <code>Common</code> (10 WCU, заголовки и сигнатуры) и <code>Targeted</code> (50 WCU, телеметрия и JA4).</li>
+        <li>Специализированные управляемые наборы: <code>AWSManagedRulesBotControlRuleSet</code>, <code>AWSManagedRulesATPRuleSet</code>, <code>AWSManagedRulesACFPRuleSet</code>.</li>
+        <li>Клиентский стек: AWS WAF JavaScript SDK, iOS App Attest, Android Play Integrity.</li>
+        <li>Конфигурация токенов: <code>TokenDomains</code>, время жизни <code>ChallengeConfig.ImmunityTimeProperty</code>, валидация криптографической подписи.</li>
+      </ul>
     </div>
   
 
@@ -121,9 +163,8 @@
   </main>
 
 </div>
+
 </div>
 <script src="../assets/swa.js?v=1"></script>
-<script src="../assets/terms.js?v=1"></script>
-<script src="../assets/cp.js?v=1"></script>
 </body>
 </html>
