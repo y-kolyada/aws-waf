@@ -1,0 +1,138 @@
+/* study.css - компоненты страницы-закона профиля study (учебные сайты).
+   Подключается только страницами учебных сайтов; инженерные сайты его не
+   загружают, поэтому он лежит отдельно от style.css. Родился на прототипе
+   nmt-math (2026-11-08) и принят Conductor 2026-11-09. */
+
+/* Шаг цепочки 0-6: маленькая метка над заголовком раздела. */
+.step { display: block; font-size: .78rem; font-weight: 600; letter-spacing: .04em;
+  text-transform: uppercase; color: var(--dim); margin: 2.2rem 0 -.4rem; }
+
+/* Рамка закона: то, что узнаётся за секунды. */
+/* Amber, the site's accent, not --acc: the link blue says "you can click this",
+   and a frame is not a link. The task's mark before «Закон:» is the same amber,
+   so a task and the law it trains read as one pair. */
+.law { border: 2px solid var(--term-accent); border-radius: 10px; padding: 12px 16px; margin: 1.2rem 0; }
+.law .law-name { font-weight: 700; margin: 0 0 6px; }
+.law .math-block { margin: .4rem 0; }
+.law p:last-child { margin-bottom: 0; }
+
+/* Межі: где закон перестаёт работать. */
+.limit { border-left: 3px solid var(--warn); padding: 2px 12px; margin: 0 0 1rem; }
+
+/* Задача формы НМТ с явной ссылкой на закон. */
+.task { border: 1px solid var(--line); border-radius: 10px; padding: 12px 16px; margin: 1.2rem 0; }
+/* A card stands apart from the next one. Three cards in a row read as one
+   block of text when the kind of task is pale grey and the options are plain:
+   so the kind sits on the amber ground the glossary and the search use, in
+   bold (dark text on amber needs the weight at this size), the option letter
+   is bold, and the law the task trains is marked by a framed rule. */
+.task .task-kind { display: inline-block; font-size: .8rem; font-weight: 700; color: var(--fg);
+  background: var(--term-bg-hover); padding: 1px 8px; border-radius: 5px; margin: 0 0 8px; }
+.task .opts button::first-letter { font-weight: 700; }
+/* A button centres its text; an option of two lines then reads ragged on both sides. */
+.task .opts button { text-align: left; }
+.task .law-ref::before { content: ""; display: inline-block; width: 1.05em; height: 1.05em;
+  margin-right: .35em; vertical-align: -.18em; background: var(--term-accent);
+  -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20' fill='none' stroke='black' stroke-width='1.8' stroke-linecap='round'%3E%3Crect x='2.6' y='3.4' width='14.8' height='13.2' rx='2.2'/%3E%3Cpath d='M6.2 8.2h7.6M6.2 11.8h4.6'/%3E%3C/svg%3E") center / contain no-repeat;
+  mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20' fill='none' stroke='black' stroke-width='1.8' stroke-linecap='round'%3E%3Crect x='2.6' y='3.4' width='14.8' height='13.2' rx='2.2'/%3E%3Cpath d='M6.2 8.2h7.6M6.2 11.8h4.6'/%3E%3C/svg%3E") center / contain no-repeat; }
+.task .opts { display: flex; flex-wrap: wrap; gap: 8px; margin: .6rem 0; }
+.task .opts button, .task .check { font: inherit; padding: 6px 12px; border: 1px solid var(--line);
+  border-radius: 8px; background: var(--bg); color: var(--fg); cursor: pointer; min-height: 40px; }
+.task .opts button:hover, .task .check:hover { border-color: var(--acc); }
+.task .opts button.right { border-color: var(--ok); color: var(--ok); font-weight: 700; }
+.task .opts button.wrong { border-color: var(--warn); color: var(--warn); text-decoration: line-through; }
+.task input, .task select { font: inherit; padding: 6px 8px; border: 1px solid var(--line);
+  border-radius: 8px; background: var(--bg); color: var(--fg); min-height: 40px; }
+.task .pairs { list-style: none; padding: 0; margin: .6rem 0; }
+.task .pairs li { margin: 0 0 8px; }
+.task .verdict { margin: .6rem 0 0; font-weight: 600; }
+.task .verdict.right { color: var(--ok); }
+.task .verdict.wrong { color: var(--warn); }
+.task .law-ref { margin: .4rem 0 0; }
+.task .solution { display: none; margin: .4rem 0 0; }
+.task.solved .solution { display: block; }
+.task[data-mode="reverse"] .law-ref { display: none; }
+.task[data-mode="reverse"].solved .law-ref { display: block; }
+.task .reveal { font: inherit; margin-left: 8px; padding: 2px 10px; border: 1px dashed var(--line);
+  border-radius: 8px; background: none; color: var(--dim); cursor: pointer; }
+
+details { border: 1px solid var(--line); border-radius: 8px; padding: 6px 12px; margin: .6rem 0; }
+details summary { cursor: pointer; font-weight: 600; }
+details[open] summary { margin-bottom: 6px; }
+
+/* Группа блоков в меню: подпись, а не пункт (check-struct считает только <li>). */
+nav.contents li.group { font-size: .78rem; font-weight: 600; text-transform: uppercase; letter-spacing: .04em;
+  color: var(--dim); margin: .5rem 0 .15rem 10px; list-style: none; }
+
+/* A dense menu (data-dense, stamped on profiles with menu groups: practice).
+   Fifteen blocks under seven captions are 22 rows: at the series size the page's
+   own sections fell below the visible panel of an 860px window on blocks 14, 15
+   and the navigator, and the panel does not scroll by itself. Tighter rows on a
+   wide screen only; on a phone the menu is a drawer and keeps its touch size. */
+@media (min-width: 56rem) {
+  nav.contents[data-dense] li > a { padding: 3px 10px; }
+  nav.contents[data-dense] li { margin: 0 0 1px; }
+  nav.contents[data-dense] li.group { font-size: .7rem; line-height: 1.2; margin: .4rem 0 .1rem 10px; }
+}
+
+/* Thirteen blocks mean two-digit numbers in the menu; the series width of
+   1.4em fits one digit, and "10" glued itself to the block title. */
+nav.contents .num { width: 1.9em; }
+
+/* Внешние источники (tools/build-sources.py, assets/sources.js): год - блок,
+   который читатель включает и выключает в настройках. Рамка - та же .box,
+   что держит другие блоки страницы, чтобы чужие ссылки не выглядели чужим сайтом. */
+.ext { border: 1px solid var(--line); border-radius: 10px; padding: 10px 16px 6px; margin: .8rem 0; }
+.ext h4 { font-size: .98rem; margin: 0 0 .4rem; }
+.ext-source > h3 { margin-top: 1rem; }
+.ext-source > .ext-lead { margin: 0 0 .6rem; }
+.ext ul { margin: 0 0 .5rem; padding-left: 1.2rem; }
+.ext li { margin: 0 0 4px; }
+@media (max-width: 48rem) { .ext { padding: 8px 12px 4px; } .ext ul { padding-left: 1rem; } }
+.ext[hidden], .ext-source[hidden], .ext-off[hidden], .search-facet[hidden] { display: none; }
+
+/* Шестерня в лотке - по образцу кнопки поиска; окно настроек - по образцу
+   окна поиска: та же рамка, шапка, крестик и подложка. Флажок «включено»
+   красится тем же акцентом, что и включённый фильтр поиска. */
+.settings-btn { display: inline-flex; align-items: center; justify-content: center; width: 28px; height: 26px;
+  background: none; border: 1px solid transparent; border-radius: 6px; color: var(--dim); cursor: pointer; }
+.settings-btn:hover, .settings-btn:focus-visible { color: var(--fg); border-color: var(--line); }
+.settings-btn:hover .icon, .settings-btn:focus-visible .icon { fill: currentColor; }
+.settings-panel { width: calc(100% - 32px); max-width: 36rem; max-height: 72vh; margin: 10vh auto auto; padding: 0;
+  color: var(--fg); background: var(--bg); border: 1px solid var(--line); border-radius: 12px;
+  box-shadow: 0 18px 50px rgba(0, 0, 0, .28); overflow: auto; }
+.settings-panel::backdrop { background: rgba(0, 0, 0, .35); }
+.settings-head { display: flex; align-items: center; justify-content: space-between; gap: 8px;
+  padding: 10px 12px; border-bottom: 1px solid var(--line); }
+.settings-head h2 { font-size: 1rem; margin: 0; padding: 0 2px; }
+.settings-close { background: none; border: none; color: var(--dim); font-size: 1.3rem; line-height: 1;
+  cursor: pointer; padding: 2px 6px; }
+.settings-close:hover { color: var(--fg); }
+/* legend по умолчанию садится на верхнюю рамку fieldset; float возвращает его
+   в поток, и отступ сверху задаётся как у любой подписи. */
+.settings-group { border: none; margin: 0; padding: 0 14px 8px; min-width: 0; }
+.settings-group legend { float: left; width: 100%; font-size: .78rem; font-weight: 600; letter-spacing: .04em;
+  text-transform: uppercase; color: var(--dim); padding: 0; margin: 14px 0 6px; }
+.settings-group > .dim { clear: both; margin: 0 0 12px; font-size: .9rem; }
+.settings-row { display: flex; gap: 10px; align-items: flex-start; margin: 0 0 10px; cursor: pointer; line-height: 1.45; }
+.settings-row input { margin: .15em 0 0; width: 18px; height: 18px; flex: none; accent-color: var(--term-accent); cursor: pointer; }
+.settings-years { display: flex; flex-wrap: wrap; gap: 0 18px; padding-left: 28px; }
+.settings-years .settings-row:has(input:disabled) { color: var(--dim); cursor: default; }
+@media (max-width: 56rem) {
+  .settings-panel { width: 100%; max-width: none; height: 100%; max-height: 100%; margin: 0; border: none; border-radius: 0; }
+}
+
+/* Следствие закона (profiles/study.md, три уровня): стоит под своим законом,
+   рамка тоньше и уже рамки закона, вывод в 2-5 строк и ссылка на закон. */
+.corollary { border: 1px solid var(--line); border-left: 3px solid var(--acc); border-radius: 10px;
+  padding: 10px 14px; margin: -.4rem 0 1.2rem 1rem; }
+.corollary .corollary-of { font-size: .78rem; font-weight: 600; letter-spacing: .04em; text-transform: uppercase;
+  color: var(--dim); margin: 0 0 4px; }
+.corollary .corollary-name { font-weight: 700; margin: 0 0 6px; }
+.corollary .math-block { margin: .4rem 0; }
+.corollary p:last-child { margin-bottom: 0; }
+@media (max-width: 48rem) { .corollary { margin-left: .5rem; padding: 8px 12px; } }
+
+/* Метод: схема применения законов в шаге «Застосування». */
+.method { border: 1px dashed var(--line); border-radius: 10px; padding: 10px 16px; margin: 1.2rem 0; }
+.method > h3 { margin-top: 0; }
