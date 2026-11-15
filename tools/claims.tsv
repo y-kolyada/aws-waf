@@ -1,3 +1,19 @@
-# what the site states <TAB> expected output <TAB> command
-# One line per claim. Tabs, not spaces. Example from the reference site:
-# set -e не действует внутри условия	0	bash -c 'set -e; if false; then :; fi; echo 0'
+# what the site states	expected output	command
+# Каждая команда исполняется на хосте и не обращается к AWS: только --generate-cli-skeleton,
+# собственная справка клиента и локальный разбор. Доступа к живому сервису у сайта нет.
+Конфигурация Web ACL содержит пятнадцать параметров верхнего уровня	ApplicationConfig,AssociationConfig,CaptchaConfig,ChallengeConfig,CustomResponseBodies,DataProtectionConfig,DefaultAction,Description,Name,OnSourceDDoSProtectionConfig,Rules,Scope,Tags,TokenDomains,VisibilityConfig	aws wafv2 create-web-acl --generate-cli-skeleton | jq -r 'keys | sort | join(",")'
+Действие по умолчанию DefaultAction поддерживает только решения Allow и Block	Allow,Block	aws wafv2 create-web-acl --generate-cli-skeleton | jq -r '.DefaultAction | keys | sort | join(",")'
+Конфигурация видимости и метрик VisibilityConfig настраивает три параметра	CloudWatchMetricsEnabled,MetricName,SampledRequestsEnabled	aws wafv2 create-web-acl --generate-cli-skeleton | jq -r '.VisibilityConfig | keys | sort | join(",")'
+Спецификация правила Rule в Web ACL описывает девять ключевых параметров	Action,CaptchaConfig,ChallengeConfig,Name,OverrideAction,Priority,RuleLabels,Statement,VisibilityConfig	aws wafv2 create-web-acl --generate-cli-skeleton | jq -r '.Rules[0] | keys | sort | join(",")'
+Действие индивидуального правила Action поддерживает пять вариантов вердикта	Allow,Block,Captcha,Challenge,Count	aws wafv2 create-web-acl --generate-cli-skeleton | jq -r '.Rules[0].Action | keys | sort | join(",")'
+Ограничение частоты RateBasedStatement конфигурирует шесть настроек агрегации	AggregateKeyType,CustomKeys,EvaluationWindowSec,ForwardedIPConfig,Limit,ScopeDownStatement	aws wafv2 create-web-acl --generate-cli-skeleton | jq -r '.Rules[0].Statement.RateBasedStatement | keys | sort | join(",")'
+Географическое соответствие GeoMatchStatement принимает список стран и forwarded IP	CountryCodes,ForwardedIPConfig	aws wafv2 create-web-acl --generate-cli-skeleton | jq -r '.Rules[0].Statement.GeoMatchStatement | keys | sort | join(",")'
+Создание набора IP-адресов IPSet настраивает шесть полей	Addresses,Description,IPAddressVersion,Name,Scope,Tags	aws wafv2 create-ip-set --generate-cli-skeleton | jq -r 'keys | sort | join(",")'
+Создание набора регулярных выражений RegexPatternSet настраивает пять полей	Description,Name,RegularExpressionList,Scope,Tags	aws wafv2 create-regex-pattern-set --generate-cli-skeleton | jq -r 'keys | sort | join(",")'
+Ассоциация Web ACL с ресурсом требует ARN ресурса и самого списка контроля доступа	ResourceArn,WebACLArn	aws wafv2 associate-web-acl --generate-cli-skeleton | jq -r 'keys | sort | join(",")'
+Диссоциация Web ACL с ресурсом принимает ровно один идентификатор ресурса	ResourceArn	aws wafv2 disassociate-web-acl --generate-cli-skeleton | jq -r 'keys | sort | join(",")'
+Запрос выборки трафика get-sampled-requests принимает пять параметров фильтрации	MaxItems,RuleMetricName,Scope,TimeWindow,WebAclArn	aws wafv2 get-sampled-requests --generate-cli-skeleton | jq -r 'keys | sort | join(",")'
+Создание группы правил RuleGroup содержит емкость WCU и семь настроек	Capacity,CustomResponseBodies,Description,Name,Rules,Scope,Tags,VisibilityConfig	aws wafv2 create-rule-group --generate-cli-skeleton | jq -r 'keys | sort | join(",")'
+Оператор управляемой группы ManagedRuleGroupStatement принимает семь параметров	ExcludedRules,ManagedRuleGroupConfigs,Name,RuleActionOverrides,ScopeDownStatement,VendorName,Version	aws wafv2 create-web-acl --generate-cli-skeleton | jq -r '.Rules[0].Statement.ManagedRuleGroupStatement | keys | sort | join(",")'
+Оператор соответствия байтов ByteMatchStatement настраивает четыре параметра	FieldToMatch,PositionalConstraint,SearchString,TextTransformations	aws wafv2 create-web-acl --generate-cli-skeleton | jq -r '.Rules[0].Statement.ByteMatchStatement | keys | sort | join(",")'
+Инспекция полей запроса FieldToMatch поддерживает четырнадцать областей анализа	AllQueryArguments,Body,Cookies,HeaderOrder,Headers,JA3Fingerprint,JA4Fingerprint,JsonBody,Method,QueryString,SingleHeader,SingleQueryArgument,UriFragment,UriPath	aws wafv2 create-web-acl --generate-cli-skeleton | jq -r '.Rules[0].Statement.ByteMatchStatement.FieldToMatch | keys | sort | join(",")'

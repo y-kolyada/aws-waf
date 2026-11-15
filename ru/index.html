@@ -3,9 +3,9 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>AWS WAF: Посадочная страница · devops-aws-waf · ai|</title>
+<title>Практический справочник-ассессмент по AWS WAF для инженера · devops-aws-waf · ai|</title>
 <!-- meta: built by tools/build-meta.py - do not edit by hand -->
-<meta name="description" content="Лид страницы: о чём она и кому нужна.">
+<meta name="description" content="Эшелонированная защита L7-периметра в AWS: архитектура Web ACL, управляемые и кастомные правила, противодействие ботам (Bot Control) и 150 вопросов...">
 <link rel="canonical" href="https://y-kolyada.github.io/aws-waf/ru/index.html">
 <link rel="alternate" hreflang="ru" href="https://y-kolyada.github.io/aws-waf/ru/index.html">
 <link rel="alternate" hreflang="en" href="https://y-kolyada.github.io/aws-waf/en/index.html">
@@ -14,13 +14,13 @@
 <link rel="alternate" hreflang="x-default" href="https://y-kolyada.github.io/aws-waf/">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="devops-aws-waf">
-<meta property="og:title" content="AWS WAF: Посадочная страница">
-<meta property="og:description" content="Лид страницы: о чём она и кому нужна.">
+<meta property="og:title" content="Практический справочник-ассессмент по AWS WAF для инженера">
+<meta property="og:description" content="Эшелонированная защита L7-периметра в AWS: архитектура Web ACL, управляемые и кастомные правила, противодействие ботам (Bot Control) и 150 вопросов...">
 <meta property="og:url" content="https://y-kolyada.github.io/aws-waf/ru/index.html">
 <meta property="og:locale" content="ru_RU">
 <meta name="twitter:card" content="summary">
 <link rel="icon" href="../assets/img/favicon.svg" type="image/svg+xml">
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebSite","name":"devops-aws-waf","url":"https://y-kolyada.github.io/aws-waf/","inLanguage":"ru","description":"Лид страницы: о чём она и кому нужна."}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebSite","name":"devops-aws-waf","url":"https://y-kolyada.github.io/aws-waf/","inLanguage":"ru","description":"Эшелонированная защита L7-периметра в AWS: архитектура Web ACL, управляемые и кастомные правила, противодействие ботам (Bot Control) и 150 вопросов..."}</script>
 <!-- /meta -->
 <link rel="stylesheet" href="../assets/style.css?v=1">
 <script>
@@ -67,21 +67,21 @@
 
   <nav class="contents" aria-label="Разделы сайта">
     <ol>
-      <li><a href="01.html"><span class="num">1</span>Раздел 1</a></li>
-      <li><a href="02.html"><span class="num">2</span>Раздел 2</a></li>
-      <li><a href="03.html"><span class="num">3</span>Раздел 3</a></li>
-      <li><a href="04.html"><span class="num">4</span>Раздел 4</a></li>
-      <li><a href="05.html"><span class="num">5</span>Раздел 5</a></li>
-      <li><a href="06.html"><span class="num">6</span>Раздел 6</a></li>
-      <li><a href="07.html"><span class="num">7</span>Раздел 7</a></li>
-      <li><a href="08.html"><span class="num">8</span>Раздел 8</a></li>
-      <li><a href="09.html"><span class="num">9</span>Раздел 9</a></li>
-      <li><a href="10.html"><span class="num">10</span>Раздел 10</a></li>
-      <li><a href="11.html"><span class="num">11</span>Раздел 11</a></li>
-      <li><a href="12.html"><span class="num">12</span>Раздел 12</a></li>
-      <li><a href="13.html"><span class="num">13</span>Раздел 13</a></li>
-      <li><a href="14.html"><span class="num">14</span>Раздел 14</a></li>
-      <li><a href="15.html"><span class="num">15</span>Раздел 15</a></li>
+      <li><a href="01.html"><span class="num">1</span>Архитектура и WCU</a></li>
+      <li><a href="02.html"><span class="num">2</span>Области и ассоциации</a></li>
+      <li><a href="03.html"><span class="num">3</span>Управляемые правила</a></li>
+      <li><a href="04.html"><span class="num">4</span>Кастомные правила</a></li>
+      <li><a href="05.html"><span class="num">5</span>Условия и агрегация</a></li>
+      <li><a href="06.html"><span class="num">6</span>Действия и ответы</a></li>
+      <li><a href="07.html"><span class="num">7</span>Защита от ботов</a></li>
+      <li><a href="08.html"><span class="num">8</span>Логи и телеметрия</a></li>
+      <li><a href="09.html"><span class="num">9</span>Экономика и аудит</a></li>
+      <li><a href="10.html"><span class="num">10</span>Примеры · Noob</a></li>
+      <li><a href="11.html"><span class="num">11</span>Примеры · Pro</a></li>
+      <li><a href="12.html"><span class="num">12</span>Примеры · IGL</a></li>
+      <li><a href="13.html"><span class="num">13</span>Вопросы · Noob</a></li>
+      <li><a href="14.html"><span class="num">14</span>Вопросы · Pro</a></li>
+      <li><a href="15.html"><span class="num">15</span>Вопросы · IGL</a></li>
     </ol>
     <div class="nav-extra">
       <div><a href="navigator.html"><svg class="icon" data-icon="target" viewBox="0 0 20 20" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="10" cy="10" r="7.4"/><circle cx="10" cy="10" r="3.6"/><circle cx="10" cy="10" r="0.7" fill="currentColor"/></svg> Навигатор</a></div>
@@ -93,24 +93,129 @@
   </nav>
 
   <main id="main">
-    <h1>AWS WAF: Посадочная страница</h1>
-    <p class="page-size" data-words="41">Слов: 41</p>
-    <p class="lead">Лид страницы: о чём она и кому нужна. Одно предложение, не длиннее 160 знаков.</p>
+    <h1>Практический справочник-ассессмент по AWS WAF для инженера</h1>
+    <p class="page-size" data-words="1825">Слов: 1825</p>
+    <p class="lead">Эшелонированная защита L7-периметра в AWS: архитектура Web ACL, управляемые и кастомные правила, противодействие ботам (Bot Control) и 150 вопросов квалификационного ассессмента. Проверяемые утверждения, интеграция с CloudFront, ALB и API Gateway, три уровня зрелости инженера.</p>
 
     <div class="box key" id="key-idea">
-      <h2>Главная мысль страницы <a class="anchor-link" href="#key-idea" aria-label="ссылка на этот блок">#</a></h2>
-      <p>Текст этого раздела ещё не написан.</p>
+      <h2>Зачем этот сайт <a class="anchor-link" href="#key-idea" aria-label="ссылка на этот блок">#</a></h2>
+      <p>Этот справочник отвечает на один ключевой вопрос: что именно потребуется инженеру для проектирования, настройки и безотказной эксплуатации AWS WAFv2 в реальном продакшене, и что вас спросят на техническом собеседовании или архитектурном ассессменте. AWS WAF (Web Application Firewall) защищает веб-приложения и API на седьмом уровне модели OSI от распространенных сетевых угроз, атак из OWASP Top 10, распределенного сканирования, автоматизированных ботов и попыток захвата учетных записей. В отличие от традиционных аппаратных экранов или изолированных прокси, WAFv2 глубоко интегрирован в инфраструктуру AWS и функционирует как распределенный бессерверный фильтр, способный масштабироваться синхронно с пограничными Anycast-узлами CloudFront и региональными балансировщиками нагрузки.</p>
+      <p>Мы рассматриваем WAFv2 не как набор разрозненных флажков в консоли управления, а как целостную программную инженерную систему со своей системой типов, бюджетными ограничениями (WCU), конвейером сопоставления правил и сквозной телеметрией. На страницах справочника разобраны архитектурные инварианты, экономические метрики FinOps, практические сценарии устранения ложных срабатываний без даунтайма и приемы построения корпоративного периметра защиты для тысяч учетных записей.</p>
+      <p>Каждая концепция в руководстве снабжена практическими конфигурациями для Terraform и примерами вызовов AWS CLI. Это исключает двусмысленность и позволяет внедрять защитные механизмы в существующие CI/CD пайплайны без мучительного поиска параметров в разрозненной документации.</p>
     </div>
 
-    <div class="box key" id="artifacts">
-      <h2>Артефакты: что у вас есть после этой страницы <a class="anchor-link" href="#artifacts">#</a></h2>
-      <p>Текст этого раздела ещё не написан.</p>
+    <h2 id="purpose">Для кого этот курс <a class="anchor-link" href="#purpose">#</a></h2>
+    <p>Материал адресован DevOps-инженерам, специалистам по информационной безопасности (AppSec / SecOps), SRE и облачным архитекторам, которые ежедневно сталкиваются с необходимостью отражать L7 DDoS, фильтровать вредоносный парсинг данных, управлять квотами вычислительной емкости WCU (WAF Capacity Units) и минимизировать ложные срабатывания (False Positives) без ущерба для легитимных клиентов.</p>
+    <p>Курс закрывает четыре ключевые инженерные потребности:</p>
+    <ul>
+      <li><strong>Подготовка к отраслевой сертификации:</strong> Углубленное покрытие требований для сдачи экзаменов AWS Certified Security - Specialty, AWS Certified DevOps Engineer Professional и AWS Certified Solutions Architect Professional.</li>
+      <li><strong>Прохождение квалификационных интервью:</strong> Практические разборы типовых и нестандартных архитектурных вопросов, которые задают на позициях Senior DevOps / Cloud Security Architect в технологических компаниях.</li>
+      <li><strong>Автоматизация и эксплуатация (IaC):</strong> Готовые шаблоны конфигурации для Terraform, AWS CDK и CloudFormation, снабженные объяснениями внутреннего устройства параметров и краевых случаев.</li>
+      <li><strong>Корпоративное управление безопасностью:</strong> Централизованное применение политик через AWS Firewall Manager (FMS), предотвращение дрифта конфигураций и аудит соответствия стандартам PCI DSS, HIPAA и ISO 27001.</li>
+    </ul>
+
+    <h2 id="levels">Три уровня зрелости инженера: Noob, Pro, IGL <a class="anchor-link" href="#levels">#</a></h2>
+    <p>В серии курсов AI Factory принята трехуровневая модель инженерной компетенции, отражающая эволюцию мышления от механического применения готовых инструкций к системному лидерству и принятию архитектурной ответственности. Проиллюстрируем это на примере типового инцидента: «Как защитить эндпоинт аутентификации от распределенной атаки методом подбора паролей (Credential Stuffing)?»</p>
+
+    <div class="box">
+      <h3>Эволюция инженерного решения инцидента</h3>
+      <ul>
+        <li><strong>Уровень Noob (Начинающий специалист):</strong> Создает вручную в веб-консоли AWS базовое правило Rate-based rule, ограничивающее 100 запросов за 5 минут по IP-адресу клиента. Не учитывает наличие заголовка X-Forwarded-For за прокси-серверами, блокирует крупные корпоративные NAT-шлюзы и мобильные подсети вместе с легитимными пользователями. Не настраивает логирование заблокированного трафика в CloudWatch и не знает текущий расход емкости WCU. При первых жалобах пользователей в панике отключает правило целиком.</li>
+        <li><strong>Уровень Pro (Профессиональный инженер):</strong> Описывает Web ACL в виде инфраструктурного кода (Terraform / OpenTofu). Подключает управляемый набор AWSManagedRulesBotControlRuleSet в режиме проверки (Count mode) для снятия фоновой метрики. Разделяет лимиты запросов по составному ключу (URI /api/v1/auth/login + заголовок Authorization или сессионная Cookie). Настраивает переопределение вердиктов (OverrideAction), чтобы блокировать только высокорисковые аномалии, и организует выгрузку логов в Amazon Kinesis Data Firehose с маскированием паролей в теле запроса (RedactedFields). При росте нагрузки анализирует сэмплированные запросы (Sampled Requests) и метрики ложных срабатываний в CloudWatch.</li>
+        <li><strong>Уровень IGL (In-Game Leader / Внутриигровой лидер):</strong> Проектирует эшелонированный периметр безопасности всей организации: активирует модуль AWS WAF Fraud Control (Account Takeover Prevention - ATP) с глубокой валидацией полезной нагрузки и интеграцией Client SDK на фронтенде для генерации криптографических токенов через Silent JavaScript Challenge. Внедряет автоматическую политику AWS Firewall Manager для синхронизации единого базового набора правил на тысячи учетных записей AWS Organizations. Заранее закладывает финансовый бюджет WCU и проектирует бессерверный конвейер автоблокировки распределенных ботнетов через Amazon Athena и AWS Lambda на основе поведенческого скоринга аномалий. Управляет стоимостью запросов и обеспечивает непрерывность бизнеса при глобальных атаках.</li>
+      </ul>
     </div>
+
+    <h2 id="frontiers">Четыре архитектурных рубежа AWS WAF <a class="anchor-link" href="#frontiers">#</a></h2>
+    <p>Архитектура WAFv2 строится вокруг четырех фундаментальных инженерных компромиссов, определяющих надежность защиты и накладные расходы всей системы доставки:</p>
+
+    <div class="box">
+      <h3>1. Инспекция L7 и сетевая задержка (Latency)</h3>
+      <p>Каждое правило в Web ACL и каждая операция нормализации текста (URL decode, HTML entity decode, Lowercase) выполняются процессором в момент прохождения сетевого пакета. Размещение Web ACL на пограничных узлах Anycast PoP Amazon CloudFront позволяет отсекать вредоносный трафик на периферии, не нагружая транзитные каналы AWS и серверы приложений. Однако глобальный WAF не имеет прямого доступа к внутренним сущностям VPC. Напротив, ассоциация WAF с региональным Application Load Balancer позволяет инспектировать трафик непосредственно перед подачей в контейнеры ECS или поды EKS, но заставляет инфраструктуру оплачивать передачу нежелательного трафика до региональных дата-центров. Опытный архитектор комбинирует оба эшелона: грубый отсев атак на CloudFront и контекстную авторизацию на уровне ALB.</p>
+    </div>
+
+    <div class="box">
+      <h3>2. Бюджетирование емкости WCU (WAF Capacity Units)</h3>
+      <p>Емкость каждого Web ACL жестко квантуется в единицах WCU. Базовый лимит любого Web ACL равен 1500 WCU (с возможностью расширения до 5000 WCU по запросу квоты через Service Quotas). Простое правило проверки IP-адреса расходует всего 1 WCU, регулярное выражение из Regex Pattern Set - от 3 до 25 WCU в зависимости от сложности, а тяжелые интеллектуальные группы AWS Managed Rules (например, Bot Control Targeted или Account Takeover Prevention) потребляют сотни единиц емкости (до 500-700 WCU). Грамотный инженер рассчитывает сумму WCU на этапе архитектурного эскиза, исключая ситуацию, когда критически важное защитное правило невозможно добавить в продакшене из-за исчерпания лимита. При приближении к порогу 1500 WCU правила группируются в переиспользуемые пулы Rule Groups с фиксированной емкостью.</p>
+    </div>
+
+    <div class="box">
+      <h3>3. Минимизация ложных срабатываний (False Positives) через Count mode</h3>
+      <p>Включение правил в блокирующем режиме (Block Action) без предварительного тестирования на реальном трафике неизбежно приводит к отказу в обслуживании для добросовестных клиентов. Золотой стандарт безопасной эксплуатации WAF в продакшене требует поэтапного ввода правил в эксплуатацию: первичное развертывание в режиме подсчета (Count Action), сбор статистики в CloudWatch Metrics, анализ сэмплированных запросов (Sampled Requests) и структурированных логов в Athena, исключение безопасных эндпоинтов через Scope-down statements или RuleActionOverrides, и лишь затем - окончательный перевод правила в режим блокировки или выдачи CAPTCHA.</p>
+    </div>
+
+    <div class="box">
+      <h3>4. Интеллектуальный отсев автоматизации: CAPTCHA и Silent Challenge</h3>
+      <p>Статическая фильтрация по IP-адресам бессильна против распределенных ботнетов, использующих миллионы ротационных резидентных прокси и мобильных адресов IPv6. Современный WAFv2 решает эту задачу с помощью криптографических токенов (AWS WAF Token). Механизм Silent Challenge запускает в браузере невидимый фоновый JavaScript-код для сбора телеметрии клиентского окружения (Web API, Canvas, параметры рендеринга). Легитимный браузер получает валидный токен сессии прозрачно для пользователя, тогда как простые скрипты на Python Requests или cURL не способны выполнить JS-челлендж и отсекаются с кодом 402 или 405. Для спорных случаев используется интерактивная CAPTCHA, гарантирующая доступ живому человеку даже при подозрительном рейтинге сессии.</p>
+    </div>
+
+    <h2 id="map">Карта пятнадцати разделов курса <a class="anchor-link" href="#map">#</a></h2>
+    <p>Программа курса структурирована по четырем логическим блокам, последовательно раскрывающим весь жизненный цикл защиты веб-приложений:</p>
+
+    <div class="box">
+      <h3>Блок 1 · Инженерный базис WAFv2 (Темы 01-05)</h3>
+      <ul>
+        <li><a href="01.html">01 · Архитектура и WCU:</a> Модели Web ACL, правила первого уровня, группы правил, калькуляция емкости WCU 1500/5000, порядок выполнения (evaluation order) и вердикт по умолчанию (Default Action Allow/Block).</li>
+        <li><a href="02.html">02 · Области и ассоциации:</a> Глобальная область видимости CLOUDFRONT (us-east-1) против REGIONAL (Application Load Balancer, Amazon API Gateway REST/HTTP, AppSync GraphQL, Cognito User Pools, AWS Verified Access).</li>
+        <li><a href="03.html">03 · Управляемые правила:</a> Каталог AWS Managed Rules (AMR), базовый набор CRS (Common Rule Set), Known Bad Inputs, репутационные списки Amazon IP Reputation, SQLi, версионирование и переопределение действий.</li>
+        <li><a href="04.html">04 · Кастомные правила:</a> Списки сетевых адресов IP Sets (IPv4/IPv6 CIDR), наборы Regex Pattern Sets, геолокация Geo Match, побайтовое соответствие ByteMatch и ограничение размера SizeConstraint.</li>
+        <li><a href="05.html">05 · Условия и агрегация:</a> Ограничение частоты Rate-based rules, агрегация по составным ключам (Headers, Cookies, Query, IP), логические операторы AND/OR/NOT, фильтры Scope-down и конвейер нормализации текста.</li>
+      </ul>
+    </div>
+
+    <div class="box">
+      <h3>Блок 2 · Продвинутые механизмы и телеметрия (Темы 06-09)</h3>
+      <ul>
+        <li><a href="06.html">06 · Действия и ответы:</a> Действия Allow, Block, Count, CAPTCHA, Challenge, кастомные коды ответов (403, 429), инъекция кастомных заголовков в запросы к бэкенду.</li>
+        <li><a href="07.html">07 · Боты и защита аккаунтов:</a> Защита от автоматизации Bot Control (Common vs Targeted), предотвращение захвата учетных записей (ATP), валидация токенов и Client SDK.</li>
+        <li><a href="08.html">08 · Телеметрия и логирование:</a> Метрики CloudWatch, потоковое логирование Kinesis Data Firehose в S3, маскирование чувствительных полей RedactedFields, парсинг и аналитика в Amazon Athena.</li>
+        <li><a href="09.html">09 · Экономика и аудит:</a> Финансовая модель WAF (Web ACL $5/мес, правила $1/мес, трафик $0.60 за 1M запросов), аудит политик через AWS Firewall Manager и интеграция с Shield Advanced.</li>
+      </ul>
+    </div>
+
+    <div class="box">
+      <h3>Блок 3 · Боевые сценарии Noob / Pro / IGL (Темы 10-12)</h3>
+      <ul>
+        <li><a href="10.html">10 · Примеры · Noob:</a> Базовые сценарии защиты периметра CloudFront, белые списки IP, геоблокировка и защита от простейших сканеров уязвимостей.</li>
+        <li><a href="11.html">11 · Примеры · Pro:</a> Тонкая защита региональных API на базе ALB и API Gateway, лимитирование по API-ключам и JWT-клеймам, валидация полезной нагрузки JSON.</li>
+        <li><a href="12.html">12 · Примеры · IGL:</a> Реагирование на распределенные инциденты безопасности, подавление сложных ботнетов через Silent Challenge и бессерверный конвейер изоляции угроз.</li>
+      </ul>
+    </div>
+
+    <div class="box">
+      <h3>Блок 4 · Квалификационный банк вопросов (Темы 13-15)</h3>
+      <ul>
+        <li><a href="13.html">13 · Вопросы · Noob:</a> 50 фундаментальных вопросов по терминологии WAFv2, областям видимости, базовым действиям и элементарным правилам.</li>
+        <li><a href="14.html">14 · Вопросы · Pro:</a> 50 углубленных вопросов по rate-limiting, потоковому логированию, настройке управляемых групп правил и анализу инцидентов.</li>
+        <li><a href="15.html">15 · Вопросы · IGL:</a> 50 системных архитектурных вопросов по enterprise-управлению через Firewall Manager, тюнингу ATP/ACFP, оптимизации бюджетов WCU и защите глобальных сервисов.</li>
+      </ul>
+    </div>
+
+    <h2 id="paths">Маршруты изучения курса <a class="anchor-link" href="#paths">#</a></h2>
+    <p>Для максимально эффективного погружения выберите один из трех образовательных маршрутов в зависимости от вашей роли:</p>
+    <ul>
+      <li><strong>Трек DevOps / SRE:</strong> Главы 01 -> 02 -> 05 -> 08 -> 11 -> 14. Основной акцент сделан на автоматизации развертывания через Terraform, тонком rate-limiting для предотвращения каскадных сбоев бэкендов, настройке экспорта метрик в CloudWatch и потоковом логировании в Kinesis Firehose.</li>
+      <li><strong>Трек Security Engineer / AppSec:</strong> Главы 01 -> 03 -> 04 -> 06 -> 07 -> 12 -> 15. Фокус на сигнатурном анализе OWASP Top 10, минимизации ложных срабатываний управляемых наборов правил (CRS), настройке эвристик Bot Control, предотвращении атак Account Takeover и интеграции WAF Client SDK.</li>
+      <li><strong>Трек Solutions Architect / IGL:</strong> Сквозное изучение глав 01-15 в связке с инженерным Навигатором по 9 линзам (<a href="navigator.html">navigator.html</a>) и словарем понятий (<a href="glossary.html">glossary.html</a>). Проектирование централизованного управления периметром через AWS Firewall Manager, расчет стоимости владения (TCO) и обеспечение отказоустойчивости при масштабировании на миллионы запросов в секунду.</li>
+    </ul>
+
+    <h2 id="ecosystem">Интеграция в экосистему AWS <a class="anchor-link" href="#ecosystem">#</a></h2>
+    <p>AWS WAF представляет собой фундаментальный компонент сетевой безопасности AWS, взаимодействующий с ключевыми сервисами инфраструктуры:</p>
+    <ul>
+      <li><strong>Amazon CloudFront:</strong> Обеспечивает глобальную терминацию TLS и первичную фильтрацию L7-трафика на пограничных узлах Anycast PoP, предотвращая проникновение атак в магистральные каналы AWS.</li>
+      <li><strong>Application Load Balancer (ALB) и Amazon API Gateway:</strong> Защищают внутренние микросервисы и REST/HTTP API, выполняя детализированную проверку HTTP-методов, заголовков и фрагментов полезной нагрузки.</li>
+      <li><strong>AWS Shield Advanced:</strong> Дополняет WAF автоматической защитой от L3/L4 DDoS-атак, бесплатной защитой от всплеска стоимости WAF (DDoS Cost Protection) и круглосуточной поддержкой специализированной команды Shield Response Team (SRT).</li>
+      <li><strong>AWS Firewall Manager (FMS):</strong> Позволяет централизованно назначать и принудительно распространять политики WAF на все ресурсы корпоративной организации, автоматически защищая новые дистрибуции и балансировщики сразу в момент создания.</li>
+      <li><strong>Amazon Kinesis Data Firehose и Athena:</strong> Реализуют непрерывный конвейер потоковой доставки полных логов инспекции в Amazon S3 с партиционированием по времени и моментальным выполнением SQL-запросов для расследования инцидентов.</li>
+    </ul>
+
+    <h2 id="artifacts">Артефакты и подтверждение знаний <a class="anchor-link" href="#artifacts">#</a></h2>
+    <p>Каждое техническое утверждение на страницах справочника подтверждается исполнением консольных утилит и разбором JSON-спецификаций в файле <code>tools/claims.tsv</code>. Все практические сценарии снабжены проверенными конфигурациями Terraform и CLI-командами. Завершив изучение теории и пройдя банк из 150 вопросов, инженер получает системное понимание WAFv2, готовность к квалификационным испытаниям и практические рецепты для защиты продакшен-инфраструктуры любого масштаба.</p>
   
 
     <footer>
       <nav class="pager" aria-label="Соседние темы">
-        <p class="pager-next">Следующая тема: <a href="01.html">Раздел 1</a></p>
+        <p class="pager-next">Следующая тема: <a href="01.html">Архитектура и WCU</a></p>
       </nav>
       <p class="footer-note">Сайт серии AI Factory. Сделан той же оснасткой, что и остальные: обычный HTML и CSS, проверка на bash, публикация через GitHub Pages.</p>
     </footer>
@@ -119,7 +224,5 @@
 </div>
 </div>
 <script src="../assets/swa.js?v=1"></script>
-<script src="../assets/terms.js?v=1"></script>
-<script src="../assets/cp.js?v=1"></script>
 </body>
 </html>
