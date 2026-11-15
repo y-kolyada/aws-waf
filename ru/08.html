@@ -3,9 +3,9 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Раздел 8 · devops-aws-waf · ai|</title>
+<title>Логи и телеметрия · devops-aws-waf · ai|</title>
 <!-- meta: built by tools/build-meta.py - do not edit by hand -->
-<meta name="description" content="Лид страницы: о чём она и кому нужна.">
+<meta name="description" content="Сквозная архитектура наблюдаемости и расследования инцидентов: метрики CloudWatch, сэмплирование SampledRequests, потоковая передача через Kinesis Data...">
 <link rel="canonical" href="https://y-kolyada.github.io/aws-waf/ru/08.html">
 <link rel="alternate" hreflang="ru" href="https://y-kolyada.github.io/aws-waf/ru/08.html">
 <link rel="alternate" hreflang="en" href="https://y-kolyada.github.io/aws-waf/en/08.html">
@@ -14,13 +14,13 @@
 <link rel="alternate" hreflang="x-default" href="https://y-kolyada.github.io/aws-waf/">
 <meta property="og:type" content="article">
 <meta property="og:site_name" content="devops-aws-waf">
-<meta property="og:title" content="Раздел 8">
-<meta property="og:description" content="Лид страницы: о чём она и кому нужна.">
+<meta property="og:title" content="Логи и телеметрия">
+<meta property="og:description" content="Сквозная архитектура наблюдаемости и расследования инцидентов: метрики CloudWatch, сэмплирование SampledRequests, потоковая передача через Kinesis Data...">
 <meta property="og:url" content="https://y-kolyada.github.io/aws-waf/ru/08.html">
 <meta property="og:locale" content="ru_RU">
 <meta name="twitter:card" content="summary">
 <link rel="icon" href="../assets/img/favicon.svg" type="image/svg+xml">
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"TechArticle","headline":"Раздел 8","description":"Лид страницы: о чём она и кому нужна.","url":"https://y-kolyada.github.io/aws-waf/ru/08.html","inLanguage":"ru","isPartOf":{"@type":"WebSite","name":"devops-aws-waf","url":"https://y-kolyada.github.io/aws-waf/"}}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"TechArticle","headline":"Логи и телеметрия","description":"Сквозная архитектура наблюдаемости и расследования инцидентов: метрики CloudWatch, сэмплирование SampledRequests, потоковая передача через Kinesis Data...","url":"https://y-kolyada.github.io/aws-waf/ru/08.html","inLanguage":"ru","isPartOf":{"@type":"WebSite","name":"devops-aws-waf","url":"https://y-kolyada.github.io/aws-waf/"}}</script>
 <!-- /meta -->
 <link rel="stylesheet" href="../assets/style.css?v=1">
 <script>
@@ -67,21 +67,21 @@
 
   <nav class="contents" aria-label="Разделы сайта">
     <ol>
-      <li><a href="01.html"><span class="num">1</span>Раздел 1</a></li>
-      <li><a href="02.html"><span class="num">2</span>Раздел 2</a></li>
-      <li><a href="03.html"><span class="num">3</span>Раздел 3</a></li>
-      <li><a href="04.html"><span class="num">4</span>Раздел 4</a></li>
-      <li><a href="05.html"><span class="num">5</span>Раздел 5</a></li>
-      <li><a href="06.html"><span class="num">6</span>Раздел 6</a></li>
-      <li><a href="07.html"><span class="num">7</span>Раздел 7</a></li>
-      <li><a href="08.html" aria-current="page"><span class="num">8</span>Раздел 8</a></li>
-      <li><a href="09.html"><span class="num">9</span>Раздел 9</a></li>
-      <li><a href="10.html"><span class="num">10</span>Раздел 10</a></li>
-      <li><a href="11.html"><span class="num">11</span>Раздел 11</a></li>
-      <li><a href="12.html"><span class="num">12</span>Раздел 12</a></li>
-      <li><a href="13.html"><span class="num">13</span>Раздел 13</a></li>
-      <li><a href="14.html"><span class="num">14</span>Раздел 14</a></li>
-      <li><a href="15.html"><span class="num">15</span>Раздел 15</a></li>
+      <li><a href="01.html"><span class="num">1</span>Архитектура и WCU</a></li>
+      <li><a href="02.html"><span class="num">2</span>Области и ассоциации</a></li>
+      <li><a href="03.html"><span class="num">3</span>Управляемые правила</a></li>
+      <li><a href="04.html"><span class="num">4</span>Кастомные правила</a></li>
+      <li><a href="05.html"><span class="num">5</span>Условия и агрегация</a></li>
+      <li><a href="06.html"><span class="num">6</span>Действия и ответы</a></li>
+      <li><a href="07.html"><span class="num">7</span>Защита от ботов</a></li>
+      <li><a href="08.html" aria-current="page"><span class="num">8</span>Логи и телеметрия</a></li>
+      <li><a href="09.html"><span class="num">9</span>Экономика и аудит</a></li>
+      <li><a href="10.html"><span class="num">10</span>Примеры · Noob</a></li>
+      <li><a href="11.html"><span class="num">11</span>Примеры · Pro</a></li>
+      <li><a href="12.html"><span class="num">12</span>Примеры · IGL</a></li>
+      <li><a href="13.html"><span class="num">13</span>Вопросы · Noob</a></li>
+      <li><a href="14.html"><span class="num">14</span>Вопросы · Pro</a></li>
+      <li><a href="15.html"><span class="num">15</span>Вопросы · IGL</a></li>
     </ol>
     <div class="nav-extra">
       <div><a href="navigator.html"><svg class="icon" data-icon="target" viewBox="0 0 20 20" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="10" cy="10" r="7.4"/><circle cx="10" cy="10" r="3.6"/><circle cx="10" cy="10" r="0.7" fill="currentColor"/></svg> Навигатор</a></div>
@@ -93,34 +93,126 @@
   </nav>
 
   <main id="main">
-    <h1>Раздел 8</h1>
-    <p class="page-size" data-words="48">Слов: 48</p>
-    <p class="lead">Лид страницы: о чём она и кому нужна. Одно предложение, не длиннее 160 знаков.</p>
+    <h1>Логи и телеметрия</h1>
+    <p class="page-size" data-words="1190">Слов: 1190</p>
+    <p class="lead">Сквозная архитектура наблюдаемости и расследования инцидентов: метрики CloudWatch, сэмплирование SampledRequests, потоковая передача через Kinesis Data Firehose в Amazon S3, маскирование чувствительных данных RedactedFields, фильтры LoggingFilter и SQL-аналитика в Amazon Athena.</p>
 
     <div class="box key" id="key-idea">
       <h2>Главная мысль страницы <a class="anchor-link" href="#key-idea" aria-label="ссылка на этот блок">#</a></h2>
-      <p>Текст этого раздела ещё не написан.</p>
+      <p>Брандмауэр без прозрачного логирования превращается в «черный ящик», скрывающий критические инциденты и ложные срабатывания. AWS WAFv2 реализует трехуровневую модель наблюдаемости: быстрые минутные метрики CloudWatch для алертинга, моментальная трехчасовая выборка сэмплов get-sampled-requests для оперативного дебага в консоли и непрерывный экспорт 100% записей трафика через Kinesis Data Firehose, CloudWatch Logs или Amazon S3. Применение гранулярных фильтров LoggingFilter снижает затраты на хранение в 10 раз, отсекая шум легитимных обращений, а маскирование RedactedFields гарантирует строгое соблюдение GDPR, HIPAA и PCI-DSS.</p>
     </div>
 
-    <h2 id="first">1 · Раздел 1 <a class="anchor-link" href="#first">#</a></h2>
-    <p>Текст этого раздела ещё не написан.</p>
+    <div class="box figure">
+      <svg viewBox="0 0 320 230" style="max-width:320px;height:auto;display:block;margin:0 auto" role="img" aria-label="Схема радиальной топологии потокового логирования: ядро WAF и лучи Kinesis, CloudWatch, S3">
+  <rect x="60" y="10" width="200" height="32" rx="4" fill="currentColor" fill-opacity="0.05" stroke="currentColor" stroke-width="1.2"/>
+  <text x="160" y="29" text-anchor="middle" font-size="12" fill="currentColor">CloudWatch Alarms</text>
 
-    <div class="box key" id="artifacts">
-      <h2>Артефакты: что у вас есть после этой страницы <a class="anchor-link" href="#artifacts">#</a></h2>
-      <p>Текст этого раздела ещё не написан.</p>
+  <line x1="160" y1="42" x2="160" y2="67" stroke="currentColor" stroke-width="1.4"/>
+  <polygon points="160,75 156,67 164,67" fill="currentColor"/>
+
+  <rect x="10" y="75" width="70" height="46" rx="4" fill="currentColor" fill-opacity="0.05" stroke="currentColor" stroke-width="1.2"/>
+  <text x="45" y="94" text-anchor="middle" font-size="12" fill="currentColor">Kinesis</text>
+  <text x="45" y="108" text-anchor="middle" font-size="12" opacity="0.75" fill="currentColor">Firehose</text>
+
+  <line x1="105" y1="98" x2="88" y2="98" stroke="currentColor" stroke-width="1.4"/>
+  <polygon points="80,98 88,94 88,102" fill="currentColor"/>
+
+  <rect x="105" y="75" width="110" height="46" rx="4" fill="currentColor" fill-opacity="0.08" stroke="currentColor" stroke-width="1.4"/>
+  <text x="160" y="94" text-anchor="middle" font-size="12" font-weight="bold" fill="currentColor">WAF Logging</text>
+  <text x="160" y="108" text-anchor="middle" font-size="12" opacity="0.75" fill="currentColor">RedactedFields</text>
+
+  <line x1="215" y1="98" x2="232" y2="98" stroke="currentColor" stroke-width="1.4"/>
+  <polygon points="240,98 232,94 232,102" fill="currentColor"/>
+
+  <rect x="240" y="75" width="70" height="46" rx="4" fill="currentColor" fill-opacity="0.05" stroke="currentColor" stroke-width="1.2"/>
+  <text x="275" y="94" text-anchor="middle" font-size="12" fill="currentColor">CW Logs</text>
+  <text x="275" y="108" text-anchor="middle" font-size="12" opacity="0.75" fill="currentColor">Insights</text>
+
+  <line x1="160" y1="121" x2="160" y2="147" stroke="currentColor" stroke-width="1.4"/>
+  <polygon points="160,155 156,147 164,147" fill="currentColor"/>
+
+  <rect x="60" y="155" width="200" height="34" rx="4" fill="currentColor" fill-opacity="0.05" stroke="currentColor" stroke-width="1.2"/>
+  <text x="160" y="172" text-anchor="middle" font-size="12" font-weight="bold" fill="currentColor">Amazon S3 &amp; Athena SQL</text>
+  <text x="160" y="184" text-anchor="middle" font-size="12" opacity="0.75" fill="currentColor">Паркет архив</text>
+
+  <rect x="30" y="198" width="260" height="24" rx="4" fill="currentColor" fill-opacity="0.08" stroke="currentColor" stroke-width="1.2"/>
+  <text x="160" y="214" text-anchor="middle" font-size="12" fill="currentColor">Полная аудируемость и маскирование PII</text>
+      </svg>
+      <p class="dim">Схема 9. Топология звезда (Hub-and-Spoke): шина логирования и каналы доставки.</p>
+    </div>
+
+    <h2 id="cloudwatch-metrics">1 · Метрики CloudWatch и сэмплирование трафика get-sampled-requests <a class="anchor-link" href="#cloudwatch-metrics">#</a></h2>
+    <p>Каждое правило и сам объект Web ACL генерируют стандартные агрегированные <span class="term"><button type="button" class="term-btn" aria-expanded="false">телеметрические метрики CloudWatch</button><span class="term-card" role="tooltip" hidden><span class="term-header"><strong class="term-title">Метрики CloudWatch для WAF (CloudWatch Metrics)</strong><button type="button" class="term-close" aria-label="Закрыть">×</button></span><span class="term-desc">Статистические телеметрические ряды времени, отражающие интенсивность срабатывания правил безопасности.</span><span class="term-links"><a href="glossary.html#cloudwatch-metrics">В словарь понятий <svg class="icon" data-icon="book" viewBox="0 0 20 20" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2.6 3.8h4.8a2.6 2.6 0 0 1 2.6 2.6v10a2.2 2.2 0 0 0-2.2-1.8H2.6z"/><path d="M17.4 3.8h-4.8a2.6 2.6 0 0 0-2.6 2.6v10a2.2 2.2 0 0 1 2.2-1.8h5.2z"/></svg></a></span></span></span> в пространстве имен <code>AWS/WAFV2</code> с разрешением в 1 минуту. Ключевыми метриками являются AllowedRequests, BlockedRequests, CountedRequests, PassedRequests (для Captcha/Challenge), а также специализированные метрики Bot Control.</p>
+    <p>Метрики публикуются с измерениями (Dimensions) по имени правила Rule, имени WebACL и региону Region. Это позволяет инженерам настраивать точечные алерты CloudWatch Alarms: например, уведомлять дежурную команду при резком росте BlockedRequests более чем на 200% относительно исторического бейслайна за последние 15 минут.</p>
+    <p>Для мгновенного анализа текущей обстановки AWS WAF поддерживает оперативный буфер сэмплирования запросов, доступный через команду CLI <code>get-sampled-requests</code>. Механизм <span class="term"><button type="button" class="term-btn" aria-expanded="false">выборки запросов (Sampled Requests)</button><span class="term-card" role="tooltip" hidden><span class="term-header"><strong class="term-title">Выборка запросов (Sampled Requests)</strong><button type="button" class="term-close" aria-label="Закрыть">×</button></span><span class="term-desc">Встроенный диагностический буфер WAF, хранящий репрезентативную выборку до 5000 последних запросов за 3 часа.</span><span class="term-links"><a href="glossary.html#sampled-requests">В словарь понятий <svg class="icon" data-icon="book" viewBox="0 0 20 20" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2.6 3.8h4.8a2.6 2.6 0 0 1 2.6 2.6v10a2.2 2.2 0 0 0-2.2-1.8H2.6z"/><path d="M17.4 3.8h-4.8a2.6 2.6 0 0 0-2.6 2.6v10a2.2 2.2 0 0 1 2.2-1.8h5.2z"/></svg></a></span></span></span> сохраняет репрезентативную выборку до 5000 запросов за последние 3 часа. Команда CLI get-sampled-requests принимает пять обязательных параметров: WebAclArn, RuleMetricName, Scope, TimeWindow и MaxItems. В теле сэмпла инженер видит точное время запроса, IP-адрес источника, метод, полный URI со строкой параметров, все HTTP-заголовки, а также сработавшее правило и финальное действие.</p>
+
+    <h2 id="streaming-architecture">2 · Потоковое логирование: Kinesis Data Firehose, CloudWatch Logs и Amazon S3 <a class="anchor-link" href="#streaming-architecture">#</a></h2>
+    <p>Для долгосрочного хранения, аудита соответствия и построения систем SIEM (Splunk, Elastic, Datadog) настраивается непрерывное потоковое логирование через операцию <code>put-logging-configuration</code>. WAFv2 поддерживает три типа мест назначения (LogDestinationConfigs):</p>
+    <ul>
+      <li><strong>Amazon S3 Bucket:</strong> Прямая запись батчей логов в S3-бакет. Имя бакета обязано начинаться с префикса <code>aws-waf-logs-</code> (например, <code>aws-waf-logs-production-us-east-1</code>). Это наиболее экономичный вариант для долговременного архивного хранения, позволяющий задействовать жизненные циклы S3 Lifecycle для переноса данных в S3 Glacier.</li>
+      <li><strong>Amazon CloudWatch Logs:</strong> Логирование в лог-группу CloudWatch (имя группы также обязано начинаться с префикса <code>aws-waf-logs-</code>). Позволяет мгновенно писать поисковые запросы в CloudWatch Logs Insights и строить оперативные дашборды без поднятия сторонней инфраструктуры.</li>
+      <li><strong><span class="term"><button type="button" class="term-btn" aria-expanded="false">Amazon Kinesis Data Firehose</button><span class="term-card" role="tooltip" hidden><span class="term-header"><strong class="term-title">Потоковая доставка логов через Kinesis Data Firehose</strong><button type="button" class="term-close" aria-label="Закрыть">×</button></span><span class="term-desc">Высокопроизводительный управляемый конвейер непрерывной буферизации и передачи журналов WAF в целевые хранилища.</span><span class="term-links"><a href="glossary.html#kinesis-firehose">В словарь понятий <svg class="icon" data-icon="book" viewBox="0 0 20 20" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2.6 3.8h4.8a2.6 2.6 0 0 1 2.6 2.6v10a2.2 2.2 0 0 0-2.2-1.8H2.6z"/><path d="M17.4 3.8h-4.8a2.6 2.6 0 0 0-2.6 2.6v10a2.2 2.2 0 0 1 2.2-1.8h5.2z"/></svg></a></span></span></span>:</strong> Запись потока в Kinesis Firehose Delivery Stream (с обязательным префиксом <code>aws-waf-logs-</code>). Позволяет выполнять потоковую трансформацию записей через функции AWS Lambda, динамическое партиционирование по датам/часам/аккаунтам и передачу данных в сторонние SIEM-платформы.</li>
+    </ul>
+
+    <h2 id="log-schema">3 · Анатомия записи WAF-лога: заголовки, правила, метки и вердикт <a class="anchor-link" href="#log-schema">#</a></h2>
+    <p>Каждая запись в потоке логов представляет собой исчерпывающий JSON-документ. Ключевые поля структуры WAF-лога включают:</p>
+    <ul>
+      <li><code>timestamp</code>: Временная метка эпохи Unix в миллисекундах.</li>
+      <li><code>action</code>: Финальный вердикт над запросом (ALLOW или BLOCK).</li>
+      <li><code>clientIp</code>: IP-адрес клиента, отправлявшего сетевой пакет.</li>
+      <li><code>httpRequest</code>: Структура с параметрами входящего запроса (method, uri, args, httpVersion, headers).</li>
+      <li><code>terminatingRuleId</code>: Идентификатор правила, которое применило терминирующее действие и остановило обработку Web ACL.</li>
+      <li><code>terminatingRuleType</code>: Тип правила (REGULAR, RATE_BASED, MANAGED_RULE_GROUP).</li>
+      <li><code>ruleGroupList</code>: Массив проверенных групп правил с подробной информацией о сработавших нетерминирующих правилах (Count) и наложенных метках.</li>
+      <li><code>labels</code>: Массив меток (RuleLabels), присвоенных запросу в процессе выполнения цепочки правил (например, метки геолокации или Bot Control).</li>
+      <li><code>ja3Fingerprint</code> и <code>ja4Fingerprint</code>: Отпечатки TLS-рукопожатия клиента при включенной инспекции.</li>
+      <li><code>responseCodeSent</code>: Фактический HTTP-статус, отправленный клиенту (например, 403 или кастомный код ошибки 429).</li>
+    </ul>
+
+    <h2 id="redacted-fields">4 · Маскирование конфиденциальных данных через RedactedFields <a class="anchor-link" href="#redacted-fields">#</a></h2>
+    <p>В соответствии с требованиями безопасности и регуляторными стандартами (PCI-DSS, HIPAA, GDPR) логи не должны содержать токены авторизации, пароли, номера банковских карт или персональные данные пользователей. В объекте LoggingConfiguration для этого предназначен массив <span class="term"><button type="button" class="term-btn" aria-expanded="false">сокрытия полей (Redacted Fields)</button><span class="term-card" role="tooltip" hidden><span class="term-header"><strong class="term-title">Сокрытие конфиденциальных полей (Redacted Fields)</strong><button type="button" class="term-close" aria-label="Закрыть">×</button></span><span class="term-desc">Параметр конфигурации логирования, исключающий запись персональных и чувствительных данных в журналы.</span><span class="term-links"><a href="glossary.html#redacted-fields">В словарь понятий <svg class="icon" data-icon="book" viewBox="0 0 20 20" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2.6 3.8h4.8a2.6 2.6 0 0 1 2.6 2.6v10a2.2 2.2 0 0 0-2.2-1.8H2.6z"/><path d="M17.4 3.8h-4.8a2.6 2.6 0 0 0-2.6 2.6v10a2.2 2.2 0 0 1 2.2-1.8h5.2z"/></svg></a></span></span></span>.</p>
+    <p>Конфигурация RedactedFields позволяет указать конкретные поля HTTP-запроса, значения которых должны быть заменены на строку <code>REDACTED</code> до записи лога на диск. Поддерживается маскирование отдельных заголовков (SingleHeader: Authorization, Cookie, X-Custom-Token), параметров строки запроса (SingleQueryArgument: password, token, api_key), сессионных кук (Cookies: sessionid, refresh_token) или тела запроса Body.</p>
+    <p>Маскирование выполняется исключительно на этапе формирования экспортного лога и никак не влияет на процесс инспекции правил внутри WAF: правила инспекции работают с исходными данными запроса, предотвращая любые утечки приватной информации в хранилища журналов.</p>
+
+    <h2 id="logging-filter">5 · Фильтрация логов на лету через LoggingFilter для оптимизации затрат <a class="anchor-link" href="#logging-filter">#</a></h2>
+    <p>Запись 100% легитимного входящего трафика высоконагруженного сервиса (сотни миллионов запросов в сутки) в CloudWatch Logs или S3 приводит к огромным ежемесячным счетам за хранение и передачу данных. Для решения этой проблемы в WAFv2 встроен механизм <span class="term"><button type="button" class="term-btn" aria-expanded="false">фильтрации логов (Logging Filter)</button><span class="term-card" role="tooltip" hidden><span class="term-header"><strong class="term-title">Фильтрация журналов WAF (Logging Filter)</strong><button type="button" class="term-close" aria-label="Закрыть">×</button></span><span class="term-desc">Конфигурация предварительной фильтрации записей аудита перед их отправкой в конвейер доставки логов.</span><span class="term-links"><a href="glossary.html#logging-filter">В словарь понятий <svg class="icon" data-icon="book" viewBox="0 0 20 20" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2.6 3.8h4.8a2.6 2.6 0 0 1 2.6 2.6v10a2.2 2.2 0 0 0-2.2-1.8H2.6z"/><path d="M17.4 3.8h-4.8a2.6 2.6 0 0 0-2.6 2.6v10a2.2 2.2 0 0 1 2.2-1.8h5.2z"/></svg></a></span></span></span>.</p>
+    <p>Структура LoggingFilter настраивает ровно два базовых элемента: DefaultBehavior (значения KEEP или DROP) и массив Filters. Каждое правило фильтра содержит три поля: Behavior (KEEP или DROP), Requirement (MEETS_ANY или MEETS_ALL) и Conditions (условия по действию правила ActionCondition или наличию метки LabelNameCondition).</p>
+    <p>Канонический паттерн промышленной оптимизации затрат: установить DefaultBehavior в значение DROP, а в Filters добавить условие KEEP для запросов, где ActionCondition равен BLOCK, либо где присутствует метка высокой степени риска Bot Control. В результате в лог попадают только аномалии и отраженные атаки, что сокращает объем логов на 95-98% без потери качества безопасности.</p>
+
+    <h2 id="athena-analytics">6 · Аналитика инцидентов через Amazon Athena и CloudWatch Logs Insights <a class="anchor-link" href="#athena-analytics">#</a></h2>
+    <p>Для ретроспективного расследования инцидентов (Post-incident analysis) инженеры используют бессерверные аналитические инструменты AWS:</p>
+    <p>В Amazon CloudWatch Logs Insights интерактивные запросы выполняются на лету над лог-группой. Например, поиск топ-10 атакующих IP-адресов за последний час:</p>
+    <pre><code>fields @timestamp, httpRequest.clientIp, terminatingRuleId
+| filter action = "BLOCK"
+| stats count(*) as blockCount by httpRequest.clientIp
+| sort blockCount desc
+| limit 10</code></pre>
+    <p>Для анализа многотерабайтных архивов в Amazon S3 создается внешняя таблица в Amazon Athena с партиционированием по дате (год, месяц, день, час). Athena выполняет стандартные запросы Presto/Trino SQL, позволяя мгновенно строить тепловые карты распределения атак по странам, коррелировать JA4-отпечатки ботнетов и подтверждать отсутствие аномальных всплесков ложных срабатываний после обновления правил.</p>
+    <p>Оптимизация производительности в Athena достигается за счет проецирования разделов (Partition Projection), исключающего необходимость регулярного выполнения тяжелых операций сканирования метаданных MSCK REPAIR TABLE при поступлении новых файлов логов из Kinesis Firehose. Таблица настраивается с использованием сериализатора OpenX JSON SerDe, корректно обрабатывающего динамические вложенные массивы HTTP-заголовков и пользовательских меток правил без искажения типов данных.</p>
+    <p>В дополнение к ретроспективным запросам инженеры настраивают подписки фильтров CloudWatch Subscription Filters. Эти фильтры перехватывают критические события блокировки (действие BLOCK по специфическим бизнес-правилам) в режиме реального времени и передают их через бессерверную функцию AWS Lambda в корпоративный мессенджер Slack или систему управления инцидентами PagerDuty. Это сокращает среднее время обнаружения атаки (MTTD) до нескольких секунд с момента появления первых вредоносных пакетов на периметре облака.</p>
+
+    <div class="box" id="artifacts">
+      <h2>Артефакты страницы <a class="anchor-link" href="#artifacts" aria-label="ссылка на этот блок">#</a></h2>
+      <ul>
+        <li>Параметры выборки <code>get-sampled-requests</code>: <code>WebAclArn</code>, <code>RuleMetricName</code>, <code>Scope</code>, <code>TimeWindow</code>, <code>MaxItems</code>.</li>
+        <li>Спецификация <code>put-logging-configuration</code>: <code>LogDestinationConfigs</code>, <code>RedactedFields</code>, <code>LoggingFilter</code>.</li>
+        <li>Обязательный префикс для целевых ресурсов логирования: <code>aws-waf-logs-</code> (для S3, CloudWatch Logs и Kinesis Firehose).</li>
+        <li>Механика фильтрации <code>LoggingFilter</code>: поведение по умолчанию <code>DefaultBehavior</code> (KEEP/DROP) и массив правил <code>Filters</code>.</li>
+      </ul>
     </div>
   
 
     <footer>
       <nav class="pager" aria-label="Соседние темы">
-        <p class="pager-next">Следующая тема: <a href="09.html">Раздел 9</a></p>
-        <p class="pager-prev">Предыдущая тема: <a href="07.html">Раздел 7</a></p>
+        <p class="pager-next">Следующая тема: <a href="09.html">Экономика и аудит</a></p>
+        <p class="pager-prev">Предыдущая тема: <a href="07.html">Защита от ботов</a></p>
       </nav>
       <p class="footer-note">Сайт серии AI Factory. Сделан той же оснасткой, что и остальные: обычный HTML и CSS, проверка на bash, публикация через GitHub Pages.</p>
     </footer>
   </main>
 
 </div>
+
 </div>
 <script src="../assets/swa.js?v=1"></script>
 <script src="../assets/terms.js?v=1"></script>

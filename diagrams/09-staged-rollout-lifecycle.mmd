@@ -1,0 +1,4 @@
+flowchart TD
+    S1["1. Развертывание в Count (7-14 дней)"] --> S2["2. Анализ Sampled Requests"]
+    S2 --> S3["3. Канареечный тест (Canary)"]
+    S3 --> S4["4. Enforce Block (LockToken)"]

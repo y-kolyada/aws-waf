@@ -12,5 +12,6 @@ Three fields and not one more. **"Why not now" matters most of the two others:**
 
 ## Lines
 
-- **Nothing yet.** This file fills up as the site grows. The first line usually appears while the first step document is being written, because the boundaries of a step are exactly what lands here.
-
+- **Переводы на английский, украинский и немецкий языки.** Необходимы для полноценной международной публикации курса на GitHub Pages. Отложены до отдельной смены локализации после стабилизации русскоязычного ядра.
+- **Интеграционные тесты с живым AWS WAF API.** Необходимы для динамической верификации поведения в реальной среде AWS. Отложены до фазы облачного тестирования, чтобы сохранить полную локальную автономность и независимость от сетевых учетных записей при сборке.
+- **Динамический бенчмарк задержки WCU в AWS Lambda.** Необходим для измерения микросекундной деградации latency при росте WCU с 500 до 2500. Отложен до подготовки стенда в рамках практической лаборатории.

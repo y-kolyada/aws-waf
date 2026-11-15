@@ -1,0 +1,7 @@
+flowchart TD
+    AMR["AWS Managed Rules (CRS)"] --> Def["1. Default: Block"]
+    AMR --> Ovr["2. Override: Count"]
+    AMR --> Exc["3. ExcludedRules"]
+    Def --> Out["Итог: Безопасная адаптация правил"]
+    Ovr --> Out
+    Exc --> Out

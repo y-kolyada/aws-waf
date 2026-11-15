@@ -1,0 +1,5 @@
+flowchart TD
+    Spike["1. Всплеск L7-атаки"] --> EB["2. EventBridge триггер"]
+    EB --> Lambda["3. Lambda + Athena SQL"]
+    Lambda --> Ban["4. Динамический бан IPSet"]
+    Ban -->|Снижение аномалии| Spike

@@ -1,0 +1,7 @@
+flowchart TD
+    Org["AWS Organizations & FMS Admin"] --> AccA["Аккаунт A (CloudFront)"]
+    Org --> AccB["Аккаунт B (ALB Banking)"]
+    Org --> AccC["Аккаунт C (API Gateway)"]
+    AccA --> Arch["Principal Security Architect"]
+    AccB --> Arch
+    AccC --> Arch

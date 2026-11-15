@@ -3,9 +3,9 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Раздел 1 · devops-aws-waf · ai|</title>
+<title>Архитектура и WCU · devops-aws-waf · ai|</title>
 <!-- meta: built by tools/build-meta.py - do not edit by hand -->
-<meta name="description" content="Лид страницы: о чём она и кому нужна.">
+<meta name="description" content="Фундамент WAFv2: структура Web ACL, правила первого уровня, группы правил, модель потребления WCU (1500 базовый лимит, расширение до 5000), порядок...">
 <link rel="canonical" href="https://y-kolyada.github.io/aws-waf/ru/01.html">
 <link rel="alternate" hreflang="ru" href="https://y-kolyada.github.io/aws-waf/ru/01.html">
 <link rel="alternate" hreflang="en" href="https://y-kolyada.github.io/aws-waf/en/01.html">
@@ -14,13 +14,13 @@
 <link rel="alternate" hreflang="x-default" href="https://y-kolyada.github.io/aws-waf/">
 <meta property="og:type" content="article">
 <meta property="og:site_name" content="devops-aws-waf">
-<meta property="og:title" content="Раздел 1">
-<meta property="og:description" content="Лид страницы: о чём она и кому нужна.">
+<meta property="og:title" content="Архитектура и WCU">
+<meta property="og:description" content="Фундамент WAFv2: структура Web ACL, правила первого уровня, группы правил, модель потребления WCU (1500 базовый лимит, расширение до 5000), порядок...">
 <meta property="og:url" content="https://y-kolyada.github.io/aws-waf/ru/01.html">
 <meta property="og:locale" content="ru_RU">
 <meta name="twitter:card" content="summary">
 <link rel="icon" href="../assets/img/favicon.svg" type="image/svg+xml">
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"TechArticle","headline":"Раздел 1","description":"Лид страницы: о чём она и кому нужна.","url":"https://y-kolyada.github.io/aws-waf/ru/01.html","inLanguage":"ru","isPartOf":{"@type":"WebSite","name":"devops-aws-waf","url":"https://y-kolyada.github.io/aws-waf/"}}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"TechArticle","headline":"Архитектура и WCU","description":"Фундамент WAFv2: структура Web ACL, правила первого уровня, группы правил, модель потребления WCU (1500 базовый лимит, расширение до 5000), порядок...","url":"https://y-kolyada.github.io/aws-waf/ru/01.html","inLanguage":"ru","isPartOf":{"@type":"WebSite","name":"devops-aws-waf","url":"https://y-kolyada.github.io/aws-waf/"}}</script>
 <!-- /meta -->
 <link rel="stylesheet" href="../assets/style.css?v=1">
 <script>
@@ -67,21 +67,21 @@
 
   <nav class="contents" aria-label="Разделы сайта">
     <ol>
-      <li><a href="01.html" aria-current="page"><span class="num">1</span>Раздел 1</a></li>
-      <li><a href="02.html"><span class="num">2</span>Раздел 2</a></li>
-      <li><a href="03.html"><span class="num">3</span>Раздел 3</a></li>
-      <li><a href="04.html"><span class="num">4</span>Раздел 4</a></li>
-      <li><a href="05.html"><span class="num">5</span>Раздел 5</a></li>
-      <li><a href="06.html"><span class="num">6</span>Раздел 6</a></li>
-      <li><a href="07.html"><span class="num">7</span>Раздел 7</a></li>
-      <li><a href="08.html"><span class="num">8</span>Раздел 8</a></li>
-      <li><a href="09.html"><span class="num">9</span>Раздел 9</a></li>
-      <li><a href="10.html"><span class="num">10</span>Раздел 10</a></li>
-      <li><a href="11.html"><span class="num">11</span>Раздел 11</a></li>
-      <li><a href="12.html"><span class="num">12</span>Раздел 12</a></li>
-      <li><a href="13.html"><span class="num">13</span>Раздел 13</a></li>
-      <li><a href="14.html"><span class="num">14</span>Раздел 14</a></li>
-      <li><a href="15.html"><span class="num">15</span>Раздел 15</a></li>
+      <li><a href="01.html" aria-current="page"><span class="num">1</span>Архитектура и WCU</a></li>
+      <li><a href="02.html"><span class="num">2</span>Области и ассоциации</a></li>
+      <li><a href="03.html"><span class="num">3</span>Управляемые правила</a></li>
+      <li><a href="04.html"><span class="num">4</span>Кастомные правила</a></li>
+      <li><a href="05.html"><span class="num">5</span>Условия и агрегация</a></li>
+      <li><a href="06.html"><span class="num">6</span>Действия и ответы</a></li>
+      <li><a href="07.html"><span class="num">7</span>Защита от ботов</a></li>
+      <li><a href="08.html"><span class="num">8</span>Логи и телеметрия</a></li>
+      <li><a href="09.html"><span class="num">9</span>Экономика и аудит</a></li>
+      <li><a href="10.html"><span class="num">10</span>Примеры · Noob</a></li>
+      <li><a href="11.html"><span class="num">11</span>Примеры · Pro</a></li>
+      <li><a href="12.html"><span class="num">12</span>Примеры · IGL</a></li>
+      <li><a href="13.html"><span class="num">13</span>Вопросы · Noob</a></li>
+      <li><a href="14.html"><span class="num">14</span>Вопросы · Pro</a></li>
+      <li><a href="15.html"><span class="num">15</span>Вопросы · IGL</a></li>
     </ol>
     <div class="nav-extra">
       <div><a href="navigator.html"><svg class="icon" data-icon="target" viewBox="0 0 20 20" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="10" cy="10" r="7.4"/><circle cx="10" cy="10" r="3.6"/><circle cx="10" cy="10" r="0.7" fill="currentColor"/></svg> Навигатор</a></div>
@@ -93,27 +93,117 @@
   </nav>
 
   <main id="main">
-    <h1>Раздел 1</h1>
-    <p class="page-size" data-words="48">Слов: 48</p>
-    <p class="lead">Лид страницы: о чём она и кому нужна. Одно предложение, не длиннее 160 знаков.</p>
+    <h1>Архитектура и WCU</h1>
+    <p class="page-size" data-words="1278">Слов: 1278</p>
+    <p class="lead">Фундамент WAFv2: структура Web ACL, правила первого уровня, группы правил, модель потребления WCU (1500 базовый лимит, расширение до 5000), порядок сопоставления правил (evaluation flow) и вердикт по умолчанию (Default Action).</p>
 
     <div class="box key" id="key-idea">
       <h2>Главная мысль страницы <a class="anchor-link" href="#key-idea" aria-label="ссылка на этот блок">#</a></h2>
-      <p>Текст этого раздела ещё не написан.</p>
+      <p>Архитектура AWS WAFv2 построена на строгом разделении понятий конфигурационной сущности (Web ACL), исполняемых правил (Rule) и переиспользуемых контейнеров (Rule Group). Вся логика инспекции выполняется в строгом соответствии с приоритетом правил от меньшего целочисленного значения к большему. При первом совпадении правила с терминальным действием (Allow, Block, Captcha или Challenge) обработка пакета немедленно завершается, и запрос передается целевому ресурсу либо блокируется на периферии. Базовый лимит любого Web ACL равен 1500 единицам емкости WCU (WAF Capacity Units), что заставляет архитектора тщательно балансировать между простыми строковыми проверками и тяжелыми сигнатурными анализаторами.</p>
     </div>
 
-    <h2 id="first">1 · Раздел 1 <a class="anchor-link" href="#first">#</a></h2>
-    <p>Текст этого раздела ещё не написан.</p>
+    <div class="box figure">
+      <svg viewBox="0 0 320 230" style="max-width:320px;height:auto;display:block;margin:0 auto" role="img" aria-label="Схема каскадного конвейера приоритетов правил и шкалы бюджета емкости WCU">
+  <rect x="10" y="10" width="165" height="32" rx="4" fill="currentColor" fill-opacity="0.08" stroke="currentColor" stroke-width="1.2"/>
+  <text x="92" y="26" text-anchor="middle" font-size="12" font-weight="bold" fill="currentColor">Priority 0: IPSet</text>
+  <text x="92" y="38" text-anchor="middle" font-size="12" opacity="0.75" fill="currentColor">Белый список (1 WCU)</text>
 
-    <div class="box key" id="artifacts">
-      <h2>Артефакты: что у вас есть после этой страницы <a class="anchor-link" href="#artifacts">#</a></h2>
-      <p>Текст этого раздела ещё не написан.</p>
+  <line x1="92" y1="42" x2="92" y2="52" stroke="currentColor" stroke-width="1.4"/>
+  <polygon points="92,60 88,52 96,52" fill="currentColor"/>
+
+  <rect x="10" y="60" width="165" height="32" rx="4" fill="currentColor" fill-opacity="0.05" stroke="currentColor" stroke-width="1.2"/>
+  <text x="92" y="76" text-anchor="middle" font-size="12" font-weight="bold" fill="currentColor">Priority 10: CRS</text>
+  <text x="92" y="88" text-anchor="middle" font-size="12" opacity="0.75" fill="currentColor">Managed CRS (700 WCU)</text>
+
+  <line x1="92" y1="92" x2="92" y2="102" stroke="currentColor" stroke-width="1.4"/>
+  <polygon points="92,110 88,102 96,102" fill="currentColor"/>
+
+  <rect x="10" y="110" width="165" height="32" rx="4" fill="currentColor" fill-opacity="0.08" stroke="currentColor" stroke-width="1.2"/>
+  <text x="92" y="126" text-anchor="middle" font-size="12" font-weight="bold" fill="currentColor">Priority 20: Rate</text>
+  <text x="92" y="138" text-anchor="middle" font-size="12" opacity="0.75" fill="currentColor">Rate Limit (10 WCU)</text>
+
+  <line x1="92" y1="142" x2="92" y2="152" stroke="currentColor" stroke-width="1.4"/>
+  <polygon points="92,160 88,152 96,152" fill="currentColor"/>
+
+  <rect x="10" y="160" width="165" height="32" rx="4" fill="currentColor" fill-opacity="0.05" stroke="currentColor" stroke-width="1.4"/>
+  <text x="92" y="180" text-anchor="middle" font-size="12" font-weight="bold" fill="currentColor">DefaultAction</text>
+
+  <line x1="175" y1="76" x2="187" y2="76" stroke="currentColor" stroke-width="1.4"/>
+  <polygon points="195,76 187,72 187,80" fill="currentColor"/>
+
+  <rect x="195" y="10" width="115" height="182" rx="4" fill="currentColor" fill-opacity="0.06" stroke="currentColor" stroke-width="1.4"/>
+  <text x="252" y="30" text-anchor="middle" font-size="12" font-weight="bold" fill="currentColor">Бюджет WCU</text>
+  <text x="252" y="52" text-anchor="middle" font-size="12" opacity="0.75" fill="currentColor">Лимит: 1500</text>
+  <text x="252" y="80" text-anchor="middle" font-size="12" fill="currentColor">В сумме:</text>
+  <text x="252" y="98" text-anchor="middle" font-size="12" font-weight="bold" fill="currentColor">711 WCU</text>
+  <text x="252" y="126" text-anchor="middle" font-size="12" opacity="0.75" fill="currentColor">Запас: 789</text>
+  <text x="252" y="152" text-anchor="middle" font-size="12" opacity="0.75" fill="currentColor">Макс: 5000</text>
+  <text x="252" y="176" text-anchor="middle" font-size="12" font-weight="bold" fill="currentColor">В норме</text>
+
+  <rect x="10" y="198" width="300" height="24" rx="4" fill="currentColor" fill-opacity="0.08" stroke="currentColor" stroke-width="1.2"/>
+  <text x="160" y="214" text-anchor="middle" font-size="12" fill="currentColor">Строгий порядок: от Priority 0 до N</text>
+      </svg>
+      <p class="dim">Схема 2. Каскад приоритетов правил Web ACL и шкала бюджета емкости WCU.</p>
+    </div>
+
+    <h2 id="anatomy">1 · Анатомия WAFv2: сущности Web ACL, Rule и Rule Group <a class="anchor-link" href="#anatomy">#</a></h2>
+    <p>Центральной сущностью управления сетевой фильтрацией в версии WAFv2 выступает <span class="term"><button type="button" class="term-btn" aria-expanded="false">Web ACL (Web Access Control List)</button><span class="term-card" role="tooltip" hidden><span class="term-header"><strong class="term-title">Список веб-контроля доступа (Web ACL)</strong><button type="button" class="term-close" aria-label="Закрыть">×</button></span><span class="term-desc">Основной конфигурационный ресурс AWS WAFv2, объединяющий упорядоченный набор правил инспекции сетевых запросов L7.</span><span class="term-links"><a href="glossary.html#web-acl">В словарь понятий <svg class="icon" data-icon="book" viewBox="0 0 20 20" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2.6 3.8h4.8a2.6 2.6 0 0 1 2.6 2.6v10a2.2 2.2 0 0 0-2.2-1.8H2.6z"/><path d="M17.4 3.8h-4.8a2.6 2.6 0 0 0-2.6 2.6v10a2.2 2.2 0 0 1 2.2-1.8h5.2z"/></svg></a></span></span></span>. В отличие от устаревшей версии WAF Classic, Web ACL в WAFv2 является самодостаточным декларативным документом. Он содержит ровно пятнадцать параметров верхнего уровня: Name, Scope, DefaultAction, Description, Rules, VisibilityConfig, CustomResponseBodies, ApplicationConfig, AssociationConfig, CaptchaConfig, ChallengeConfig, DataProtectionConfig, OnSourceDDoSProtectionConfig, Tags и TokenDomains.</p>
+    <p>Внутри Web ACL размещаются правила (Rules). Каждое правило представляет собой атомарную инструкцию, состоящую из девяти полей: Name, Priority, Statement, Action (или OverrideAction для групп правил), VisibilityConfig, RuleLabels, CaptchaConfig, ChallengeConfig. Предикат Statement определяет логику проверки входящего HTTP-запроса, а Action указывает вердикт, применяемый при истинности предиката.</p>
+    <p>Для повторного использования проверок в нескольких Web ACL используются группы правил (Rule Groups). Группа правил объявляется через вызов create-rule-group и имеет фиксированную емкость Capacity, задаваемую при создании. Группа не имеет собственного действия по умолчанию (DefaultAction): она лишь агрегирует набор связанных правил. При включении группы в Web ACL через ManagedRuleGroupStatement или RuleGroupReferenceStatement ее суммарная емкость вычитается из общего бюджета Web ACL.</p>
+
+    <h2 id="wcu">2 · Модель емкости WCU: калькуляция стоимости и квоты <a class="anchor-link" href="#wcu">#</a></h2>
+    <p><span class="term"><button type="button" class="term-btn" aria-expanded="false">WAF Capacity Unit (WCU)</button><span class="term-card" role="tooltip" hidden><span class="term-header"><strong class="term-title">Единица емкости правил (WCU)</strong><button type="button" class="term-close" aria-label="Закрыть">×</button></span><span class="term-desc">Метрическая единица вычислительной емкости правил в AWS WAFv2 с базовым лимитом 1500 единиц на Web ACL.</span><span class="term-links"><a href="glossary.html#wcu">В словарь понятий <svg class="icon" data-icon="book" viewBox="0 0 20 20" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2.6 3.8h4.8a2.6 2.6 0 0 1 2.6 2.6v10a2.2 2.2 0 0 0-2.2-1.8H2.6z"/><path d="M17.4 3.8h-4.8a2.6 2.6 0 0 0-2.6 2.6v10a2.2 2.2 0 0 1 2.2-1.8h5.2z"/></svg></a></span></span></span> - это абстрактная единица вычислительных ресурсов, необходимых для выполнения проверок правил на сетевом шлюзе AWS. Каждый Web ACL обладает базовым лимитом в 1500 WCU. Этот лимит может быть увеличен до 5000 WCU через сервис AWS Service Quotas, однако превышение порога в 1500 WCU тарифицируется дополнительно: по $0.20 в месяц за каждый миллион запросов на каждые дополнительные 500 WCU.</p>
+    <p>Стоимость правила в WCU складывается из трех составляющих: типа инспектируемой части запроса (FieldToMatch), оператора сравнения (Statement) и количества текстовых трансформаций (TextTransformations). Базовые правила проверки IP-адресов из IP Set расходуют ровно 1 WCU. Простое побайтовое соответствие ByteMatch в заголовке или URI требует от 1 до 5 WCU в зависимости от позиционного условия. Применение регулярных выражений из Regex Pattern Set оценивается в 25 WCU. Операторы инспекции тела запроса (JsonBody) требуют повышенной емкости (до 10-16 WCU) из-за необходимости парсинга структуры документа.</p>
+    <p>Управляемые группы правил от AWS (AWS Managed Rules) поставляются с фиксированной емкостью WCU: базовый набор Common Rule Set (CRS) требует ровно 700 WCU, специализированный набор защиты от SQL-инъекций - 200 WCU, репутационные списки IP - 25 WCU, а интеллектуальный модуль Bot Control - 50 WCU (для Common bots) или 500 WCU (для Targeted bots). Инженер обязан проектировать состав правил так, чтобы суммарный объем WCU не превышал доступную квоту.</p>
+
+    <h2 id="evaluation">3 · Конвейер инспекции: порядок приоритетов и прерывание цепочки <a class="anchor-link" href="#evaluation">#</a></h2>
+    <p>Порядок инспекции правил в Web ACL строго детерминирован <span class="term"><button type="button" class="term-btn" aria-expanded="false">приоритетом правил (Priority)</button><span class="term-card" role="tooltip" hidden><span class="term-header"><strong class="term-title">Приоритет правила (Rule Priority)</strong><button type="button" class="term-close" aria-label="Закрыть">×</button></span><span class="term-desc">Целочисленный индекс, определяющий строгую последовательность оценки правил внутри Web ACL.</span><span class="term-links"><a href="glossary.html#rule-priority">В словарь понятий <svg class="icon" data-icon="book" viewBox="0 0 20 20" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2.6 3.8h4.8a2.6 2.6 0 0 1 2.6 2.6v10a2.2 2.2 0 0 0-2.2-1.8H2.6z"/><path d="M17.4 3.8h-4.8a2.6 2.6 0 0 0-2.6 2.6v10a2.2 2.2 0 0 1 2.2-1.8h5.2z"/></svg></a></span></span></span>. Это неотрицательное целое число (начиная от 0). Правила оцениваются последовательно: от правила с наименьшим числом Priority к правилу с наибольшим. Никаких пропусков или динамической пересортировки в рантайме не происходит.</p>
+    <p>Действия правил делятся на две категории: терминальные и нетерминальные. К терминальным относятся Allow (разрешить запрос), Block (заблокировать запрос), Captcha (показать интерактивную головоломку) и Challenge (запустить фоновый скрипт верификации браузера). Как только входящий запрос совпадает с условием терминального правила, выполнение конвейера Web ACL немедленно прерывается. Последующие правила с более высоким Priority не вычисляются, что позволяет оптимизировать задержку: наиболее частые или критические блокировки следует ставить в начало списка с приоритетами 0, 1, 2.</p>
+    <p>Единственным нетерминальным действием является Count. Если запрос совпадает с правилом в режиме Count, WAF инкрементирует метрику в CloudWatch, опционально добавляет к запросу пользовательскую метку (RuleLabel) и немедленно передает запрос следующему правилу в цепочке. Если ни одно из правил списка не сработало (или все сработавшие правила имели действие Count), применяется действие по умолчанию - DefaultAction.</p>
+
+    <h2 id="default-action">4 · Действие по умолчанию (Default Action): Allow против Block <a class="anchor-link" href="#default-action">#</a></h2>
+    <p>Параметр <span class="term"><button type="button" class="term-btn" aria-expanded="false">действия по умолчанию (DefaultAction)</button><span class="term-card" role="tooltip" hidden><span class="term-header"><strong class="term-title">Действие по умолчанию (Default Action)</strong><button type="button" class="term-close" aria-label="Закрыть">×</button></span><span class="term-desc">Результирующее действие Web ACL для веб-запросов, не попавших под условия ни одного из правил списка.</span><span class="term-links"><a href="glossary.html#default-action">В словарь понятий <svg class="icon" data-icon="book" viewBox="0 0 20 20" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2.6 3.8h4.8a2.6 2.6 0 0 1 2.6 2.6v10a2.2 2.2 0 0 0-2.2-1.8H2.6z"/><path d="M17.4 3.8h-4.8a2.6 2.6 0 0 0-2.6 2.6v10a2.2 2.2 0 0 1 2.2-1.8h5.2z"/></svg></a></span></span></span> в спецификации Web ACL является обязательным и поддерживает ровно два взаимоисключающих решения: Allow или Block. Выбор действия по умолчанию определяет фундаментальную философию защитного периметра:</p>
+    <ul>
+      <li><strong>Модель черного списка (DefaultAction: Allow):</strong> Запрос пропускается к бэкенду, если он явно не был заблокирован ни одним из предшествующих правил. Это стандартный выбор для публичных веб-сайтов, интернет-магазинов и открытых медиа-ресурсов, где основная масса посетителей легитимна, а правила WAF отсекают известные сигнатуры атак, сканеры и вредоносных ботов.</li>
+      <li><strong>Модель белого списка (DefaultAction: Block):</strong> Запрос блокируется по умолчанию, если он явно не удовлетворяет разрешающим критериям (например, совпадение с доверенным корпоративным IP Set, наличие криптографической подписи или валидного партнерского токена). Эта модель применяется для внутренних API, административных панелей управления и контуров обработки персональных данных с повышенными требованиями безопасности (Zero Trust).</li>
+    </ul>
+    <p>При выборе DefaultAction: Block инженер может настроить кастомный ответ (CustomResponse), переопределив стандартный статус 403 Forbidden на 404 Not Found или 429 Too Many Requests, а также передать клиенту структурированное тело ошибки в формате JSON.</p>
+
+    <h2 id="cli-spec">5 · Спецификация конфигурации create-web-acl в AWS CLI <a class="anchor-link" href="#cli-spec">#</a></h2>
+    <p>Все параметры создания Web ACL могут быть проверены локально через механизм генерации скелета интерфейса командной строки AWS CLI: <code>aws wafv2 create-web-acl --generate-cli-skeleton</code>. Этот вызов возвращает полную валидную структуру конфигурации в формате JSON без обращения к удаленным серверам Amazon.</p>
+    <p>Минимальный рабочий каркас Web ACL в формате JSON содержит поля Name, <span class="term"><button type="button" class="term-btn" aria-expanded="false">области видимости Scope (CLOUDFRONT или REGIONAL)</button><span class="term-card" role="tooltip" hidden><span class="term-header"><strong class="term-title">Область видимости (Scope)</strong><button type="button" class="term-close" aria-label="Закрыть">×</button></span><span class="term-desc">Архитектурная область развертывания WAFv2, разграничивающая глобальные периферийные и региональные ресурсы.</span><span class="term-links"><a href="glossary.html#scope">В словарь понятий <svg class="icon" data-icon="book" viewBox="0 0 20 20" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2.6 3.8h4.8a2.6 2.6 0 0 1 2.6 2.6v10a2.2 2.2 0 0 0-2.2-1.8H2.6z"/><path d="M17.4 3.8h-4.8a2.6 2.6 0 0 0-2.6 2.6v10a2.2 2.2 0 0 1 2.2-1.8h5.2z"/></svg></a></span></span></span>, DefaultAction, VisibilityConfig и массив Rules:</p>
+    <pre><code>{
+  "Name": "production-perimeter-waf",
+  "Scope": "REGIONAL",
+  "DefaultAction": {
+    "Allow": {}
+  },
+  "Description": "Production Web ACL for Application Load Balancer",
+  "Rules": [],
+  "VisibilityConfig": {
+    "SampledRequestsEnabled": true,
+    "CloudWatchMetricsEnabled": true,
+    "MetricName": "production-perimeter-waf-metric"
+  }
+}</code></pre>
+    <p>При объявлении правил в массиве Rules обязательными полями выступают Name, Priority, Statement, Action и собственная секция VisibilityConfig для отдельного правила, что гарантирует сбор независимой статистики по каждой отдельной сигнатуре.</p>
+
+    <h2 id="visibility">6 · Метрики видимости VisibilityConfig и CloudWatch Sampling <a class="anchor-link" href="#visibility">#</a></h2>
+    <p>Секция VisibilityConfig настраивает сбор телеметрии и содержит ровно три параметра: CloudWatchMetricsEnabled (булево значение), MetricName (строковый идентификатор метрики в пространстве AWS/WAFV2) и SampledRequestsEnabled (булево значение). При включении метрик WAF передает в Amazon CloudWatch посекундную статистику по количеству разрешенных (AllowedRequests), заблокированных (BlockedRequests) и сосчитанных (CountedRequests) пакетов.</p>
+    <p>Параметр SampledRequestsEnabled активирует сбор сэмплированных запросов. AWS WAF сохраняет детальную выборку до 5000 последних запросов за последние три часа, включая IP-адрес клиента, страну происхождения, полный URI, заголовки и сработавшее правило. Просмотреть эту выборку можно через CLI-команду <code>aws wafv2 get-sampled-requests</code>, передав TimeWindow, Scope, WebAclArn и имя метрики правила. Это незаменимый инструмент оперативной диагностики ложных срабатываний в режиме реального времени без задержки на запись в архивные логи.</p>
+
+    <div class="box artifacts" id="artifacts">
+      <h2>Артефакты страницы <a class="anchor-link" href="#artifacts">#</a></h2>
+      <p>Декларация Web ACL в AWS CLI с 15 параметрами верхнего уровня.</p>
+      <p>Спецификация емкости WCU с базовым лимитом 1500 единиц и расширением до 5000.</p>
+      <p>Конвейер оценки приоритетов правил Priority от 0 до N с терминальными действиями Allow/Block/Captcha/Challenge.</p>
+      <p>Сбор метрик и сэмплированных запросов через VisibilityConfig и get-sampled-requests.</p>
     </div>
   
 
     <footer>
       <nav class="pager" aria-label="Соседние темы">
-        <p class="pager-next">Следующая тема: <a href="02.html">Раздел 2</a></p>
+        <p class="pager-next">Следующая тема: <a href="02.html">Области и ассоциации</a></p>
         <p class="pager-prev">Предыдущая тема: <a href="index.html">Посадочная страница</a></p>
       </nav>
       <p class="footer-note">Сайт серии AI Factory. Сделан той же оснасткой, что и остальные: обычный HTML и CSS, проверка на bash, публикация через GitHub Pages.</p>

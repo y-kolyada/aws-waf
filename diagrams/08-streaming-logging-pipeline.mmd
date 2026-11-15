@@ -1,0 +1,5 @@
+flowchart TD
+    WAF["WAF Logging Engine"] --> CW_Alarm["CloudWatch Alarms"]
+    WAF --> Firehose["Kinesis Firehose"]
+    WAF --> CW_Logs["CW Logs Insights"]
+    WAF --> S3["Amazon S3 + Athena"]

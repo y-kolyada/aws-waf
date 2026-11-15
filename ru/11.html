@@ -3,9 +3,9 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Раздел 11 · devops-aws-waf · ai|</title>
+<title>Примеры · Pro · devops-aws-waf · ai|</title>
 <!-- meta: built by tools/build-meta.py - do not edit by hand -->
-<meta name="description" content="Лид страницы: о чём она и кому нужна.">
+<meta name="description" content="Шесть продвинутых инженерных сценариев AWS WAFv2 для продакшен-окружений: декларативное развертывание в Terraform, Rate Limiting по составным ключам JWT+IP...">
 <link rel="canonical" href="https://y-kolyada.github.io/aws-waf/ru/11.html">
 <link rel="alternate" hreflang="ru" href="https://y-kolyada.github.io/aws-waf/ru/11.html">
 <link rel="alternate" hreflang="en" href="https://y-kolyada.github.io/aws-waf/en/11.html">
@@ -14,13 +14,13 @@
 <link rel="alternate" hreflang="x-default" href="https://y-kolyada.github.io/aws-waf/">
 <meta property="og:type" content="article">
 <meta property="og:site_name" content="devops-aws-waf">
-<meta property="og:title" content="Раздел 11">
-<meta property="og:description" content="Лид страницы: о чём она и кому нужна.">
+<meta property="og:title" content="Примеры · Pro">
+<meta property="og:description" content="Шесть продвинутых инженерных сценариев AWS WAFv2 для продакшен-окружений: декларативное развертывание в Terraform, Rate Limiting по составным ключам JWT+IP...">
 <meta property="og:url" content="https://y-kolyada.github.io/aws-waf/ru/11.html">
 <meta property="og:locale" content="ru_RU">
 <meta name="twitter:card" content="summary">
 <link rel="icon" href="../assets/img/favicon.svg" type="image/svg+xml">
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"TechArticle","headline":"Раздел 11","description":"Лид страницы: о чём она и кому нужна.","url":"https://y-kolyada.github.io/aws-waf/ru/11.html","inLanguage":"ru","isPartOf":{"@type":"WebSite","name":"devops-aws-waf","url":"https://y-kolyada.github.io/aws-waf/"}}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"TechArticle","headline":"Примеры · Pro","description":"Шесть продвинутых инженерных сценариев AWS WAFv2 для продакшен-окружений: декларативное развертывание в Terraform, Rate Limiting по составным ключам JWT+IP...","url":"https://y-kolyada.github.io/aws-waf/ru/11.html","inLanguage":"ru","isPartOf":{"@type":"WebSite","name":"devops-aws-waf","url":"https://y-kolyada.github.io/aws-waf/"}}</script>
 <!-- /meta -->
 <link rel="stylesheet" href="../assets/style.css?v=1">
 <script>
@@ -67,21 +67,21 @@
 
   <nav class="contents" aria-label="Разделы сайта">
     <ol>
-      <li><a href="01.html"><span class="num">1</span>Раздел 1</a></li>
-      <li><a href="02.html"><span class="num">2</span>Раздел 2</a></li>
-      <li><a href="03.html"><span class="num">3</span>Раздел 3</a></li>
-      <li><a href="04.html"><span class="num">4</span>Раздел 4</a></li>
-      <li><a href="05.html"><span class="num">5</span>Раздел 5</a></li>
-      <li><a href="06.html"><span class="num">6</span>Раздел 6</a></li>
-      <li><a href="07.html"><span class="num">7</span>Раздел 7</a></li>
-      <li><a href="08.html"><span class="num">8</span>Раздел 8</a></li>
-      <li><a href="09.html"><span class="num">9</span>Раздел 9</a></li>
-      <li><a href="10.html"><span class="num">10</span>Раздел 10</a></li>
-      <li><a href="11.html" aria-current="page"><span class="num">11</span>Раздел 11</a></li>
-      <li><a href="12.html"><span class="num">12</span>Раздел 12</a></li>
-      <li><a href="13.html"><span class="num">13</span>Раздел 13</a></li>
-      <li><a href="14.html"><span class="num">14</span>Раздел 14</a></li>
-      <li><a href="15.html"><span class="num">15</span>Раздел 15</a></li>
+      <li><a href="01.html"><span class="num">1</span>Архитектура и WCU</a></li>
+      <li><a href="02.html"><span class="num">2</span>Области и ассоциации</a></li>
+      <li><a href="03.html"><span class="num">3</span>Управляемые правила</a></li>
+      <li><a href="04.html"><span class="num">4</span>Кастомные правила</a></li>
+      <li><a href="05.html"><span class="num">5</span>Условия и агрегация</a></li>
+      <li><a href="06.html"><span class="num">6</span>Действия и ответы</a></li>
+      <li><a href="07.html"><span class="num">7</span>Защита от ботов</a></li>
+      <li><a href="08.html"><span class="num">8</span>Логи и телеметрия</a></li>
+      <li><a href="09.html"><span class="num">9</span>Экономика и аудит</a></li>
+      <li><a href="10.html"><span class="num">10</span>Примеры · Noob</a></li>
+      <li><a href="11.html" aria-current="page"><span class="num">11</span>Примеры · Pro</a></li>
+      <li><a href="12.html"><span class="num">12</span>Примеры · IGL</a></li>
+      <li><a href="13.html"><span class="num">13</span>Вопросы · Noob</a></li>
+      <li><a href="14.html"><span class="num">14</span>Вопросы · Pro</a></li>
+      <li><a href="15.html"><span class="num">15</span>Вопросы · IGL</a></li>
     </ol>
     <div class="nav-extra">
       <div><a href="navigator.html"><svg class="icon" data-icon="target" viewBox="0 0 20 20" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="10" cy="10" r="7.4"/><circle cx="10" cy="10" r="3.6"/><circle cx="10" cy="10" r="0.7" fill="currentColor"/></svg> Навигатор</a></div>
@@ -93,34 +93,346 @@
   </nav>
 
   <main id="main">
-    <h1>Раздел 11</h1>
-    <p class="page-size" data-words="48">Слов: 48</p>
-    <p class="lead">Лид страницы: о чём она и кому нужна. Одно предложение, не длиннее 160 знаков.</p>
+    <h1>Примеры · Pro</h1>
+    <p class="page-size" data-words="1155">Слов: 1155</p>
+    <p class="lead">Шесть продвинутых инженерных сценариев AWS WAFv2 для продакшен-окружений: декларативное развертывание в Terraform, Rate Limiting по составным ключам JWT+IP, фильтрация ботов с допуском верифицированных поисковиков, интеграция ATP, оптимизация затрат через LoggingFilter и инъекция заголовков.</p>
 
     <div class="box key" id="key-idea">
       <h2>Главная мысль страницы <a class="anchor-link" href="#key-idea" aria-label="ссылка на этот блок">#</a></h2>
-      <p>Текст этого раздела ещё не написан.</p>
+      <p>Профессиональный уровень инженерии WAFv2 отличается отсутствием ручных манипуляций в консоли и переходом к парадигме Infrastructure as Code (IaC). В реальном проде атаки нацелены не на абстрактный сайт, а на конкретную бизнес-логику: исчерпание пула соединений БД через тяжелые поисковые запросы, перебор паролей через распределенные мобильные прокси и накрутка бонусов. Представленные шесть сценариев уровня Pro демонстрируют глубокую связку инфраструктурного кода Terraform, составных ключей агрегации CustomKeys, управляемых подписок Bot Control/ATP и протоколов бессерверной маршрутизации контекста безопасности.</p>
+      <p>Стандарт Pro требует абсолютной прозрачности работы каждого защитного контура: нулевых тихих сбоев (Zero Silent Failures), четких SLO на уровень ложных срабатываний (False Positive Rate менее 0.01%) и автоматической интеграции телеметрии безопасности с корпоративными системами мониторинга Prometheus, Datadog и <span class="term"><button type="button" class="term-btn" aria-expanded="false">дашбордов мониторинга WAF в CloudWatch</button><span class="term-card" role="tooltip" hidden><span class="term-header"><strong class="term-title">Дашборд мониторинга WAF (WAF Monitoring Dashboard)</strong><button type="button" class="term-close" aria-label="Закрыть">×</button></span><span class="term-desc">Инженерная панель визуализации ключевых метрик здоровья периметра безопасности в реальном времени.</span><span class="term-links"><a href="glossary.html#waf-monitoring-dashboard">В словарь понятий <svg class="icon" data-icon="book" viewBox="0 0 20 20" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2.6 3.8h4.8a2.6 2.6 0 0 1 2.6 2.6v10a2.2 2.2 0 0 0-2.2-1.8H2.6z"/><path d="M17.4 3.8h-4.8a2.6 2.6 0 0 0-2.6 2.6v10a2.2 2.2 0 0 1 2.2-1.8h5.2z"/></svg></a></span></span></span>.</p>
     </div>
 
-    <h2 id="first">1 · Раздел 1 <a class="anchor-link" href="#first">#</a></h2>
-    <p>Текст этого раздела ещё не написан.</p>
+    <div class="box figure">
+      <svg viewBox="0 0 320 230" style="max-width:320px;height:auto;display:block;margin:0 auto" role="img" aria-label="Схема матрицы 2x2 инженерных решений уровня Pro: JWT, ATP, Firehose и Terraform">
+  <rect x="15" y="8" width="135" height="42" rx="4" fill="currentColor" fill-opacity="0.05" stroke="currentColor" stroke-width="1.2"/>
+  <text x="82" y="25" text-anchor="middle" font-size="12" font-weight="bold" fill="currentColor">1. JWT Rate Limit</text>
+  <text x="82" y="39" text-anchor="middle" font-size="12" opacity="0.75" fill="currentColor">Скользящие окна</text>
 
-    <div class="box key" id="artifacts">
-      <h2>Артефакты: что у вас есть после этой страницы <a class="anchor-link" href="#artifacts">#</a></h2>
-      <p>Текст этого раздела ещё не написан.</p>
+  <rect x="170" y="8" width="135" height="42" rx="4" fill="currentColor" fill-opacity="0.05" stroke="currentColor" stroke-width="1.2"/>
+  <text x="237" y="25" text-anchor="middle" font-size="12" font-weight="bold" fill="currentColor">2. ATP Антифрод</text>
+  <text x="237" y="39" text-anchor="middle" font-size="12" opacity="0.75" fill="currentColor">Защита паролей</text>
+
+  <line x1="82" y1="50" x2="82" y2="60" stroke="currentColor" stroke-width="1.4"/>
+  <polygon points="82,68 78,60 86,60" fill="currentColor"/>
+
+  <line x1="237" y1="50" x2="237" y2="60" stroke="currentColor" stroke-width="1.4"/>
+  <polygon points="237,68 233,60 241,60" fill="currentColor"/>
+
+  <rect x="15" y="68" width="135" height="42" rx="4" fill="currentColor" fill-opacity="0.05" stroke="currentColor" stroke-width="1.2"/>
+  <text x="82" y="85" text-anchor="middle" font-size="12" font-weight="bold" fill="currentColor">3. Скрытие PII</text>
+  <text x="82" y="99" text-anchor="middle" font-size="12" opacity="0.75" fill="currentColor">Фильтр логов</text>
+
+  <rect x="170" y="68" width="135" height="42" rx="4" fill="currentColor" fill-opacity="0.05" stroke="currentColor" stroke-width="1.2"/>
+  <text x="237" y="85" text-anchor="middle" font-size="12" font-weight="bold" fill="currentColor">4. Terraform IaC</text>
+  <text x="237" y="99" text-anchor="middle" font-size="12" opacity="0.75" fill="currentColor">CI/CD Gates</text>
+
+  <line x1="82" y1="110" x2="82" y2="120" stroke="currentColor" stroke-width="1.4"/>
+  <polygon points="82,128 78,120 86,120" fill="currentColor"/>
+
+  <line x1="237" y1="110" x2="237" y2="120" stroke="currentColor" stroke-width="1.4"/>
+  <polygon points="237,128 233,120 241,120" fill="currentColor"/>
+
+  <rect x="20" y="128" width="280" height="38" rx="4" fill="currentColor" fill-opacity="0.08" stroke="currentColor" stroke-width="1.4"/>
+  <text x="160" y="145" text-anchor="middle" font-size="12" font-weight="bold" fill="currentColor">Ядро WAFv2 уровня Pro</text>
+  <text x="160" y="158" text-anchor="middle" font-size="12" opacity="0.75" fill="currentColor">Адаптивная эшелонированная защита</text>
+
+  <line x1="160" y1="166" x2="160" y2="178" stroke="currentColor" stroke-width="1.4"/>
+  <polygon points="160,186 156,178 164,178" fill="currentColor"/>
+
+  <rect x="30" y="186" width="260" height="28" rx="4" fill="currentColor" fill-opacity="0.08" stroke="currentColor" stroke-width="1.4"/>
+  <text x="160" y="204" text-anchor="middle" font-size="12" font-weight="bold" fill="currentColor">Стандарт AWS Security Specialty</text>
+      </svg>
+      <p class="dim">Схема 12. Матрица защитных механизмов уровня Pro: 2x2 квадранта с центральным хабом.</p>
+    </div>
+
+    <h2 id="scenario-1">1 · Развертывание WAFv2 для регионального API Gateway и ALB через Terraform <a class="anchor-link" href="#scenario-1">#</a></h2>
+    <p><strong>Задача:</strong> Развернуть региональный список Web ACL с действием по умолчанию Allow, набором базовых метрик CloudWatch и связать его с REST API Gateway Stage и балансировщиком нагрузки Application Load Balancer через официальный Terraform AWS Provider.</p>
+    <pre><code>resource "aws_wafv2_web_acl" "api_regional_waf" {
+  name        = "prod-api-regional-waf"
+  description = "Regional WAF for API Gateway and ALB"
+  scope       = "REGIONAL"
+
+  default_action {
+    allow {}
+  }
+
+  rule {
+    name     = "AWSCommonRuleSet"
+    priority = 1
+
+    override_action {
+      none {}
+    }
+
+    statement {
+      managed_rule_group_statement {
+        name        = "AWSManagedRulesCommonRuleSet"
+        vendor_name = "AWS"
+      }
+    }
+
+    visibility_config {
+      cloudwatch_metrics_enabled = true
+      metric_name                = "ProdApiCommonRuleSetMetric"
+      sampled_requests_enabled   = true
+    }
+  }
+
+  visibility_config {
+    cloudwatch_metrics_enabled = true
+    metric_name                = "ProdApiRegionalWafMetric"
+    sampled_requests_enabled   = true
+  }
+}
+
+resource "aws_wafv2_web_acl_association" "api_gw_assoc" {
+  resource_arn = "arn:aws:apigateway:us-east-1::/restapis/abc123xyz/stages/prod"
+  web_acl_arn  = aws_wafv2_web_acl.api_regional_waf.arn
+}</code></pre>
+    <div class="prints">
+      <strong>Почему так:</strong> Ресурс <code>aws_wafv2_web_acl_association</code> принимает ARN целевого ресурса. Для API Gateway REST API ARN формируется по строгому формату <code>arn:aws:apigateway:{region}::/restapis/{api_id}/stages/{stage_name}</code>, а для ALB используется стандартный ARN балансировщика. Декларативное описание в Terraform исключает рассинхронизацию правил между тестовыми и промышленными средами, позволяя контролировать версионирование и дрейф инфраструктуры через стандартный GitOps-пайплайн. При обновлении конфигурации Terraform выполняет атомарный вызов API <code>update-web-acl</code> с передачей LockToken, гарантируя отсутствие прерывания инспекции активных сетевых соединений.
+    </div>
+
+    <h2 id="scenario-2">2 · Композитный Rate Limiting по кастомным ключам (JWT сессия + IP-адрес) <a class="anchor-link" href="#scenario-2">#</a></h2>
+    <p><strong>Задача:</strong> Заблокировать атаку медленного L7-флуда (Slow HTTP DoS), распределенную по тысячам публичных прокси, изолируя запросы конкретного скомпрометированного токена авторизации с привязкой к IP-адресу клиента.</p>
+    <pre><code>{
+  "Name": "CompositeRateLimitByJwtAndIP",
+  "Priority": 15,
+  "Action": {
+    "Block": {}
+  },
+  "Statement": {
+    "RateBasedStatement": {
+      "Limit": 200,
+      "EvaluationWindowSec": 120,
+      "AggregateKeyType": "CUSTOM_KEYS",
+      "CustomKeys": [
+        {
+          "Header": {
+            "Name": "authorization",
+            "TextTransformations": [
+              {
+                "Priority": 0,
+                "Type": "LOWERCASE"
+              }
+            ]
+          }
+        },
+        {
+          "IP": {}
+        }
+      ],
+      "ScopeDownStatement": {
+        "ByteMatchStatement": {
+          "SearchString": "/api/v2/orders",
+          "FieldToMatch": {
+            "UriPath": {}
+          },
+          "TextTransformations": [
+            {
+              "Priority": 0,
+              "Type": "LOWERCASE"
+            }
+          ],
+          "PositionalConstraint": "STARTS_WITH"
+        }
+      }
+    }
+  },
+  "VisibilityConfig": {
+    "SampledRequestsEnabled": true,
+    "CloudWatchMetricsEnabled": true,
+    "MetricName": "JwtIpRateLimitMetric"
+  }
+}</code></pre>
+    <div class="prints">
+      <strong>Почему так:</strong> Режим <code>AggregateKeyType: CUSTOM_KEYS</code> создает составной хеш из заголовка Authorization и IP-адреса. Окно сужено до 120 секунд (2 минуты), что обеспечивает мгновенную реакцию на всплески нагрузки. Если атакующий меняет IP, но использует один и тот же украденный токен, лимит не размывается, а если запросы исходят из корпоративного NAT с множеством пользователей, каждый пользователь изолирован по своему токену. Трансформация LOWERCASE для заголовка нивелирует попытки обхода через манипуляцию регистром схемы Bearer.
+    </div>
+
+    <h2 id="scenario-3">3 · Развертывание Bot Control с селективным допуском верифицированных поисковиков <a class="anchor-link" href="#scenario-3">#</a></h2>
+    <p><strong>Задача:</strong> Включить управляемую защиту <code>AWSManagedRules<wbr>BotControlRuleSet</code> на всем портале, с <span class="term"><button type="button" class="term-btn" aria-expanded="false">контролем TLS-отпечатков рукопожатия JA3 (JA3 Fingerprinting)</button><span class="term-card" role="tooltip" hidden><span class="term-header"><strong class="term-title">Контроль TLS-отпечатков JA3 (JA3 Fingerprinting)</strong><button type="button" class="term-close" aria-label="Закрыть">×</button></span><span class="term-desc">Метод идентификации автоматизированного клиентского софта на основе хэширования параметров рукопожатия TLS.</span><span class="term-links"><a href="glossary.html#ja3-hash">В словарь понятий <svg class="icon" data-icon="book" viewBox="0 0 20 20" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2.6 3.8h4.8a2.6 2.6 0 0 1 2.6 2.6v10a2.2 2.2 0 0 0-2.2-1.8H2.6z"/><path d="M17.4 3.8h-4.8a2.6 2.6 0 0 0-2.6 2.6v10a2.2 2.2 0 0 1 2.2-1.8h5.2z"/></svg></a></span></span></span>, предотвратив блокировку легитимных поисковых краулеров Googlebot, Bingbot и Yandex.</p>
+    <pre><code>{
+  "Name": "BotControlWithVerifiedSearchEnginesAllowed",
+  "Priority": 25,
+  "OverrideAction": {
+    "None": {}
+  },
+  "Statement": {
+    "ManagedRuleGroupStatement": {
+      "VendorName": "AWS",
+      "Name": "AWSManagedRulesBotControlRuleSet",
+      "ManagedRuleGroupConfigs": [
+        {
+          "AWSManagedRulesBotControlRuleSet": {
+            "InspectionLevel": "COMMON"
+          }
+        }
+      ],
+      "RuleActionOverrides": [
+        {
+          "Name": "CategorySearchEngine",
+          "ActionToUse": {
+            "Count": {}
+          }
+        }
+      ]
+    }
+  },
+  "VisibilityConfig": {
+    "SampledRequestsEnabled": true,
+    "CloudWatchMetricsEnabled": true,
+    "MetricName": "BotControlMetric"
+  }
+}</code></pre>
+    <div class="prints">
+      <strong>Почему так:</strong> В блоке <code>RuleActionOverrides</code> для встроенного правила <code>CategorySearchEngine</code> действие переопределяется на <code>Count</code>. Bot Control проводит криптографическую валидацию DNS PTR-записей роботов: если запрос действительно исходит из инфраструктуры Google или Microsoft, WAF присваивает ему метку верифицированного краулера <code>awswaf:managed:aws:bot-control:bot:name:googlebot</code> и пропускает без блокировки, нейтрализуя при этом фейковых ботов с поддельным User-Agent.
+    </div>
+
+    <h2 id="scenario-4">4 · Защита эндпоинта аутентификации от Credential Stuffing через AWS WAF ATP <a class="anchor-link" href="#scenario-4">#</a></h2>
+    <p><strong>Задача:</strong> Развернуть специализированный набор ATP (Account Takeover Prevention) для защиты JSON API формы авторизации <code>/api/auth/login</code> через <span class="term"><button type="button" class="term-btn" aria-expanded="false">лимитирование частоты входа (Login Rate Limiting)</button><span class="term-card" role="tooltip" hidden><span class="term-header"><strong class="term-title">Лимитирование запросов аутентификации (Login Rate Limiting)</strong><button type="button" class="term-close" aria-label="Закрыть">×</button></span><span class="term-desc">Таргетированное ограничение частоты попыток входа в систему для защиты от перебора паролей.</span><span class="term-links"><a href="glossary.html#login-rate-limit">В словарь понятий <svg class="icon" data-icon="book" viewBox="0 0 20 20" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2.6 3.8h4.8a2.6 2.6 0 0 1 2.6 2.6v10a2.2 2.2 0 0 0-2.2-1.8H2.6z"/><path d="M17.4 3.8h-4.8a2.6 2.6 0 0 0-2.6 2.6v10a2.2 2.2 0 0 1 2.2-1.8h5.2z"/></svg></a></span></span></span> от использования скомпрометированных паролей.</p>
+    <pre><code>{
+  "Name": "AWSManagedRulesATPRuleSetProduction",
+  "Priority": 35,
+  "OverrideAction": {
+    "None": {}
+  },
+  "Statement": {
+    "ManagedRuleGroupStatement": {
+      "VendorName": "AWS",
+      "Name": "AWSManagedRulesATPRuleSet",
+      "ManagedRuleGroupConfigs": [
+        {
+          "AWSManagedRulesATPRuleSet": {
+            "LoginPath": "/api/auth/login",
+            "RequestInspection": {
+              "PayloadType": "JSON",
+              "UsernameField": {
+                "Identifier": "/user/email"
+              },
+              "PasswordField": {
+                "Identifier": "/user/password"
+              }
+            }
+          }
+        }
+      ]
+    }
+  },
+  "VisibilityConfig": {
+    "SampledRequestsEnabled": true,
+    "CloudWatchMetricsEnabled": true,
+    "MetricName": "ATPProductionMetric"
+  }
+}</code></pre>
+    <div class="prints">
+      <strong>Почему так:</strong> Конфигурация <code>RequestInspection</code> парсит входящий JSON по указанным JSONPointer путям <code>/user/email</code> и <code>/user/password</code>. Модуль WAF на периметре вычисляет криптографический хэш пароля и сверяет его со всемирной базой утечек AWS Threat Intel. Если пароль фигурирует в базе взломанных учетных записей, запрос пресекается до вызова бэкенда аутентификации. Это полностью разгружает микросервисы авторизации от обработки волн брутфорса и снижает риски захвата аккаунтов.
+    </div>
+
+    <h2 id="scenario-5">5 · Оптимизация расходов на логирование через LoggingFilter (сброс легитимного трафика) <a class="anchor-link" href="#scenario-5">#</a></h2>
+    <p><strong>Задача:</strong> Сократить затраты на хранение логов WAF на 95%, настроив отбрасывание всех разрешенных запросов (ALLOW) и сохраняя только отраженные атаки (BLOCK) и подозрительные вызовы с метками Bot Control.</p>
+    <pre><code>aws wafv2 put-logging-configuration \
+  --logging-configuration '{
+    "ResourceArn": "arn:aws:wafv2:us-east-1:123456789012:regional/webacl/ProductionWebACL/c9d0e1f2",
+    "LogDestinationConfigs": [
+      "arn:aws:logs:us-east-1:123456789012:log-group:aws-waf-logs-prod-security"
+    ],
+    "LoggingFilter": {
+      "DefaultBehavior": "DROP",
+      "Filters": [
+        {
+          "Behavior": "KEEP",
+          "Requirement": "MEETS_ANY",
+          "Conditions": [
+            {
+              "ActionCondition": {
+                "Action": "BLOCK"
+              }
+            },
+            {
+              "LabelNameCondition": {
+                "LabelName": "awswaf:managed:aws:bot-control:bot:category:scraping_tool"
+              }
+            }
+          ]
+        }
+      ]
+    }
+  }'</code></pre>
+    <div class="prints">
+      <strong>Почему так:</strong> Параметр <code>DefaultBehavior: "DROP"</code> инструктирует модуль логирования игнорировать весь рядовой трафик сервиса. Массив <code>Filters</code> с директивой <code>Behavior: "KEEP"</code> и <code>Requirement: "MEETS_ANY"</code> заставляет WAF экспортировать записи исключительно тех пакетов, которые были заблокированы правилами или получили сигнатурную метку парсера контента. Это кардинально снижает объемы данных в CloudWatch Logs и экономит тысячи долларов в месяц на счетах за сетевой ингресс и долговременное хранилище. Для сохранения статистической прозрачности общего объема запросов инженеры опираются на стандартные бесплатные метрики CloudWatch AllowedRequests.
+    </div>
+
+    <h2 id="scenario-6">6 · Инъекция контекстных заголовков X-WAF-Verified и client-country для бэкендов <a class="anchor-link" href="#scenario-6">#</a></h2>
+    <p><strong>Задача:</strong> Обогатить легитимные запросы заголовками безопасности, выполнив <span class="term"><button type="button" class="term-btn" aria-expanded="false">валидацию клиентских API-ключей (API Key Header Inspection)</button><span class="term-card" role="tooltip" hidden><span class="term-header"><strong class="term-title">Валидация заголовков API-ключей (API Key Header Inspection)</strong><button type="button" class="term-close" aria-label="Закрыть">×</button></span><span class="term-desc">Инспекция наличия и формата криптографических клиентских ключей доступа на пограничном слое WAF.</span><span class="term-links"><a href="glossary.html#api-key-validation">В словарь понятий <svg class="icon" data-icon="book" viewBox="0 0 20 20" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2.6 3.8h4.8a2.6 2.6 0 0 1 2.6 2.6v10a2.2 2.2 0 0 0-2.2-1.8H2.6z"/><path d="M17.4 3.8h-4.8a2.6 2.6 0 0 0-2.6 2.6v10a2.2 2.2 0 0 1 2.2-1.8h5.2z"/></svg></a></span></span></span> и передав во внутренние микросервисы подтверждение прохождения WAF и определенную геолокацию клиента без повторного обращения к внешним MaxMind базам.</p>
+    <pre><code>{
+  "Name": "InjectSecurityHeadersOnAllow",
+  "Priority": 90,
+  "Action": {
+    "Allow": {
+      "CustomRequestHandling": {
+        "InsertHeaders": [
+          {
+            "Name": "X-WAF-Verified",
+            "Value": "true"
+          },
+          {
+            "Name": "X-Client-Risk-Score",
+            "Value": "clean"
+          }
+        ]
+      }
+    }
+  },
+  "Statement": {
+    "ByteMatchStatement": {
+      "SearchString": "/api/",
+      "FieldToMatch": {
+        "UriPath": {}
+      },
+      "TextTransformations": [
+        {
+          "Priority": 0,
+          "Type": "LOWERCASE"
+        }
+      ],
+      "PositionalConstraint": "STARTS_WITH"
+    }
+  },
+  "VisibilityConfig": {
+    "SampledRequestsEnabled": true,
+    "CloudWatchMetricsEnabled": true,
+    "MetricName": "InjectHeadersMetric"
+  }
+}</code></pre>
+    <div class="prints">
+      <strong>Почему так:</strong> Блок <code>CustomRequestHandling.InsertHeaders</code> внедряет указанные заголовки в сетевой пакет на границе ALB. Если злоумышленник пытается отправить заголовок <code>X-WAF-Verified: true</code> снаружи, WAF перезаписывает его валидным значением. Микросервисы за балансировщиком могут проверять этот заголовок для авторизации межсервисных вызовов и маршрутизации трафика, освобождая бэкенд от необходимости повторной верификации сетевых репутационных баз.
+    </div>
+
+    <div class="box" id="artifacts">
+      <h2>Артефакты страницы <a class="anchor-link" href="#artifacts" aria-label="ссылка на этот блок">#</a></h2>
+      <ul>
+        <li>Сценарий 1: Декларативное описание <code>aws_wafv2_web_acl</code> и <code>aws_wafv2_web_acl_association</code> в Terraform.</li>
+        <li>Сценарий 2: Составной Rate Limiting по <code>CUSTOM_KEYS</code> (Authorization + IP) с 120с скользящим окном.</li>
+        <li>Сценарий 3: Переопределение <code>CategorySearchEngine</code> в <code>Count</code> внутри <code>AWSManagedRulesBotControlRuleSet</code>.</li>
+        <li>Сценарий 4: Настройка <code>RequestInspection</code> в <code>AWSManagedRulesATPRuleSet</code> с JSONPointer путями.</li>
+        <li>Сценарий 5: Оптимизация затрат через <code>LoggingFilter</code> (DefaultBehavior DROP + KEEP on BLOCK).</li>
+        <li>Сценарий 6: Инъекция заголовков <code>CustomRequestHandling.InsertHeaders</code> на этапе вердикта Allow.</li>
+      </ul>
     </div>
   
 
     <footer>
       <nav class="pager" aria-label="Соседние темы">
-        <p class="pager-next">Следующая тема: <a href="12.html">Раздел 12</a></p>
-        <p class="pager-prev">Предыдущая тема: <a href="10.html">Раздел 10</a></p>
+        <p class="pager-next">Следующая тема: <a href="12.html">Примеры · IGL</a></p>
+        <p class="pager-prev">Предыдущая тема: <a href="10.html">Примеры · Noob</a></p>
       </nav>
       <p class="footer-note">Сайт серии AI Factory. Сделан той же оснасткой, что и остальные: обычный HTML и CSS, проверка на bash, публикация через GitHub Pages.</p>
     </footer>
   </main>
 
 </div>
+
 </div>
 <script src="../assets/swa.js?v=1"></script>
 <script src="../assets/terms.js?v=1"></script>

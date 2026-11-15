@@ -1,0 +1,5 @@
+flowchart TD
+    Req["Запросы: IP / JWT Key"] --> Win["Скользящее окно (60-600с)"]
+    Win --> Comp{"Сравнение с лимитом"}
+    Comp -->|Превышен| Block["Block / CAPTCHA (Бан)"]
+    Block -->|Снижение частоты| Req

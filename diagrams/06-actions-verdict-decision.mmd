@@ -1,0 +1,7 @@
+flowchart TD
+    Match["Срабатывание правила WAFv2"] --> Term["Терминальные: Allow / Block"]
+    Match --> NonTerm["Нетерминальное: Count"]
+    Match --> Chall["Челленджи: CAPTCHA / Silent"]
+    Term --> Out["Управление доступом L7"]
+    NonTerm --> Out
+    Chall --> Out

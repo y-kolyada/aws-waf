@@ -3,9 +3,9 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Раздел 4 · devops-aws-waf · ai|</title>
+<title>Кастомные правила · devops-aws-waf · ai|</title>
 <!-- meta: built by tools/build-meta.py - do not edit by hand -->
-<meta name="description" content="Лид страницы: о чём она и кому нужна.">
+<meta name="description" content="Разработка пользовательских правил фильтрации: наборы IP-адресов (IP Sets IPv4/IPv6), регулярные выражения (Regex Pattern Sets), геолокация Geo Match, поиск...">
 <link rel="canonical" href="https://y-kolyada.github.io/aws-waf/ru/04.html">
 <link rel="alternate" hreflang="ru" href="https://y-kolyada.github.io/aws-waf/ru/04.html">
 <link rel="alternate" hreflang="en" href="https://y-kolyada.github.io/aws-waf/en/04.html">
@@ -14,13 +14,13 @@
 <link rel="alternate" hreflang="x-default" href="https://y-kolyada.github.io/aws-waf/">
 <meta property="og:type" content="article">
 <meta property="og:site_name" content="devops-aws-waf">
-<meta property="og:title" content="Раздел 4">
-<meta property="og:description" content="Лид страницы: о чём она и кому нужна.">
+<meta property="og:title" content="Кастомные правила">
+<meta property="og:description" content="Разработка пользовательских правил фильтрации: наборы IP-адресов (IP Sets IPv4/IPv6), регулярные выражения (Regex Pattern Sets), геолокация Geo Match, поиск...">
 <meta property="og:url" content="https://y-kolyada.github.io/aws-waf/ru/04.html">
 <meta property="og:locale" content="ru_RU">
 <meta name="twitter:card" content="summary">
 <link rel="icon" href="../assets/img/favicon.svg" type="image/svg+xml">
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"TechArticle","headline":"Раздел 4","description":"Лид страницы: о чём она и кому нужна.","url":"https://y-kolyada.github.io/aws-waf/ru/04.html","inLanguage":"ru","isPartOf":{"@type":"WebSite","name":"devops-aws-waf","url":"https://y-kolyada.github.io/aws-waf/"}}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"TechArticle","headline":"Кастомные правила","description":"Разработка пользовательских правил фильтрации: наборы IP-адресов (IP Sets IPv4/IPv6), регулярные выражения (Regex Pattern Sets), геолокация Geo Match, поиск...","url":"https://y-kolyada.github.io/aws-waf/ru/04.html","inLanguage":"ru","isPartOf":{"@type":"WebSite","name":"devops-aws-waf","url":"https://y-kolyada.github.io/aws-waf/"}}</script>
 <!-- /meta -->
 <link rel="stylesheet" href="../assets/style.css?v=1">
 <script>
@@ -67,21 +67,21 @@
 
   <nav class="contents" aria-label="Разделы сайта">
     <ol>
-      <li><a href="01.html"><span class="num">1</span>Раздел 1</a></li>
-      <li><a href="02.html"><span class="num">2</span>Раздел 2</a></li>
-      <li><a href="03.html"><span class="num">3</span>Раздел 3</a></li>
-      <li><a href="04.html" aria-current="page"><span class="num">4</span>Раздел 4</a></li>
-      <li><a href="05.html"><span class="num">5</span>Раздел 5</a></li>
-      <li><a href="06.html"><span class="num">6</span>Раздел 6</a></li>
-      <li><a href="07.html"><span class="num">7</span>Раздел 7</a></li>
-      <li><a href="08.html"><span class="num">8</span>Раздел 8</a></li>
-      <li><a href="09.html"><span class="num">9</span>Раздел 9</a></li>
-      <li><a href="10.html"><span class="num">10</span>Раздел 10</a></li>
-      <li><a href="11.html"><span class="num">11</span>Раздел 11</a></li>
-      <li><a href="12.html"><span class="num">12</span>Раздел 12</a></li>
-      <li><a href="13.html"><span class="num">13</span>Раздел 13</a></li>
-      <li><a href="14.html"><span class="num">14</span>Раздел 14</a></li>
-      <li><a href="15.html"><span class="num">15</span>Раздел 15</a></li>
+      <li><a href="01.html"><span class="num">1</span>Архитектура и WCU</a></li>
+      <li><a href="02.html"><span class="num">2</span>Области и ассоциации</a></li>
+      <li><a href="03.html"><span class="num">3</span>Управляемые правила</a></li>
+      <li><a href="04.html" aria-current="page"><span class="num">4</span>Кастомные правила</a></li>
+      <li><a href="05.html"><span class="num">5</span>Условия и агрегация</a></li>
+      <li><a href="06.html"><span class="num">6</span>Действия и ответы</a></li>
+      <li><a href="07.html"><span class="num">7</span>Защита от ботов</a></li>
+      <li><a href="08.html"><span class="num">8</span>Логи и телеметрия</a></li>
+      <li><a href="09.html"><span class="num">9</span>Экономика и аудит</a></li>
+      <li><a href="10.html"><span class="num">10</span>Примеры · Noob</a></li>
+      <li><a href="11.html"><span class="num">11</span>Примеры · Pro</a></li>
+      <li><a href="12.html"><span class="num">12</span>Примеры · IGL</a></li>
+      <li><a href="13.html"><span class="num">13</span>Вопросы · Noob</a></li>
+      <li><a href="14.html"><span class="num">14</span>Вопросы · Pro</a></li>
+      <li><a href="15.html"><span class="num">15</span>Вопросы · IGL</a></li>
     </ol>
     <div class="nav-extra">
       <div><a href="navigator.html"><svg class="icon" data-icon="target" viewBox="0 0 20 20" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="10" cy="10" r="7.4"/><circle cx="10" cy="10" r="3.6"/><circle cx="10" cy="10" r="0.7" fill="currentColor"/></svg> Навигатор</a></div>
@@ -93,28 +93,109 @@
   </nav>
 
   <main id="main">
-    <h1>Раздел 4</h1>
-    <p class="page-size" data-words="48">Слов: 48</p>
-    <p class="lead">Лид страницы: о чём она и кому нужна. Одно предложение, не длиннее 160 знаков.</p>
+    <h1>Кастомные правила</h1>
+    <p class="page-size" data-words="1160">Слов: 1160</p>
+    <p class="lead">Разработка пользовательских правил фильтрации: наборы IP-адресов (IP Sets IPv4/IPv6), регулярные выражения (Regex Pattern Sets), геолокация Geo Match, поиск строковых шаблонов ByteMatch и ограничения размера SizeConstraint.</p>
 
     <div class="box key" id="key-idea">
       <h2>Главная мысль страницы <a class="anchor-link" href="#key-idea" aria-label="ссылка на этот блок">#</a></h2>
-      <p>Текст этого раздела ещё не написан.</p>
+      <p><span class="term"><button type="button" class="term-btn" aria-expanded="false">Кастомные правила WAFv2</button><span class="term-card" role="tooltip" hidden><span class="term-header"><strong class="term-title">Пользовательское правило инспекции (Custom Rule)</strong><button type="button" class="term-close" aria-label="Закрыть">×</button></span><span class="term-desc">Инженерная декларация условий инспекции L7, связывающая предикаты с конкретными действиями безопасности.</span><span class="term-links"><a href="glossary.html#custom-rule">В словарь понятий <svg class="icon" data-icon="book" viewBox="0 0 20 20" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2.6 3.8h4.8a2.6 2.6 0 0 1 2.6 2.6v10a2.2 2.2 0 0 0-2.2-1.8H2.6z"/><path d="M17.4 3.8h-4.8a2.6 2.6 0 0 0-2.6 2.6v10a2.2 2.2 0 0 1 2.2-1.8h5.2z"/></svg></a></span></span></span> - это основной инструмент точной настройки безопасности под бизнес-логику конкретного приложения. Они оперируют строгими предикатами сопоставления: побайтовое сравнение ByteMatch, регулярные выражения RegexMatch, <span class="term"><button type="button" class="term-btn" aria-expanded="false">географическая принадлежность GeoMatch</button><span class="term-card" role="tooltip" hidden><span class="term-header"><strong class="term-title">Географическое соответствие (GeoMatch Statement)</strong><button type="button" class="term-close" aria-label="Закрыть">×</button></span><span class="term-desc">Предикат инспекции входящего IP-адреса на принадлежность к выбранным странам по стандарту ISO-3166.</span><span class="term-links"><a href="glossary.html#geomatch">В словарь понятий <svg class="icon" data-icon="book" viewBox="0 0 20 20" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2.6 3.8h4.8a2.6 2.6 0 0 1 2.6 2.6v10a2.2 2.2 0 0 0-2.2-1.8H2.6z"/><path d="M17.4 3.8h-4.8a2.6 2.6 0 0 0-2.6 2.6v10a2.2 2.2 0 0 1 2.2-1.8h5.2z"/></svg></a></span></span></span>, списки сетевых адресов IPSet и числовые ограничения размера SizeConstraint. Каждое правило сопоставляется с конкретной частью входящего HTTP-запроса (FieldToMatch), включая заголовки, куки, путь URI, параметры строки запроса или полезную нагрузку JSON, обеспечивая абсолютный контроль над пограничным периметром.</p>
     </div>
 
-    <h2 id="first">1 · Раздел 1 <a class="anchor-link" href="#first">#</a></h2>
-    <p>Текст этого раздела ещё не написан.</p>
+    <div class="box figure">
+      <svg viewBox="0 0 320 230" style="max-width:320px;height:auto;display:block;margin:0 auto" role="img" aria-label="Схема конвейера инспекции кастомных правил: FieldToMatch, нормализация, предикаты и вердикт">
+  <rect x="25" y="8" width="270" height="28" rx="4" fill="currentColor" fill-opacity="0.05" stroke="currentColor" stroke-width="1.2"/>
+  <text x="160" y="26" text-anchor="middle" font-size="12" fill="currentColor">1. FieldToMatch (URI / Headers / Body)</text>
 
-    <div class="box key" id="artifacts">
-      <h2>Артефакты: что у вас есть после этой страницы <a class="anchor-link" href="#artifacts">#</a></h2>
-      <p>Текст этого раздела ещё не написан.</p>
+  <line x1="160" y1="36" x2="160" y2="50" stroke="currentColor" stroke-width="1.4"/>
+  <polygon points="160,58 156,50 164,50" fill="currentColor"/>
+
+  <rect x="20" y="58" width="280" height="34" rx="4" fill="currentColor" fill-opacity="0.08" stroke="currentColor" stroke-width="1.4"/>
+  <text x="160" y="74" text-anchor="middle" font-size="12" font-weight="bold" fill="currentColor">2. Нормализация (LOWER + URL_DECODE)</text>
+  <text x="160" y="86" text-anchor="middle" font-size="12" opacity="0.75" fill="currentColor">Канонизация для защиты от обхода</text>
+
+  <path d="M 160 92 L 160 106 L 85 106 L 85 114" fill="none" stroke="currentColor" stroke-width="1.4"/>
+  <polygon points="85,122 81,114 89,114" fill="currentColor"/>
+
+  <path d="M 160 92 L 160 106 L 235 106 L 235 114" fill="none" stroke="currentColor" stroke-width="1.4"/>
+  <polygon points="235,122 231,114 239,114" fill="currentColor"/>
+
+  <rect x="15" y="122" width="140" height="38" rx="4" fill="currentColor" fill-opacity="0.05" stroke="currentColor" stroke-width="1.2"/>
+  <text x="85" y="138" text-anchor="middle" font-size="12" font-weight="bold" fill="currentColor">Byte / Regex</text>
+  <text x="85" y="152" text-anchor="middle" font-size="12" opacity="0.75" fill="currentColor">Поиск шаблона</text>
+
+  <rect x="165" y="122" width="140" height="38" rx="4" fill="currentColor" fill-opacity="0.05" stroke="currentColor" stroke-width="1.2"/>
+  <text x="235" y="138" text-anchor="middle" font-size="12" font-weight="bold" fill="currentColor">IPSet / Geo</text>
+  <text x="235" y="152" text-anchor="middle" font-size="12" opacity="0.75" fill="currentColor">Списочный фильтр</text>
+
+  <line x1="85" y1="160" x2="85" y2="168" stroke="currentColor" stroke-width="1.4"/>
+  <polygon points="85,176 81,168 89,168" fill="currentColor"/>
+
+  <line x1="235" y1="160" x2="235" y2="168" stroke="currentColor" stroke-width="1.4"/>
+  <polygon points="235,176 231,168 239,168" fill="currentColor"/>
+
+  <rect x="25" y="176" width="270" height="36" rx="4" fill="currentColor" fill-opacity="0.08" stroke="currentColor" stroke-width="1.4"/>
+  <text x="160" y="193" text-anchor="middle" font-size="12" font-weight="bold" fill="currentColor">4. Логика And / Or / Not -> Action</text>
+  <text x="160" y="206" text-anchor="middle" font-size="12" opacity="0.75" fill="currentColor">Терминальный вердикт или Count</text>
+      </svg>
+      <p class="dim">Схема 5. Четырехуровневый конвейер инспекции: от извлечения полей до логических предикатов.</p>
+    </div>
+
+    <h2 id="ip-sets">1 · Наборы сетевых адресов: IP Sets и спецификация CIDR <a class="anchor-link" href="#ip-sets">#</a></h2>
+    <p><span class="term"><button type="button" class="term-btn" aria-expanded="false">Наборы IP-адресов (IP Sets)</button><span class="term-card" role="tooltip" hidden><span class="term-header"><strong class="term-title">Набор IP-адресов (IP Set)</strong><button type="button" class="term-close" aria-label="Закрыть">×</button></span><span class="term-desc">Оптимизированный справочник одиночных IP-адресов и подсетей CIDR для мгновенной фильтрации на пограничном слое.</span><span class="term-links"><a href="glossary.html#ip-set">В словарь понятий <svg class="icon" data-icon="book" viewBox="0 0 20 20" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2.6 3.8h4.8a2.6 2.6 0 0 1 2.6 2.6v10a2.2 2.2 0 0 0-2.2-1.8H2.6z"/><path d="M17.4 3.8h-4.8a2.6 2.6 0 0 0-2.6 2.6v10a2.2 2.2 0 0 1 2.2-1.8h5.2z"/></svg></a></span></span></span> представляют собой выделенные конфигурационные ресурсы, содержащие списки сетевых префиксов в нотации CIDR. Вызов создания <code>aws wafv2 create-ip-set</code> конфигурирует шесть полей: Name, Scope (CLOUDFRONT или REGIONAL), Description, IPAddressVersion (IPV4 или IPV6), Addresses (массив строк CIDR) и Tags.</p>
+    <p>Для адресов IPv4 поддерживаются маски подсетей от /1 до /32 (где /32 обозначает отдельный хост, например, 198.51.100.14/32, а /24 - подсеть класса C из 256 адресов). Для IPv6 поддерживаются маски от /1 до /128 (хост /128, например, 2001:db8::1/128). Один IP Set может содержать до 10 000 записей в стандартной квоте. Использование IP Set в правиле через IPSetReferenceStatement потребляет ровно 1 WCU, что делает проверку списков IP самой вычислительно дешевой операцией в WAFv2.</p>
+        <p>При использовании балансировщиков и CDN критически важно настроить <span class="term"><button type="button" class="term-btn" aria-expanded="false">блок перенаправленного IP-адреса (Forwarded IP)</button><span class="term-card" role="tooltip" hidden><span class="term-header"><strong class="term-title">Перенаправленный IP-адрес (Forwarded IP / XFF)</strong><button type="button" class="term-close" aria-label="Закрыть">×</button></span><span class="term-desc">Конфигурация извлечения реального адреса клиента из заголовков прокси-серверов при многослойной архитектуре.</span><span class="term-links"><a href="glossary.html#forwarded-ip">В словарь понятий <svg class="icon" data-icon="book" viewBox="0 0 20 20" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2.6 3.8h4.8a2.6 2.6 0 0 1 2.6 2.6v10a2.2 2.2 0 0 0-2.2-1.8H2.6z"/><path d="M17.4 3.8h-4.8a2.6 2.6 0 0 0-2.6 2.6v10a2.2 2.2 0 0 1 2.2-1.8h5.2z"/></svg></a></span></span></span>: он указывает WAF, какой IP-адрес инспектировать - физический адрес сетевого пакета (Source IP) или клиентский адрес из заголовка X-Forwarded-For при прохождении через обратные прокси. В блоке ForwardedIPConfig указываются имя заголовка (обычно X-Forwarded-For), позиция адреса в списке (FIRST - исходный клиентский адрес, либо LAST - последний доверенный прокси-узел) и резервное поведение (FallbackBehavior: MATCH или NO_MATCH), определяющее действие при отсутствии указанного заголовка в пакете.</p>
+    <p>Массовое обновление списков адресов в IP Set автоматизируется через вызов <code>aws wafv2 update-ip-set</code>, который требует обязательной передачи блокировочной метки LockToken для защиты от конфликтов параллельного редактирования. Это позволяет интегрировать IP Set со сторонними фидами киберразведки (Threat Intelligence) и автоматическими скриптами изоляции атакующих хостов. При этом сетевые префиксы проверяются парсером на валидность формата CIDR непосредственно в момент отправки запроса.</p>
+
+    <h2 id="regex">2 · <span class="term"><button type="button" class="term-btn" aria-expanded="false">Списки регулярных выражений: Regex Pattern Sets</button><span class="term-card" role="tooltip" hidden><span class="term-header"><strong class="term-title">Набор регулярных выражений (Regex Pattern Set)</strong><button type="button" class="term-close" aria-label="Закрыть">×</button></span><span class="term-desc">Коллекция скомпилированных шаблонов регулярных выражений для поиска сложных текстовых сигнатур в полях запроса.</span><span class="term-links"><a href="glossary.html#regex-set">В словарь понятий <svg class="icon" data-icon="book" viewBox="0 0 20 20" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2.6 3.8h4.8a2.6 2.6 0 0 1 2.6 2.6v10a2.2 2.2 0 0 0-2.2-1.8H2.6z"/><path d="M17.4 3.8h-4.8a2.6 2.6 0 0 0-2.6 2.6v10a2.2 2.2 0 0 1 2.2-1.8h5.2z"/></svg></a></span></span></span> <a class="anchor-link" href="#regex">#</a></h2>
+    <p>Для обнаружения сложных текстовых шаблонов в URL, заголовках или теле запроса используются наборы регулярных выражений (Regex Pattern Sets). Создание набора через <code>aws wafv2 create-regex-pattern-set</code> настраивает пять параметров: Name, Scope, Description, RegularExpressionList и Tags.</p>
+    <p>Синтаксис регулярных выражений в WAFv2 основан на диалекте PCRE (Perl Compatible Regular Expressions). Допускаются метасимволы квантификации, символьные классы и группировка. Однако из соображений производительности в регулярных выражениях WAFv2 запрещены некоторые тяжелые конструкции: опасные рекурсивные захваты и обратные ссылки (backreferences), которые могут вызвать катастрофический возврат (Catastrophic Backtracking) и исчерпание процессорного времени.</p>
+    <p>Использование Regex Pattern Set через RegexPatternSetReferenceStatement требует повышенной вычислительной емкости: от 25 WCU на правило. Поэтому в высоконагруженных системах регулярные выражения предваряются более дешевыми побайтовыми проверками ByteMatch в составных логических выражениях AND.</p>
+
+    <h2 id="geo">3 · Географическая фильтрация: GeoMatchStatement и Forwarded IP <a class="anchor-link" href="#geo">#</a></h2>
+    <p>Оператор географического соответствия GeoMatchStatement позволяет ограничивать или разрешать трафик на основе физического местоположения клиента. Конфигурация оператора включает два поля: CountryCodes (массив двухбуквенных кодов стран по международному стандарту ISO 3166-1 alpha-2, например, US, DE, GB, JP) и ForwardedIPConfig.</p>
+    <p>С помощью GeoMatchStatement реализуются регуляторные требования (геоблокировка подсанкционных территорий, соблюдение территориальных авторских прав на контент), а также защита от атак из стран, где у компании нет клиентов. Оператор GeoMatch расходует всего 1 WCU.</p>
+    <p>Параметр ForwardedIPConfig позволяет извлекать IP-адрес для геолокации из заголовка X-Forwarded-For: можно выбрать первый адрес цепочки (FIRST) или последний доверенный (LAST), а также настроить резервное поведение (FallbackBehavior), если заголовок отсутствует или содержит некорректный формат IP.</p>
+
+    <h2 id="byte-match">4 · Побайтовое соответствие: ByteMatchStatement и позиционные условия <a class="anchor-link" href="#byte-match">#</a></h2>
+    <p>Оператор ByteMatchStatement - наиболее распространенный строительный блок кастомных правил. Он выполняет поиск точной байтовой строки (SearchString) внутри целевой части запроса (FieldToMatch). Конфигурация оператора включает ровно четыре поля: FieldToMatch, PositionalConstraint, SearchString и TextTransformations.</p>
+    <p>Позиционное условие PositionalConstraint определяет алгоритм поиска строки:</p>
+    <ul>
+      <li><strong>EXACTLY:</strong> Целевое поле должно точно посимвольно совпадать с SearchString.</li>
+      <li><strong>STARTS_WITH:</strong> Поле должно начинаться с указанного префикса (идеально для проверки путей URI, например, /admin/).</li>
+      <li><strong>ENDS_WITH:</strong> Поле должно заканчиваться указанным суффиксом (проверка расширений файлов .php, .jsp).</li>
+      <li><strong>CONTAINS:</strong> Поиск подстроки в любом месте поля (базовый сигнатурный поиск).</li>
+      <li><strong>CONTAINS_WORD:</strong> Поиск подстроки как отдельного слова, отделенного пробелами или знаками пунктуации.</li>
+    </ul>
+
+    <h2 id="size">5 · Ограничение размера полей: SizeConstraintStatement <a class="anchor-link" href="#size">#</a></h2>
+    <p>Оператор SizeConstraintStatement защищает приложение от атак на исчерпание буферов, передачи аномально длинных заголовков и загрузки гигантских тел запросов. Конфигурация включает четыре поля: FieldToMatch, ComparisonOperator, Size (размер в байтах) и TextTransformations.</p>
+    <p>Оператор сравнения ComparisonOperator принимает одно из шести значений: EQ (равно), NE (не равно), LE (меньше или равно), LT (строго меньше), GE (больше или равно), GT (строго больше). Например, правило с FieldToMatch: UriPath, ComparisonOperator: GT и Size: 2048 байт мгновенно заблокирует попытки сканеров передавать гигантские URI, вызывающие сбои веб-серверов Nginx или Apache.</p>
+    <p>Особого внимания заслуживают системные квоты инспекции тела запроса. По умолчанию для региональных ресурсов WAFv2 инспектирует первые 8 КБ (8192 байта) или 16 КБ тела HTTP-запроса, с возможностью расширения до 64 КБ для CloudFront и региональных инстансов. При анализе полей тела запроса (Body, JsonBody) настраивается параметр OversizeHandling, определяющий поведение правила при превышении лимита размера полезной нагрузки: CONTINUE (продолжить проверку доступного начала тела), MATCH (считать условие совпавшим и применить действие правила) или NO_MATCH (считать условие несовпавшим). Для критических API рекомендуется устанавливать OversizeHandling: MATCH в блокирующих правилах, чтобы злоумышленники не могли скрыть вредоносную полезную нагрузку за пределами инспектируемого окна данных.</p>
+
+    <h2 id="targets">6 · Инспекция частей запроса: заголовки, куки, URI и JSON Body <a class="anchor-link" href="#targets">#</a></h2>
+    <p>Структура FieldToMatch определяет, какая именно часть входящего HTTP-запроса подвергается проверке. В актуальной версии WAFv2 поддерживается ровно четырнадцать областей инспекции:</p>
+    <ul>
+      <li><strong>UriPath и QueryString:</strong> Путь запроса (без параметров) и полная строка аргументов после знака вопроса.</li>
+      <li><strong>SingleHeader и Headers:</strong> Инспекция конкретного заголовка (например, User-Agent, Authorization) или агрегированная проверка всех заголовков запроса.</li>
+      <li><strong>Cookies:</strong> Проверка значений сессионных кук по имени или сопоставление всех кук целиком.</li>
+      <li><strong>JsonBody:</strong> Глубокий парсинг тела JSON-запроса. С помощью JSONPointer можно адресовать конкретные ключи объекта (например, /user/credentials/password) и задать поведение при ошибке парсинга невалидного JSON (InvalidFallbackBehavior: EVALUATE_AS_STRING, MATCH или NO_MATCH).</li>
+      <li><strong>JA3Fingerprint и JA4Fingerprint:</strong> Криптографические отпечатки параметров TLS-клиента (версия TLS, список шифросьютов, расширения), позволяющие идентифицировать вредоносные скрипты и ботов даже при постоянной смене IP-адресов и заголовков User-Agent.</li>
+    </ul>
+
+    <div class="box artifacts" id="artifacts">
+      <h2>Артефакты страницы <a class="anchor-link" href="#artifacts">#</a></h2>
+      <p>Спецификация IPSet с поддержкой IPv4/IPv6 CIDR и стоимостью 1 WCU.</p>
+      <p>Конфигурация RegexPatternSet с PCRE-синтаксисом для сложных паттернов.</p>
+      <p>Позиционные условия ByteMatchStatement (EXACTLY, STARTS_WITH, ENDS_WITH, CONTAINS).</p>
+      <p>14 областей инспекции FieldToMatch, включая JsonBody и отпечатки JA3/JA4.</p>
     </div>
   
 
     <footer>
       <nav class="pager" aria-label="Соседние темы">
-        <p class="pager-next">Следующая тема: <a href="05.html">Раздел 5</a></p>
-        <p class="pager-prev">Предыдущая тема: <a href="03.html">Раздел 3</a></p>
+        <p class="pager-next">Следующая тема: <a href="05.html">Условия и агрегация</a></p>
+        <p class="pager-prev">Предыдущая тема: <a href="03.html">Управляемые правила</a></p>
       </nav>
       <p class="footer-note">Сайт серии AI Factory. Сделан той же оснасткой, что и остальные: обычный HTML и CSS, проверка на bash, публикация через GitHub Pages.</p>
     </footer>

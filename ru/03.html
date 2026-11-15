@@ -3,9 +3,9 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Раздел 3 · devops-aws-waf · ai|</title>
+<title>Управляемые правила · devops-aws-waf · ai|</title>
 <!-- meta: built by tools/build-meta.py - do not edit by hand -->
-<meta name="description" content="Лид страницы: о чём она и кому нужна.">
+<meta name="description" content="Архитектура AWS Managed Rules (AMR): Core Rule Set (CRS), Known Bad Inputs, Amazon IP Reputation, SQLi, POSIX/Linux и PHP наборы, версионирование...">
 <link rel="canonical" href="https://y-kolyada.github.io/aws-waf/ru/03.html">
 <link rel="alternate" hreflang="ru" href="https://y-kolyada.github.io/aws-waf/ru/03.html">
 <link rel="alternate" hreflang="en" href="https://y-kolyada.github.io/aws-waf/en/03.html">
@@ -14,13 +14,13 @@
 <link rel="alternate" hreflang="x-default" href="https://y-kolyada.github.io/aws-waf/">
 <meta property="og:type" content="article">
 <meta property="og:site_name" content="devops-aws-waf">
-<meta property="og:title" content="Раздел 3">
-<meta property="og:description" content="Лид страницы: о чём она и кому нужна.">
+<meta property="og:title" content="Управляемые правила">
+<meta property="og:description" content="Архитектура AWS Managed Rules (AMR): Core Rule Set (CRS), Known Bad Inputs, Amazon IP Reputation, SQLi, POSIX/Linux и PHP наборы, версионирование...">
 <meta property="og:url" content="https://y-kolyada.github.io/aws-waf/ru/03.html">
 <meta property="og:locale" content="ru_RU">
 <meta name="twitter:card" content="summary">
 <link rel="icon" href="../assets/img/favicon.svg" type="image/svg+xml">
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"TechArticle","headline":"Раздел 3","description":"Лид страницы: о чём она и кому нужна.","url":"https://y-kolyada.github.io/aws-waf/ru/03.html","inLanguage":"ru","isPartOf":{"@type":"WebSite","name":"devops-aws-waf","url":"https://y-kolyada.github.io/aws-waf/"}}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"TechArticle","headline":"Управляемые правила","description":"Архитектура AWS Managed Rules (AMR): Core Rule Set (CRS), Known Bad Inputs, Amazon IP Reputation, SQLi, POSIX/Linux и PHP наборы, версионирование...","url":"https://y-kolyada.github.io/aws-waf/ru/03.html","inLanguage":"ru","isPartOf":{"@type":"WebSite","name":"devops-aws-waf","url":"https://y-kolyada.github.io/aws-waf/"}}</script>
 <!-- /meta -->
 <link rel="stylesheet" href="../assets/style.css?v=1">
 <script>
@@ -67,21 +67,21 @@
 
   <nav class="contents" aria-label="Разделы сайта">
     <ol>
-      <li><a href="01.html"><span class="num">1</span>Раздел 1</a></li>
-      <li><a href="02.html"><span class="num">2</span>Раздел 2</a></li>
-      <li><a href="03.html" aria-current="page"><span class="num">3</span>Раздел 3</a></li>
-      <li><a href="04.html"><span class="num">4</span>Раздел 4</a></li>
-      <li><a href="05.html"><span class="num">5</span>Раздел 5</a></li>
-      <li><a href="06.html"><span class="num">6</span>Раздел 6</a></li>
-      <li><a href="07.html"><span class="num">7</span>Раздел 7</a></li>
-      <li><a href="08.html"><span class="num">8</span>Раздел 8</a></li>
-      <li><a href="09.html"><span class="num">9</span>Раздел 9</a></li>
-      <li><a href="10.html"><span class="num">10</span>Раздел 10</a></li>
-      <li><a href="11.html"><span class="num">11</span>Раздел 11</a></li>
-      <li><a href="12.html"><span class="num">12</span>Раздел 12</a></li>
-      <li><a href="13.html"><span class="num">13</span>Раздел 13</a></li>
-      <li><a href="14.html"><span class="num">14</span>Раздел 14</a></li>
-      <li><a href="15.html"><span class="num">15</span>Раздел 15</a></li>
+      <li><a href="01.html"><span class="num">1</span>Архитектура и WCU</a></li>
+      <li><a href="02.html"><span class="num">2</span>Области и ассоциации</a></li>
+      <li><a href="03.html" aria-current="page"><span class="num">3</span>Управляемые правила</a></li>
+      <li><a href="04.html"><span class="num">4</span>Кастомные правила</a></li>
+      <li><a href="05.html"><span class="num">5</span>Условия и агрегация</a></li>
+      <li><a href="06.html"><span class="num">6</span>Действия и ответы</a></li>
+      <li><a href="07.html"><span class="num">7</span>Защита от ботов</a></li>
+      <li><a href="08.html"><span class="num">8</span>Логи и телеметрия</a></li>
+      <li><a href="09.html"><span class="num">9</span>Экономика и аудит</a></li>
+      <li><a href="10.html"><span class="num">10</span>Примеры · Noob</a></li>
+      <li><a href="11.html"><span class="num">11</span>Примеры · Pro</a></li>
+      <li><a href="12.html"><span class="num">12</span>Примеры · IGL</a></li>
+      <li><a href="13.html"><span class="num">13</span>Вопросы · Noob</a></li>
+      <li><a href="14.html"><span class="num">14</span>Вопросы · Pro</a></li>
+      <li><a href="15.html"><span class="num">15</span>Вопросы · IGL</a></li>
     </ol>
     <div class="nav-extra">
       <div><a href="navigator.html"><svg class="icon" data-icon="target" viewBox="0 0 20 20" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="10" cy="10" r="7.4"/><circle cx="10" cy="10" r="3.6"/><circle cx="10" cy="10" r="0.7" fill="currentColor"/></svg> Навигатор</a></div>
@@ -93,28 +93,114 @@
   </nav>
 
   <main id="main">
-    <h1>Раздел 3</h1>
-    <p class="page-size" data-words="48">Слов: 48</p>
-    <p class="lead">Лид страницы: о чём она и кому нужна. Одно предложение, не длиннее 160 знаков.</p>
+    <h1>Управляемые правила</h1>
+    <p class="page-size" data-words="1218">Слов: 1218</p>
+    <p class="lead">Архитектура AWS Managed Rules (AMR): Core Rule Set (CRS), Known Bad Inputs, Amazon IP Reputation, SQLi, POSIX/Linux и PHP наборы, версионирование, переопределение действий и rolling updates.</p>
 
     <div class="box key" id="key-idea">
       <h2>Главная мысль страницы <a class="anchor-link" href="#key-idea" aria-label="ссылка на этот блок">#</a></h2>
-      <p>Текст этого раздела ещё не написан.</p>
+      <p>Управляемые наборы правил AWS Managed Rules (AMR) позволяют мгновенно подключить профессиональную экспертизу безопасности AWS без необходимости вручную поддерживать тысячи сигнатур. Базовый набор AWSManagedRulesCommonRuleSet (CRS) закрывает фундаментальные угрозы из списка OWASP Top 10, а специализированные наборы защищают целевые операционные системы и базы данных. Ключевой инженерный навык при работе с AMR - управление жизненным циклом версий (Default vs Fixed Versions), своевременный аудит rolling updates через SNS-уведомления и точечное переопределение действий (RuleActionOverrides) для устранения ложных срабатываний без отключения группы целиком.</p>
     </div>
 
-    <h2 id="first">1 · Раздел 1 <a class="anchor-link" href="#first">#</a></h2>
-    <p>Текст этого раздела ещё не написан.</p>
+    <div class="box figure">
+      <svg viewBox="0 0 320 230" style="max-width:320px;height:auto;display:block;margin:0 auto" role="img" aria-label="Схема трех механизмов управления управляемыми пакетами: Default, Override Count и ExcludedRules">
+  <rect x="30" y="8" width="260" height="30" rx="4" fill="currentColor" fill-opacity="0.08" stroke="currentColor" stroke-width="1.4"/>
+  <text x="160" y="27" text-anchor="middle" font-size="12" font-weight="bold" fill="currentColor">AWS Managed Rules (CRS 700 WCU)</text>
 
-    <div class="box key" id="artifacts">
-      <h2>Артефакты: что у вас есть после этой страницы <a class="anchor-link" href="#artifacts">#</a></h2>
-      <p>Текст этого раздела ещё не написан.</p>
+  <line x1="59" y1="38" x2="59" y2="58" stroke="currentColor" stroke-width="1.4"/>
+  <polygon points="59,66 55,58 63,58" fill="currentColor"/>
+
+  <line x1="160" y1="38" x2="160" y2="58" stroke="currentColor" stroke-width="1.4"/>
+  <polygon points="160,66 156,58 164,58" fill="currentColor"/>
+
+  <line x1="261" y1="38" x2="261" y2="58" stroke="currentColor" stroke-width="1.4"/>
+  <polygon points="261,66 257,58 265,58" fill="currentColor"/>
+
+  <rect x="12" y="66" width="94" height="92" rx="4" fill="currentColor" fill-opacity="0.05" stroke="currentColor" stroke-width="1.2"/>
+  <text x="59" y="84" text-anchor="middle" font-size="12" font-weight="bold" fill="currentColor">1. Default</text>
+  <text x="59" y="104" text-anchor="middle" font-size="12" fill="currentColor">Block</text>
+  <text x="59" y="122" text-anchor="middle" font-size="12" fill="currentColor">Защита из</text>
+  <text x="59" y="142" text-anchor="middle" font-size="12" opacity="0.75" fill="currentColor">коробки</text>
+
+  <rect x="113" y="66" width="94" height="92" rx="4" fill="currentColor" fill-opacity="0.05" stroke="currentColor" stroke-width="1.2"/>
+  <text x="160" y="84" text-anchor="middle" font-size="12" font-weight="bold" fill="currentColor">2. Override</text>
+  <text x="160" y="104" text-anchor="middle" font-size="12" fill="currentColor">Count</text>
+  <text x="160" y="122" text-anchor="middle" font-size="12" fill="currentColor">Аудит логов</text>
+  <text x="160" y="142" text-anchor="middle" font-size="12" opacity="0.75" fill="currentColor">Метрики CW</text>
+
+  <rect x="214" y="66" width="94" height="92" rx="4" fill="currentColor" fill-opacity="0.05" stroke="currentColor" stroke-width="1.2"/>
+  <text x="261" y="84" text-anchor="middle" font-size="12" font-weight="bold" fill="currentColor">3. Exclude</text>
+  <text x="261" y="104" text-anchor="middle" font-size="12" fill="currentColor">Правило</text>
+  <text x="261" y="122" text-anchor="middle" font-size="12" fill="currentColor">Исключение</text>
+  <text x="261" y="142" text-anchor="middle" font-size="12" opacity="0.75" fill="currentColor">без ложных</text>
+
+  <line x1="160" y1="158" x2="160" y2="174" stroke="currentColor" stroke-width="1.4"/>
+  <polygon points="160,182 156,174 164,174" fill="currentColor"/>
+
+  <rect x="25" y="182" width="270" height="34" rx="4" fill="currentColor" fill-opacity="0.08" stroke="currentColor" stroke-width="1.4"/>
+  <text x="160" y="203" text-anchor="middle" font-size="12" font-weight="bold" fill="currentColor">Безопасная адаптация правил без сбоев</text>
+      </svg>
+      <p class="dim">Схема 4. Иерархия AWS Managed Rules и три механизма управления переопределениями.</p>
+    </div>
+
+    <h2 id="catalog">1 · Каталог управляемых наборов правил AWS Managed Rules <a class="anchor-link" href="#catalog">#</a></h2>
+    <p><span class="term"><button type="button" class="term-btn" aria-expanded="false">Управляемые группы правил AWS Managed Rules (AMR)</button><span class="term-card" role="tooltip" hidden><span class="term-header"><strong class="term-title">Управляемые группы правил AWS (AWS Managed Rules, AMR)</strong><button type="button" class="term-close" aria-label="Закрыть">×</button></span><span class="term-desc">Готовые пакеты правил безопасности, разрабатываемые и непрерывно обновляемые исследовательской группой AWS Threat Intelligence.</span><span class="term-links"><a href="glossary.html#amrg">В словарь понятий <svg class="icon" data-icon="book" viewBox="0 0 20 20" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2.6 3.8h4.8a2.6 2.6 0 0 1 2.6 2.6v10a2.2 2.2 0 0 0-2.2-1.8H2.6z"/><path d="M17.4 3.8h-4.8a2.6 2.6 0 0 0-2.6 2.6v10a2.2 2.2 0 0 1 2.2-1.8h5.2z"/></svg></a></span></span></span> представляют собой готовые, непрерывно обновляемые группы правил, разрабатываемые экспертами команды AWS Threat Intelligence и партнерами по <span class="term"><button type="button" class="term-btn" aria-expanded="false">правилам AWS Marketplace</button><span class="term-card" role="tooltip" hidden><span class="term-header"><strong class="term-title">Партнерские правила AWS Marketplace</strong><button type="button" class="term-close" aria-label="Закрыть">×</button></span><span class="term-desc">Специализированные наборы правил от ведущих вендоров кибербезопасности, подключаемые по подписке через AWS Marketplace.</span><span class="term-links"><a href="glossary.html#marketplace-rules">В словарь понятий <svg class="icon" data-icon="book" viewBox="0 0 20 20" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2.6 3.8h4.8a2.6 2.6 0 0 1 2.6 2.6v10a2.2 2.2 0 0 0-2.2-1.8H2.6z"/><path d="M17.4 3.8h-4.8a2.6 2.6 0 0 0-2.6 2.6v10a2.2 2.2 0 0 1 2.2-1.8h5.2z"/></svg></a></span></span></span>. Подключение группы правил осуществляется через оператор ManagedRuleGroupStatement внутри правила Web ACL.</p>
+    <p>Структура ManagedRuleGroupStatement содержит ровно семь конфигурационных полей: VendorName (всегда AWS для нативных наборов), Name (наименование группы правил), Version (версия набора сигнатур), ExcludedRules (список исключаемых правил устаревшего формата), RuleActionOverrides (современный механизм переопределения действий конкретных правил), ScopeDownStatement (условие сужения области действия группы) и ManagedRuleGroupConfigs (дополнительные настройки, такие как параметры защиты от ботов).</p>
+    <p>Каталог AMR делится на три категории: базовые наборы (Baseline rule sets), наборы для специфических сред (Use-case specific rule sets, включая Linux, Windows, PHP, WordPress, SQL database) и расширенные модули противодействия мошенничеству (Fraud Control: Bot Control, Account Takeover Prevention, Account Creation Fraud Prevention). Большинство базовых наборов предоставляются бесплатно, оплачивается только емкость WCU и объем обработанных запросов.</p>
+
+    <h2 id="crs">2 · Базовый защитный набор: AWSManagedRulesCommonRuleSet (CRS) <a class="anchor-link" href="#crs">#</a></h2>
+    <p>Флагманом каталога AMR является <span class="term"><button type="button" class="term-btn" aria-expanded="false">набор правил AWSManagedRulesCommonRuleSet (Core Rule Set, CRS)</button><span class="term-card" role="tooltip" hidden><span class="term-header"><strong class="term-title">Базовый набор правил защиты (Common Rule Set, CRS)</strong><button type="button" class="term-close" aria-label="Закрыть">×</button></span><span class="term-desc">Флагманская управляемая группа правил AWS, закрывающая фундаментальные веб-уязвимости и векторы атак.</span><span class="term-links"><a href="glossary.html#crs">В словарь понятий <svg class="icon" data-icon="book" viewBox="0 0 20 20" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2.6 3.8h4.8a2.6 2.6 0 0 1 2.6 2.6v10a2.2 2.2 0 0 0-2.2-1.8H2.6z"/><path d="M17.4 3.8h-4.8a2.6 2.6 0 0 0-2.6 2.6v10a2.2 2.2 0 0 1 2.2-1.8h5.2z"/></svg></a></span></span></span>. Он потребляет ровно 700 WCU и обеспечивает широкую защиту от распространенных уязвимостей веб-приложений, описанных в публикациях OWASP (Open Web Application Security Project).</p>
+    <p>В состав CRS входят десятки специализированных сигнатур, проверяющих различные векторы атак:</p>
+    <ul>
+      <li><strong>GenericRFI_QUERYARGUMENTS и GenericRFI_BODY:</strong> Обнаружение попыток внедрения удаленных файлов (Remote File Inclusion, RFI) через протоколы http://, https://, ftp:// в параметрах запроса и теле HTTP.</li>
+      <li><strong>GenericLFI_URIPATH и GenericLFI_QUERYARGUMENTS:</strong> Защита от локального обхода директорий (Local File Inclusion / Directory Traversal) через конструкции вида ../, ..\ и закодированные последовательности %2e%2e%2f.</li>
+      <li><strong>SizeRestrictions_BODY:</strong> Ограничение размера инспектируемого тела запроса (по умолчанию до 8 КБ или 64 КБ), предотвращающее атаки отказа в обслуживании на парсеры веб-серверов.</li>
+      <li><strong>RestrictedExtensions_URIPATH:</strong> Блокировка попыток скачивания чувствительных системных файлов конфигурации (.env, .git, .bak, .config, .sql).</li>
+      <li><strong>CrossSiteScripting_COOKIE, BODY, URIPATH:</strong> Фильтрация пейлоадов межсайтового скриптинга (XSS), попыток инъекции тегов script, iframe, обработчиков событий onload и javascript: ссылок.</li>
+    </ul>
+
+    <h2 id="reputation">3 · Репутационные списки IP-адресов и известные боты <a class="anchor-link" href="#reputation">#</a></h2>
+    <p>Второй фундаментальный слой защиты обеспечивают репутационные наборы IP-адресов. Набор <code>AWSManagedRulesAmazonIpReputationListRuleSet</code> (расходует всего 25 WCU) формируется на основе глобальной сетевой телеметрии Amazon и включает адреса, замеченные в сканировании инфраструктуры AWS, отправке спама, участии в ботнетах и распространении вредоносного ПО.</p>
+    <p>Дополнительный набор <code>AWSManagedRulesAnonymousIpListRuleSet</code> (потребляет 50 WCU) блокирует запросы, скрывающие реальную точку происхождения клиента. Он содержит четыре специализированных правила: AnonymousProxyList (прокси-серверы анонимизации), HostingProviderIPList (диапазоны дата-центров DigitalOcean, Hetzner, OVH и др., откуда часто работают боты), TorNodes (выходные узлы луковой маршрутизации Tor) и VPNList (коммерческие VPN-сервисы).</p>
+    <p>Инженер должен с осторожностью активировать правило HostingProviderIPList: если ваш сервис обслуживает легитимные API-интеграции B2B, запросы партнеров из облачных дата-центров могут быть заблокированы. В таких случаях это правило точечно переопределяется в режим Count или исключается через ScopeDownStatement.</p>
+
+    <h2 id="specialized">4 · Специализированные наборы: SQLi, Linux, POSIX и PHP <a class="anchor-link" href="#specialized">#</a></h2>
+    <p>Для целевой защиты специфических технологических компонентов бэкенда применяются специализированные наборы AMR:</p>
+    <ul>
+      <li><strong>SQLi Rule Set (200 WCU):</strong> Набор <code>AWSManagedRulesSQLiRuleSet</code> содержит глубокие предикаты SqliMatchStatement, инспектирующие URI, куки, заголовки и тело запроса на наличие конструкций языка SQL (UNION SELECT, OR 1=1, DROP TABLE, сброс комментариев /*, инъекции вслепую через SLEEP/BENCHMARK).</li>
+      <li><strong>Linux Rule Set (200 WCU):</strong> Набор <code>AWSManagedRulesLinuxRuleSet</code> защищает серверные дистрибутивы Linux от попыток инъекции шелл-команд в веб-приложениях (LFI к файлам /etc/passwd, /etc/shadow, выполнение утилит cat, wget, curl, nc через разделители ;, |, &amp;).</li>
+      <li><strong>PHP Rule Set (100 WCU):</strong> Набор <code>AWSManagedRulesPHPRuleSet</code> закрывает известные уязвимости интерпретатора PHP: инъекцию функций php://input, вызовы eval, assert, инъекции в конфигурацию php.ini и суперглобальные массивы $_GET, $_POST.</li>
+      <li><strong>Known Bad Inputs (200 WCU):</strong> Набор <code>AWSManagedRules<wbr>KnownBadInputsRuleSet</code> блокирует известные сигнатуры уязвимостей фреймворков и библиотек, такие как атаки на сериализацию Java (Log4j / Log4Shell через проверку jndi:ldap://), атаки на Spring Framework и уязвимости парсинга XML (XXE).</li>
+    </ul>
+
+    <h2 id="versioning">5 · Версионирование AMR: Default, фиксированные версии и SNS <a class="anchor-link" href="#versioning">#</a></h2>
+    <p>Каждый управляемый набор правил AMR непрерывно совершенствуется инженерами AWS: добавляются новые правила, корректируются существующие регулярные выражения. Чтобы обновление сигнатур не ломало продакшен неожиданно для эксплуатационной команды, в WAFv2 внедрен строгий механизм версионирования.</p>
+    <p>Управляемая группа может быть зафиксирована на конкретной версии (Fixed Version, например, <code>Version = "Version_2.1"</code>) либо использовать плавающую версию по умолчанию (<code>Version = "Default"</code>). При фиксации версии WAF гарантирует стабильность набора правил: никакие новые правила не появятся без ведома инженера. AWS поддерживает фиксированные версии в течение нескольких месяцев, публикуя статус версий (Active, Deprecated, Expired).</p>
+        <p>Для контроля изменений сигнатур AWS предоставляет публичный топик Amazon SNS (arn:aws:sns:us-east-1:248400274383:aws-managed-waf-rule-set-updates). Инженеры могут настроить автоматическую подписку корпоративного мессенджера (Slack, Telegram) или функции Lambda на этот топик, чтобы оперативно получать оповещения о планируемых обновлениях сигнатур, появлении новых правил и сроках вывода устаревших версий из эксплуатации. AWS публикует уведомления о переводе версии в статус Deprecated за 30 дней до ее окончательного отключения (Expired), предоставляя командам разработки достаточное окно для тестирования новой версии в тестовом окружении.</p>
+    <p>Рекомендуемая корпоративная практика - использовать фиксированную версию в производственных контурах с автоматическим регрессионным тестированием при выходе минорных релизов, а плавающую версию Default держать исключительно на средах разработки (Staging / Dev) для раннего выявления потенциальных проблем совместимости.</p>
+
+    <h2 id="overrides">6 · Переопределение действий: OverrideAction и исключение правил <a class="anchor-link" href="#overrides">#</a></h2>
+    <p>Главная опасность при подключении готовых наборов правил - ложные срабатывания (False Positives). Например, легитимный запрос клиента с фрагментом кода или математической формулой может сработать на сигнатуру GenericRFI_BODY из CRS и быть ошибочно заблокирован с кодом 403.</p>
+    <p>Для безопасного внедрения и тюнинга AMR предусмотрено два уровня переопределения действий:</p>
+    <ul>
+      <li><strong><span class="term"><button type="button" class="term-btn" aria-expanded="false">Режим подсчета OverrideAction (Count Mode)</button><span class="term-card" role="tooltip" hidden><span class="term-header"><strong class="term-title">Режим подсчета (Count Mode)</strong><button type="button" class="term-close" aria-label="Закрыть">×</button></span><span class="term-desc">Нетерминальное действие WAF, фиксирующее срабатывание правила в метриках без прерывания обработки запроса.</span><span class="term-links"><a href="glossary.html#count-mode">В словарь понятий <svg class="icon" data-icon="book" viewBox="0 0 20 20" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2.6 3.8h4.8a2.6 2.6 0 0 1 2.6 2.6v10a2.2 2.2 0 0 0-2.2-1.8H2.6z"/><path d="M17.4 3.8h-4.8a2.6 2.6 0 0 0-2.6 2.6v10a2.2 2.2 0 0 1 2.2-1.8h5.2z"/></svg></a></span></span></span> на уровне всей группы:</strong> Задается внутри правила Web ACL как <code>"OverrideAction": {"Count": {}}</code>. В этом режиме все блокирующие правила внутри группы принудительно переводятся в режим Count. Запрос никогда не блокируется этой группой, но в CloudWatch регистрируются метрики срабатываний, что позволяет собрать профиль трафика перед боевым включением.</li>
+      <li><strong><span class="term"><button type="button" class="term-btn" aria-expanded="false">Гранулированные переопределения RuleActionOverrides</button><span class="term-card" role="tooltip" hidden><span class="term-header"><strong class="term-title">Переопределение действия правила (Rule Action Override)</strong><button type="button" class="term-close" aria-label="Закрыть">×</button></span><span class="term-desc">Механизм подмены терминального действия управляемого правила на пассивный подсчет (Count) для безопасного тестирования.</span><span class="term-links"><a href="glossary.html#rule-override">В словарь понятий <svg class="icon" data-icon="book" viewBox="0 0 20 20" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2.6 3.8h4.8a2.6 2.6 0 0 1 2.6 2.6v10a2.2 2.2 0 0 0-2.2-1.8H2.6z"/><path d="M17.4 3.8h-4.8a2.6 2.6 0 0 0-2.6 2.6v10a2.2 2.2 0 0 1 2.2-1.8h5.2z"/></svg></a></span></span></span>:</strong> Позволяют переопределить вердикт конкретного правила внутри группы, не затрагивая остальные. Например, можно оставить всю группу CRS в режиме Block, но для одного проблемного правила SizeRestrictions_BODY настроить ActionToUse: Count.</li>
+      <li><strong>Сужение области через ScopeDownStatement:</strong> Позволяет применить всю группу правил только к подмножеству трафика, например, исключить проверенные API эндпоинты внутренних микросервисов, для которых сигнатуры заведомо избыточны.</li>
+    </ul>
+
+    <div class="box artifacts" id="artifacts">
+      <h2>Артефакты страницы <a class="anchor-link" href="#artifacts">#</a></h2>
+      <p>Каталог групп AWS Managed Rules (CRS, Known Bad Inputs, IP Reputation, SQLi, Linux, PHP).</p>
+      <p>Спецификация ManagedRuleGroupStatement с 7 конфигурационными полями.</p>
+      <p>Механизм управления версиями AMR (Default vs Fixed Versions) и SNS-оповещения.</p>
+      <p>Шаблоны переопределения действий: OverrideAction Count и RuleActionOverrides.</p>
     </div>
   
 
     <footer>
       <nav class="pager" aria-label="Соседние темы">
-        <p class="pager-next">Следующая тема: <a href="04.html">Раздел 4</a></p>
-        <p class="pager-prev">Предыдущая тема: <a href="02.html">Раздел 2</a></p>
+        <p class="pager-next">Следующая тема: <a href="04.html">Кастомные правила</a></p>
+        <p class="pager-prev">Предыдущая тема: <a href="02.html">Области и ассоциации</a></p>
       </nav>
       <p class="footer-note">Сайт серии AI Factory. Сделан той же оснасткой, что и остальные: обычный HTML и CSS, проверка на bash, публикация через GitHub Pages.</p>
     </footer>

@@ -3,9 +3,9 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Раздел 5 · devops-aws-waf · ai|</title>
+<title>Условия и агрегация · devops-aws-waf · ai|</title>
 <!-- meta: built by tools/build-meta.py - do not edit by hand -->
-<meta name="description" content="Лид страницы: о чём она и кому нужна.">
+<meta name="description" content="Сложная комбинаторная логика и динамический контроль частоты: Rate-based правила, агрегация по ключам (IP, Headers, Cookies, Query), логические операторы...">
 <link rel="canonical" href="https://y-kolyada.github.io/aws-waf/ru/05.html">
 <link rel="alternate" hreflang="ru" href="https://y-kolyada.github.io/aws-waf/ru/05.html">
 <link rel="alternate" hreflang="en" href="https://y-kolyada.github.io/aws-waf/en/05.html">
@@ -14,13 +14,13 @@
 <link rel="alternate" hreflang="x-default" href="https://y-kolyada.github.io/aws-waf/">
 <meta property="og:type" content="article">
 <meta property="og:site_name" content="devops-aws-waf">
-<meta property="og:title" content="Раздел 5">
-<meta property="og:description" content="Лид страницы: о чём она и кому нужна.">
+<meta property="og:title" content="Условия и агрегация">
+<meta property="og:description" content="Сложная комбинаторная логика и динамический контроль частоты: Rate-based правила, агрегация по ключам (IP, Headers, Cookies, Query), логические операторы...">
 <meta property="og:url" content="https://y-kolyada.github.io/aws-waf/ru/05.html">
 <meta property="og:locale" content="ru_RU">
 <meta name="twitter:card" content="summary">
 <link rel="icon" href="../assets/img/favicon.svg" type="image/svg+xml">
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"TechArticle","headline":"Раздел 5","description":"Лид страницы: о чём она и кому нужна.","url":"https://y-kolyada.github.io/aws-waf/ru/05.html","inLanguage":"ru","isPartOf":{"@type":"WebSite","name":"devops-aws-waf","url":"https://y-kolyada.github.io/aws-waf/"}}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"TechArticle","headline":"Условия и агрегация","description":"Сложная комбинаторная логика и динамический контроль частоты: Rate-based правила, агрегация по ключам (IP, Headers, Cookies, Query), логические операторы...","url":"https://y-kolyada.github.io/aws-waf/ru/05.html","inLanguage":"ru","isPartOf":{"@type":"WebSite","name":"devops-aws-waf","url":"https://y-kolyada.github.io/aws-waf/"}}</script>
 <!-- /meta -->
 <link rel="stylesheet" href="../assets/style.css?v=1">
 <script>
@@ -67,21 +67,21 @@
 
   <nav class="contents" aria-label="Разделы сайта">
     <ol>
-      <li><a href="01.html"><span class="num">1</span>Раздел 1</a></li>
-      <li><a href="02.html"><span class="num">2</span>Раздел 2</a></li>
-      <li><a href="03.html"><span class="num">3</span>Раздел 3</a></li>
-      <li><a href="04.html"><span class="num">4</span>Раздел 4</a></li>
-      <li><a href="05.html" aria-current="page"><span class="num">5</span>Раздел 5</a></li>
-      <li><a href="06.html"><span class="num">6</span>Раздел 6</a></li>
-      <li><a href="07.html"><span class="num">7</span>Раздел 7</a></li>
-      <li><a href="08.html"><span class="num">8</span>Раздел 8</a></li>
-      <li><a href="09.html"><span class="num">9</span>Раздел 9</a></li>
-      <li><a href="10.html"><span class="num">10</span>Раздел 10</a></li>
-      <li><a href="11.html"><span class="num">11</span>Раздел 11</a></li>
-      <li><a href="12.html"><span class="num">12</span>Раздел 12</a></li>
-      <li><a href="13.html"><span class="num">13</span>Раздел 13</a></li>
-      <li><a href="14.html"><span class="num">14</span>Раздел 14</a></li>
-      <li><a href="15.html"><span class="num">15</span>Раздел 15</a></li>
+      <li><a href="01.html"><span class="num">1</span>Архитектура и WCU</a></li>
+      <li><a href="02.html"><span class="num">2</span>Области и ассоциации</a></li>
+      <li><a href="03.html"><span class="num">3</span>Управляемые правила</a></li>
+      <li><a href="04.html"><span class="num">4</span>Кастомные правила</a></li>
+      <li><a href="05.html" aria-current="page"><span class="num">5</span>Условия и агрегация</a></li>
+      <li><a href="06.html"><span class="num">6</span>Действия и ответы</a></li>
+      <li><a href="07.html"><span class="num">7</span>Защита от ботов</a></li>
+      <li><a href="08.html"><span class="num">8</span>Логи и телеметрия</a></li>
+      <li><a href="09.html"><span class="num">9</span>Экономика и аудит</a></li>
+      <li><a href="10.html"><span class="num">10</span>Примеры · Noob</a></li>
+      <li><a href="11.html"><span class="num">11</span>Примеры · Pro</a></li>
+      <li><a href="12.html"><span class="num">12</span>Примеры · IGL</a></li>
+      <li><a href="13.html"><span class="num">13</span>Вопросы · Noob</a></li>
+      <li><a href="14.html"><span class="num">14</span>Вопросы · Pro</a></li>
+      <li><a href="15.html"><span class="num">15</span>Вопросы · IGL</a></li>
     </ol>
     <div class="nav-extra">
       <div><a href="navigator.html"><svg class="icon" data-icon="target" viewBox="0 0 20 20" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="10" cy="10" r="7.4"/><circle cx="10" cy="10" r="3.6"/><circle cx="10" cy="10" r="0.7" fill="currentColor"/></svg> Навигатор</a></div>
@@ -93,28 +93,168 @@
   </nav>
 
   <main id="main">
-    <h1>Раздел 5</h1>
-    <p class="page-size" data-words="48">Слов: 48</p>
-    <p class="lead">Лид страницы: о чём она и кому нужна. Одно предложение, не длиннее 160 знаков.</p>
+    <h1>Условия и агрегация</h1>
+    <p class="page-size" data-words="1210">Слов: 1210</p>
+    <p class="lead">Сложная комбинаторная логика и динамический контроль частоты: Rate-based правила, агрегация по ключам (IP, Headers, Cookies, Query), логические операторы AND/OR/NOT, фильтры сужения Scope-down и конвейер нормализации текста.</p>
 
     <div class="box key" id="key-idea">
       <h2>Главная мысль страницы <a class="anchor-link" href="#key-idea" aria-label="ссылка на этот блок">#</a></h2>
-      <p>Текст этого раздела ещё не написан.</p>
+      <p>Реальные атаки редко представляют собой единичные примитивные запросы. Они распределены во времени и используют методы обхода сигнатур (обфускация URL, кодирование сущностей HTML, смена регистра символов). Глава 5 раскрывает продвинутый математический аппарат WAFv2: динамические скользящие окна RateBasedStatement (от 60 до 600 секунд) с агрегацией не только по IP, но и по кастомным комбинациям HTTP-заголовков, сессионных кук и параметров строки запроса. В сочетании с логическими операторами AND/OR/NOT и многостадийным конвейером <span class="term"><button type="button" class="term-btn" aria-expanded="false">текстовых преобразований (Text Transformations)</button><span class="term-card" role="tooltip" hidden><span class="term-header"><strong class="term-title">Преобразование текста (Text Transformation)</strong><button type="button" class="term-close" aria-label="Закрыть">×</button></span><span class="term-desc">Алгоритмическая нормализация текстовых полей запроса перед сравнением со строковыми шаблонами и сигнатурами.</span><span class="term-links"><a href="glossary.html#text-transformation">В словарь понятий <svg class="icon" data-icon="book" viewBox="0 0 20 20" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2.6 3.8h4.8a2.6 2.6 0 0 1 2.6 2.6v10a2.2 2.2 0 0 0-2.2-1.8H2.6z"/><path d="M17.4 3.8h-4.8a2.6 2.6 0 0 0-2.6 2.6v10a2.2 2.2 0 0 1 2.2-1.8h5.2z"/></svg></a></span></span></span> это позволяет создавать несокрушимые эвристики защиты без единого ложного срабатывания.</p>
     </div>
 
-    <h2 id="first">1 · Раздел 1 <a class="anchor-link" href="#first">#</a></h2>
-    <p>Текст этого раздела ещё не написан.</p>
+    <div class="box figure">
+      <svg viewBox="0 0 320 230" style="max-width:320px;height:auto;display:block;margin:0 auto" role="img" aria-label="Схема замкнутого контура скользящего окна Rate Limiting с порогом и автоматическим снятием блокировки">
+  <rect x="35" y="8" width="250" height="30" rx="4" fill="currentColor" fill-opacity="0.08" stroke="currentColor" stroke-width="1.4"/>
+  <text x="160" y="24" text-anchor="middle" font-size="12" font-weight="bold" fill="currentColor">Поток запросов (IP / JWT)</text>
+  <text x="160" y="35" text-anchor="middle" font-size="12" opacity="0.75" fill="currentColor">Окна 60с - 600с</text>
 
-    <div class="box key" id="artifacts">
-      <h2>Артефакты: что у вас есть после этой страницы <a class="anchor-link" href="#artifacts">#</a></h2>
-      <p>Текст этого раздела ещё не написан.</p>
+  <line x1="240" y1="38" x2="240" y2="68" stroke="currentColor" stroke-width="1.4"/>
+  <polygon points="240,76 236,68 244,68" fill="currentColor"/>
+
+  <rect x="175" y="76" width="135" height="42" rx="4" fill="currentColor" fill-opacity="0.05" stroke="currentColor" stroke-width="1.2"/>
+  <text x="242" y="94" text-anchor="middle" font-size="12" font-weight="bold" fill="currentColor">Скользящее окно</text>
+  <text x="242" y="108" text-anchor="middle" font-size="12" opacity="0.75" fill="currentColor">Агрегация ключей</text>
+
+  <line x1="242" y1="118" x2="242" y2="142" stroke="currentColor" stroke-width="1.4"/>
+  <polygon points="242,150 238,142 246,142" fill="currentColor"/>
+
+  <rect x="30" y="150" width="260" height="36" rx="4" fill="currentColor" fill-opacity="0.08" stroke="currentColor" stroke-width="1.4"/>
+  <text x="160" y="167" text-anchor="middle" font-size="12" font-weight="bold" fill="currentColor">Сравнение с порогом (Rate Limit)</text>
+  <text x="160" y="179" text-anchor="middle" font-size="12" opacity="0.75" fill="currentColor">Превышение лимита (100 req/5m)</text>
+
+  <line x1="75" y1="150" x2="75" y2="124" stroke="currentColor" stroke-width="1.4"/>
+  <polygon points="75,116 71,124 79,124" fill="currentColor"/>
+
+  <rect x="10" y="76" width="135" height="40" rx="4" fill="currentColor" fill-opacity="0.05" stroke="currentColor" stroke-width="1.2"/>
+  <text x="77" y="93" text-anchor="middle" font-size="12" font-weight="bold" fill="currentColor">Block / CAPTCHA</text>
+  <text x="77" y="107" text-anchor="middle" font-size="12" opacity="0.75" fill="currentColor">Временный бан</text>
+
+  <line x1="75" y1="76" x2="75" y2="44" stroke="currentColor" stroke-width="1.4"/>
+  <polygon points="75,38 71,44 79,44" fill="currentColor"/>
+
+  <rect x="30" y="196" width="260" height="24" rx="4" fill="currentColor" fill-opacity="0.08" stroke="currentColor" stroke-width="1.2"/>
+  <text x="160" y="212" text-anchor="middle" font-size="12" fill="currentColor">Автоматический сброс после паузы</text>
+      </svg>
+      <p class="dim">Схема 6. Замкнутый контур скользящего окна Rate Limiting с петлей восстановления.</p>
+    </div>
+
+    <h2 id="rate-limiting">1 · Динамическое ограничение частоты: RateBasedStatement и скользящее окно <a class="anchor-link" href="#rate-limiting">#</a></h2>
+    <p>Оператор <span class="term"><button type="button" class="term-btn" aria-expanded="false">RateBasedStatement (Rate-based Rule)</button><span class="term-card" role="tooltip" hidden><span class="term-header"><strong class="term-title">Ограничение частоты запросов (Rate-based Rule)</strong><button type="button" class="term-close" aria-label="Закрыть">×</button></span><span class="term-desc">Правило поведенческого контроля, отслеживающее частоту запросов в скользящем окне и блокирующее всплески трафика.</span><span class="term-links"><a href="glossary.html#rate-based-rule">В словарь понятий <svg class="icon" data-icon="book" viewBox="0 0 20 20" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2.6 3.8h4.8a2.6 2.6 0 0 1 2.6 2.6v10a2.2 2.2 0 0 0-2.2-1.8H2.6z"/><path d="M17.4 3.8h-4.8a2.6 2.6 0 0 0-2.6 2.6v10a2.2 2.2 0 0 1 2.2-1.8h5.2z"/></svg></a></span></span></span> отслеживает количество входящих запросов за настраиваемое временное <span class="term"><button type="button" class="term-btn" aria-expanded="false">окно оценки запросов (EvaluationWindowSec)</button><span class="term-card" role="tooltip" hidden><span class="term-header"><strong class="term-title">Окно агрегации запросов (Evaluation Window)</strong><button type="button" class="term-close" aria-label="Закрыть">×</button></span><span class="term-desc">Временной интервал агрегации метрик в rate-based правилах: 60, 120 или 300 секунд.</span><span class="term-links"><a href="glossary.html#evaluation-window">В словарь понятий <svg class="icon" data-icon="book" viewBox="0 0 20 20" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2.6 3.8h4.8a2.6 2.6 0 0 1 2.6 2.6v10a2.2 2.2 0 0 0-2.2-1.8H2.6z"/><path d="M17.4 3.8h-4.8a2.6 2.6 0 0 0-2.6 2.6v10a2.2 2.2 0 0 1 2.2-1.8h5.2z"/></svg></a></span></span></span>. В WAFv2 поддерживаются четыре фиксированных интервала окна: 60, 120, 300 (5 минут, значение по умолчанию) и 600 секунд (10 минут). Минимальный порог срабатывания (Limit) составляет 10 запросов за окно, максимальный ограничен миллионами запросов.</p>
+    <p>Конфигурация RateBasedStatement содержит ровно шесть полей: AggregateKeyType, Limit, EvaluationWindowSec, ScopeDownStatement, ForwardedIPConfig и CustomKeys. Принцип работы основан на непрерывном скользящем подсчете: как только количество запросов от конкретного ключа агрегации за последние N секунд превышает Limit, правило переходит в активное состояние и применяет заданное действие (Block, Captcha, Challenge или Count). Когда интенсивность запросов падает ниже установленного порога, действие автоматически снимается без ручного вмешательства администратора.</p>
+        <p>Возможность выбора коротких окон (60 или 120 секунд) критически важна для защиты чувствительных API: это позволяет мгновенно реагировать на агрессивный флуд, не накладывая длительную блокировку на динамические IP-адреса мобильных операторов. Внутренний механизм вычисления скользящего окна в WAFv2 разбивает выбранный интервал времени на дискретные 10-секундные сегменты (кванты). Это гарантирует плавное и непрерывное смещение счетчика запросов без эффекта граничного сброса (Boundary Reset), присущего устаревшим системам с фиксированными минутными интервалами.</p>
+    <p>При наступлении порога срабатывания WAFv2 переводит соответствующий ключ в список заблокированных сущностей. При этом инженер может гибко управлять действием правила: вместо жесткого сброса соединения (Block) можно назначить действие Challenge. В этом случае браузер легитимного пользователя, попавшего под ограничение частоты из-за интенсивной работы, выполнит фоновую криптографическую проверку и продолжит работу без прерывания сессии, тогда как автоматизированный скрипт остановится.</p>
+
+    <h2 id="custom-keys">2 · Составные ключи агрегации: Custom Keys (Headers, Cookies, Query, IP) <a class="anchor-link" href="#custom-keys">#</a></h2>
+    <p>Исторически в WAF Classic ограничение частоты рассчитывалось исключительно по IP-адресу клиента. В WAFv2 параметр AggregateKeyType поддерживает четыре режима: IP, FORWARDED_IP, CONSTANT и CUSTOM_KEYS.</p>
+    <p>Режим CUSTOM_KEYS позволяет формировать составные ключи агрегации из нескольких независимых атрибутов запроса. В массив CustomKeys можно включить до пяти селекторов:</p>
+    <ul>
+      <li><strong>Header:</strong> Агрегация по значению конкретного HTTP-заголовка (например, X-API-Key, Authorization или Client-ID).</li>
+      <li><strong>Cookie:</strong> Агрегация по сессионному идентификатору (session_id, jwt). Это позволяет изолировать конкретного скомпрометированного пользователя, даже если он отправляет запросы через тысячи ротационных прокси.</li>
+      <li><strong>QueryArgument и QueryString:</strong> Агрегация по отдельному параметру URL (?action=search) или всей строке запроса.</li>
+      <li><strong>HTTPMethod:</strong> Разделение лимитов для идемпотентных методов GET и изменяющих состояние методов POST, PUT, DELETE.</li>
+      <li><strong>IP и ForwardedIP:</strong> Комбинирование сетевого адреса с бизнес-идентификатором клиента.</li>
+    </ul>
+
+    <h2 id="scope-down">3 · Фильтры сужения области действия: Scope-down Statements <a class="anchor-link" href="#scope-down">#</a></h2>
+    <p>Параметр <span class="term"><button type="button" class="term-btn" aria-expanded="false">ограничивающего условия (Scope-down Statement)</button><span class="term-card" role="tooltip" hidden><span class="term-header"><strong class="term-title">Ограничивающее условие (Scope-down Statement)</strong><button type="button" class="term-close" aria-label="Закрыть">×</button></span><span class="term-desc">Вложенное логическое условие, сужающее область действия rate-based правила до целевых URL или методов.</span><span class="term-links"><a href="glossary.html#scope-down">В словарь понятий <svg class="icon" data-icon="book" viewBox="0 0 20 20" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2.6 3.8h4.8a2.6 2.6 0 0 1 2.6 2.6v10a2.2 2.2 0 0 0-2.2-1.8H2.6z"/><path d="M17.4 3.8h-4.8a2.6 2.6 0 0 0-2.6 2.6v10a2.2 2.2 0 0 1 2.2-1.8h5.2z"/></svg></a></span></span></span> внутри RateBasedStatement выполняет роль предварительного фильтра. Он указывает WAF, какие именно запросы должны участвовать в подсчете частоты.</p>
+    <p>Без ScopeDownStatement лимит применяется ко всему входящему трафику ресурса, что вынуждает завышать порог (например, ставить 2000 запросов для всего сайта), теряя защиту критических страниц. С помощью ScopeDownStatement можно сузить подсчет до одного конкретного эндпоинта: например, считать только запросы к пути <code>/api/v1/auth/login</code> с методом POST. В этом случае обычный просмотр статических страниц каталога не расходует лимит пользователя, а для формы аутентификации устанавливается жесткий лимит в 20 запросов за 5 минут.</p>
+
+    <h2 id="logic">4 · Логические операторы: комбинирование условий через AND, OR и NOT <a class="anchor-link" href="#logic">#</a></h2>
+    <p>Для построения сложных многоуровневых проверок WAFv2 предоставляет <span class="term"><button type="button" class="term-btn" aria-expanded="false">составные логические условия (AND/OR/NOT)</button><span class="term-card" role="tooltip" hidden><span class="term-header"><strong class="term-title">Составное логическое условие (AND/OR/NOT Statement)</strong><button type="button" class="term-close" aria-label="Закрыть">×</button></span><span class="term-desc">Иерархическая логическая конструкция, объединяющая базовые предикаты инспекции в комплексные выражения.</span><span class="term-links"><a href="glossary.html#composite-statement">В словарь понятий <svg class="icon" data-icon="book" viewBox="0 0 20 20" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2.6 3.8h4.8a2.6 2.6 0 0 1 2.6 2.6v10a2.2 2.2 0 0 0-2.2-1.8H2.6z"/><path d="M17.4 3.8h-4.8a2.6 2.6 0 0 0-2.6 2.6v10a2.2 2.2 0 0 1 2.2-1.8h5.2z"/></svg></a></span></span></span>: AndStatement, OrStatement и NotStatement. Каждый из них принимает массив Statements (для AND и OR) или ровно один вложенный Statement (для NOT). Операторы могут вкладываться друг в друга с глубиной до нескольких уровней.</p>
+    <p>Типовой пример промышленной эвристики на базе AndStatement: заблокировать запрос, ЕСЛИ он обращается к административной панели (ByteMatch URI starts with /admin), И НЕ исходит из доверенной корпоративной сети (NOT IPSetReference), И метод запроса равен POST или PUT (OrStatement).</p>
+    <p>Использование логических операторов оптимизирует потребление WCU: одно составное правило с AndStatement обходится дешевле, чем цепочка из трех разрозненных правил с временными метками RuleLabels.</p>
+
+    <h2 id="transformations">5 · Конвейер нормализации текста: TextTransformations против обфускации <a class="anchor-link" href="#transformations">#</a></h2>
+    <p>Злоумышленники используют десятки приемов обфускации данных, чтобы замаскировать вредоносные пейлоады от сигнатурного анализатора. Например, строку <code>&lt;script&gt;</code> можно закодировать в URL-формате как <code>%3Cscript%3E</code>, в шестнадцатеричном виде или изменить регистр на <code>&lt;ScRiPt&gt;</code>.</p>
+        <p>Трансформации могут объединяться в последовательные цепочки (Pipeline) с упорядочиванием по полю Priority (от 0 до 9). Например, для надежной проверки параметра search в строке запроса можно назначить сначала Priority 0: URL_DECODE (раскрыть закодированные символы), затем Priority 1: HTML_ENTITY_DECODE (декодировать HTML-сущности), а затем Priority 2: LOWERCASE (привести весь результат к нижнему регистру). Только после прохождения всех трех этапов нормализованная строка передается оператору сравнения ByteMatch или SqliMatch, что на 100% нейтрализует попытки многослойной обфускации пейлоадов.</p>
+    <p>Для инспекции паролей и токенов авторизации поддерживается трансформация MD5 или SHA256 (Hash), позволяющая вычислять хэш от полезной нагрузки непосредственно на периметре WAF до отправки запроса в целевую группу серверов.</p>
+    <p>Конвейер TextTransformations решает эту проблему. Каждая трансформация настраивает два поля: Priority (целое число, задающее порядок выполнения трансформации) и Type. WAFv2 поддерживает широкий набор алгоритмов нормализации:</p>
+    <ul>
+      <li><strong>NONE:</strong> Исходное значение без изменений.</li>
+      <li><strong>LOWERCASE:</strong> Приведение всех символов к нижнему регистру (ликвидация обхода сменой регистра).</li>
+      <li><strong>URL_DECODE:</strong> Декодирование процентных последовательностей URL (%20 в пробел, %2f в слэш).</li>
+      <li><strong>HTML_ENTITY_DECODE:</strong> Замена HTML-сущностей (&amp;quot;, &amp;lt;, &amp;gt;) на их строковые эквиваленты.</li>
+      <li><strong>CMD_LINE:</strong> Нормализация командных строк операционных систем (удаление обратных слэшей, лишних пробелов и кавычек).</li>
+      <li><strong>BASE64_DECODE:</strong> Декодирование содержимого из формата Base64 для инспекции полезной нагрузки токенов и заголовков.</li>
+    </ul>
+
+    <h2 id="hardening">6 · Практический шаблон защиты критических API-эндпоинтов <a class="anchor-link" href="#hardening">#</a></h2>
+    <p>Сведем все разобранные механизмы в единый эталонный шаблон защиты API аутентификации от подбора паролей:</p>
+    <pre><code>{
+  "Name": "ProtectLoginRateLimit",
+  "Priority": 10,
+  "Action": {
+    "Block": {
+      "CustomResponse": {
+        "ResponseCode": 429,
+        "CustomResponseBodyKey": "RateLimitErrorBody"
+      }
+    }
+  },
+  "Statement": {
+    "RateBasedStatement": {
+      "Limit": 50,
+      "EvaluationWindowSec": 300,
+      "AggregateKeyType": "CUSTOM_KEYS",
+      "CustomKeys": [
+        {
+          "Header": {
+            "Name": "X-Client-ID",
+            "TextTransformations": [
+              { "Priority": 0, "Type": "LOWERCASE" }
+            ]
+          }
+        }
+      ],
+      "ScopeDownStatement": {
+        "AndStatement": {
+          "Statements": [
+            {
+              "ByteMatchStatement": {
+                "SearchString": "/api/v1/auth/login",
+                "FieldToMatch": { "UriPath": {} },
+                "TextTransformations": [
+                  { "Priority": 0, "Type": "LOWERCASE" }
+                ],
+                "PositionalConstraint": "EXACTLY"
+              }
+            },
+            {
+              "ByteMatchStatement": {
+                "SearchString": "POST",
+                "FieldToMatch": { "Method": {} },
+                "TextTransformations": [
+                  { "Priority": 0, "Type": "NONE" }
+                ],
+                "PositionalConstraint": "EXACTLY"
+              }
+            }
+          ]
+        }
+      }
+    }
+  },
+  "VisibilityConfig": {
+    "SampledRequestsEnabled": true,
+    "CloudWatchMetricsEnabled": true,
+    "MetricName": "ProtectLoginRateLimitMetric"
+  }
+}</code></pre>
+    <p>Данное правило изолирует эндпоинт POST /api/v1/auth/login, отслеживает скользящее 5-минутное окно по идентификатору клиента X-Client-ID с предварительным приведением регистра к нижнему, и при превышении порога в 50 запросов возвращает статус 429 Too Many Requests со структурированным телом ответа JSON.</p>
+
+    <div class="box artifacts" id="artifacts">
+      <h2>Артефакты страницы <a class="anchor-link" href="#artifacts">#</a></h2>
+      <p>Оператор RateBasedStatement со скользящими окнами 60, 120, 300 и 600 секунд.</p>
+      <p>Составные ключи CustomKeys (Headers, Cookies, Query, IP, HTTPMethod).</p>
+      <p>Фильтры сужения области ScopeDownStatement и логические операторы And/Or/Not.</p>
+      <p>Многостадийный конвейер текстовых трансформаций TextTransformations (LOWERCASE, URL_DECODE, CMD_LINE).</p>
     </div>
   
 
     <footer>
       <nav class="pager" aria-label="Соседние темы">
-        <p class="pager-next">Следующая тема: <a href="06.html">Раздел 6</a></p>
-        <p class="pager-prev">Предыдущая тема: <a href="04.html">Раздел 4</a></p>
+        <p class="pager-next">Следующая тема: <a href="06.html">Действия и ответы</a></p>
+        <p class="pager-prev">Предыдущая тема: <a href="04.html">Кастомные правила</a></p>
       </nav>
       <p class="footer-note">Сайт серии AI Factory. Сделан той же оснасткой, что и остальные: обычный HTML и CSS, проверка на bash, публикация через GitHub Pages.</p>
     </footer>

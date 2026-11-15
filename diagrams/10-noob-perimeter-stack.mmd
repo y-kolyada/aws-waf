@@ -1,0 +1,5 @@
+flowchart LR
+    S1["1. IP Allowlist"] --> S2["2. Tor / Geo IP"]
+    S2 --> S3["3. AWS CRS"]
+    S3 --> S4["4. Size Limit"]
+    S4 --> Goal["5. Изоляция /admin"]
