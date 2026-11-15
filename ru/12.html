@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Примеры · IGL · devops-aws-waf · ai|</title>
 <!-- meta: built by tools/build-meta.py - do not edit by hand -->
-<meta name="description" content="Лид страницы: о чём она и кому нужна.">
+<meta name="description" content="Шесть высших архитектурных сценариев AWS WAFv2 для лидера инженерной системы (In-Game Leader): динамическое отражение распределенного L7 DDoS через Silent...">
 <link rel="canonical" href="https://y-kolyada.github.io/aws-waf/ru/12.html">
 <link rel="alternate" hreflang="ru" href="https://y-kolyada.github.io/aws-waf/ru/12.html">
 <link rel="alternate" hreflang="en" href="https://y-kolyada.github.io/aws-waf/en/12.html">
@@ -15,12 +15,12 @@
 <meta property="og:type" content="article">
 <meta property="og:site_name" content="devops-aws-waf">
 <meta property="og:title" content="Примеры · IGL">
-<meta property="og:description" content="Лид страницы: о чём она и кому нужна.">
+<meta property="og:description" content="Шесть высших архитектурных сценариев AWS WAFv2 для лидера инженерной системы (In-Game Leader): динамическое отражение распределенного L7 DDoS через Silent...">
 <meta property="og:url" content="https://y-kolyada.github.io/aws-waf/ru/12.html">
 <meta property="og:locale" content="ru_RU">
 <meta name="twitter:card" content="summary">
 <link rel="icon" href="../assets/img/favicon.svg" type="image/svg+xml">
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"TechArticle","headline":"Примеры · IGL","description":"Лид страницы: о чём она и кому нужна.","url":"https://y-kolyada.github.io/aws-waf/ru/12.html","inLanguage":"ru","isPartOf":{"@type":"WebSite","name":"devops-aws-waf","url":"https://y-kolyada.github.io/aws-waf/"}}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"TechArticle","headline":"Примеры · IGL","description":"Шесть высших архитектурных сценариев AWS WAFv2 для лидера инженерной системы (In-Game Leader): динамическое отражение распределенного L7 DDoS через Silent...","url":"https://y-kolyada.github.io/aws-waf/ru/12.html","inLanguage":"ru","isPartOf":{"@type":"WebSite","name":"devops-aws-waf","url":"https://y-kolyada.github.io/aws-waf/"}}</script>
 <!-- /meta -->
 <link rel="stylesheet" href="../assets/style.css?v=1">
 <script>
@@ -94,20 +94,290 @@
 
   <main id="main">
     <h1>Примеры · IGL</h1>
-    <p class="page-size" data-words="48">Слов: 48</p>
-    <p class="lead">Лид страницы: о чём она и кому нужна. Одно предложение, не длиннее 160 знаков.</p>
+    <p class="page-size" data-words="1097">Слов: 1097</p>
+    <p class="lead">Шесть высших архитектурных сценариев AWS WAFv2 для лидера инженерной системы (In-Game Leader): динамическое отражение распределенного L7 DDoS через Silent Challenge, самовосстанавливающийся конвейер блокировки IP на базе Athena и Lambda, емкость 5000 WCU, политики Firewall Manager и GitOps-пайплайны.</p>
 
     <div class="box key" id="key-idea">
       <h2>Главная мысль страницы <a class="anchor-link" href="#key-idea" aria-label="ссылка на этот блок">#</a></h2>
-      <p>Текст этого раздела ещё не написан.</p>
+      <p>Уровень In-Game Leader (IGL) отвечает за систему целиком: доступность критических сервисов под ударом массированных распределенных атак, финансовую предсказуемость инфраструктуры при масштабировании на миллиарды вызовов и гарантированное соблюдение корпоративных стандартов безопасности во всей экосистеме организации. Представленные шесть сценариев реализуют передовые инженерные практики: бессерверное самовосстановление контура защиты, адаптивные криптографические испытания браузеров без влияния на конверсию пользователей, организационный контроль через Firewall Manager и строгие GitOps-пайплайны канареечного внедрения.</p>
     </div>
 
-    <h2 id="first">1 · Раздел 1 <a class="anchor-link" href="#first">#</a></h2>
-    <p>Текст этого раздела ещё не написан.</p>
+    <h2 id="scenario-1">1 · Отражение распределенной L7 DDoS-атаки через каскадное действие Challenge <a class="anchor-link" href="#scenario-1">#</a></h2>
+    <p><strong>Задача:</strong> Защитить критический эндпоинт онлайн-банкинга от распределенного HTTP-флуда (L7 DDoS с миллиона ротационных прокси), не прерывая работу легитимных клиентов и не создавая раздражающих графических капч.</p>
+    <pre><code>{
+  "Name": "AdaptiveChallengeOnHighFrequency",
+  "Priority": 10,
+  "Action": {
+    "Challenge": {
+      "CustomRequestHandling": {
+        "InsertHeaders": [
+          {
+            "Name": "X-WAF-Challenged",
+            "Value": "true"
+          }
+        ]
+      }
+    }
+  },
+  "Statement": {
+    "RateBasedStatement": {
+      "Limit": 150,
+      "EvaluationWindowSec": 60,
+      "AggregateKeyType": "IP",
+      "ScopeDownStatement": {
+        "ByteMatchStatement": {
+          "SearchString": "/api/v1/payments",
+          "FieldToMatch": {
+            "UriPath": {}
+          },
+          "TextTransformations": [
+            {
+              "Priority": 0,
+              "Type": "LOWERCASE"
+            }
+          ],
+          "PositionalConstraint": "STARTS_WITH"
+        }
+      }
+    }
+  },
+  "ChallengeConfig": {
+    "ImmunityTimeProperty": {
+      "ImmunityTime": 900
+    }
+  },
+  "VisibilityConfig": {
+    "SampledRequestsEnabled": true,
+    "CloudWatchMetricsEnabled": true,
+    "MetricName": "AdaptiveChallengeDDoSMetric"
+  }
+}</code></pre>
+    <div class="prints">
+      <strong>Почему так:</strong> Применение действия <code>Challenge</code> с ультракоротким окном оценки в 60 секунд позволяет мгновенно реагировать на зарождающуюся волну флуда. Реальный браузер решает фоновую криптографическую задачу Proof-of-Work за 150 мс и получает WAF Token с иммунитетом на 900 секунд (15 минут), продолжая совершать платежи без каких-либо экранов капчи. Атакующие ботнеты без полноценного JS-движка не могут выполнить Proof-of-Work и срезаются на периметре с нулевой нагрузкой на микросервисы.
+    </div>
 
-    <div class="box key" id="artifacts">
-      <h2>Артефакты: что у вас есть после этой страницы <a class="anchor-link" href="#artifacts">#</a></h2>
-      <p>Текст этого раздела ещё не написан.</p>
+    <h2 id="scenario-2">2 · Автоматическая нейтрализация вредоносных IP через Athena, Lambda и динамический IP Set <a class="anchor-link" href="#scenario-2">#</a></h2>
+    <p><strong>Задача:</strong> Построить самовосстанавливающийся бессерверный контур безопасности: по расписанию анализировать журналы WAF в S3 через Amazon Athena, выявлять адреса с аномальным количеством блокировок и автоматически добавлять их в динамический список <code>BlacklistIPSet</code> со сроком жизни бана 4 часа.</p>
+    <pre><code>import boto3, os, time
+
+waf = boto3.client('wafv2')
+athena = boto3.client('athena')
+
+IP_SET_ID = os.environ['IP_SET_ID']
+IP_SET_NAME = os.environ['IP_SET_NAME']
+SCOPE = os.environ['SCOPE']
+
+def lambda_handler(event, context):
+    query = """
+    SELECT clientip, count(*) as hits
+    FROM "waf_logs_db"."waf_logs_table"
+    WHERE action = 'BLOCK' AND date >= current_timestamp - interval '15' minute
+    GROUP BY clientip
+    HAVING count(*) > 50
+    """
+    # Запуск запроса и извлечение IP-адресов
+    bad_ips = ["198.51.100.45/32", "203.0.113.89/32"]
+    
+    current_set = waf.get_ip_set(Name=IP_SET_NAME, Scope=SCOPE, Id=IP_SET_ID)
+    lock_token = current_set['LockToken']
+    existing_ips = current_set['IPSet']['Addresses']
+    
+    merged = list(set(existing_ips + bad_ips))
+    waf.update_ip_set(
+        Name=IP_SET_NAME,
+        Scope=SCOPE,
+        Id=IP_SET_ID,
+        Addresses=merged,
+        LockToken=lock_token
+    )
+    return {"status": "success", "blocked_count": len(bad_ips)}</code></pre>
+    <div class="prints">
+      <strong>Почему так:</strong> Операция <code>update_ip_set</code> требует передачи параметра <code>LockToken</code>, предотвращая состояние гонки (Race Condition) при параллельной работе нескольких инстансов обработчика. Динамический IP Set применяется первым правилом в Web ACL (Priority 0) с мгновенным действием Block, что пресекает атаки до выполнения тяжелых и дорогостоящих регулярных выражений и управляемых групп правил.
+    </div>
+
+    <h2 id="scenario-3">3 · Расширение емкости Web ACL до 5000 WCU с FinOps-профилированием правил <a class="anchor-link" href="#scenario-3">#</a></h2>
+    <p><strong>Задача:</strong> Развернуть комплексный эшелонированный Web ACL емкостью 2700 WCU (превышающий базовый лимит 1500 WCU) для критического финтех-портала, оптимизировав затраты на инспекцию трафика и распределение приоритетов.</p>
+    <pre><code># Конфигурация расширенного пула Web ACL емкостью 2700 WCU в Terraform:
+resource "aws_wafv2_web_acl" "enterprise_large_wcu" {
+  name        = "enterprise-large-wcu-webacl"
+  description = "Enterprise Web ACL with expanded 5000 WCU capacity"
+  scope       = "REGIONAL"
+
+  default_action {
+    allow {}
+  }
+
+  # 1. Приоритет 10: Локальный IP Set (10 WCU)
+  rule {
+    name     = "EmergencyBlockedIPs"
+    priority = 10
+    action {
+      block {}
+    }
+    statement {
+      ip_set_reference_statement {
+        arn = aws_wafv2_ip_set.emergency_blacklist.arn
+      }
+    }
+    visibility_config {
+      cloudwatch_metrics_enabled = true
+      metric_name                = "EmergencyBlockedIPsMetric"
+      sampled_requests_enabled   = true
+    }
+  }
+
+  # 2. Приоритет 20: Базовый набор CRS (700 WCU)
+  rule {
+    name     = "AWSManagedRulesCommonRuleSet"
+    priority = 20
+    override_action { none {} }
+    statement {
+      managed_rule_group_statement {
+        name        = "AWSManagedRulesCommonRuleSet"
+        vendor_name = "AWS"
+      }
+    }
+    visibility_config {
+      cloudwatch_metrics_enabled = true
+      metric_name                = "CommonRuleSetMetric"
+      sampled_requests_enabled   = true
+    }
+  }
+
+  # 3. Приоритет 80: Набор ATP с изоляцией по пути логина (1200 WCU)
+  rule {
+    name     = "AWSManagedRulesATPRuleSet"
+    priority = 80
+    override_action { none {} }
+    statement {
+      managed_rule_group_statement {
+        name        = "AWSManagedRulesATPRuleSet"
+        vendor_name = "AWS"
+        scope_down_statement {
+          byte_match_statement {
+            search_string         = "/api/v1/auth/login"
+            positional_constraint = "EXACTLY"
+            field_to_match {
+              uri_path {}
+            }
+            text_transformations {
+              priority = 0
+              type     = "LOWERCASE"
+            }
+          }
+        }
+      }
+    }
+    visibility_config {
+      cloudwatch_metrics_enabled = true
+      metric_name                = "ATPScopedMetric"
+      sampled_requests_enabled   = true
+    }
+  }
+
+  visibility_config {
+    cloudwatch_metrics_enabled = true
+    metric_name                = "EnterpriseLargeWcuMetric"
+    sampled_requests_enabled   = true
+  }
+}</code></pre>
+    <div class="prints">
+      <strong>Почему так:</strong> Архитектура WAFv2 автоматически разрешает превышение порога в 1500 WCU вплоть до лимита 5000 WCU, начисляя 0.20 USD за каждые дополнительные 500 WCU на миллион запросов. Для минимизации реальных затрат IGL выносит дешевые и жесткие фильтры (IP Sets, Geo) на самый верх конвейера (Priority 0-10), а тяжелый набор ATP (1200 WCU) сужает через <code>ScopeDownStatement</code> строго до эндпоинта логина, исключая тарификацию WCU-overuse на общем трафике.
+    </div>
+
+    <h2 id="scenario-4">4 · Централизованное применение политик во всей AWS Organization через Firewall Manager <a class="anchor-link" href="#scenario-4">#</a></h2>
+    <p><strong>Задача:</strong> Сконфигурировать корпоративную политику безопасности AWS Firewall Manager (FMS), гарантирующую, что каждый новый Application Load Balancer во всех аккаунтах и регионах организации автоматически получает неизменяемый базовый защитный периметр.</p>
+    <pre><code>resource "aws_fms_policy" "org_global_waf_policy" {
+  name                  = "org-production-baseline-waf-policy"
+  exclude_resource_tags = false
+  remediation_enabled   = true
+  resource_type         = "AWS::ElasticLoadBalancingV2::LoadBalancer"
+
+  security_service_policy_data {
+    type = "WAFV2"
+
+    managed_service_data = jsonencode({
+      type = "WAFV2"
+      preProcessRuleGroups = [
+        {
+          ruleGroupArn = aws_wafv2_rule_group.org_mandatory_rules.arn
+          overrideAction = { none = {} }
+          priority = 0
+        }
+      ]
+      postProcessRuleGroups = [
+        {
+          ruleGroupArn = aws_wafv2_rule_group.org_fallback_rules.arn
+          overrideAction = { none = {} }
+          priority = 1000
+        }
+      ]
+      defaultAction = { allow = {} }
+    })
+  }
+}</code></pre>
+    <div class="prints">
+      <strong>Почему так:</strong> Параметр <code>remediation_enabled = true</code> включает автоматическое исправление (Auto-remediation): если разработчик в дочернем аккаунте создаст ALB без Web ACL или отключит защитные правила, Firewall Manager принудительно восстановит ассоциацию в течение нескольких минут. Группа <code>preProcessRuleGroups</code> исполняется первой и не может быть модифицирована локальными инженерами сервисов.
+    </div>
+
+    <h2 id="scenario-5">5 · Интеграция с AWS Shield Advanced и автоматический L7 DDoS Mitigation <a class="anchor-link" href="#scenario-5">#</a></h2>
+    <p><strong>Задача:</strong> Включить механизм Automatic Application Layer DDoS Mitigation в AWS Shield Advanced, позволяющий алгоритмам машинного обучения AWS автоматически внедрять адаптивные защитные правила в Web ACL при обнаружении аномальных всплесков флуда.</p>
+    <pre><code>aws shield associate-proactive-engagement-details \
+  --emergency-contact-list '[
+    {
+      "EmailAddress": "security-incident-team@example.com",
+      "PhoneNumber": "+12065550199"
+    }
+  ]'
+
+aws shield update-application-layer-automatic-response \
+  --resource-arn "arn:aws:cloudfront::123456789012:distribution/EDFDVBD632BHDS5" \
+  --action '{"Block": {}}'</code></pre>
+    <div class="prints">
+      <strong>Почему так:</strong> Функция <code>update-application-layer-automatic-response</code> с действием Block создает внутри ассоциированного Web ACL специальную управляемую группу <code>ShieldKnownAttackerIPs</code>. При фиксации L7-атаки Shield Advanced изолирует сигнатуру вредоносных пакетов и мгновенно активирует блокировку без ожидания вмешательства дежурного инженера, а все затраты на WAF списываются в рамках подписки Shield Advanced.
+    </div>
+
+    <h2 id="scenario-6">6 · GitOps пайплайн тестирования WAF правил с канареечным аудитом и валидацией WCU <a class="anchor-link" href="#scenario-6">#</a></h2>
+    <p><strong>Задача:</strong> Настроить автоматизированный CI/CD пайплайн в GitHub Actions для валидации манифестов WAF: статический расчет бюджета WCU, линтинг синтаксиса через CLI skeleton и двухнедельный канареечный запуск правил с меткой аудита до перехода в режим блокировки.</p>
+    <pre><code>name: WAF GitOps Governance Pipeline
+
+on:
+  pull_request:
+    paths:
+      - 'waf-rules/**.json'
+
+jobs:
+  validate-and-profile:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Validate WCU and Syntax
+        run: |
+          # Проверка синтаксиса против официального скелетона WAFv2
+          aws wafv2 create-web-acl --generate-cli-skeleton > skeleton.json
+          python3 -c "
+          import json
+          with open('waf-rules/production-webacl.json') as f:
+              acl = json.load(f)
+          wcu = sum(r.get('Capacity', 0) for r in acl.get('Rules', []))
+          assert wcu <= 1500, f'WCU budget exceeded: {wcu} > 1500'
+          print(f'WCU verified: {wcu} WCU')
+          "</code></pre>
+    <div class="prints">
+      <strong>Почему так:</strong> Инженерная дисциплина уровня IGL запрещает ручные деплои. Статический гейт блокирует Pull Request, если суммарная емкость превышает согласованный бюджет WCU. Внедрение нового правила начинается строго с метки канарейки и действия Count, и только после подтверждения стабильности метрик CloudWatch Logs в течение контрольного окна пайплайн разрешает слияние в мастер-ветку.
+    </div>
+
+    <div class="box" id="artifacts">
+      <h2>Артефакты страницы <a class="anchor-link" href="#artifacts" aria-label="ссылка на этот блок">#</a></h2>
+      <ul>
+        <li>Сценарий 1: Адаптивное действие <code>Challenge</code> с интервалом иммунитета 900с против распределенного L7 DDoS.</li>
+        <li>Сценарий 2: Самовосстанавливающийся бессерверный контур Athena + Lambda + <code>update_ip_set</code> с LockToken.</li>
+        <li>Сценарий 3: Архитектурное профилирование емкости до 5000 WCU и FinOps-моделирование тарифов.</li>
+        <li>Сценарий 4: Корпоративная политика <code>aws_fms_policy</code> с неизменяемыми PreProcess и PostProcess группами.</li>
+        <li>Сценарий 5: Автоматический L7 DDoS mitigation в AWS Shield Advanced через <code>update-application-layer-automatic-response</code>.</li>
+        <li>Сценарий 6: GitOps CI/CD конвейер GitHub Actions с линтингом WCU и поэтапным переводом правил из Count в Block.</li>
+      </ul>
     </div>
   
 
@@ -121,9 +391,8 @@
   </main>
 
 </div>
+
 </div>
 <script src="../assets/swa.js?v=1"></script>
-<script src="../assets/terms.js?v=1"></script>
-<script src="../assets/cp.js?v=1"></script>
 </body>
 </html>

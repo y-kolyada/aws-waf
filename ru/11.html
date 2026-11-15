@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Примеры · Pro · devops-aws-waf · ai|</title>
 <!-- meta: built by tools/build-meta.py - do not edit by hand -->
-<meta name="description" content="Лид страницы: о чём она и кому нужна.">
+<meta name="description" content="Шесть продвинутых инженерных сценариев AWS WAFv2 для продакшен-окружений: декларативное развертывание в Terraform, Rate Limiting по составным ключам JWT+IP...">
 <link rel="canonical" href="https://y-kolyada.github.io/aws-waf/ru/11.html">
 <link rel="alternate" hreflang="ru" href="https://y-kolyada.github.io/aws-waf/ru/11.html">
 <link rel="alternate" hreflang="en" href="https://y-kolyada.github.io/aws-waf/en/11.html">
@@ -15,12 +15,12 @@
 <meta property="og:type" content="article">
 <meta property="og:site_name" content="devops-aws-waf">
 <meta property="og:title" content="Примеры · Pro">
-<meta property="og:description" content="Лид страницы: о чём она и кому нужна.">
+<meta property="og:description" content="Шесть продвинутых инженерных сценариев AWS WAFv2 для продакшен-окружений: декларативное развертывание в Terraform, Rate Limiting по составным ключам JWT+IP...">
 <meta property="og:url" content="https://y-kolyada.github.io/aws-waf/ru/11.html">
 <meta property="og:locale" content="ru_RU">
 <meta name="twitter:card" content="summary">
 <link rel="icon" href="../assets/img/favicon.svg" type="image/svg+xml">
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"TechArticle","headline":"Примеры · Pro","description":"Лид страницы: о чём она и кому нужна.","url":"https://y-kolyada.github.io/aws-waf/ru/11.html","inLanguage":"ru","isPartOf":{"@type":"WebSite","name":"devops-aws-waf","url":"https://y-kolyada.github.io/aws-waf/"}}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"TechArticle","headline":"Примеры · Pro","description":"Шесть продвинутых инженерных сценариев AWS WAFv2 для продакшен-окружений: декларативное развертывание в Terraform, Rate Limiting по составным ключам JWT+IP...","url":"https://y-kolyada.github.io/aws-waf/ru/11.html","inLanguage":"ru","isPartOf":{"@type":"WebSite","name":"devops-aws-waf","url":"https://y-kolyada.github.io/aws-waf/"}}</script>
 <!-- /meta -->
 <link rel="stylesheet" href="../assets/style.css?v=1">
 <script>
@@ -94,20 +94,288 @@
 
   <main id="main">
     <h1>Примеры · Pro</h1>
-    <p class="page-size" data-words="48">Слов: 48</p>
-    <p class="lead">Лид страницы: о чём она и кому нужна. Одно предложение, не длиннее 160 знаков.</p>
+    <p class="page-size" data-words="1003">Слов: 1003</p>
+    <p class="lead">Шесть продвинутых инженерных сценариев AWS WAFv2 для продакшен-окружений: декларативное развертывание в Terraform, Rate Limiting по составным ключам JWT+IP, фильтрация ботов с допуском верифицированных поисковиков, интеграция ATP, оптимизация затрат через LoggingFilter и инъекция заголовков.</p>
 
     <div class="box key" id="key-idea">
       <h2>Главная мысль страницы <a class="anchor-link" href="#key-idea" aria-label="ссылка на этот блок">#</a></h2>
-      <p>Текст этого раздела ещё не написан.</p>
+      <p>Профессиональный уровень инженерии WAFv2 отличается отсутствием ручных манипуляций в консоли и переходом к парадигме Infrastructure as Code (IaC). В реальном проде атаки нацелены не на абстрактный сайт, а на конкретную бизнес-логику: исчерпание пула соединений БД через тяжелые поисковые запросы, перебор паролей через распределенные мобильные прокси и накрутка бонусов. Представленные шесть сценариев уровня Pro демонстрируют глубокую связку инфраструктурного кода Terraform, составных ключей агрегации CustomKeys, управляемых подписок Bot Control/ATP и протоколов бессерверной маршрутизации контекста безопасности.</p>
+      <p>Стандарт Pro требует абсолютной прозрачности работы каждого защитного контура: нулевых тихих сбоев (Zero Silent Failures), четких SLO на уровень ложных срабатываний (False Positive Rate менее 0.01%) и автоматической интеграции телеметрии безопасности с корпоративными системами мониторинга Prometheus, Datadog и CloudWatch Dashboards.</p>
     </div>
 
-    <h2 id="first">1 · Раздел 1 <a class="anchor-link" href="#first">#</a></h2>
-    <p>Текст этого раздела ещё не написан.</p>
+    <h2 id="scenario-1">1 · Развертывание WAFv2 для регионального API Gateway и ALB через Terraform <a class="anchor-link" href="#scenario-1">#</a></h2>
+    <p><strong>Задача:</strong> Развернуть региональный список Web ACL с действием по умолчанию Allow, набором базовых метрик CloudWatch и связать его с REST API Gateway Stage и балансировщиком нагрузки Application Load Balancer через официальный Terraform AWS Provider.</p>
+    <pre><code>resource "aws_wafv2_web_acl" "api_regional_waf" {
+  name        = "prod-api-regional-waf"
+  description = "Regional WAF for API Gateway and ALB"
+  scope       = "REGIONAL"
 
-    <div class="box key" id="artifacts">
-      <h2>Артефакты: что у вас есть после этой страницы <a class="anchor-link" href="#artifacts">#</a></h2>
-      <p>Текст этого раздела ещё не написан.</p>
+  default_action {
+    allow {}
+  }
+
+  rule {
+    name     = "AWSCommonRuleSet"
+    priority = 1
+
+    override_action {
+      none {}
+    }
+
+    statement {
+      managed_rule_group_statement {
+        name        = "AWSManagedRulesCommonRuleSet"
+        vendor_name = "AWS"
+      }
+    }
+
+    visibility_config {
+      cloudwatch_metrics_enabled = true
+      metric_name                = "ProdApiCommonRuleSetMetric"
+      sampled_requests_enabled   = true
+    }
+  }
+
+  visibility_config {
+    cloudwatch_metrics_enabled = true
+    metric_name                = "ProdApiRegionalWafMetric"
+    sampled_requests_enabled   = true
+  }
+}
+
+resource "aws_wafv2_web_acl_association" "api_gw_assoc" {
+  resource_arn = "arn:aws:apigateway:us-east-1::/restapis/abc123xyz/stages/prod"
+  web_acl_arn  = aws_wafv2_web_acl.api_regional_waf.arn
+}</code></pre>
+    <div class="prints">
+      <strong>Почему так:</strong> Ресурс <code>aws_wafv2_web_acl_association</code> принимает ARN целевого ресурса. Для API Gateway REST API ARN формируется по строгому формату <code>arn:aws:apigateway:{region}::/restapis/{api_id}/stages/{stage_name}</code>, а для ALB используется стандартный ARN балансировщика. Декларативное описание в Terraform исключает рассинхронизацию правил между тестовыми и промышленными средами, позволяя контролировать версионирование и дрейф инфраструктуры через стандартный GitOps-пайплайн. При обновлении конфигурации Terraform выполняет атомарный вызов API <code>update-web-acl</code> с передачей LockToken, гарантируя отсутствие прерывания инспекции активных сетевых соединений.
+    </div>
+
+    <h2 id="scenario-2">2 · Композитный Rate Limiting по кастомным ключам (JWT сессия + IP-адрес) <a class="anchor-link" href="#scenario-2">#</a></h2>
+    <p><strong>Задача:</strong> Заблокировать атаку медленного L7-флуда (Slow HTTP DoS), распределенную по тысячам публичных прокси, изолируя запросы конкретного скомпрометированного токена авторизации с привязкой к IP-адресу клиента.</p>
+    <pre><code>{
+  "Name": "CompositeRateLimitByJwtAndIP",
+  "Priority": 15,
+  "Action": {
+    "Block": {}
+  },
+  "Statement": {
+    "RateBasedStatement": {
+      "Limit": 200,
+      "EvaluationWindowSec": 120,
+      "AggregateKeyType": "CUSTOM_KEYS",
+      "CustomKeys": [
+        {
+          "Header": {
+            "Name": "authorization",
+            "TextTransformations": [
+              {
+                "Priority": 0,
+                "Type": "LOWERCASE"
+              }
+            ]
+          }
+        },
+        {
+          "IP": {}
+        }
+      ],
+      "ScopeDownStatement": {
+        "ByteMatchStatement": {
+          "SearchString": "/api/v2/orders",
+          "FieldToMatch": {
+            "UriPath": {}
+          },
+          "TextTransformations": [
+            {
+              "Priority": 0,
+              "Type": "LOWERCASE"
+            }
+          ],
+          "PositionalConstraint": "STARTS_WITH"
+        }
+      }
+    }
+  },
+  "VisibilityConfig": {
+    "SampledRequestsEnabled": true,
+    "CloudWatchMetricsEnabled": true,
+    "MetricName": "JwtIpRateLimitMetric"
+  }
+}</code></pre>
+    <div class="prints">
+      <strong>Почему так:</strong> Режим <code>AggregateKeyType: CUSTOM_KEYS</code> создает составной хеш из заголовка Authorization и IP-адреса. Окно сужено до 120 секунд (2 минуты), что обеспечивает мгновенную реакцию на всплески нагрузки. Если атакующий меняет IP, но использует один и тот же украденный токен, лимит не размывается, а если запросы исходят из корпоративного NAT с множеством пользователей, каждый пользователь изолирован по своему токену. Трансформация LOWERCASE для заголовка нивелирует попытки обхода через манипуляцию регистром схемы Bearer.
+    </div>
+
+    <h2 id="scenario-3">3 · Развертывание Bot Control с селективным допуском верифицированных поисковиков <a class="anchor-link" href="#scenario-3">#</a></h2>
+    <p><strong>Задача:</strong> Включить управляемую защиту <code>AWSManagedRules<wbr>BotControlRuleSet</code> на всем портале, предотвратив блокировку легитимных поисковых краулеров Googlebot, Bingbot и Yandex.</p>
+    <pre><code>{
+  "Name": "BotControlWithVerifiedSearchEnginesAllowed",
+  "Priority": 25,
+  "OverrideAction": {
+    "None": {}
+  },
+  "Statement": {
+    "ManagedRuleGroupStatement": {
+      "VendorName": "AWS",
+      "Name": "AWSManagedRulesBotControlRuleSet",
+      "ManagedRuleGroupConfigs": [
+        {
+          "AWSManagedRulesBotControlRuleSet": {
+            "InspectionLevel": "COMMON"
+          }
+        }
+      ],
+      "RuleActionOverrides": [
+        {
+          "Name": "CategorySearchEngine",
+          "ActionToUse": {
+            "Count": {}
+          }
+        }
+      ]
+    }
+  },
+  "VisibilityConfig": {
+    "SampledRequestsEnabled": true,
+    "CloudWatchMetricsEnabled": true,
+    "MetricName": "BotControlMetric"
+  }
+}</code></pre>
+    <div class="prints">
+      <strong>Почему так:</strong> В блоке <code>RuleActionOverrides</code> для встроенного правила <code>CategorySearchEngine</code> действие переопределяется на <code>Count</code>. Bot Control проводит криптографическую валидацию DNS PTR-записей роботов: если запрос действительно исходит из инфраструктуры Google или Microsoft, WAF присваивает ему метку верифицированного краулера <code>awswaf:managed:aws:bot-control:bot:name:googlebot</code> и пропускает без блокировки, нейтрализуя при этом фейковых ботов с поддельным User-Agent.
+    </div>
+
+    <h2 id="scenario-4">4 · Защита эндпоинта аутентификации от Credential Stuffing через AWS WAF ATP <a class="anchor-link" href="#scenario-4">#</a></h2>
+    <p><strong>Задача:</strong> Развернуть специализированный набор ATP (Account Takeover Prevention) для защиты JSON API формы авторизации <code>/api/auth/login</code> от использования скомпрометированных паролей.</p>
+    <pre><code>{
+  "Name": "AWSManagedRulesATPRuleSetProduction",
+  "Priority": 35,
+  "OverrideAction": {
+    "None": {}
+  },
+  "Statement": {
+    "ManagedRuleGroupStatement": {
+      "VendorName": "AWS",
+      "Name": "AWSManagedRulesATPRuleSet",
+      "ManagedRuleGroupConfigs": [
+        {
+          "AWSManagedRulesATPRuleSet": {
+            "LoginPath": "/api/auth/login",
+            "RequestInspection": {
+              "PayloadType": "JSON",
+              "UsernameField": {
+                "Identifier": "/user/email"
+              },
+              "PasswordField": {
+                "Identifier": "/user/password"
+              }
+            }
+          }
+        }
+      ]
+    }
+  },
+  "VisibilityConfig": {
+    "SampledRequestsEnabled": true,
+    "CloudWatchMetricsEnabled": true,
+    "MetricName": "ATPProductionMetric"
+  }
+}</code></pre>
+    <div class="prints">
+      <strong>Почему так:</strong> Конфигурация <code>RequestInspection</code> парсит входящий JSON по указанным JSONPointer путям <code>/user/email</code> и <code>/user/password</code>. Модуль WAF на периметре вычисляет криптографический хэш пароля и сверяет его со всемирной базой утечек AWS Threat Intel. Если пароль фигурирует в базе взломанных учетных записей, запрос пресекается до вызова бэкенда аутентификации. Это полностью разгружает микросервисы авторизации от обработки волн брутфорса и снижает риски захвата аккаунтов.
+    </div>
+
+    <h2 id="scenario-5">5 · Оптимизация расходов на логирование через LoggingFilter (сброс легитимного трафика) <a class="anchor-link" href="#scenario-5">#</a></h2>
+    <p><strong>Задача:</strong> Сократить затраты на хранение логов WAF на 95%, настроив отбрасывание всех разрешенных запросов (ALLOW) и сохраняя только отраженные атаки (BLOCK) и подозрительные вызовы с метками Bot Control.</p>
+    <pre><code>aws wafv2 put-logging-configuration \
+  --logging-configuration '{
+    "ResourceArn": "arn:aws:wafv2:us-east-1:123456789012:regional/webacl/ProductionWebACL/c9d0e1f2",
+    "LogDestinationConfigs": [
+      "arn:aws:logs:us-east-1:123456789012:log-group:aws-waf-logs-prod-security"
+    ],
+    "LoggingFilter": {
+      "DefaultBehavior": "DROP",
+      "Filters": [
+        {
+          "Behavior": "KEEP",
+          "Requirement": "MEETS_ANY",
+          "Conditions": [
+            {
+              "ActionCondition": {
+                "Action": "BLOCK"
+              }
+            },
+            {
+              "LabelNameCondition": {
+                "LabelName": "awswaf:managed:aws:bot-control:bot:category:scraping_tool"
+              }
+            }
+          ]
+        }
+      ]
+    }
+  }'</code></pre>
+    <div class="prints">
+      <strong>Почему так:</strong> Параметр <code>DefaultBehavior: "DROP"</code> инструктирует модуль логирования игнорировать весь рядовой трафик сервиса. Массив <code>Filters</code> с директивой <code>Behavior: "KEEP"</code> и <code>Requirement: "MEETS_ANY"</code> заставляет WAF экспортировать записи исключительно тех пакетов, которые были заблокированы правилами или получили сигнатурную метку парсера контента. Это кардинально снижает объемы данных в CloudWatch Logs и экономит тысячи долларов в месяц на счетах за сетевой ингресс и долговременное хранилище. Для сохранения статистической прозрачности общего объема запросов инженеры опираются на стандартные бесплатные метрики CloudWatch AllowedRequests.
+    </div>
+
+    <h2 id="scenario-6">6 · Инъекция контекстных заголовков X-WAF-Verified и client-country для бэкендов <a class="anchor-link" href="#scenario-6">#</a></h2>
+    <p><strong>Задача:</strong> Обогатить легитимные запросы заголовками безопасности, передав во внутренние микросервисы подтверждение прохождения WAF и определенную геолокацию клиента без повторного обращения к внешним MaxMind базам.</p>
+    <pre><code>{
+  "Name": "InjectSecurityHeadersOnAllow",
+  "Priority": 90,
+  "Action": {
+    "Allow": {
+      "CustomRequestHandling": {
+        "InsertHeaders": [
+          {
+            "Name": "X-WAF-Verified",
+            "Value": "true"
+          },
+          {
+            "Name": "X-Client-Risk-Score",
+            "Value": "clean"
+          }
+        ]
+      }
+    }
+  },
+  "Statement": {
+    "ByteMatchStatement": {
+      "SearchString": "/api/",
+      "FieldToMatch": {
+        "UriPath": {}
+      },
+      "TextTransformations": [
+        {
+          "Priority": 0,
+          "Type": "LOWERCASE"
+        }
+      ],
+      "PositionalConstraint": "STARTS_WITH"
+    }
+  },
+  "VisibilityConfig": {
+    "SampledRequestsEnabled": true,
+    "CloudWatchMetricsEnabled": true,
+    "MetricName": "InjectHeadersMetric"
+  }
+}</code></pre>
+    <div class="prints">
+      <strong>Почему так:</strong> Блок <code>CustomRequestHandling.InsertHeaders</code> внедряет указанные заголовки в сетевой пакет на границе ALB. Если злоумышленник пытается отправить заголовок <code>X-WAF-Verified: true</code> снаружи, WAF перезаписывает его валидным значением. Микросервисы за балансировщиком могут проверять этот заголовок для авторизации межсервисных вызовов и маршрутизации трафика, освобождая бэкенд от необходимости повторной верификации сетевых репутационных баз.
+    </div>
+
+    <div class="box" id="artifacts">
+      <h2>Артефакты страницы <a class="anchor-link" href="#artifacts" aria-label="ссылка на этот блок">#</a></h2>
+      <ul>
+        <li>Сценарий 1: Декларативное описание <code>aws_wafv2_web_acl</code> и <code>aws_wafv2_web_acl_association</code> в Terraform.</li>
+        <li>Сценарий 2: Составной Rate Limiting по <code>CUSTOM_KEYS</code> (Authorization + IP) с 120с скользящим окном.</li>
+        <li>Сценарий 3: Переопределение <code>CategorySearchEngine</code> в <code>Count</code> внутри <code>AWSManagedRulesBotControlRuleSet</code>.</li>
+        <li>Сценарий 4: Настройка <code>RequestInspection</code> в <code>AWSManagedRulesATPRuleSet</code> с JSONPointer путями.</li>
+        <li>Сценарий 5: Оптимизация затрат через <code>LoggingFilter</code> (DefaultBehavior DROP + KEEP on BLOCK).</li>
+        <li>Сценарий 6: Инъекция заголовков <code>CustomRequestHandling.InsertHeaders</code> на этапе вердикта Allow.</li>
+      </ul>
     </div>
   
 
@@ -121,9 +389,8 @@
   </main>
 
 </div>
+
 </div>
 <script src="../assets/swa.js?v=1"></script>
-<script src="../assets/terms.js?v=1"></script>
-<script src="../assets/cp.js?v=1"></script>
 </body>
 </html>

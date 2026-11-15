@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Примеры · Noob · devops-aws-waf · ai|</title>
 <!-- meta: built by tools/build-meta.py - do not edit by hand -->
-<meta name="description" content="Лид страницы: о чём она и кому нужна.">
+<meta name="description" content="Шесть вводных боевых сценариев AWS WAFv2 для начинающего инженера: защита от атак OWASP Top 10 через управляемые правила, изоляция панели администрирования по...">
 <link rel="canonical" href="https://y-kolyada.github.io/aws-waf/ru/10.html">
 <link rel="alternate" hreflang="ru" href="https://y-kolyada.github.io/aws-waf/ru/10.html">
 <link rel="alternate" hreflang="en" href="https://y-kolyada.github.io/aws-waf/en/10.html">
@@ -15,12 +15,12 @@
 <meta property="og:type" content="article">
 <meta property="og:site_name" content="devops-aws-waf">
 <meta property="og:title" content="Примеры · Noob">
-<meta property="og:description" content="Лид страницы: о чём она и кому нужна.">
+<meta property="og:description" content="Шесть вводных боевых сценариев AWS WAFv2 для начинающего инженера: защита от атак OWASP Top 10 через управляемые правила, изоляция панели администрирования по...">
 <meta property="og:url" content="https://y-kolyada.github.io/aws-waf/ru/10.html">
 <meta property="og:locale" content="ru_RU">
 <meta name="twitter:card" content="summary">
 <link rel="icon" href="../assets/img/favicon.svg" type="image/svg+xml">
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"TechArticle","headline":"Примеры · Noob","description":"Лид страницы: о чём она и кому нужна.","url":"https://y-kolyada.github.io/aws-waf/ru/10.html","inLanguage":"ru","isPartOf":{"@type":"WebSite","name":"devops-aws-waf","url":"https://y-kolyada.github.io/aws-waf/"}}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"TechArticle","headline":"Примеры · Noob","description":"Шесть вводных боевых сценариев AWS WAFv2 для начинающего инженера: защита от атак OWASP Top 10 через управляемые правила, изоляция панели администрирования по...","url":"https://y-kolyada.github.io/aws-waf/ru/10.html","inLanguage":"ru","isPartOf":{"@type":"WebSite","name":"devops-aws-waf","url":"https://y-kolyada.github.io/aws-waf/"}}</script>
 <!-- /meta -->
 <link rel="stylesheet" href="../assets/style.css?v=1">
 <script>
@@ -94,20 +94,270 @@
 
   <main id="main">
     <h1>Примеры · Noob</h1>
-    <p class="page-size" data-words="48">Слов: 48</p>
-    <p class="lead">Лид страницы: о чём она и кому нужна. Одно предложение, не длиннее 160 знаков.</p>
+    <p class="page-size" data-words="1006">Слов: 1006</p>
+    <p class="lead">Шесть вводных боевых сценариев AWS WAFv2 для начинающего инженера: защита от атак OWASP Top 10 через управляемые правила, изоляция панели администрирования по белому списку IP, географическая блокировка, базовый Rate Limiting формы входа, кастомный ответ 429 JSON и экспорт логов в Amazon S3.</p>
 
     <div class="box key" id="key-idea">
       <h2>Главная мысль страницы <a class="anchor-link" href="#key-idea" aria-label="ссылка на этот блок">#</a></h2>
-      <p>Текст этого раздела ещё не написан.</p>
+      <p>Освоение WAF начинается с преодоления страха перед CLI и синтаксисом JSON. Каждый сценарий уровня Noob представляет собой минимально достаточную, автономную и готовую к боевому применению конфигурацию, оформленную в виде канонической триады: постановка задачи, точный код манифеста и подробный разбор механики. Понимание этих шести сценариев позволяет защитить базовый веб-сайт от 90% распространенных сетевых угроз за первые 30 минут работы без необходимости ручного программирования сложных сигнатур.</p>
+      <p>Уровень Noob в философии инженерной серии AI Factory ориентирован на уверенное владение базовыми примитивами: создание списков разрешенных и запрещенных IP-адресов, быстрая интеграция готовых управляемых правил AWS Managed Rules и первичная настройка телеметрии. Здесь исключаются скрытые неявные предположения: каждая конфигурация может быть развернута через стандартный AWS CLI одной командой, а результат проверен через выборку сэмплированных запросов get-sampled-requests.</p>
     </div>
 
-    <h2 id="first">1 · Раздел 1 <a class="anchor-link" href="#first">#</a></h2>
-    <p>Текст этого раздела ещё не написан.</p>
+    <h2 id="scenario-1">1 · Базовая защита веб-приложения от OWASP Top 10 через AWS Managed Rules <a class="anchor-link" href="#scenario-1">#</a></h2>
+    <p><strong>Задача:</strong> Защитить публичное веб-приложение на базе CloudFront или ALB от распространенных уязвимостей (SQL-инъекции, межсайтовый скриптинг XSS, LFI/RFI) с использованием стандартных управляемых наборов правил AWS Managed Rules с минимальным бюджетом WCU.</p>
+    <pre><code>{
+  "Name": "AWS-AWSManagedRulesCommonRuleSet",
+  "Priority": 10,
+  "Statement": {
+    "ManagedRuleGroupStatement": {
+      "VendorName": "AWS",
+      "Name": "AWSManagedRulesCommonRuleSet",
+      "ExcludedRules": []
+    }
+  },
+  "OverrideAction": {
+    "None": {}
+  },
+  "VisibilityConfig": {
+    "SampledRequestsEnabled": true,
+    "CloudWatchMetricsEnabled": true,
+    "MetricName": "CommonRuleSetMetric"
+  }
+}</code></pre>
+    <div class="prints">
+      <strong>Почему так:</strong> Набор <code>AWSManagedRules<wbr>CommonRuleSet</code> (CRS) потребляет ровно 700 WCU и покрывает критические векторы OWASP Top 10. Параметр <code>OverrideAction: { None: {} }</code> означает, что вердикты правил (Block) исполняются напрямую без перевода в режим аудита. Поле <code>ExcludedRules</code> оставлено пустым, но готово для добавления конкретных идентификаторов сигнатур (например, <code>SizeRestrictions_BODY</code> при необходимости загрузки больших пользовательских файлов), если легитимный трафик приложения вызовет ложное срабатывание (False Positive). Это позволяет моментально изолировать проблемное правило без отключения всей группы. При первичном подключении группы в продакшене рекомендуется предварительно установить OverrideAction в режим Count на 48 часов для сбора бейслайна метрик.
+    </div>
 
-    <div class="box key" id="artifacts">
-      <h2>Артефакты: что у вас есть после этой страницы <a class="anchor-link" href="#artifacts">#</a></h2>
-      <p>Текст этого раздела ещё не написан.</p>
+    <h2 id="scenario-2">2 · Блокировка нежелательных стран по Geo-IP с белым списком офиса <a class="anchor-link" href="#scenario-2">#</a></h2>
+    <p><strong>Задача:</strong> Заблокировать весь трафик из стран с высокой вредоносной активностью, гарантировав беспрепятственный доступ для удаленных сотрудников и зарубежных филиалов компании.</p>
+    <pre><code>{
+  "Name": "BlockSpecificCountriesExceptOffice",
+  "Priority": 20,
+  "Action": {
+    "Block": {}
+  },
+  "Statement": {
+    "AndStatement": {
+      "Statements": [
+        {
+          "GeoMatchStatement": {
+            "CountryCodes": ["CN", "RU", "KP", "IR"]
+          }
+        },
+        {
+          "NotStatement": {
+            "Statement": {
+              "IPSetReferenceStatement": {
+                "ARN": "arn:aws:wafv2:us-east-1:123456789012:regional/ipset/OfficeAllowedIPs/a1b2c3d4"
+              }
+            }
+          }
+        }
+      ]
+    }
+  },
+  "VisibilityConfig": {
+    "SampledRequestsEnabled": true,
+    "CloudWatchMetricsEnabled": true,
+    "MetricName": "GeoBlockRuleMetric"
+  }
+}</code></pre>
+    <div class="prints">
+      <strong>Почему так:</strong> Логический оператор <code>AndStatement</code> объединяет условие совпадения страны <code>GeoMatchStatement</code> с отрицанием <code>NotStatement</code> принадлежности IP-адреса белому списку <code>IPSetReferenceStatement</code>. Если запрос приходит из указанной страны, но IP-адрес входит в пул <code>OfficeAllowedIPs</code>, отрицание возвращает false, условие AND не выполняется, и запрос беспрепятственно передается дальше. При работе через CloudFront определение геолокации выполняется по реальному адресу TCP-соединения, исключая возможность спуфинга заголовка X-Forwarded-For внешними клиентами.
+    </div>
+
+    <h2 id="scenario-3">3 · Защита административного интерфейса (/admin) по белому списку IP <a class="anchor-link" href="#scenario-3">#</a></h2>
+    <p><strong>Задача:</strong> Полностью закрыть доступ к административной панели <code>/admin</code> для всего внешнего интернета, разрешив обращения исключительно с фиксированных корпоративных VPN-шлюзов.</p>
+    <pre><code>{
+  "Name": "RestrictAdminAccessToCorporateVPN",
+  "Priority": 30,
+  "Action": {
+    "Block": {}
+  },
+  "Statement": {
+    "AndStatement": {
+      "Statements": [
+        {
+          "ByteMatchStatement": {
+            "SearchString": "/admin",
+            "FieldToMatch": {
+              "UriPath": {}
+            },
+            "TextTransformations": [
+              {
+                "Priority": 0,
+                "Type": "LOWERCASE"
+              },
+              {
+                "Priority": 1,
+                "Type": "URL_DECODE"
+              }
+            ],
+            "PositionalConstraint": "STARTS_WITH"
+          }
+        },
+        {
+          "NotStatement": {
+            "Statement": {
+              "IPSetReferenceStatement": {
+                "ARN": "arn:aws:wafv2:us-east-1:123456789012:regional/ipset/CorporateVpnIPSet/e5f6a7b8"
+              }
+            }
+          }
+        }
+      ]
+    }
+  },
+  "VisibilityConfig": {
+    "SampledRequestsEnabled": true,
+    "CloudWatchMetricsEnabled": true,
+    "MetricName": "RestrictAdminMetric"
+  }
+}</code></pre>
+    <div class="prints">
+      <strong>Почему так:</strong> Применение цепочки трансформаций (Priority 0: LOWERCASE, Priority 1: URL_DECODE) исключает возможность обхода фильтра через манипуляции с регистром (<code>/Admin</code>, <code>/ADMIN</code>) или URL-кодирование (<code>/%61dmin</code>). Позиционное условие STARTS_WITH гарантирует защиту всех вложенных маршрутов панели (<code>/admin/users</code>, <code>/admin/settings</code>). Если путь запроса нормализуется в строку, начинающуюся с /admin, а адрес источника отсутствует в списке CorporateVpnIPSet, запрос немедленно терминируется с кодом 403.
+    </div>
+
+    <h2 id="scenario-4">4 · Базовый Rate Limiting для предотвращения брутфорса формы логина <a class="anchor-link" href="#scenario-4">#</a></h2>
+    <p><strong>Задача:</strong> Ограничить частоту обращений к эндпоинту авторизации <code>/api/login</code> до 50 запросов за 5 минут с одного IP-адреса для подавления автоматизированного подбора паролей.</p>
+    <pre><code>{
+  "Name": "RateLimitLoginEndpoint",
+  "Priority": 40,
+  "Action": {
+    "Block": {}
+  },
+  "Statement": {
+    "RateBasedStatement": {
+      "Limit": 50,
+      "EvaluationWindowSec": 300,
+      "AggregateKeyType": "IP",
+      "ScopeDownStatement": {
+        "AndStatement": {
+          "Statements": [
+            {
+              "ByteMatchStatement": {
+                "SearchString": "/api/login",
+                "FieldToMatch": {
+                  "UriPath": {}
+                },
+                "TextTransformations": [
+                  {
+                    "Priority": 0,
+                    "Type": "LOWERCASE"
+                  }
+                ],
+                "PositionalConstraint": "EXACTLY"
+              }
+            },
+            {
+              "ByteMatchStatement": {
+                "SearchString": "POST",
+                "FieldToMatch": {
+                  "Method": {}
+                },
+                "TextTransformations": [
+                  {
+                    "Priority": 0,
+                    "Type": "NONE"
+                  }
+                ],
+                "PositionalConstraint": "EXACTLY"
+              }
+            }
+          ]
+        }
+      }
+    }
+  },
+  "VisibilityConfig": {
+    "SampledRequestsEnabled": true,
+    "CloudWatchMetricsEnabled": true,
+    "MetricName": "RateLimitLoginMetric"
+  }
+}</code></pre>
+    <div class="prints">
+      <strong>Почему так:</strong> Использование <code>ScopeDownStatement</code> локализует работу счетчика только на POST-запросах к форме авторизации. Обычный просмотр страниц каталога или фоновые GET-запросы не расходуют квоту в 50 запросов, что полностью исключает влияние правила на легитимный пользовательский опыт при надежной блокировке атак брутфорса. Скользящее 300-секундное окно динамически сбрасывает блокировку, как только интенсивность запросов атакующего спадает ниже порогового значения.
+    </div>
+
+    <h2 id="scenario-5">5 · Настройка кастомного ответа 429 с телом JSON и заголовком Retry-After <a class="anchor-link" href="#scenario-5">#</a></h2>
+    <p><strong>Задача:</strong> При блокировке запроса по превышению частоты возвращать клиенту стандартизированный HTTP-код 429 Too Many Requests со структурированным телом JSON и заголовком Retry-After вместо дефолтного 403 Forbidden.</p>
+    <pre><code>{
+  "Name": "CustomResponseOnRateLimit",
+  "Priority": 50,
+  "Action": {
+    "Block": {
+      "CustomResponse": {
+        "ResponseCode": 429,
+        "CustomResponseBodyKey": "RateLimitJsonBody",
+        "ResponseHeaders": [
+          {
+            "Name": "Retry-After",
+            "Value": "300"
+          },
+          {
+            "Name": "Content-Type",
+            "Value": "application/json"
+          }
+        ]
+      }
+    }
+  },
+  "Statement": {
+    "RateBasedStatement": {
+      "Limit": 100,
+      "EvaluationWindowSec": 300,
+      "AggregateKeyType": "IP"
+    }
+  },
+  "VisibilityConfig": {
+    "SampledRequestsEnabled": true,
+    "CloudWatchMetricsEnabled": true,
+    "MetricName": "Custom429RateLimitMetric"
+  }
+}</code></pre>
+    <div class="prints">
+      <strong>Почему так:</strong> Параметр <code>CustomResponse</code> переопределяет код завершения на 429. Ключ <code>CustomResponseBodyKey</code> связывает правило с заранее определенным телом ответа в Web ACL (например, <code>{"error": "rate_limit_exceeded", "retry_after_seconds": 300}</code>), что позволяет мобильным клиентам и фронтенд-приложениям корректно парсить ошибку и отображать понятные уведомления таймера блокировки. Заголовок Retry-After явно указывает автоматизированным агентам рекомендуемую задержку до повторной попытки.
+    </div>
+
+    <h2 id="scenario-6">6 · Включение потокового логирования в Amazon S3 с маскированием конфиденциальных данных <a class="anchor-link" href="#scenario-6">#</a></h2>
+    <p><strong>Задача:</strong> Настроить экспорт полного журнала инспекции WAFv2 в архивный S3-бакет с обязательным маскированием авторизационных токенов и сессионных кук в соответствии с требованиями PCI-DSS.</p>
+    <pre><code>aws wafv2 put-logging-configuration \
+  --logging-configuration '{
+    "ResourceArn": "arn:aws:wafv2:us-east-1:123456789012:regional/webacl/ProductionWebACL/c9d0e1f2",
+    "LogDestinationConfigs": [
+      "arn:aws:s3:::aws-waf-logs-production-archive-2026"
+    ],
+    "RedactedFields": [
+      {
+        "SingleHeader": {
+          "Name": "authorization"
+        }
+      },
+      {
+        "SingleHeader": {
+          "Name": "cookie"
+        }
+      }
+    ],
+    "LoggingFilter": {
+      "DefaultBehavior": "KEEP",
+      "Filters": []
+    }
+  }'</code></pre>
+    <div class="prints">
+      <strong>Почему так:</strong> Название целевого бакета S3 обязано начинаться со служебного префикса <code>aws-waf-logs-</code>, иначе API возвратит ошибку валидации ARN. Массив <code>RedactedFields</code> указывает поля, которые перезаписываются строкой REDACTED непосредственно перед отправкой лога, гарантируя отсутствие чувствительных Bearer-токенов в архивных хранилищах. Политика бакета S3 должна разрешать действие <code>s3:PutObject</code> для принципала сервиса логирования WAF. Для экономии места в архивном хранилище рекомендуется настроить правила S3 Lifecycle, автоматически переводящие сжатые gzip-логи старше 30 дней в класс хранилища S3 Glacier Flexible Retrieval.
+    </div>
+
+    <div class="box" id="artifacts">
+      <h2>Артефакты страницы <a class="anchor-link" href="#artifacts" aria-label="ссылка на этот блок">#</a></h2>
+      <ul>
+        <li>Сценарий 1: Управляемый набор <code>AWSManagedRulesCommonRuleSet</code> (700 WCU, защита OWASP Top 10).</li>
+        <li>Сценарий 2: Связка <code>GeoMatchStatement</code> + <code>NotStatement(IPSetReference)</code> для надежной геоблокировки.</li>
+        <li>Сценарий 3: Защита маршрута <code>/admin</code> через текстовую нормализацию (LOWERCASE, URL_DECODE).</li>
+        <li>Сценарий 4: Rate Limiting формы авторизации с локализацией через <code>ScopeDownStatement</code>.</li>
+        <li>Сценарий 5: Кастомный ответ с HTTP-статусом <code>429 Too Many Requests</code> и заголовком <code>Retry-After</code>.</li>
+        <li>Сценарий 6: Конфигурация <code>put-logging-configuration</code> в бакет <code>aws-waf-logs-*</code> с <code>RedactedFields</code>.</li>
+      </ul>
     </div>
   
 
@@ -121,9 +371,8 @@
   </main>
 
 </div>
+
 </div>
 <script src="../assets/swa.js?v=1"></script>
-<script src="../assets/terms.js?v=1"></script>
-<script src="../assets/cp.js?v=1"></script>
 </body>
 </html>
