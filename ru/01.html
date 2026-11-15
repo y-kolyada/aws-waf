@@ -94,12 +94,44 @@
 
   <main id="main">
     <h1>Архитектура и WCU</h1>
-    <p class="page-size" data-words="1223">Слов: 1223</p>
+    <p class="page-size" data-words="1257">Слов: 1257</p>
     <p class="lead">Фундамент WAFv2: структура Web ACL, правила первого уровня, группы правил, модель потребления WCU (1500 базовый лимит, расширение до 5000), порядок сопоставления правил (evaluation flow) и вердикт по умолчанию (Default Action).</p>
 
     <div class="box key" id="key-idea">
       <h2>Главная мысль страницы <a class="anchor-link" href="#key-idea" aria-label="ссылка на этот блок">#</a></h2>
       <p>Архитектура AWS WAFv2 построена на строгом разделении понятий конфигурационной сущности (Web ACL), исполняемых правил (Rule) и переиспользуемых контейнеров (Rule Group). Вся логика инспекции выполняется в строгом соответствии с приоритетом правил от меньшего целочисленного значения к большему. При первом совпадении правила с терминальным действием (Allow, Block, Captcha или Challenge) обработка пакета немедленно завершается, и запрос передается целевому ресурсу либо блокируется на периферии. Базовый лимит любого Web ACL равен 1500 единицам емкости WCU (WAF Capacity Units), что заставляет архитектора тщательно балансировать между простыми строковыми проверками и тяжелыми сигнатурными анализаторами.</p>
+    </div>
+
+    <div class="box figure">
+      <svg viewBox="0 0 320 230" style="max-width:320px;height:auto;display:block;margin:0 auto" role="img" aria-label="Схема конвейера вычисления правил Web ACL от Priority 0 до вердикта по умолчанию с учетом квоты WCU">
+  <rect x="50" y="8" width="220" height="26" rx="4" fill="currentColor" fill-opacity="0.05" stroke="currentColor" stroke-width="1.2"/>
+  <text x="160" y="25" text-anchor="middle" font-size="12" fill="currentColor">Входящий HTTP-запрос</text>
+
+  <line x1="160" y1="34" x2="160" y2="44" stroke="currentColor" stroke-width="1.4"/>
+  <polygon points="160,52 156,44 164,44" fill="currentColor"/>
+
+  <rect x="40" y="50" width="240" height="28" rx="4" fill="currentColor" fill-opacity="0.08" stroke="currentColor" stroke-width="1.2"/>
+  <text x="160" y="68" text-anchor="middle" font-size="12" fill="currentColor">Priority 0: Белый IPSet (1 WCU)</text>
+
+  <line x1="160" y1="78" x2="160" y2="88" stroke="currentColor" stroke-width="1.4"/>
+  <polygon points="160,96 156,88 164,88" fill="currentColor"/>
+
+  <rect x="35" y="94" width="250" height="28" rx="4" fill="currentColor" fill-opacity="0.05" stroke="currentColor" stroke-width="1.2"/>
+  <text x="160" y="112" text-anchor="middle" font-size="12" fill="currentColor">Priority 10: Пакет CRS (700 WCU)</text>
+
+  <line x1="160" y1="122" x2="160" y2="132" stroke="currentColor" stroke-width="1.4"/>
+  <polygon points="160,140 156,132 164,132" fill="currentColor"/>
+
+  <rect x="40" y="138" width="240" height="28" rx="4" fill="currentColor" fill-opacity="0.08" stroke="currentColor" stroke-width="1.2"/>
+  <text x="160" y="156" text-anchor="middle" font-size="12" fill="currentColor">Priority 20: Rate Limit (10 WCU)</text>
+
+  <line x1="160" y1="166" x2="160" y2="178" stroke="currentColor" stroke-width="1.4"/>
+  <polygon points="160,186 156,178 164,178" fill="currentColor"/>
+
+  <rect x="45" y="184" width="230" height="30" rx="4" fill="currentColor" fill-opacity="0.05" stroke="currentColor" stroke-width="1.2"/>
+  <text x="160" y="203" text-anchor="middle" font-size="12" font-weight="bold" fill="currentColor">DefaultAction: Allow / Block</text>
+</svg>
+      <p class="dim">Схема 2. Конвейер последовательной оценки правил Web ACL и емкость WCU.</p>
     </div>
 
     <h2 id="anatomy">1 · Анатомия WAFv2: сущности Web ACL, Rule и Rule Group <a class="anchor-link" href="#anatomy">#</a></h2>

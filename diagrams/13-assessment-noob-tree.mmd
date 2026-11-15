@@ -1,0 +1,7 @@
+flowchart TD
+    Bank["Банк Noob: 50 вопросов"] --> Core["WAFv2 Core & WCU"]
+    Bank --> Act["Actions & Associations"]
+    Core --> Rules["Синтаксис правил & IPSet"]
+    Act --> Sample["Диагностика SampledRequests"]
+    Rules --> Result["Готовность Junior Cloud Security"]
+    Sample --> Result

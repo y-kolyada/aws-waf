@@ -94,12 +94,52 @@
 
   <main id="main">
     <h1>Управляемые правила</h1>
-    <p class="page-size" data-words="1177">Слов: 1177</p>
+    <p class="page-size" data-words="1208">Слов: 1208</p>
     <p class="lead">Архитектура AWS Managed Rules (AMR): Core Rule Set (CRS), Known Bad Inputs, Amazon IP Reputation, SQLi, POSIX/Linux и PHP наборы, версионирование, переопределение действий и rolling updates.</p>
 
     <div class="box key" id="key-idea">
       <h2>Главная мысль страницы <a class="anchor-link" href="#key-idea" aria-label="ссылка на этот блок">#</a></h2>
       <p>Управляемые наборы правил AWS Managed Rules (AMR) позволяют мгновенно подключить профессиональную экспертизу безопасности AWS без необходимости вручную поддерживать тысячи сигнатур. Базовый набор AWSManagedRulesCommonRuleSet (CRS) закрывает фундаментальные угрозы из списка OWASP Top 10, а специализированные наборы защищают целевые операционные системы и базы данных. Ключевой инженерный навык при работе с AMR - управление жизненным циклом версий (Default vs Fixed Versions), своевременный аудит rolling updates через SNS-уведомления и точечное переопределение действий (RuleActionOverrides) для устранения ложных срабатываний без отключения группы целиком.</p>
+    </div>
+
+    <div class="box figure">
+      <svg viewBox="0 0 320 220" style="max-width:320px;height:auto;display:block;margin:0 auto" role="img" aria-label="Схема структуры управляемых правил AWS Managed Rules с переопределениями Count и исключениями">
+  <rect x="50" y="8" width="220" height="26" rx="4" fill="currentColor" fill-opacity="0.05" stroke="currentColor" stroke-width="1.2"/>
+  <text x="160" y="25" text-anchor="middle" font-size="12" fill="currentColor">Входящий веб-запрос</text>
+
+  <line x1="160" y1="34" x2="160" y2="44" stroke="currentColor" stroke-width="1.4"/>
+  <polygon points="160,52 156,44 164,44" fill="currentColor"/>
+
+  <rect x="30" y="50" width="260" height="32" rx="4" fill="currentColor" fill-opacity="0.08" stroke="currentColor" stroke-width="1.4"/>
+  <text x="160" y="70" text-anchor="middle" font-size="12" font-weight="bold" fill="currentColor">AWS Managed Rules (CRS 700 WCU)</text>
+
+  <path d="M 160 82 L 160 96 L 85 96 L 85 108" fill="none" stroke="currentColor" stroke-width="1.4"/>
+  <polygon points="85,116 81,108 89,108" fill="currentColor"/>
+
+  <path d="M 160 82 L 160 96 L 235 96 L 235 108" fill="none" stroke="currentColor" stroke-width="1.4"/>
+  <polygon points="235,116 231,108 239,108" fill="currentColor"/>
+
+  <rect x="15" y="114" width="140" height="38" rx="4" fill="currentColor" fill-opacity="0.05" stroke="currentColor" stroke-width="1.2"/>
+  <text x="85" y="130" text-anchor="middle" font-size="12" fill="currentColor">Override: Count</text>
+  <text x="85" y="144" text-anchor="middle" font-size="12" opacity="0.75" fill="currentColor">Тестовый режим</text>
+
+  <rect x="165" y="114" width="140" height="38" rx="4" fill="currentColor" fill-opacity="0.05" stroke="currentColor" stroke-width="1.2"/>
+  <text x="235" y="130" text-anchor="middle" font-size="12" fill="currentColor">Чистый трафик</text>
+  <text x="235" y="144" text-anchor="middle" font-size="12" opacity="0.75" fill="currentColor">Передача дальше</text>
+
+  <line x1="85" y1="152" x2="85" y2="164" stroke="currentColor" stroke-width="1.4"/>
+  <polygon points="85,172 81,164 89,164" fill="currentColor"/>
+
+  <line x1="235" y1="152" x2="235" y2="164" stroke="currentColor" stroke-width="1.4"/>
+  <polygon points="235,172 231,164 239,164" fill="currentColor"/>
+
+  <rect x="12" y="170" width="144" height="34" rx="4" fill="currentColor" fill-opacity="0.08" stroke="currentColor" stroke-width="1.2"/>
+  <text x="84" y="191" text-anchor="middle" font-size="12" fill="currentColor">Метрики CW</text>
+
+  <rect x="164" y="170" width="144" height="34" rx="4" fill="currentColor" fill-opacity="0.08" stroke="currentColor" stroke-width="1.2"/>
+  <text x="236" y="191" text-anchor="middle" font-size="12" fill="currentColor">Прикладной сервер</text>
+</svg>
+      <p class="dim">Схема 4. Иерархия пакетов правил AWS Managed Rules и механизм переопределений.</p>
     </div>
 
     <h2 id="catalog">1 · Каталог управляемых наборов правил AWS Managed Rules <a class="anchor-link" href="#catalog">#</a></h2>

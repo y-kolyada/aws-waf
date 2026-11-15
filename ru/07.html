@@ -94,12 +94,46 @@
 
   <main id="main">
     <h1>Защита от ботов</h1>
-    <p class="page-size" data-words="1201">Слов: 1201</p>
+    <p class="page-size" data-words="1233">Слов: 1233</p>
     <p class="lead">Интеллектуальное противодействие автоматизированным атакам: архитектура AWS WAF Bot Control (Common и Targeted), защита учетных записей ATP и ACFP, клиентские SDK для сбора аппаратной телеметрии и криптографическая валидация WAF Token.</p>
 
     <div class="box key" id="key-idea">
       <h2>Главная мысль страницы <a class="anchor-link" href="#key-idea" aria-label="ссылка на этот блок">#</a></h2>
       <p>Современные веб-роботы давно перестали быть простыми скриптами curl: они используют безголовые браузеры (Headless Chrome, Puppeteer, Playwright), распределенные сети живых мобильных прокси (Residential Proxies) и воспроизводят движения мыши реальных пользователей. AWS WAF решает эту проблему через стек специализированных управляемых подписок: Bot Control (разделенный на уровни Common и Targeted), Account Takeover Prevention (ATP) и Account Creation Fraud Prevention (ACFP). В комбинации с клиентскими JavaScript/Mobile SDK и криптографическими <span class="term"><button type="button" class="term-btn" aria-expanded="false">токенами безопасности WAF Token</button><span class="term-card" role="tooltip" hidden><span class="term-header"><strong class="term-title">Криптографический токен WAF (WAF Token)</strong><button type="button" class="term-close" aria-label="Закрыть">×</button></span><span class="term-desc">Зашифрованный токен сессии, подтверждающий успешное прохождение клиентской браузерной проверки Challenge или CAPTCHA.</span><span class="term-links"><a href="glossary.html#waf-token">В словарь понятий <svg class="icon" data-icon="book" viewBox="0 0 20 20" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2.6 3.8h4.8a2.6 2.6 0 0 1 2.6 2.6v10a2.2 2.2 0 0 0-2.2-1.8H2.6z"/><path d="M17.4 3.8h-4.8a2.6 2.6 0 0 0-2.6 2.6v10a2.2 2.2 0 0 1 2.2-1.8h5.2z"/></svg></a></span></span></span> этот стек отсекает 99.9% автоматизированного парсинга, брутфорса и мошенничества до того, как запрос коснется вычислительных ресурсов бэкенда.</p>
+    </div>
+
+    <div class="box figure">
+      <svg viewBox="0 0 320 220" style="max-width:320px;height:auto;display:block;margin:0 auto" role="img" aria-label="Схема процесса верификации бот-трафика: JavaScript SDK, Challenge и выдача криптографического токена">
+  <rect x="40" y="8" width="240" height="26" rx="4" fill="currentColor" fill-opacity="0.05" stroke="currentColor" stroke-width="1.2"/>
+  <text x="160" y="25" text-anchor="middle" font-size="12" fill="currentColor">Клиентский браузер + WAF SDK</text>
+
+  <line x1="160" y1="34" x2="160" y2="44" stroke="currentColor" stroke-width="1.4"/>
+  <polygon points="160,52 156,44 164,44" fill="currentColor"/>
+
+  <rect x="25" y="50" width="270" height="32" rx="4" fill="currentColor" fill-opacity="0.08" stroke="currentColor" stroke-width="1.2"/>
+  <text x="160" y="70" text-anchor="middle" font-size="12" fill="currentColor">Фоновая телеметрия: Proof-of-Work &amp; JA4</text>
+
+  <line x1="160" y1="82" x2="160" y2="94" stroke="currentColor" stroke-width="1.4"/>
+  <polygon points="160,102 156,94 164,94" fill="currentColor"/>
+
+  <rect x="25" y="100" width="270" height="32" rx="4" fill="currentColor" fill-opacity="0.05" stroke="currentColor" stroke-width="1.4"/>
+  <text x="160" y="120" text-anchor="middle" font-size="12" font-weight="bold" fill="currentColor">WAF Bot Control (Targeted)</text>
+
+  <path d="M 160 132 L 160 146 L 85 146 L 85 158" fill="none" stroke="currentColor" stroke-width="1.4"/>
+  <polygon points="85,166 81,158 89,158" fill="currentColor"/>
+
+  <path d="M 160 132 L 160 146 L 235 146 L 235 158" fill="none" stroke="currentColor" stroke-width="1.4"/>
+  <polygon points="235,166 231,158 239,158" fill="currentColor"/>
+
+  <rect x="15" y="164" width="140" height="38" rx="4" fill="currentColor" fill-opacity="0.08" stroke="currentColor" stroke-width="1.2"/>
+  <text x="85" y="180" text-anchor="middle" font-size="12" font-weight="bold" fill="currentColor">Робот / Скрапер</text>
+  <text x="85" y="194" text-anchor="middle" font-size="12" opacity="0.75" fill="currentColor">Блокировка 403</text>
+
+  <rect x="165" y="164" width="140" height="38" rx="4" fill="currentColor" fill-opacity="0.08" stroke="currentColor" stroke-width="1.2"/>
+  <text x="235" y="180" text-anchor="middle" font-size="12" fill="currentColor">Чистый трафик</text>
+  <text x="235" y="194" text-anchor="middle" font-size="12" opacity="0.75" fill="currentColor">Токен WAF Token</text>
+</svg>
+      <p class="dim">Схема 8. Поведенческий анализ Bot Control и генерация токена WAF Token.</p>
     </div>
 
     <h2 id="bot-control-architecture">1 · Архитектура Bot Control: уровни Common и Targeted <a class="anchor-link" href="#bot-control-architecture">#</a></h2>

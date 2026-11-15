@@ -1,0 +1,5 @@
+flowchart TD
+    WAF["Web ACL L7 Events"] --> Filter["LoggingFilter & RedactedFields"]
+    Filter --> Firehose["Kinesis Data Firehose"]
+    Firehose --> S3["Amazon S3 бакет"]
+    Firehose --> CW["CloudWatch Logs"]

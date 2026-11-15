@@ -1,0 +1,4 @@
+flowchart TD
+    Traffic["Публичный сетевой трафик"] --> P0["IP Set: Офис & VPN (Allow)"]
+    P0 --> Tor["Блокировка Tor & Geo (Block)"]
+    Tor --> CRS["Управляемый CRS + /admin блок"]

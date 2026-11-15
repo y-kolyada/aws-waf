@@ -1,0 +1,4 @@
+flowchart TD
+    Attack["Аномальный всплеск L7 атак"] --> Alarm["CloudWatch Alarm + EventBridge"]
+    Alarm --> Lambda["Lambda + Athena SQL анализ"]
+    Lambda --> IPSet["Динамический бан в IPSet (TTL 4h)"]

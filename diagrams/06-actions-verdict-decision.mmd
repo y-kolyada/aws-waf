@@ -1,0 +1,8 @@
+flowchart TD
+    Match["Срабатывание правила WAF"] --> Decision{"Тип действия"}
+    Decision -->|Терминальные| Term["Allow / Block"]
+    Decision -->|Испытания| Test["Captcha / Challenge"]
+    Term --> Client["Ответ клиенту (200 / 403 / 429)"]
+    Test --> Token["Проверка крипто-токена WAF"]
+    Client --> Audit["Аудит в CloudWatch"]
+    Token --> Audit

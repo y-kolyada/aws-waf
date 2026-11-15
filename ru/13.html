@@ -94,12 +94,57 @@
 
   <main id="main">
     <h1>Вопросы · Noob</h1>
-    <p class="page-size" data-words="2842">Слов: 2842</p>
+    <p class="page-size" data-words="2879">Слов: 2879</p>
     <p class="lead">Пятьдесят квалификационных вопросов технического собеседования по основам AWS WAFv2: архитектура Web ACL, модель емкости WCU, области видимости, ассоциации ресурсов, действия правил и базовый траблшутинг.</p>
 
     <div class="box key" id="key-idea">
       <h2>Главная мысль страницы <a class="anchor-link" href="#key-idea" aria-label="ссылка на этот блок">#</a></h2>
       <p>Ступень Noob оценивает знание фундаментальных понятий, топологии развертывания и базовых ограничений AWS WAFv2. Начинающий инженер обязан четко понимать отличие WAF от пакетных фильтров L3/L4 (Security Groups), жизненный цикл обработки запроса внутри Web ACL, концепцию емкости WCU, механизм переопределения действий в управляемых группах правил и алгоритм поиска ложных срабатываний через сэмплированные запросы. Все 50 вопросов разбиты на 5 логических блоков по 10 вопросов с подробными инженерными обоснованиями.</p>
+    </div>
+
+    <div class="box figure">
+      <svg viewBox="0 0 320 224" style="max-width:320px;height:auto;display:block;margin:0 auto" role="img" aria-label="Схема структуры проверки базовых компетенций Noob: анатомия правил, действия и лимиты WCU">
+  <rect x="30" y="8" width="260" height="26" rx="4" fill="currentColor" fill-opacity="0.05" stroke="currentColor" stroke-width="1.2"/>
+  <text x="160" y="25" text-anchor="middle" font-size="12" fill="currentColor">Квалификационный банк Noob (50 вопр.)</text>
+
+  <path d="M 160 34 L 160 48 L 85 48 L 85 60" fill="none" stroke="currentColor" stroke-width="1.4"/>
+  <polygon points="85,68 81,60 89,60" fill="currentColor"/>
+
+  <path d="M 160 34 L 160 48 L 235 48 L 235 60" fill="none" stroke="currentColor" stroke-width="1.4"/>
+  <polygon points="235,68 231,60 239,60" fill="currentColor"/>
+
+  <rect x="15" y="66" width="140" height="36" rx="4" fill="currentColor" fill-opacity="0.08" stroke="currentColor" stroke-width="1.2"/>
+  <text x="85" y="82" text-anchor="middle" font-size="12" font-weight="bold" fill="currentColor">Ядро WAFv2</text>
+  <text x="85" y="95" text-anchor="middle" font-size="12" opacity="0.75" fill="currentColor">Емкость WCU &amp; Квоты</text>
+
+  <rect x="165" y="66" width="140" height="36" rx="4" fill="currentColor" fill-opacity="0.08" stroke="currentColor" stroke-width="1.2"/>
+  <text x="235" y="82" text-anchor="middle" font-size="12" font-weight="bold" fill="currentColor">Вердикты Action</text>
+  <text x="235" y="95" text-anchor="middle" font-size="12" opacity="0.75" fill="currentColor">Связи ресурсов</text>
+
+  <line x1="85" y1="102" x2="85" y2="114" stroke="currentColor" stroke-width="1.4"/>
+  <polygon points="85,122 81,114 89,114" fill="currentColor"/>
+
+  <line x1="235" y1="102" x2="235" y2="114" stroke="currentColor" stroke-width="1.4"/>
+  <polygon points="235,122 231,114 239,114" fill="currentColor"/>
+
+  <rect x="15" y="120" width="140" height="38" rx="4" fill="currentColor" fill-opacity="0.05" stroke="currentColor" stroke-width="1.2"/>
+  <text x="85" y="136" text-anchor="middle" font-size="12" fill="currentColor">Предикаты и IPSet</text>
+  <text x="85" y="150" text-anchor="middle" font-size="12" opacity="0.75" fill="currentColor">Базовый синтаксис</text>
+
+  <rect x="165" y="120" width="140" height="38" rx="4" fill="currentColor" fill-opacity="0.05" stroke="currentColor" stroke-width="1.2"/>
+  <text x="235" y="136" text-anchor="middle" font-size="12" fill="currentColor">Sampled Requests</text>
+  <text x="235" y="150" text-anchor="middle" font-size="12" opacity="0.75" fill="currentColor">Диагностика атак</text>
+
+  <line x1="85" y1="158" x2="85" y2="170" stroke="currentColor" stroke-width="1.4"/>
+  <polygon points="85,178 81,170 89,170" fill="currentColor"/>
+
+  <line x1="235" y1="158" x2="235" y2="170" stroke="currentColor" stroke-width="1.4"/>
+  <polygon points="235,178 231,170 239,170" fill="currentColor"/>
+
+  <rect x="30" y="176" width="260" height="34" rx="4" fill="currentColor" fill-opacity="0.08" stroke="currentColor" stroke-width="1.4"/>
+  <text x="160" y="197" text-anchor="middle" font-size="12" font-weight="bold" fill="currentColor">Готовность Junior Cloud Security</text>
+</svg>
+      <p class="dim">Схема 14. Дерево квалификационной оценки Noob: базовые понятия и синтаксис.</p>
     </div>
 
     <h2 id="part1">1 · Архитектура WAFv2 и базовые сущности (1-10) <a class="anchor-link" href="#part1">#</a></h2>

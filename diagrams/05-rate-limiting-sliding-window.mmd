@@ -1,0 +1,6 @@
+flowchart TD
+    Traffic["Поток клиентских запросов"] --> Scope["ScopeDownStatement: /api/login"]
+    Scope --> Window["Окно 60s (Ключ: IP+Session)"]
+    Window --> Decision{"Порог 50 запросов"}
+    Decision -->|Норма| Pass["Пропуск Allow"]
+    Decision -->|Превышение| Block["Блокировка HTTP 429"]

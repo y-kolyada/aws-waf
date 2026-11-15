@@ -1,0 +1,7 @@
+flowchart TD
+    API["WAFv2 Control Plane"] --> CF["Scope CLOUDFRONT"]
+    API --> REG["Scope REGIONAL"]
+    CF --> Edge["CloudFront Anycast PoP"]
+    REG --> ALB["ALB & API Gateway VPC"]
+    Edge --> Backend["Целевой бэкенд"]
+    ALB --> Backend

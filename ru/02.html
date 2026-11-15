@@ -94,12 +94,57 @@
 
   <main id="main">
     <h1>Области и ассоциации</h1>
-    <p class="page-size" data-words="1108">Слов: 1108</p>
+    <p class="page-size" data-words="1143">Слов: 1143</p>
     <p class="lead">Разделение областей видимости WAFv2: глобальный Scope CLOUDFRONT в регионе us-east-1 против региональных ассоциаций REGIONAL (ALB, API Gateway REST/HTTP, AppSync GraphQL, Cognito User Pools, AWS Verified Access).</p>
 
     <div class="box key" id="key-idea">
       <h2>Главная мысль страницы <a class="anchor-link" href="#key-idea" aria-label="ссылка на этот блок">#</a></h2>
       <p>Разделение областей видимости в AWS WAFv2 - это фундаментальный архитектурный барьер. Глобальный WAF со Scope CLOUDFRONT существует исключительно в регионе us-east-1 (Северная Вирджиния) и физически реплицируется на сотни Anycast PoP точек присутствия по всему миру. Региональный WAF со Scope REGIONAL привязан к конкретному региону AWS и защищает сервисы внутри региональной инфраструктуры (ALB, API Gateway, AppSync, Cognito, Verified Access). Попытка связать региональный ресурс с глобальным Web ACL или создать глобальный Web ACL вне региона us-east-1 приводит к немедленной ошибке валидации API.</p>
+    </div>
+
+    <div class="box figure">
+      <svg viewBox="0 0 320 230" style="max-width:320px;height:auto;display:block;margin:0 auto" role="img" aria-label="Схема архитектурного разграничения глобального Scope CLOUDFRONT и регионального Scope REGIONAL">
+  <rect x="50" y="8" width="220" height="26" rx="4" fill="currentColor" fill-opacity="0.05" stroke="currentColor" stroke-width="1.2"/>
+  <text x="160" y="25" text-anchor="middle" font-size="12" fill="currentColor">WAFv2 Control Plane API</text>
+
+  <path d="M 160 34 L 160 48 L 85 48 L 85 60" fill="none" stroke="currentColor" stroke-width="1.4"/>
+  <polygon points="85,68 81,60 89,60" fill="currentColor"/>
+
+  <path d="M 160 34 L 160 48 L 235 48 L 235 60" fill="none" stroke="currentColor" stroke-width="1.4"/>
+  <polygon points="235,68 231,60 239,60" fill="currentColor"/>
+
+  <rect x="12" y="66" width="144" height="38" rx="4" fill="currentColor" fill-opacity="0.08" stroke="currentColor" stroke-width="1.2"/>
+  <text x="84" y="82" text-anchor="middle" font-size="12" font-weight="bold" fill="currentColor">CLOUDFRONT</text>
+  <text x="84" y="96" text-anchor="middle" font-size="12" opacity="0.75" fill="currentColor">Scope (us-east-1)</text>
+
+  <rect x="164" y="66" width="144" height="38" rx="4" fill="currentColor" fill-opacity="0.08" stroke="currentColor" stroke-width="1.2"/>
+  <text x="236" y="82" text-anchor="middle" font-size="12" font-weight="bold" fill="currentColor">REGIONAL</text>
+  <text x="236" y="96" text-anchor="middle" font-size="12" opacity="0.75" fill="currentColor">Scope (регион)</text>
+
+  <line x1="85" y1="104" x2="85" y2="116" stroke="currentColor" stroke-width="1.4"/>
+  <polygon points="85,124 81,116 89,116" fill="currentColor"/>
+
+  <line x1="235" y1="104" x2="235" y2="116" stroke="currentColor" stroke-width="1.4"/>
+  <polygon points="235,124 231,116 239,116" fill="currentColor"/>
+
+  <rect x="15" y="122" width="140" height="38" rx="4" fill="currentColor" fill-opacity="0.05" stroke="currentColor" stroke-width="1.2"/>
+  <text x="85" y="138" text-anchor="middle" font-size="12" fill="currentColor">Edge PoP Anycast</text>
+  <text x="85" y="152" text-anchor="middle" font-size="12" opacity="0.75" fill="currentColor">Периферия сети</text>
+
+  <rect x="165" y="122" width="140" height="38" rx="4" fill="currentColor" fill-opacity="0.05" stroke="currentColor" stroke-width="1.2"/>
+  <text x="235" y="138" text-anchor="middle" font-size="12" fill="currentColor">ALB &amp; API Gateway</text>
+  <text x="235" y="152" text-anchor="middle" font-size="12" opacity="0.75" fill="currentColor">Внутри VPC сети</text>
+
+  <line x1="85" y1="160" x2="85" y2="174" stroke="currentColor" stroke-width="1.4"/>
+  <polygon points="85,182 81,174 89,174" fill="currentColor"/>
+
+  <line x1="235" y1="160" x2="235" y2="174" stroke="currentColor" stroke-width="1.4"/>
+  <polygon points="235,182 231,174 239,174" fill="currentColor"/>
+
+  <rect x="30" y="180" width="260" height="34" rx="4" fill="currentColor" fill-opacity="0.08" stroke="currentColor" stroke-width="1.4"/>
+  <text x="160" y="201" text-anchor="middle" font-size="12" font-weight="bold" fill="currentColor">Целевые серверы бэкенда (EKS / ECS)</text>
+</svg>
+      <p class="dim">Схема 3. Топология областей видимости Scope: CLOUDFRONT против REGIONAL.</p>
     </div>
 
     <h2 id="scopes">1 · Правила и разделение областей видимости: Scope CLOUDFRONT против REGIONAL <a class="anchor-link" href="#scopes">#</a></h2>

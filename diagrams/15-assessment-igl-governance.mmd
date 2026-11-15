@@ -1,0 +1,7 @@
+flowchart TD
+    Bank["Банк IGL: 50 вопросов"] --> FMS["AWS Firewall Manager"]
+    Bank --> Shield["Shield Advanced & DDoS"]
+    FMS --> FinOps["FinOps & WCU Бюджет"]
+    Shield --> SRE["SRE Надежность & SLO"]
+    FinOps --> Result["Роль Principal Security Architect"]
+    SRE --> Result

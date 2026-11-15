@@ -94,12 +94,49 @@
 
   <main id="main">
     <h1>Кастомные правила</h1>
-    <p class="page-size" data-words="1117">Слов: 1117</p>
+    <p class="page-size" data-words="1146">Слов: 1146</p>
     <p class="lead">Разработка пользовательских правил фильтрации: наборы IP-адресов (IP Sets IPv4/IPv6), регулярные выражения (Regex Pattern Sets), геолокация Geo Match, поиск строковых шаблонов ByteMatch и ограничения размера SizeConstraint.</p>
 
     <div class="box key" id="key-idea">
       <h2>Главная мысль страницы <a class="anchor-link" href="#key-idea" aria-label="ссылка на этот блок">#</a></h2>
       <p><span class="term"><button type="button" class="term-btn" aria-expanded="false">Кастомные правила WAFv2</button><span class="term-card" role="tooltip" hidden><span class="term-header"><strong class="term-title">Пользовательское правило инспекции (Custom Rule)</strong><button type="button" class="term-close" aria-label="Закрыть">×</button></span><span class="term-desc">Инженерная декларация условий инспекции L7, связывающая предикаты с конкретными действиями безопасности.</span><span class="term-links"><a href="glossary.html#custom-rule">В словарь понятий <svg class="icon" data-icon="book" viewBox="0 0 20 20" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2.6 3.8h4.8a2.6 2.6 0 0 1 2.6 2.6v10a2.2 2.2 0 0 0-2.2-1.8H2.6z"/><path d="M17.4 3.8h-4.8a2.6 2.6 0 0 0-2.6 2.6v10a2.2 2.2 0 0 1 2.2-1.8h5.2z"/></svg></a></span></span></span> - это основной инструмент точной настройки безопасности под бизнес-логику конкретного приложения. Они оперируют строгими предикатами сопоставления: побайтовое сравнение ByteMatch, регулярные выражения RegexMatch, <span class="term"><button type="button" class="term-btn" aria-expanded="false">географическая принадлежность GeoMatch</button><span class="term-card" role="tooltip" hidden><span class="term-header"><strong class="term-title">Географическое соответствие (GeoMatch Statement)</strong><button type="button" class="term-close" aria-label="Закрыть">×</button></span><span class="term-desc">Предикат инспекции входящего IP-адреса на принадлежность к выбранным странам по стандарту ISO-3166.</span><span class="term-links"><a href="glossary.html#geomatch">В словарь понятий <svg class="icon" data-icon="book" viewBox="0 0 20 20" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2.6 3.8h4.8a2.6 2.6 0 0 1 2.6 2.6v10a2.2 2.2 0 0 0-2.2-1.8H2.6z"/><path d="M17.4 3.8h-4.8a2.6 2.6 0 0 0-2.6 2.6v10a2.2 2.2 0 0 1 2.2-1.8h5.2z"/></svg></a></span></span></span>, списки сетевых адресов IPSet и числовые ограничения размера SizeConstraint. Каждое правило сопоставляется с конкретной частью входящего HTTP-запроса (FieldToMatch), включая заголовки, куки, путь URI, параметры строки запроса или полезную нагрузку JSON, обеспечивая абсолютный контроль над пограничным периметром.</p>
+    </div>
+
+    <div class="box figure">
+      <svg viewBox="0 0 320 224" style="max-width:320px;height:auto;display:block;margin:0 auto" role="img" aria-label="Схема конвейера инспекции кастомного правила WAFv2 с нормализацией текста и предикатами">
+  <rect x="30" y="8" width="260" height="28" rx="4" fill="currentColor" fill-opacity="0.05" stroke="currentColor" stroke-width="1.2"/>
+  <text x="160" y="26" text-anchor="middle" font-size="12" fill="currentColor">Извлечение FieldToMatch (URI/Headers)</text>
+
+  <line x1="160" y1="36" x2="160" y2="48" stroke="currentColor" stroke-width="1.4"/>
+  <polygon points="160,56 156,48 164,48" fill="currentColor"/>
+
+  <rect x="25" y="54" width="270" height="30" rx="4" fill="currentColor" fill-opacity="0.08" stroke="currentColor" stroke-width="1.4"/>
+  <text x="160" y="73" text-anchor="middle" font-size="12" font-weight="bold" fill="currentColor">Нормализация: URL_DECODE &amp; LOWERCASE</text>
+
+  <path d="M 160 84 L 160 98 L 85 98 L 85 110" fill="none" stroke="currentColor" stroke-width="1.4"/>
+  <polygon points="85,118 81,110 89,110" fill="currentColor"/>
+
+  <path d="M 160 84 L 160 98 L 235 98 L 235 110" fill="none" stroke="currentColor" stroke-width="1.4"/>
+  <polygon points="235,118 231,110 239,110" fill="currentColor"/>
+
+  <rect x="15" y="116" width="140" height="38" rx="4" fill="currentColor" fill-opacity="0.05" stroke="currentColor" stroke-width="1.2"/>
+  <text x="85" y="132" text-anchor="middle" font-size="12" fill="currentColor">IPSet / GeoMatch</text>
+  <text x="85" y="146" text-anchor="middle" font-size="12" opacity="0.75" fill="currentColor">Стоимость 1 WCU</text>
+
+  <rect x="165" y="116" width="140" height="38" rx="4" fill="currentColor" fill-opacity="0.05" stroke="currentColor" stroke-width="1.2"/>
+  <text x="235" y="132" text-anchor="middle" font-size="12" fill="currentColor">Regex / ByteMatch</text>
+  <text x="235" y="146" text-anchor="middle" font-size="12" opacity="0.75" fill="currentColor">Стоимость 25 WCU</text>
+
+  <line x1="85" y1="154" x2="85" y2="168" stroke="currentColor" stroke-width="1.4"/>
+  <polygon points="85,176 81,168 89,168" fill="currentColor"/>
+
+  <line x1="235" y1="154" x2="235" y2="168" stroke="currentColor" stroke-width="1.4"/>
+  <polygon points="235,176 231,168 239,168" fill="currentColor"/>
+
+  <rect x="30" y="174" width="260" height="34" rx="4" fill="currentColor" fill-opacity="0.08" stroke="currentColor" stroke-width="1.4"/>
+  <text x="160" y="195" text-anchor="middle" font-size="12" font-weight="bold" fill="currentColor">Терминальный вердикт правила Action</text>
+</svg>
+      <p class="dim">Схема 5. Конвейер инспекции кастомного правила: FieldToMatch и предикаты.</p>
     </div>
 
     <h2 id="ip-sets">1 · Наборы сетевых адресов: IP Sets и спецификация CIDR <a class="anchor-link" href="#ip-sets">#</a></h2>

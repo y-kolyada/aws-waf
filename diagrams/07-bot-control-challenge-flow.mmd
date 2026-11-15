@@ -1,0 +1,6 @@
+flowchart TD
+    Client["Клиентский браузер + SDK"] --> Telemetry["Proof-of-Work & JA4 телеметрия"]
+    Telemetry --> WAF["WAF Bot Control Classifier"]
+    WAF --> Result{"Классификация"}
+    Result -->|Робот| Block["Блокировка 403"]
+    Result -->|Человек| Token["Выдача aws-waf-token"]

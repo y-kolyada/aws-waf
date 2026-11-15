@@ -1,0 +1,7 @@
+flowchart TD
+    Ext["Извлечение FieldToMatch"] --> Norm["Нормализация URL_DECODE & LOWER"]
+    Norm --> Fork{"Тип условия"}
+    Fork -->|Списки| IP["IPSet & GeoMatch (1 WCU)"]
+    Fork -->|Шаблоны| Regex["Regex & ByteMatch (25 WCU)"]
+    IP --> Verdict["Терминальный вердикт Action"]
+    Regex --> Verdict

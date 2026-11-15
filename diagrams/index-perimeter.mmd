@@ -1,0 +1,4 @@
+flowchart TD
+    Client["Клиент (Anycast DNS)"] --> Edge["CloudFront Anycast PoP"]
+    Edge --> Regional["Regional VPC: ALB & API Gateway"]
+    Regional --> Telemetry["Телеметрия: CloudWatch & S3"]

@@ -1,0 +1,7 @@
+flowchart TD
+    Req["Входящий веб-запрос"] --> AMR["AWS Managed Rules (CRS)"]
+    AMR --> Fork{"Срабатывание сигнатуры"}
+    Fork -->|Да| Count["RuleActionOverrides: Count"]
+    Fork -->|Нет| Allow["Пропуск запроса"]
+    Count --> Metric["Метрика CloudWatch"]
+    Allow --> Backend["Бэкенд сервис"]

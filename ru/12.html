@@ -94,12 +94,39 @@
 
   <main id="main">
     <h1>Примеры · IGL</h1>
-    <p class="page-size" data-words="1200">Слов: 1200</p>
+    <p class="page-size" data-words="1232">Слов: 1232</p>
     <p class="lead">Шесть высших архитектурных сценариев AWS WAFv2 для лидера инженерной системы (In-Game Leader): динамическое отражение распределенного L7 DDoS через Silent Challenge, самовосстанавливающийся конвейер блокировки IP на базе Athena и Lambda, емкость 5000 WCU, политики Firewall Manager и GitOps-пайплайны.</p>
 
     <div class="box key" id="key-idea">
       <h2>Главная мысль страницы <a class="anchor-link" href="#key-idea" aria-label="ссылка на этот блок">#</a></h2>
       <p>Уровень In-Game Leader (IGL) отвечает за систему целиком: доступность критических сервисов под ударом массированных распределенных атак, финансовую предсказуемость инфраструктуры при масштабировании на миллиарды вызовов и гарантированное соблюдение корпоративных стандартов безопасности во всей экосистеме организации. Представленные шесть сценариев реализуют передовые инженерные практики: бессерверное самовосстановление контура защиты, адаптивные криптографические испытания браузеров без влияния на конверсию пользователей, организационный контроль через Firewall Manager и строгие GitOps-пайплайны канареечного внедрения.</p>
+    </div>
+
+    <div class="box figure">
+      <svg viewBox="0 0 320 220" style="max-width:320px;height:auto;display:block;margin:0 auto" role="img" aria-label="Схема автономного контура реагирования SOAR на базе Athena, EventBridge и динамических IPSet">
+  <rect x="35" y="8" width="250" height="26" rx="4" fill="currentColor" fill-opacity="0.05" stroke="currentColor" stroke-width="1.2"/>
+  <text x="160" y="25" text-anchor="middle" font-size="12" fill="currentColor">Аномальный всплеск L7-атаки (4xx/5xx)</text>
+
+  <line x1="160" y1="34" x2="160" y2="48" stroke="currentColor" stroke-width="1.4"/>
+  <polygon points="160,56 156,48 164,48" fill="currentColor"/>
+
+  <rect x="30" y="54" width="260" height="30" rx="4" fill="currentColor" fill-opacity="0.08" stroke="currentColor" stroke-width="1.2"/>
+  <text x="160" y="73" text-anchor="middle" font-size="12" fill="currentColor">CloudWatch Metric Alarm + EventBridge</text>
+
+  <line x1="160" y1="84" x2="160" y2="100" stroke="currentColor" stroke-width="1.4"/>
+  <polygon points="160,108 156,100 164,100" fill="currentColor"/>
+
+  <rect x="25" y="106" width="270" height="32" rx="4" fill="currentColor" fill-opacity="0.05" stroke="currentColor" stroke-width="1.2"/>
+  <text x="160" y="126" text-anchor="middle" font-size="12" fill="currentColor">AWS Lambda + Партиции логов в Athena</text>
+
+  <line x1="160" y1="138" x2="160" y2="154" stroke="currentColor" stroke-width="1.4"/>
+  <polygon points="160,162 156,154 164,154" fill="currentColor"/>
+
+  <rect x="20" y="160" width="280" height="36" rx="4" fill="currentColor" fill-opacity="0.08" stroke="currentColor" stroke-width="1.4"/>
+  <text x="160" y="178" text-anchor="middle" font-size="12" font-weight="bold" fill="currentColor">Динамический бан в WAF IPSet</text>
+  <text x="160" y="192" text-anchor="middle" font-size="12" opacity="0.75" fill="currentColor">Автоматическое снятие (TTL 4h)</text>
+</svg>
+      <p class="dim">Схема 13. Автоматизированный контур SOAR и реагирование на L7-инциденты.</p>
     </div>
 
     <h2 id="scenario-1">1 · Отражение распределенной L7 DDoS-атаки через каскадное действие Challenge <a class="anchor-link" href="#scenario-1">#</a></h2>

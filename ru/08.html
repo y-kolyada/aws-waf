@@ -94,12 +94,46 @@
 
   <main id="main">
     <h1>Логи и телеметрия</h1>
-    <p class="page-size" data-words="1159">Слов: 1159</p>
+    <p class="page-size" data-words="1194">Слов: 1194</p>
     <p class="lead">Сквозная архитектура наблюдаемости и расследования инцидентов: метрики CloudWatch, сэмплирование SampledRequests, потоковая передача через Kinesis Data Firehose в Amazon S3, маскирование чувствительных данных RedactedFields, фильтры LoggingFilter и SQL-аналитика в Amazon Athena.</p>
 
     <div class="box key" id="key-idea">
       <h2>Главная мысль страницы <a class="anchor-link" href="#key-idea" aria-label="ссылка на этот блок">#</a></h2>
       <p>Брандмауэр без прозрачного логирования превращается в «черный ящик», скрывающий критические инциденты и ложные срабатывания. AWS WAFv2 реализует трехуровневую модель наблюдаемости: быстрые минутные метрики CloudWatch для алертинга, моментальная трехчасовая выборка сэмплов get-sampled-requests для оперативного дебага в консоли и непрерывный экспорт 100% записей трафика через Kinesis Data Firehose, CloudWatch Logs или Amazon S3. Применение гранулярных фильтров LoggingFilter снижает затраты на хранение в 10 раз, отсекая шум легитимных обращений, а маскирование RedactedFields гарантирует строгое соблюдение GDPR, HIPAA и PCI-DSS.</p>
+    </div>
+
+    <div class="box figure">
+      <svg viewBox="0 0 320 220" style="max-width:320px;height:auto;display:block;margin:0 auto" role="img" aria-label="Схема архитектуры сквозного логирования WAFv2 через Kinesis Firehose, маскирование и Athena">
+  <rect x="45" y="8" width="230" height="26" rx="4" fill="currentColor" fill-opacity="0.05" stroke="currentColor" stroke-width="1.2"/>
+  <text x="160" y="25" text-anchor="middle" font-size="12" fill="currentColor">События Web ACL L7 инспекции</text>
+
+  <line x1="160" y1="34" x2="160" y2="44" stroke="currentColor" stroke-width="1.4"/>
+  <polygon points="160,52 156,44 164,44" fill="currentColor"/>
+
+  <rect x="25" y="50" width="270" height="32" rx="4" fill="currentColor" fill-opacity="0.08" stroke="currentColor" stroke-width="1.2"/>
+  <text x="160" y="70" text-anchor="middle" font-size="12" fill="currentColor">Фильтр LoggingFilter + RedactedFields</text>
+
+  <line x1="160" y1="82" x2="160" y2="94" stroke="currentColor" stroke-width="1.4"/>
+  <polygon points="160,102 156,94 164,94" fill="currentColor"/>
+
+  <rect x="30" y="100" width="260" height="32" rx="4" fill="currentColor" fill-opacity="0.05" stroke="currentColor" stroke-width="1.4"/>
+  <text x="160" y="120" text-anchor="middle" font-size="12" font-weight="bold" fill="currentColor">Kinesis Data Firehose Delivery Stream</text>
+
+  <path d="M 160 132 L 160 146 L 85 146 L 85 158" fill="none" stroke="currentColor" stroke-width="1.4"/>
+  <polygon points="85,166 81,158 89,158" fill="currentColor"/>
+
+  <path d="M 160 132 L 160 146 L 235 146 L 235 158" fill="none" stroke="currentColor" stroke-width="1.4"/>
+  <polygon points="235,166 231,158 239,158" fill="currentColor"/>
+
+  <rect x="15" y="164" width="140" height="38" rx="4" fill="currentColor" fill-opacity="0.08" stroke="currentColor" stroke-width="1.2"/>
+  <text x="85" y="180" text-anchor="middle" font-size="12" font-weight="bold" fill="currentColor">Amazon S3 бакет</text>
+  <text x="85" y="194" text-anchor="middle" font-size="12" opacity="0.75" fill="currentColor">Паркет / GZIP архив</text>
+
+  <rect x="165" y="164" width="140" height="38" rx="4" fill="currentColor" fill-opacity="0.08" stroke="currentColor" stroke-width="1.2"/>
+  <text x="235" y="180" text-anchor="middle" font-size="12" font-weight="bold" fill="currentColor">CloudWatch Logs</text>
+  <text x="235" y="194" text-anchor="middle" font-size="12" opacity="0.75" fill="currentColor">Insights аналитика</text>
+</svg>
+      <p class="dim">Схема 9. Потоковый конвейер доставки логов через Kinesis Data Firehose в S3.</p>
     </div>
 
     <h2 id="cloudwatch-metrics">1 · Метрики CloudWatch и сэмплирование трафика get-sampled-requests <a class="anchor-link" href="#cloudwatch-metrics">#</a></h2>
