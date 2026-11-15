@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Вопросы · Noob · devops-aws-waf · ai|</title>
 <!-- meta: built by tools/build-meta.py - do not edit by hand -->
-<meta name="description" content="Лид страницы: о чём она и кому нужна.">
+<meta name="description" content="Пятьдесят квалификационных вопросов технического собеседования по основам AWS WAFv2: архитектура Web ACL, модель емкости WCU, области видимости, ассоциации...">
 <link rel="canonical" href="https://y-kolyada.github.io/aws-waf/ru/13.html">
 <link rel="alternate" hreflang="ru" href="https://y-kolyada.github.io/aws-waf/ru/13.html">
 <link rel="alternate" hreflang="en" href="https://y-kolyada.github.io/aws-waf/en/13.html">
@@ -15,12 +15,12 @@
 <meta property="og:type" content="article">
 <meta property="og:site_name" content="devops-aws-waf">
 <meta property="og:title" content="Вопросы · Noob">
-<meta property="og:description" content="Лид страницы: о чём она и кому нужна.">
+<meta property="og:description" content="Пятьдесят квалификационных вопросов технического собеседования по основам AWS WAFv2: архитектура Web ACL, модель емкости WCU, области видимости, ассоциации...">
 <meta property="og:url" content="https://y-kolyada.github.io/aws-waf/ru/13.html">
 <meta property="og:locale" content="ru_RU">
 <meta name="twitter:card" content="summary">
 <link rel="icon" href="../assets/img/favicon.svg" type="image/svg+xml">
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"TechArticle","headline":"Вопросы · Noob","description":"Лид страницы: о чём она и кому нужна.","url":"https://y-kolyada.github.io/aws-waf/ru/13.html","inLanguage":"ru","isPartOf":{"@type":"WebSite","name":"devops-aws-waf","url":"https://y-kolyada.github.io/aws-waf/"}}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"TechArticle","headline":"Вопросы · Noob","description":"Пятьдесят квалификационных вопросов технического собеседования по основам AWS WAFv2: архитектура Web ACL, модель емкости WCU, области видимости, ассоциации...","url":"https://y-kolyada.github.io/aws-waf/ru/13.html","inLanguage":"ru","isPartOf":{"@type":"WebSite","name":"devops-aws-waf","url":"https://y-kolyada.github.io/aws-waf/"}}</script>
 <!-- /meta -->
 <link rel="stylesheet" href="../assets/style.css?v=1">
 <script>
@@ -94,20 +94,181 @@
 
   <main id="main">
     <h1>Вопросы · Noob</h1>
-    <p class="page-size" data-words="48">Слов: 48</p>
-    <p class="lead">Лид страницы: о чём она и кому нужна. Одно предложение, не длиннее 160 знаков.</p>
+    <p class="page-size" data-words="2842">Слов: 2842</p>
+    <p class="lead">Пятьдесят квалификационных вопросов технического собеседования по основам AWS WAFv2: архитектура Web ACL, модель емкости WCU, области видимости, ассоциации ресурсов, действия правил и базовый траблшутинг.</p>
 
     <div class="box key" id="key-idea">
       <h2>Главная мысль страницы <a class="anchor-link" href="#key-idea" aria-label="ссылка на этот блок">#</a></h2>
-      <p>Текст этого раздела ещё не написан.</p>
+      <p>Ступень Noob оценивает знание фундаментальных понятий, топологии развертывания и базовых ограничений AWS WAFv2. Начинающий инженер обязан четко понимать отличие WAF от пакетных фильтров L3/L4 (Security Groups), жизненный цикл обработки запроса внутри Web ACL, концепцию емкости WCU, механизм переопределения действий в управляемых группах правил и алгоритм поиска ложных срабатываний через сэмплированные запросы. Все 50 вопросов разбиты на 5 логических блоков по 10 вопросов с подробными инженерными обоснованиями.</p>
     </div>
 
-    <h2 id="first">1 · Раздел 1 <a class="anchor-link" href="#first">#</a></h2>
-    <p>Текст этого раздела ещё не написан.</p>
+    <h2 id="part1">1 · Архитектура WAFv2 и базовые сущности (1-10) <a class="anchor-link" href="#part1">#</a></h2>
 
-    <div class="box key" id="artifacts">
-      <h2>Артефакты: что у вас есть после этой страницы <a class="anchor-link" href="#artifacts">#</a></h2>
-      <p>Текст этого раздела ещё не написан.</p>
+    <p id="q1"><strong>1. Что такое AWS WAFv2 и на каком уровне модели OSI он работает?</strong> <a class="anchor-link" href="#q1">#</a></p>
+    <p>AWS WAFv2 - это облачный брандмауэр веб-приложений (Web Application Firewall), работающий строго на седьмом (прикладном) уровне модели OSI (Application Layer, L7). Он инспектирует HTTP и HTTPS запросы к веб-ресурсам, выполняя <span class="term"><button type="button" class="term-btn" aria-expanded="false">инспекцию заголовков (Header Inspection)</button><span class="term-card" role="tooltip" hidden><span class="term-header"><strong class="term-title">Инспекция заголовков HTTP-запроса (Header Inspection)</strong><button type="button" class="term-close" aria-label="Закрыть">×</button></span><span class="term-desc">Механизм проверки наличия, точного совпадения или шаблонов значений в заголовках HTTP-клиента.</span><span class="term-links"><a href="glossary.html#header-inspection">В словарь понятий <svg class="icon" data-icon="book" viewBox="0 0 20 20" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2.6 3.8h4.8a2.6 2.6 0 0 1 2.6 2.6v10a2.2 2.2 0 0 0-2.2-1.8H2.6z"/><path d="M17.4 3.8h-4.8a2.6 2.6 0 0 0-2.6 2.6v10a2.2 2.2 0 0 1 2.2-1.8h5.2z"/></svg></a></span></span></span>, проверяя методы, URI, параметры строки запроса, куки и тело пакета. См. <a href="01.html">главу 01</a>.<br><span class="dim">Зачем спрашивают: Проверка понимания границ ответственности сервиса и модели сетевых уровней.</span></p>
+
+    <p id="q2"><strong>2. В чем ключевое отличие Web ACL от Security Group и Network ACL?</strong> <a class="anchor-link" href="#q2">#</a></p>
+    <p>Security Groups и Network ACL работают на сетевом (L3) и транспортном (L4) уровнях модели OSI: они фильтруют трафик исключительно по IP-адресам источника/назначения, протоколам (TCP/UDP/ICMP) и портам. Они принципиально не способны анализировать содержимое HTTP-запроса (SQL-инъекции, XSS, токены авторизации). AWS WAF выполняет глубокую L7-инспекцию прикладного протокола HTTP. См. <a href="01.html">главу 01</a>.<br><span class="dim">Зачем спрашивают: Оценка умения разделять задачи сетевой безопасности и защиты веб-приложений.</span></p>
+
+    <p id="q3"><strong>3. Что такое Web ACL (Web Access Control List)?</strong> <a class="anchor-link" href="#q3">#</a></p>
+    <p>Web ACL - это корневой управляющий ресурс AWS WAFv2, представляющий собой контейнер правил инспекции. Он содержит упорядоченный по <span class="term"><button type="button" class="term-btn" aria-expanded="false">порядку приоритета (Sequential Rule Evaluation)</button><span class="term-card" role="tooltip" hidden><span class="term-header"><strong class="term-title">Порядок обхода правил (Sequential Rule Evaluation)</strong><button type="button" class="term-close" aria-label="Закрыть">×</button></span><span class="term-desc">Базовый принцип линейной обработки условий в WAF от наименьшего приоритета к наибольшему.</span><span class="term-links"><a href="glossary.html#rule-priority-eval">В словарь понятий <svg class="icon" data-icon="book" viewBox="0 0 20 20" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2.6 3.8h4.8a2.6 2.6 0 0 1 2.6 2.6v10a2.2 2.2 0 0 0-2.2-1.8H2.6z"/><path d="M17.4 3.8h-4.8a2.6 2.6 0 0 0-2.6 2.6v10a2.2 2.2 0 0 1 2.2-1.8h5.2z"/></svg></a></span></span></span> список правил, вердикт по умолчанию (Default Action), конфигурацию метрик VisibilityConfig и ассоциации с защищаемыми ресурсами AWS. См. <a href="01.html">главу 01</a>.<br><span class="dim">Зачем спрашивают: Проверка знания центральной концептуальной сущности сервиса.</span></p>
+
+    <p id="q4"><strong>4. Какие два режима вердикта по умолчанию (Default Action) поддерживает Web ACL?</strong> <a class="anchor-link" href="#q4">#</a></p>
+    <p>Спецификация Web ACL допускает ровно два варианта Default Action: Allow (разрешить) и Block (заблокировать). Значение Allow используется в модели черного списка (Blacklist), когда по умолчанию пропускается весь трафик, кроме запрещенного правилами. Значение Block используется в модели белого списка (Whitelist) для закрытых внутренних API. См. <a href="01.html">главу 01</a>.<br><span class="dim">Зачем спрашивают: Понимание стратегий безопасности: разрешительная против запретительной (классический <span class="term"><button type="button" class="term-btn" aria-expanded="false">дистрактор квалификационного теста (Distractor)</button><span class="term-card" role="tooltip" hidden><span class="term-header"><strong class="term-title">Дистрактор квалификационного теста (Distractor)</strong><button type="button" class="term-close" aria-label="Закрыть">×</button></span><span class="term-desc">Правдоподобный, но технически некорректный вариант ответа в сертификационных тестах AWS.</span><span class="term-links"><a href="glossary.html#distractor">В словарь понятий <svg class="icon" data-icon="book" viewBox="0 0 20 20" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2.6 3.8h4.8a2.6 2.6 0 0 1 2.6 2.6v10a2.2 2.2 0 0 0-2.2-1.8H2.6z"/><path d="M17.4 3.8h-4.8a2.6 2.6 0 0 0-2.6 2.6v10a2.2 2.2 0 0 1 2.2-1.8h5.2z"/></svg></a></span></span></span> - утверждение, что вердиктом по умолчанию может быть Count).</span></p>
+
+    <p id="q5"><strong>5. Что такое правило (Rule) в AWS WAFv2 и из каких двух обязательных частей оно состоит?</strong> <a class="anchor-link" href="#q5">#</a></p>
+    <p>Правило в WAFv2 - это логическая единица проверки запроса. Оно состоит из двух ключевых компонентов: условия совпадения (Statement) - булево выражение, анализирующее атрибуты HTTP-запроса, и назначенного действия (Action или OverrideAction) - вердикта, который WAF применяет при равенстве условия true. См. <a href="01.html">главу 01</a>.<br><span class="dim">Зачем спрашивают: Знание анатомии правил и базового синтаксиса WAFv2.</span></p>
+
+    <p id="q6"><strong>6. Что такое Web ACL Capacity Units (WCU) и какой базовый лимит емкости выделяется бесплатно?</strong> <a class="anchor-link" href="#q6">#</a></p>
+    <p>WCU (Web ACL Capacity Unit) - это безразмерная метрика вычислительной сложности, измеряющая объем оперативной памяти и процессорных ресурсов, необходимых для выполнения правила WAF. Базовая бесплатная квота составляет 1500 WCU на один Web ACL. Превышение емкости вплоть до 5000 WCU тарифицируется дополнительно ($0.20 за 1M запросов на каждые 500 WCU). См. <a href="01.html">главу 01</a>.<br><span class="dim">Зачем спрашивают: Проверка архитектурного и FinOps-понимания ограничений емкости.</span></p>
+
+    <p id="q7"><strong>7. Как вычисляется порядок выполнения правил (Rule evaluation order) внутри Web ACL?</strong> <a class="anchor-link" href="#q7">#</a></p>
+    <p>Правила выполняются строго последовательно в порядке возрастания целочисленного поля Priority: от наименьшего значения (0, наивысший приоритет) к большему. Первое терминирующее правило (Allow или Block), совпавшее с условиями запроса, немедленно останавливает дальнейшую обработку списка правил. См. <a href="01.html">главу 01</a>.<br><span class="dim">Зачем спрашивают: Понимание логики конвейера инспекции и предотвращение теневых правил.</span></p>
+
+    <p id="q8"><strong>8. Что происходит с запросом, если сработало терминирующее правило с действием Allow?</strong> <a class="anchor-link" href="#q8">#</a></p>
+    <p>Обработка Web ACL немедленно прерывается. Запрос признается легитимным и передается на защищаемый ресурс (ALB, CloudFront, API Gateway). Последующие правила с более высоким числовым значением Priority не вычисляются, даже если среди них есть жесткие запрещающие правила. См. <a href="06.html">главу 06</a>.<br><span class="dim">Зачем спрашивают: Важнейший нюанс логики: преждевременное Allow может пропустить вредоносный трафик.</span></p>
+
+    <p id="q9"><strong>9. Что происходит с запросом, если сработало терминирующее правило с действием Block?</strong> <a class="anchor-link" href="#q9">#</a></p>
+    <p>Обработка Web ACL мгновенно завершается. WAF сбрасывает соединение и возвращает клиенту HTTP-ответ с кодом 403 Forbidden (или кастомным кодом, если настроен Block.CustomResponse) прямо с границы облака, не отправляя запрос на сервер приложения. См. <a href="06.html">главу 06</a>.<br><span class="dim">Зачем спрашивают: Понимание изоляции бэкенда от вредоносного трафика на периметре.</span></p>
+
+    <p id="q10"><strong>10. Что делает действие Count и почему оно не является терминирующим?</strong> <a class="anchor-link" href="#q10">#</a></p>
+    <p>Действие Count регистрирует факт совпадения запроса с условием правила в метриках CloudWatch (CountedRequests) и навешивает метки (RuleLabels), но не принимает решения о судьбе запроса. WAF продолжает вычисление следующего по приоритету правила. Это нетерминирующее действие (Non-terminating). См. <a href="06.html">главу 06</a>.<br><span class="dim">Зачем спрашивают: Понимание безопасного канареечного тестирования правил перед вводом блокировок.</span></p>
+
+    <h2 id="part2">2 · Области видимости, ассоциации и ресурсы (11-20) <a class="anchor-link" href="#part2">#</a></h2>
+
+    <p id="q11"><strong>11. Какие две области видимости (Scope) существуют в AWS WAFv2?</strong> <a class="anchor-link" href="#q11">#</a></p>
+    <p>В WAFv2 существуют строго две взаимоисключающие области видимости: <code>CLOUDFRONT</code> (глобальная для интеграции с Amazon CloudFront) и <code>REGIONAL</code> (локальная для сервисов конкретного региона AWS). См. <a href="02.html">главу 02</a>.<br><span class="dim">Зачем спрашивают: Базовая дифференциация сетевой топологии развертывания WAF.</span></p>
+
+    <p id="q12"><strong>12. В каком регионе AWS обязан создаваться Web ACL со Scope CLOUDFRONT?</strong> <a class="anchor-link" href="#q12">#</a></p>
+    <p>Web ACL со Scope CLOUDFRONT создается исключительно в регионе <code>us-east-1</code> (N. Virginia), поскольку панель управления и API метаданных сервиса CloudFront физически размещены в этом регионе. Создание глобального Web ACL в любом другом регионе вернет ошибку API. См. <a href="02.html">главу 02</a>.<br><span class="dim">Зачем спрашивают: Классический вопрос на знание архитектурных особенностей инфраструктуры AWS.</span></p>
+
+    <p id="q13"><strong>13. С какими типами региональных ресурсов AWS может ассоциироваться Web ACL со Scope REGIONAL?</strong> <a class="anchor-link" href="#q13">#</a></p>
+    <p><span class="term"><button type="button" class="term-btn" aria-expanded="false">Механизм ассоциации Web ACL с ресурсами (WAF Association)</button><span class="term-card" role="tooltip" hidden><span class="term-header"><strong class="term-title">Механизм ассоциации Web ACL с ресурсами (WAF Association)</strong><button type="button" class="term-close" aria-label="Закрыть">×</button></span><span class="term-desc">Сетевая модель привязки политик безопасности к точкам терминации прикладного трафика.</span><span class="term-links"><a href="glossary.html#waf-association">В словарь понятий <svg class="icon" data-icon="book" viewBox="0 0 20 20" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2.6 3.8h4.8a2.6 2.6 0 0 1 2.6 2.6v10a2.2 2.2 0 0 0-2.2-1.8H2.6z"/><path d="M17.4 3.8h-4.8a2.6 2.6 0 0 0-2.6 2.6v10a2.2 2.2 0 0 1 2.2-1.8h5.2z"/></svg></a></span></span></span> позволяет связывать региональный список с пятью типами ресурсов: Application Load Balancer (ALB), Amazon API Gateway (REST и HTTP API), AWS AppSync (GraphQL API), Amazon Cognito User Pools и AWS Verified Access Instances. См. <a href="02.html">главу 02</a>.<br><span class="dim">Зачем спрашивают: Проверка кругозора по точкам интеграции WAF в облачном ландшафте.</span></p>
+
+    <p id="q14"><strong>14. Может ли один и тот же Web ACL со Scope REGIONAL быть одновременно привязан к ресурсам в разных регионах?</strong> <a class="anchor-link" href="#q14">#</a></p>
+    <p>Нет. Региональный Web ACL существует строго внутри одного региона AWS (например, eu-central-1) и может ассоциироваться только с ресурсами, находящимися в этом же самом регионе. Для защиты ресурсов в других регионах необходимо создавать отдельные региональные Web ACL. См. <a href="02.html">главу 02</a>.<br><span class="dim">Зачем спрашивают: Понимание региональной изоляции ресурсов управления в AWS.</span></p>
+
+    <p id="q15"><strong>15. Сколько Web ACL можно ассоциировать с одним Application Load Balancer (ALB)?</strong> <a class="anchor-link" href="#q15">#</a></p>
+    <p>Ровно один Web ACL. Напрямую ассоциировать два разных Web ACL с одним балансировщиком невозможно. Однако внутри этого единого Web ACL можно объединять множество групп правил (Rule Groups) от разных команд или вендоров. См. <a href="02.html">главу 02</a>.<br><span class="dim">Зачем спрашивают: Знание жестких квот и архитектурных ограничений ассоциаций.</span></p>
+
+    <p id="q16"><strong>16. Может ли один Web ACL быть ассоциирован с несколькими ресурсами одновременно?</strong> <a class="anchor-link" href="#q16">#</a></p>
+    <p>Да. Один региональный Web ACL можно одновременно связать с несколькими десятками ALB и API Gateway внутри одного региона. Аналогично глобальный Web ACL может быть ассоциирован со множеством дистрибуций CloudFront. См. <a href="02.html">главу 02</a>.<br><span class="dim">Зачем спрашивают: Понимание масштабируемости политик безопасности между микросервисами.</span></p>
+
+    <p id="q17"><strong>17. Что произойдет с трафиком приложения, если удалить ассоциированный Web ACL?</strong> <a class="anchor-link" href="#q17">#</a></p>
+    <p>При удалении Web ACL защищаемый ресурс (ALB или CloudFront) перестает фильтровать трафик и начинает пропускать 100% входящих запросов напрямую на бэкенд без инспекции. Доступность приложения не нарушается, но периметр остается полностью незащищенным. См. <a href="02.html">главу 02</a>.<br><span class="dim">Зачем спрашивают: Оценка понимания модели отказоустойчивости fail-open при операционных изменениях.</span></p>
+
+    <p id="q18"><strong>18. Чем отличается инспекция трафика WAF на CloudFront от инспекции на Application Load Balancer?</strong> <a class="anchor-link" href="#q18">#</a></p>
+    <p>На CloudFront трафик инспектируется на пограничных серверах Anycast PoP максимально близко к клиенту, до попадания в магистраль AWS. Это экономит трафик и разгружает каналы. На ALB инспекция происходит уже внутри региона в Virtual Private Cloud (VPC), что позволяет использовать приватные IP-адреса и проверять трафик внутренних микросервисов. См. <a href="02.html">главу 02</a>.<br><span class="dim">Зачем спрашивают: Архитектурное сравнение граничной (Edge) и региональной защиты.</span></p>
+
+    <p id="q19"><strong>19. Как AWS WAF интегрируется с Amazon Cognito User Pools?</strong> <a class="anchor-link" href="#q19">#</a></p>
+    <p>WAF ассоциируется с Cognito User Pool через операцию associate-web-acl, защищая встроенные эндпоинты авторизации Hosted UI и API аутентификации от брутфорса, атак Credential Stuffing и спам-регистраций фальшивых пользователей. См. <a href="02.html">главу 02</a>.<br><span class="dim">Зачем спрашивают: Понимание связки управления доступом IAM/Cognito и L7-защиты WAF.</span></p>
+
+    <p id="q20"><strong>20. Поддерживает ли AWS WAFv2 работу с сетевыми балансировщиками Network Load Balancer (NLB)?</strong> <a class="anchor-link" href="#q20">#</a></p>
+    <p>Прямой ассоциации WAF с NLB не существует, так как NLB функционирует на 4 уровне модели OSI (TCP/UDP) без разбора HTTP-заголовков. Для защиты сервисов за NLB трафик либо направляют через CloudFront/ALB, либо используют AWS Network Firewall. См. <a href="02.html">главу 02</a>.<br><span class="dim">Зачем спрашивают: Проверка понимания технологических границ сервисов балансировки.</span></p>
+
+    <h2 id="part3">3 · Управляемые правила и каталоги вендоров (21-30) <a class="anchor-link" href="#part3">#</a></h2>
+
+    <p id="q21"><strong>21. Что такое AWS Managed Rules (AMR) и кто отвечает за обновление их сигнатур?</strong> <a class="anchor-link" href="#q21">#</a></p>
+    <p>AWS Managed Rules - это готовые наборы правил, разрабатываемые и непрерывно сопровождаемые командой экспертов безопасности AWS Threat Intelligence. Сигнатуры угроз обновляются автоматически в фоновом режиме без необходимости ручного обновления конфигураций инженерами. См. <a href="03.html">главу 03</a>.<br><span class="dim">Зачем спрашивают: Понимание разделения ответственности (Shared Responsibility Model) в WAF.</span></p>
+
+    <p id="q22"><strong>22. Для чего предназначен базовый набор правил AWSManagedRules<wbr>CommonRuleSet (CRS)?</strong> <a class="anchor-link" href="#q22">#</a></p>
+    <p>Набор Common Rule Set (CRS) обеспечивает общую защиту от широкого спектра сетевых уязвимостей, включая OWASP Top 10, попытки удаленного включения файлов (RFI/LFI), аномалии заголовков HTTP и зондирование сканерами уязвимостей. См. <a href="03.html">главу 03</a>.<br><span class="dim">Зачем спрашивают: Знание самого часто используемого набора правил в индустрии.</span></p>
+
+    <p id="q23"><strong>23. Какую емкость WCU потребляет управляемый набор AWSManagedRules<wbr>CommonRuleSet?</strong> <a class="anchor-link" href="#q23">#</a></p>
+    <p>Набор AWSManagedRules<wbr>CommonRuleSet потребляет ровно 700 WCU, занимая почти половину базового бесплатного лимита в 1500 WCU. См. <a href="03.html">главу 03</a>.<br><span class="dim">Зачем спрашивают: Знание числовых лимитов емкости ключевых компонентов.</span></p>
+
+    <p id="q24"><strong>24. Что такое AWSManagedRules<wbr>KnownBadInputsRuleSet и от чего он защищает?</strong> <a class="anchor-link" href="#q24">#</a></p>
+    <p>Этот набор (200 WCU) блокирует запросы с известными вредоносными входными данными (Known Bad Inputs), нацеленными на эксплуатацию уязвимостей фреймворков (Log4j, Spring4Shell, обходы валидации путей и внедрение команд оболочки). См. <a href="03.html">главу 03</a>.<br><span class="dim">Зачем спрашивают: Проверка знаний специализированных наборов правил противодействия эксплойтам.</span></p>
+
+    <p id="q25"><strong>25. Как работает набор AWSManagedRules<wbr>AmazonIpReputationList?</strong> <a class="anchor-link" href="#q25">#</a></p>
+    <p>Набор (25 WCU) блокирует трафик с IP-адресов, замеченных в ботнет-активности, сканировании портов, спаме и других вредоносных действиях по данным телеметрии глобальной сети Amazon. База адресов обновляется каждые несколько минут. См. <a href="03.html">главу 03</a>.<br><span class="dim">Зачем спрашивают: Понимание репутационных фильтров и дешевой отсечки паразитного трафика.</span></p>
+
+    <p id="q26"><strong>26. Что такое ExcludedRules внутри ManagedRuleGroup<wbr>Statement?</strong> <a class="anchor-link" href="#q26">#</a></p>
+    <p>Параметр ExcludedRules позволяет исключить конкретные индивидуальные правила из состава управляемой группы, переводя их действие в Count. Это используется при возникновении ложных срабатываний на легитимных вызовах приложения без деактивации остальных правил набора. См. <a href="03.html">главу 03</a>.<br><span class="dim">Зачем спрашивают: Оценка практического навыка точечного тюнинга управляемых наборов.</span></p>
+
+    <p id="q27"><strong>27. Что такое OverrideAction в блоке группы правил и зачем переводить группу в режим Count?</strong> <a class="anchor-link" href="#q27">#</a></p>
+    <p>Параметр OverrideAction переопределяет вердикты всех правил группы. Установка <code>OverrideAction: { Count: {} }</code> переводит абсолютно все правила группы в нетерминирующий режим аудита, позволяя безопасно оценить влияние набора на продакшен-трафик перед включением блокировки. См. <a href="03.html">главу 03</a>.<br><span class="dim">Зачем спрашивают: Дисциплина безопасного развертывания новых защитных механизмов.</span></p>
+
+    <p id="q28"><strong>28. Что такое версионирование управляемых правил (Rule group versioning)?</strong> <a class="anchor-link" href="#q28">#</a></p>
+    <p>Вендоры правил выпускают новые версии сигнатурных наборов. Версионирование позволяет зафиксировать конкретную стабильную версию набора правил (Pinned version), предотвращая неожиданные изменения поведения брандмауэра при автоматических апдейтах. См. <a href="03.html">главу 03</a>.<br><span class="dim">Зачем спрашивают: Контроль неизменяемости продакшен-конфигураций.</span></p>
+
+    <p id="q29"><strong>29. Чем отличается версия Default от фиксированной версии управляемой группы правил?</strong> <a class="anchor-link" href="#q29">#</a></p>
+    <p>Версия Default автоматически подтягивает рекомендованную вендором версию сигнатур и регулярно обновляется в фоновом режиме. Фиксированная версия (например, Version_2.1) гарантирует неизменность состава сигнатур до ручного переключения администратором. См. <a href="03.html">главу 03</a>.<br><span class="dim">Зачем спрашивают: Понимание баланса между актуальностью защиты и стабильностью инфраструктуры.</span></p>
+
+    <p id="q30"><strong>30. Как оперативно отключить одно ложно сработавшее правило внутри AWS Managed Rules без отключения всего набора?</strong> <a class="anchor-link" href="#q30">#</a></p>
+    <p>Необходимо найти имя сработавшего правила в теле сэмплированного запроса или лога (по полю ruleId) и добавить его имя в массив <code>ExcludedRules</code> или <code>RuleActionOverrides</code> с действием Count внутри спецификации ManagedRuleGroup<wbr>Statement. См. <a href="03.html">главу 03</a>.<br><span class="dim">Зачем спрашивают: Базовый навык дежурного инженера при инцидентах ложной блокировки.</span></p>
+
+    <h2 id="part4">4 · Кастомные списки, регулярные выражения и гео-IP (31-40) <a class="anchor-link" href="#part4">#</a></h2>
+
+    <p id="q31"><strong>31. Что такое IP Set в AWS WAFv2 и какие версии IP-адресов он поддерживает?</strong> <a class="anchor-link" href="#q31">#</a></p>
+    <p>IP Set - это переиспользуемая именованная коллекция сетевых адресов и подсетей в формате CIDR. WAFv2 поддерживает версии IPAddressVersion IPV4 и IPV6. В один IP Set можно добавлять до десятков тысяч адресов. См. <a href="04.html">главу 04</a>.<br><span class="dim">Зачем спрашивают: Знание примитивов сетевой фильтрации в WAFv2.</span></p>
+
+    <p id="q32"><strong>32. Какие маски CIDR поддерживаются в IP Set для IPv4 и IPv6?</strong> <a class="anchor-link" href="#q32">#</a></p>
+    <p>Для IPv4 поддерживаются маски от <code>/1</code> до <code>/32</code> (хост). Для IPv6 поддерживаются маски <code>/16</code>, <code>/24</code>, <code>/32</code>, <code>/48</code>, <code>/56</code>, <code>/64</code> и <code>/128</code> (хост). См. <a href="04.html">главу 04</a>.<br><span class="dim">Зачем спрашивают: Знание допустимых диапазонов агрегации подсетей.</span></p>
+
+    <p id="q33"><strong>33. Что такое Regex Pattern Set и сколько регулярных выражений может в него входить?</strong> <a class="anchor-link" href="#q33">#</a></p>
+    <p>Regex Pattern Set - это переиспользуемый объект WAF, содержащий список регулярных выражений (RegularExpressionList) для текстового анализа. В один набор можно включить до 10 регулярных выражений. См. <a href="04.html">главу 04</a>.<br><span class="dim">Зачем спрашивают: Понимание сигнатурного анализа и его квот.</span></p>
+
+    <p id="q34"><strong>34. Какой синтаксис регулярных выражений используется в AWS WAFv2?</strong> <a class="anchor-link" href="#q34">#</a></p>
+    <p>WAFv2 использует синтаксис регулярных выражений, совместимый с библиотекой Google RE2. Этот движок гарантирует линейное время выполнения O(n) от длины строки, полностью предотвращая атаки типа ReDoS (Catastrophic Backtracking). См. <a href="04.html">главу 04</a>.<br><span class="dim">Зачем спрашивают: Понимание архитектурной безопасности самого движка инспекции.</span></p>
+
+    <p id="q35"><strong>35. Что такое GeoMatchStatement и на основе какого стандарта кодируются страны?</strong> <a class="anchor-link" href="#q35">#</a></p>
+    <p>GeoMatchStatement сопоставляет IP-адрес клиента с базой геолокации. Страны задаются двухбуквенными кодами формата ISO 3166-1 alpha-2 (например, US, DE, JP, UA). См. <a href="04.html">главу 04</a>.<br><span class="dim">Зачем спрашивают: Знание международных стандартов гео-фильтрации.</span></p>
+
+    <p id="q36"><strong>36. Как работает инспекция ByteMatchStatement с позиционным условием STARTS_WITH?</strong> <a class="anchor-link" href="#q36">#</a></p>
+    <p>ByteMatchStatement проверяет, начинается ли указанное поле HTTP-запроса (например, UriPath) с заданной строки SearchString. Это оптимально для защиты целых веток API (например, пути <code>/admin/</code>). См. <a href="04.html">главу 04</a>.<br><span class="dim">Зачем спрашивают: Понимание базовых операторов сравнения строк.</span></p>
+
+    <p id="q37"><strong>37. В чем разница между позиционными условиями EXACTLY, CONTAINS и ENDS_WITH в ByteMatchStatement?</strong> <a class="anchor-link" href="#q37">#</a></p>
+    <p>EXACTLY требует строгого посимвольного совпадения всей строки, CONTAINS возвращает true при нахождении подстроки в любой позиции поля, а ENDS_WITH проверяет совпадение окончания строки (например, расширения файла <code>.php</code>). См. <a href="04.html">главу 04</a>.<br><span class="dim">Зачем спрашивают: Точность выбора условий для предотвращения ложных блокировок.</span></p>
+
+    <p id="q38"><strong>38. Зачем нужны текстовые трансформации (TextTransformations) при проверке строк?</strong> <a class="anchor-link" href="#q38">#</a></p>
+    <p>Текстовые трансформации нормализуют входные данные запроса перед их передачей оператору сравнения, ликвидируя обфускацию и попытки обхода сигнатур через изменение регистра или кодирование символов. См. <a href="05.html">главу 05</a>.<br><span class="dim">Зачем спрашивают: Понимание фундаментальной концепции нормализации данных.</span></p>
+
+    <p id="q39"><strong>39. Что делает трансформация LOWERCASE и от какой техники обхода защиты она предохраняет?</strong> <a class="anchor-link" href="#q39">#</a></p>
+    <p>LOWERCASE приводит все символы строки к нижнему регистру. Она нейтрализует попытки злоумышленников обойти проверку регистра, например, отправку пейлоада <code>/AdMiN</code> или <code>&lt;ScRiPt&gt;</code>. См. <a href="05.html">главу 05</a>.<br><span class="dim">Зачем спрашивают: Знание методов защиты от простых техник обхода WAF.</span></p>
+
+    <p id="q40"><strong>40. Что делает трансформация URL_DECODE и почему ее следует ставить с приоритетом 0?</strong> <a class="anchor-link" href="#q40">#</a></p>
+    <p>URL_DECODE декодирует процентные последовательности (например, <code>%20</code> в пробел, <code>%2f</code> в слэш). Ее ставят первой (Priority 0) в конвейере, чтобы раскрыть замаскированные символы до выполнения последующих проверок и нормализаций. См. <a href="05.html">главу 05</a>.<br><span class="dim">Зачем спрашивают: Понимание последовательности многостадийного конвейера обработки строк.</span></p>
+
+    <h2 id="part5">5 · Действия, мониторинг и базовый траблшутинг (41-50) <a class="anchor-link" href="#part5">#</a></h2>
+
+    <p id="q41"><strong>41. Что такое действие Captcha и чем оно отличается от действия Challenge?</strong> <a class="anchor-link" href="#q41">#</a></p>
+    <p>Captcha требует от пользователя интерактивного решения визуальной или аудио-головоломки, прерывая сценарий на странице. Challenge выполняет фоновую бесшумную (Silent) криптографическую проверку браузера за 100-300 мс без участия человека. См. <a href="06.html">главу 06</a>.<br><span class="dim">Зачем спрашивают: Различие между интерактивной и незаметной верификацией клиента.</span></p>
+
+    <p id="q42"><strong>42. Что такое ImmunityTime в конфигурации Captcha/Challenge?</strong> <a class="anchor-link" href="#q42">#</a></p>
+    <p>ImmunityTime - это временной интервал в секундах, в течение которого клиент, успешно прошедший проверку Captcha или Challenge, признается доверенным и освобождается от повторных испытаний. См. <a href="06.html">главу 06</a>.<br><span class="dim">Зачем спрашивают: Управление частотой проверок и пользовательским опытом.</span></p>
+
+    <p id="q43"><strong>43. Какое значение по умолчанию имеет ImmunityTime в AWS WAF?</strong> <a class="anchor-link" href="#q43">#</a></p>
+    <p>Значение по умолчанию составляет 300 секунд (5 минут). Настраиваемый диапазон - от 60 секунд до 259200 секунд (3 дня). См. <a href="06.html">главу 06</a>.<br><span class="dim">Зачем спрашивают: Знание дефолтных тайм-аутов и допустимых пределов настройки.</span></p>
+
+    <p id="q44"><strong>44. Какие метрики WAF публикуются в Amazon CloudWatch по умолчанию?</strong> <a class="anchor-link" href="#q44">#</a></p>
+    <p>В пространстве имен <code>AWS/WAFV2</code> публикуются метрики: AllowedRequests, BlockedRequests, CountedRequests, PassedRequests, а также специализированные счетчики Captcha и Challenge. См. <a href="08.html">главу 08</a>.<br><span class="dim">Зачем спрашивают: Понимание состава базового мониторинга безопасности.</span></p>
+
+    <p id="q45"><strong>45. Какое временное разрешение (гранулярность) имеют стандартные метрики WAF в CloudWatch?</strong> <a class="anchor-link" href="#q45">#</a></p>
+    <p>Метрики агрегируются и передаются в CloudWatch с дискретностью в 1 минуту (1-minute resolution). См. <a href="08.html">главу 08</a>.<br><span class="dim">Зачем спрашивают: Понимание задержек при срабатывании алертов CloudWatch Alarms.</span></p>
+
+    <p id="q46"><strong>46. Что такое сэмплирование трафика (Sampled Requests) и за какой период доступны сэмплы в консоли?</strong> <a class="anchor-link" href="#q46">#</a></p>
+    <p>Sampled Requests - это буфер оперативной выборки входящих запросов WAF. Он хранит детальную информацию о запросах (заголовки, IP, сработавшее правило) за последние 3 часа. См. <a href="08.html">главу 08</a>.<br><span class="dim">Зачем спрашивают: Знание встроенного инструмента оперативного траблшутинга.</span></p>
+
+    <p id="q47"><strong>47. Сколько запросов максимально сохраняется в окне get-sampled-requests?</strong> <a class="anchor-link" href="#q47">#</a></p>
+    <p>Буфер сохраняет до 5000 репрезентативных запросов для каждого правила или всего Web ACL. См. <a href="08.html">главу 08</a>.<br><span class="dim">Зачем спрашивают: Понимание статистической природы сэмплов при анализе инцидентов.</span></p>
+
+    <p id="q48"><strong>48. Как настроить возврат HTTP-статуса 429 вместо стандартного 403 при блокировке правила?</strong> <a class="anchor-link" href="#q48">#</a></p>
+    <p>В блоке действия правила Action.Block настраивается структура <code>CustomResponse</code>, где поле <code>ResponseCode</code> устанавливается в значение 429. См. <a href="06.html">главу 06</a>.<br><span class="dim">Зачем спрашивают: Практический навык кастомизации кодов завершения для API.</span></p>
+
+    <p id="q49"><strong>49. Какие форматы поддерживаются для CustomResponseBodies в WAFv2?</strong> <a class="anchor-link" href="#q49">#</a></p>
+    <p>Параметр ContentType в CustomResponseBodies поддерживает ровно три значения: <code>APPLICATION_JSON</code>, <code>TEXT_HTML</code> и <code>TEXT_PLAIN</code>. См. <a href="06.html">главу 06</a>.<br><span class="dim">Зачем спрашивают: Знание допустимых типов медиа-контента кастомных ошибок.</span></p>
+
+    <p id="q50"><strong>50. Каков максимальный размер тела кастомного ответа CustomResponseBody?</strong> <a class="anchor-link" href="#q50">#</a></p>
+    <p>Максимальный размер статического тела ответа составляет 4096 байт (4 КБ). См. <a href="06.html">главу 06</a>.<br><span class="dim">Зачем спрашивают: Знание жестких квот платформы при верстке страниц ошибок.</span></p>
+
+    <div class="box" id="artifacts">
+      <h2>Артефакты страницы <a class="anchor-link" href="#artifacts" aria-label="ссылка на этот блок">#</a></h2>
+      <ul>
+        <li>Банк из 50 базовых вопросов Noob в 5 тематических блоках с персональными якорями q1-q50.</li>
+        <li>Покрытие тем: Архитектура WAFv2 (1-10), Ассоциации (11-20), Управляемые правила (21-30), Кастомные правила (31-40), Мониторинг (41-50).</li>
+        <li>Инженерные обоснования «Зачем спрашивают: ...» для каждого вопроса.</li>
+      </ul>
     </div>
   
 
@@ -121,6 +282,7 @@
   </main>
 
 </div>
+
 </div>
 <script src="../assets/swa.js?v=1"></script>
 <script src="../assets/terms.js?v=1"></script>

@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Навигатор · devops-aws-waf · ai|</title>
 <!-- meta: built by tools/build-meta.py - do not edit by hand -->
-<meta name="description" content="Матрица сквозных инженерных линз: компоненты, код, сила, слабости, экосистема, AI, облака, DevOps и SRE.">
+<meta name="description" content="Матрица сквозных инженерных линз AWS WAFv2: компоненты, код, сила, слабости, экосистема, AI, облака, DevOps и SRE с перекрестными связями глав курса.">
 <link rel="canonical" href="https://y-kolyada.github.io/aws-waf/ru/navigator.html">
 <link rel="alternate" hreflang="ru" href="https://y-kolyada.github.io/aws-waf/ru/navigator.html">
 <link rel="alternate" hreflang="en" href="https://y-kolyada.github.io/aws-waf/en/navigator.html">
@@ -15,12 +15,12 @@
 <meta property="og:type" content="article">
 <meta property="og:site_name" content="devops-aws-waf">
 <meta property="og:title" content="Навигатор">
-<meta property="og:description" content="Матрица сквозных инженерных линз: компоненты, код, сила, слабости, экосистема, AI, облака, DevOps и SRE.">
+<meta property="og:description" content="Матрица сквозных инженерных линз AWS WAFv2: компоненты, код, сила, слабости, экосистема, AI, облака, DevOps и SRE с перекрестными связями глав курса.">
 <meta property="og:url" content="https://y-kolyada.github.io/aws-waf/ru/navigator.html">
 <meta property="og:locale" content="ru_RU">
 <meta name="twitter:card" content="summary">
 <link rel="icon" href="../assets/img/favicon.svg" type="image/svg+xml">
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"TechArticle","headline":"Навигатор","description":"Матрица сквозных инженерных линз: компоненты, код, сила, слабости, экосистема, AI, облака, DevOps и SRE.","url":"https://y-kolyada.github.io/aws-waf/ru/navigator.html","inLanguage":"ru","isPartOf":{"@type":"WebSite","name":"devops-aws-waf","url":"https://y-kolyada.github.io/aws-waf/"}}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"TechArticle","headline":"Навигатор","description":"Матрица сквозных инженерных линз AWS WAFv2: компоненты, код, сила, слабости, экосистема, AI, облака, DevOps и SRE с перекрестными связями глав курса.","url":"https://y-kolyada.github.io/aws-waf/ru/navigator.html","inLanguage":"ru","isPartOf":{"@type":"WebSite","name":"devops-aws-waf","url":"https://y-kolyada.github.io/aws-waf/"}}</script>
 <!-- /meta -->
 <link rel="stylesheet" href="../assets/style.css?v=1">
 <script>
@@ -94,40 +94,67 @@
 
   <main id="main">
     <h1>Навигатор</h1>
-    <p class="page-size" data-words="158">Слов: 158</p>
-    <p class="lead">Матрица сквозных инженерных линз: компоненты, код, сила, слабости, экосистема, AI, облака, DevOps и SRE.</p>
+    <p class="page-size" data-words="1225">Слов: 1225</p>
+    <p class="lead">Матрица сквозных инженерных линз AWS WAFv2: компоненты, код, сила, слабости, экосистема, AI, облака, DevOps и SRE с перекрестными связями глав курса.</p>
 
     <div class="box key" id="key-idea">
       <h2>Главная мысль навигатора <a class="anchor-link" href="#key-idea" aria-label="ссылка на этот блок">#</a></h2>
-      <p>Навигатор инженера систематизирует содержание курса через девять сквозных инженерных линз, раскрывая архитектурную механику и взаимосвязи всей предметной области.</p>
+      <p>Инженерный навигатор серии AI Factory представляет собой сквозной аналитический срез предметной области через строгую систему девяти канонических инженерных линз. Вместо изолированного изучения отдельных параметров навигатор связывает архитектуру ядра WAFv2 с сетевым окружением, практиками бессерверного реагирования, финансовыми моделями FinOps, современными AI-инструментами и принципами SRE-надежности. Каждая линза завершается явной навигационной строкой, ведущей в профильные главы курса.</p>
     </div>
 
     <h2 id="lens-components">1 · Компоненты (Components) <a class="anchor-link" href="#lens-components">#</a></h2>
-    <p>Архитектурные блоки, ключевые узлы и базовые компоненты предметной области.</p>
+    <p>Архитектурное ядро AWS WAFv2 базируется на пяти фундаментальных сущностях: корневой список <span class="term"><button type="button" class="term-btn" aria-expanded="false">контроля доступа Web ACL</button><span class="term-card" role="tooltip" hidden><span class="term-header"><strong class="term-title">Список веб-контроля доступа (Web ACL)</strong><button type="button" class="term-close" aria-label="Закрыть">×</button></span><span class="term-desc">Основной конфигурационный ресурс AWS WAFv2, объединяющий упорядоченный набор правил инспекции сетевых запросов L7.</span><span class="term-links"><a href="glossary.html#web-acl">В словарь понятий <svg class="icon" data-icon="book" viewBox="0 0 20 20" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2.6 3.8h4.8a2.6 2.6 0 0 1 2.6 2.6v10a2.2 2.2 0 0 0-2.2-1.8H2.6z"/><path d="M17.4 3.8h-4.8a2.6 2.6 0 0 0-2.6 2.6v10a2.2 2.2 0 0 1 2.2-1.8h5.2z"/></svg></a></span></span></span>, индивидуальные правила инспекции Rules с целочисленным приоритетом Priority, переиспользуемые группы правил Rule Groups (кастомные и управляемые AWS Managed Rules), динамические коллекции IP Sets и наборы регулярных выражений Regex Pattern Sets. Связующим звеном выступает модель емкости <span class="term"><button type="button" class="term-btn" aria-expanded="false">WCU (Web ACL Capacity Units)</button><span class="term-card" role="tooltip" hidden><span class="term-header"><strong class="term-title">Единица емкости правил (WCU)</strong><button type="button" class="term-close" aria-label="Закрыть">×</button></span><span class="term-desc">Метрическая единица вычислительной емкости правил в AWS WAFv2 с базовым лимитом 1500 единиц на Web ACL.</span><span class="term-links"><a href="glossary.html#wcu">В словарь понятий <svg class="icon" data-icon="book" viewBox="0 0 20 20" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2.6 3.8h4.8a2.6 2.6 0 0 1 2.6 2.6v10a2.2 2.2 0 0 0-2.2-1.8H2.6z"/><path d="M17.4 3.8h-4.8a2.6 2.6 0 0 0-2.6 2.6v10a2.2 2.2 0 0 1 2.2-1.8h5.2z"/></svg></a></span></span></span>, базовые 1500 WCU с возможностью расширения до 5000 WCU), гарантирующая предсказуемость потребления ресурсов процессора и памяти при инспекции многогигабитных потоков данных.</p>
+    <p>Каждое правило объединяет условие совпадения Statement (ByteMatch, SqliMatch, XssMatch, GeoMatch, RateBased) с назначенным вердиктом Action (Allow, Block, Count, Captcha, Challenge). Для точечного сужения проверок используются операторы AndStatement, OrStatement, NotStatement и предварительные фильтры ScopeDownStatement.</p>
+    <p><strong>Связанные главы курса:</strong> <a href="01.html">Глава 01 · Архитектура и WCU</a>, <a href="03.html">Глава 03 · Управляемые правила</a>, <a href="04.html">Глава 04 · Кастомные правила</a>, <a href="06.html">Глава 06 · Действия и ответы</a>.</p>
 
     <h2 id="lens-code">2 · Код и скрипты (Code / Scripts) <a class="anchor-link" href="#lens-code">#</a></h2>
-    <p>Конфигурации, скрипты автоматизации, правила и программный интерфейс.</p>
+    <p>Конфигурация WAFv2 полностью описывается декларативным кодом. Стандартом де-факто в энтерпрайз-среде является Terraform (ресурсы <code>aws_wafv2_web_acl</code>, <code>aws_wafv2_ip_set</code>, <code>aws_wafv2_web_acl_association</code>) и CloudFormation/CDK. Взаимодействие с API сервиса осуществляется через CLI-команды синтаксиса <code>aws wafv2</code> с передачей JSON-спецификаций, генерируемых флагом <code>--generate-cli-skeleton</code>.</p>
+    <p>Программная интеграция поддерживается на клиентском уровне через AWS WAF JavaScript SDK для браузеров и нативные мобильные SDK для iOS и Android. На серверном уровне логи WAF анализируются через Presto/Trino SQL запросы в Amazon Athena и потоковые бессерверные обработчики AWS Lambda на Python с использованием SDK Boto3.</p>
+    <p><strong>Связанные главы курса:</strong> <a href="05.html">Глава 05 · Условия и агрегация</a>, <a href="11.html">Глава 11 · Примеры · Pro</a>, <a href="12.html">Глава 12 · Примеры · IGL</a>.</p>
 
     <h2 id="lens-strength">3 · Сила и преимущества (Strength) <a class="anchor-link" href="#lens-strength">#</a></h2>
-    <p>Уникальные архитектурные преимущества и решаемые инженерные задачи.</p>
+    <p>Ключевое преимущество AWS WAFv2 - глубокая нативная интеграция в инфраструктуру доставки трафика AWS без необходимости развертывания промежуточных виртуальных прокси-машин (Proxy appliances). Развертывание на CloudFront обеспечивает глобальную терминацию и фильтрацию атак на пограничных серверах Anycast PoP в десятках миллисекунд от конечного пользователя.</p>
+    <p>Бесшумное фоновое действие Challenge с криптографическим доказательством Proof-of-Work и анализом TLS-отпечатков JA3/JA4 позволяет нейтрализовать до 99.9% автоматизированных ботнетов без раздражающих графических капч и ухудшения конверсии. Автоматическое обновление сигнатур экспертами AWS Threat Intelligence освобождает инженеров от рутинного написания регулярных выражений под каждую новую уязвимость нулевого дня.</p>
+    <p><strong>Связанные главы курса:</strong> <a href="02.html">Глава 02 · Области и ассоциации</a>, <a href="06.html">Глава 06 · Действия и ответы</a>, <a href="07.html">Глава 07 · Защита от ботов</a>.</p>
 
     <h2 id="lens-weaknesses">4 · Слабости и ограничения (Weaknesses and Limits) <a class="anchor-link" href="#lens-weaknesses">#</a></h2>
-    <p>Архитектурные пределы, узкие места, накладные расходы и границы применимости.</p>
+    <p>Архитектурные ограничения WAFv2 требуют строгого учета при проектировании: жесткий лимит размера инспектируемого тела запроса (Body inspection limit: первые 16 КБ для CloudFront/ALB, расширяемые до 64 КБ на региональных ресурсах с параметром OversizeHandling). Любые вредоносные пейлоады за пределами этого размера требуют специальной обработки CONTINUE или MATCH.</p>
+    <p>Финансовая модель может стать источником резкого перерасхода бюджета при необдуманном подключении продвинутых управляемых наборов (Targeted Bot Control, ATP, ACFP) на весь входящий трафик портала. Кроме того, WAF не защищает от атак транспортного уровня L3/L4 (SYN-флуд, UDP-амплификация), требуя обязательного дополнения сервисом AWS Shield.</p>
+    <p><strong>Связанные главы курса:</strong> <a href="01.html">Глава 01 · Архитектура и WCU</a>, <a href="07.html">Глава 07 · Защита от ботов</a>, <a href="09.html">Глава 09 · Экономика и аудит</a>.</p>
 
     <h2 id="lens-ecosystem">5 · Связи в экосистеме (Ecosystem Interconnections) <a class="anchor-link" href="#lens-ecosystem">#</a></h2>
-    <p>Интеграция со смежными инструментами, протоколами и платформами.</p>
+    <p>WAFv2 занимает центральное место в защитном эшелоне AWS, формируя шестое защитное звено сквозной корпоративной серии (IAM -> VPC -> S3 -> EC2 -> ALB -> EKS -> CloudFront -> WAF -> Cognito). Сервис защищает публичные веб-приложения на базе CloudFront, балансировщики ALB, микросервисы API Gateway REST/HTTP, бессерверные GraphQL бэкенды AWS AppSync и пулы учетных записей Amazon Cognito User Pools.</p>
+    <p>Для централизованного надзора в масштабе enterprise-организации задействуются AWS Firewall Manager и AWS Security Hub, а потоковое логирование интегрируется с Kinesis Data Firehose, S3, CloudWatch Logs и SIEM-платформами Splunk и Datadog.</p>
+    <p><strong>Связанные главы курса:</strong> <a href="02.html">Глава 02 · Области и ассоциации</a>, <a href="08.html">Глава 08 · Логи и телеметрия</a>, <a href="09.html">Глава 09 · Экономика и аудит</a>.</p>
 
     <h2 id="lens-ai">6 · В контексте AI (In AI Context) <a class="anchor-link" href="#lens-ai">#</a></h2>
-    <p>Применение AI-агентов, генеративных моделей и автоматизированных пайплайнов.</p>
+    <p>В эпоху генеративного искусственного интеллекта и автономных AI-агентов векторы угроз радикально изменились: парсеры контента для обучения LLM (AI scrapers), автоматизированный перебор учетных записей нейросетевыми ботами и попытки обхода сигнатур через полиморфную обфускацию полезной нагрузки. WAFv2 противостоит этим угрозам через поведенческий анализ Bot Control, выявляющий неестественную скорость заполнения форм и аномалии движения курсора мыши.</p>
+    <p>С другой стороны, AI-ассистенты и LLM-пайплайны активно применяются самими инженерами безопасности: генерация и валидация регулярных выражений RE2, автоматический статический анализ JSON-манифестов WAF и синтез SQL-запросов в Amazon Athena для расследования инцидентов по естественному языковому запросу дежурного офицера SOC.</p>
+    <p><strong>Связанные главы курса:</strong> <a href="04.html">Глава 04 · Кастомные правила</a>, <a href="07.html">Глава 07 · Защита от ботов</a>, <a href="08.html">Глава 08 · Логи и телеметрия</a>.</p>
 
     <h2 id="lens-cloud">7 · В контексте облака (In Cloud Context) <a class="anchor-link" href="#lens-cloud">#</a></h2>
-    <p>Особенности развертывания, масштабирования и управления в облаках.</p>
+    <p>Облачная природа WAFv2 обеспечивает мгновенное масштабирование без необходимости предварительного выделения емкости: брандмауэр без деградации обрабатывает как единичные запросы стартапа, так и пиковые миллионные всплески транзакций во время глобальных распродаж. Взаимодействие с <span class="term"><button type="button" class="term-btn" aria-expanded="false">расширенной защитой AWS Shield Advanced</button><span class="term-card" role="tooltip" hidden><span class="term-header"><strong class="term-title">Расширенная защита от DDoS (AWS Shield Advanced)</strong><button type="button" class="term-close" aria-label="Закрыть">×</button></span><span class="term-desc">Комплексная корпоративная подписка на защиту от распределенных атак отказа в обслуживании на всех уровнях модели OSI.</span><span class="term-links"><a href="glossary.html#shield-advanced">В словарь понятий <svg class="icon" data-icon="book" viewBox="0 0 20 20" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2.6 3.8h4.8a2.6 2.6 0 0 1 2.6 2.6v10a2.2 2.2 0 0 0-2.2-1.8H2.6z"/><path d="M17.4 3.8h-4.8a2.6 2.6 0 0 0-2.6 2.6v10a2.2 2.2 0 0 1 2.2-1.8h5.2z"/></svg></a></span></span></span> гарантирует финансовую защиту от всплесков стоимости WAF (DDoS Cost Protection) при массированных атаках.</p>
+    <p>Использование облачной модели позволяет развертывать гибридные архитектуры: глобальный контур инспекции на CloudFront фильтрует трафик на границе Anycast PoP, а региональный контур на ALB внутри VPC осуществляет повторную точечную проверку контекстных заголовков перед передачей пакетов в контейнеры Amazon EKS.</p>
+    <p><strong>Связанные главы курса:</strong> <a href="01.html">Глава 01 · Архитектура и WCU</a>, <a href="02.html">Глава 02 · Области и ассоциации</a>, <a href="09.html">Глава 09 · Экономика и аудит</a>.</p>
 
     <h2 id="lens-devops">8 · Практики DevOps (DevOps Practices) <a class="anchor-link" href="#lens-devops">#</a></h2>
-    <p>CI/CD конвейеры, тестирование инфраструктуры, автоматизация поставок и релизные шлюзы.</p>
+    <p>DevOps-культура применительно к WAF выражается в строгом принципе «Security as Code»: полный запрет ручных манипуляций в консоли управления, хранение всех правил в Git-репозитории и версионирование через Pull Requests с обязательным код-ревью. В пайплайны CI/CD (GitHub Actions, GitLab CI) встраиваются автоматические линтеры синтаксиса и калькуляторы бюджета WCU.</p>
+    <p>Канареечный регламент выпуска правил (<span class="term"><button type="button" class="term-btn" aria-expanded="false">поэтапного внедрения Staged Rollout</button><span class="term-card" role="tooltip" hidden><span class="term-header"><strong class="term-title">Поэтапное внедрение правил (Staged Rollout)</strong><button type="button" class="term-close" aria-label="Закрыть">×</button></span><span class="term-desc">Инженерная методология безопасного ввода правил безопасности в боевую эксплуатацию.</span><span class="term-links"><a href="glossary.html#staged-rollout">В словарь понятий <svg class="icon" data-icon="book" viewBox="0 0 20 20" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2.6 3.8h4.8a2.6 2.6 0 0 1 2.6 2.6v10a2.2 2.2 0 0 0-2.2-1.8H2.6z"/><path d="M17.4 3.8h-4.8a2.6 2.6 0 0 0-2.6 2.6v10a2.2 2.2 0 0 1 2.2-1.8h5.2z"/></svg></a></span></span></span>) обязывает запускать любое новое правило в нетерминирующем режиме Count на 7-14 дней с уникальной метрикой CloudWatch, гарантируя отсутствие тихих регрессий и блокировок легитимного трафика до переключения действия в статус Block.</p>
+    <p><strong>Связанные главы курса:</strong> <a href="06.html">Глава 06 · Действия и ответы</a>, <a href="09.html">Глава 09 · Экономика и аудит</a>, <a href="11.html">Глава 11 · Примеры · Pro</a>, <a href="12.html">Глава 12 · Примеры · IGL</a>.</p>
 
     <h2 id="lens-sre">9 · Практики SRE (SRE Practices) <a class="anchor-link" href="#lens-sre">#</a></h2>
-    <p>Управление надежностью, бюджетами ошибок, ликвидацией инцидентов и разбором постмортемов.</p>
+    <p>В парадигме Site Reliability Engineering (SRE) брандмауэр рассматривается как компонент, влияющий на общую надежность системы и бюджет ошибок (Error Budget). SRE-инженеры формулируют строгие <span class="term"><button type="button" class="term-btn" aria-expanded="false">соглашения о надежности (WAF SLO)</button><span class="term-card" role="tooltip" hidden><span class="term-header"><strong class="term-title">Соглашение об уровне надежности WAF (WAF Availability & Latency SLO)</strong><button type="button" class="term-close" aria-label="Закрыть">×</button></span><span class="term-desc">Количественные инженерные обязательства по доступности и накладной задержке конвейера фильтрации.</span><span class="term-links"><a href="glossary.html#waf-slo">В словарь понятий <svg class="icon" data-icon="book" viewBox="0 0 20 20" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2.6 3.8h4.8a2.6 2.6 0 0 1 2.6 2.6v10a2.2 2.2 0 0 0-2.2-1.8H2.6z"/><path d="M17.4 3.8h-4.8a2.6 2.6 0 0 0-2.6 2.6v10a2.2 2.2 0 0 1 2.2-1.8h5.2z"/></svg></a></span></span></span>: например, доля ложных блокировок (False Positive Rate) не должна превышать 0.001% от общего объема легитимных транзакций.</p>
+    <p>Оперативная наблюдаемость строится на минутных метриках CloudWatch Alarms и сэмплах get-sampled-requests для быстрого траблшутинга (MTTD до 3 минут). При инцидентах применяется протокол Blameless Postmortem: расследование коренной причины ложной блокировки, компенсация пострадавшим клиентам и написание интеграционного регрессионного теста.</p>
+    <p><strong>Связанные главы курса:</strong> <a href="08.html">Глава 08 · Логи и телеметрия</a>, <a href="09.html">Глава 09 · Экономика и аудит</a>, <a href="12.html">Глава 12 · Примеры · IGL</a>, <a href="15.html">Глава 15 · Вопросы · IGL</a>.</p>
+
+    <div class="box" id="artifacts">
+      <h2>Артефакты страницы <a class="anchor-link" href="#artifacts" aria-label="ссылка на этот блок">#</a></h2>
+      <ul>
+        <li>Девять канонических инженерных линз WAFv2: Components, Code, Strength, Weaknesses, Ecosystem, AI, Cloud, DevOps, SRE.</li>
+        <li>Явные исходящие связки со всеми 15 главами курса в каждой линзе.</li>
+        <li>Синтез архитектуры периметра, FinOps-моделирования и практик надежности.</li>
+      </ul>
+    </div>
   
 
     <footer>
@@ -139,6 +166,7 @@
   </main>
 
 </div>
+
 </div>
 <script src="../assets/swa.js?v=1"></script>
 <script src="../assets/terms.js?v=1"></script>

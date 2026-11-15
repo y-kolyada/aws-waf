@@ -94,13 +94,13 @@
 
   <main id="main">
     <h1>Примеры · Pro</h1>
-    <p class="page-size" data-words="1003">Слов: 1003</p>
+    <p class="page-size" data-words="1111">Слов: 1111</p>
     <p class="lead">Шесть продвинутых инженерных сценариев AWS WAFv2 для продакшен-окружений: декларативное развертывание в Terraform, Rate Limiting по составным ключам JWT+IP, фильтрация ботов с допуском верифицированных поисковиков, интеграция ATP, оптимизация затрат через LoggingFilter и инъекция заголовков.</p>
 
     <div class="box key" id="key-idea">
       <h2>Главная мысль страницы <a class="anchor-link" href="#key-idea" aria-label="ссылка на этот блок">#</a></h2>
       <p>Профессиональный уровень инженерии WAFv2 отличается отсутствием ручных манипуляций в консоли и переходом к парадигме Infrastructure as Code (IaC). В реальном проде атаки нацелены не на абстрактный сайт, а на конкретную бизнес-логику: исчерпание пула соединений БД через тяжелые поисковые запросы, перебор паролей через распределенные мобильные прокси и накрутка бонусов. Представленные шесть сценариев уровня Pro демонстрируют глубокую связку инфраструктурного кода Terraform, составных ключей агрегации CustomKeys, управляемых подписок Bot Control/ATP и протоколов бессерверной маршрутизации контекста безопасности.</p>
-      <p>Стандарт Pro требует абсолютной прозрачности работы каждого защитного контура: нулевых тихих сбоев (Zero Silent Failures), четких SLO на уровень ложных срабатываний (False Positive Rate менее 0.01%) и автоматической интеграции телеметрии безопасности с корпоративными системами мониторинга Prometheus, Datadog и CloudWatch Dashboards.</p>
+      <p>Стандарт Pro требует абсолютной прозрачности работы каждого защитного контура: нулевых тихих сбоев (Zero Silent Failures), четких SLO на уровень ложных срабатываний (False Positive Rate менее 0.01%) и автоматической интеграции телеметрии безопасности с корпоративными системами мониторинга Prometheus, Datadog и <span class="term"><button type="button" class="term-btn" aria-expanded="false">дашбордов мониторинга WAF в CloudWatch</button><span class="term-card" role="tooltip" hidden><span class="term-header"><strong class="term-title">Дашборд мониторинга WAF (WAF Monitoring Dashboard)</strong><button type="button" class="term-close" aria-label="Закрыть">×</button></span><span class="term-desc">Инженерная панель визуализации ключевых метрик здоровья периметра безопасности в реальном времени.</span><span class="term-links"><a href="glossary.html#waf-monitoring-dashboard">В словарь понятий <svg class="icon" data-icon="book" viewBox="0 0 20 20" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2.6 3.8h4.8a2.6 2.6 0 0 1 2.6 2.6v10a2.2 2.2 0 0 0-2.2-1.8H2.6z"/><path d="M17.4 3.8h-4.8a2.6 2.6 0 0 0-2.6 2.6v10a2.2 2.2 0 0 1 2.2-1.8h5.2z"/></svg></a></span></span></span>.</p>
     </div>
 
     <h2 id="scenario-1">1 · Развертывание WAFv2 для регионального API Gateway и ALB через Terraform <a class="anchor-link" href="#scenario-1">#</a></h2>
@@ -208,7 +208,7 @@ resource "aws_wafv2_web_acl_association" "api_gw_assoc" {
     </div>
 
     <h2 id="scenario-3">3 · Развертывание Bot Control с селективным допуском верифицированных поисковиков <a class="anchor-link" href="#scenario-3">#</a></h2>
-    <p><strong>Задача:</strong> Включить управляемую защиту <code>AWSManagedRules<wbr>BotControlRuleSet</code> на всем портале, предотвратив блокировку легитимных поисковых краулеров Googlebot, Bingbot и Yandex.</p>
+    <p><strong>Задача:</strong> Включить управляемую защиту <code>AWSManagedRules<wbr>BotControlRuleSet</code> на всем портале, с <span class="term"><button type="button" class="term-btn" aria-expanded="false">контролем TLS-отпечатков рукопожатия JA3 (JA3 Fingerprinting)</button><span class="term-card" role="tooltip" hidden><span class="term-header"><strong class="term-title">Контроль TLS-отпечатков JA3 (JA3 Fingerprinting)</strong><button type="button" class="term-close" aria-label="Закрыть">×</button></span><span class="term-desc">Метод идентификации автоматизированного клиентского софта на основе хэширования параметров рукопожатия TLS.</span><span class="term-links"><a href="glossary.html#ja3-hash">В словарь понятий <svg class="icon" data-icon="book" viewBox="0 0 20 20" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2.6 3.8h4.8a2.6 2.6 0 0 1 2.6 2.6v10a2.2 2.2 0 0 0-2.2-1.8H2.6z"/><path d="M17.4 3.8h-4.8a2.6 2.6 0 0 0-2.6 2.6v10a2.2 2.2 0 0 1 2.2-1.8h5.2z"/></svg></a></span></span></span>, предотвратив блокировку легитимных поисковых краулеров Googlebot, Bingbot и Yandex.</p>
     <pre><code>{
   "Name": "BotControlWithVerifiedSearchEnginesAllowed",
   "Priority": 25,
@@ -247,7 +247,7 @@ resource "aws_wafv2_web_acl_association" "api_gw_assoc" {
     </div>
 
     <h2 id="scenario-4">4 · Защита эндпоинта аутентификации от Credential Stuffing через AWS WAF ATP <a class="anchor-link" href="#scenario-4">#</a></h2>
-    <p><strong>Задача:</strong> Развернуть специализированный набор ATP (Account Takeover Prevention) для защиты JSON API формы авторизации <code>/api/auth/login</code> от использования скомпрометированных паролей.</p>
+    <p><strong>Задача:</strong> Развернуть специализированный набор ATP (Account Takeover Prevention) для защиты JSON API формы авторизации <code>/api/auth/login</code> через <span class="term"><button type="button" class="term-btn" aria-expanded="false">лимитирование частоты входа (Login Rate Limiting)</button><span class="term-card" role="tooltip" hidden><span class="term-header"><strong class="term-title">Лимитирование запросов аутентификации (Login Rate Limiting)</strong><button type="button" class="term-close" aria-label="Закрыть">×</button></span><span class="term-desc">Таргетированное ограничение частоты попыток входа в систему для защиты от перебора паролей.</span><span class="term-links"><a href="glossary.html#login-rate-limit">В словарь понятий <svg class="icon" data-icon="book" viewBox="0 0 20 20" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2.6 3.8h4.8a2.6 2.6 0 0 1 2.6 2.6v10a2.2 2.2 0 0 0-2.2-1.8H2.6z"/><path d="M17.4 3.8h-4.8a2.6 2.6 0 0 0-2.6 2.6v10a2.2 2.2 0 0 1 2.2-1.8h5.2z"/></svg></a></span></span></span> от использования скомпрометированных паролей.</p>
     <pre><code>{
   "Name": "AWSManagedRulesATPRuleSetProduction",
   "Priority": 35,
@@ -321,7 +321,7 @@ resource "aws_wafv2_web_acl_association" "api_gw_assoc" {
     </div>
 
     <h2 id="scenario-6">6 · Инъекция контекстных заголовков X-WAF-Verified и client-country для бэкендов <a class="anchor-link" href="#scenario-6">#</a></h2>
-    <p><strong>Задача:</strong> Обогатить легитимные запросы заголовками безопасности, передав во внутренние микросервисы подтверждение прохождения WAF и определенную геолокацию клиента без повторного обращения к внешним MaxMind базам.</p>
+    <p><strong>Задача:</strong> Обогатить легитимные запросы заголовками безопасности, выполнив <span class="term"><button type="button" class="term-btn" aria-expanded="false">валидацию клиентских API-ключей (API Key Header Inspection)</button><span class="term-card" role="tooltip" hidden><span class="term-header"><strong class="term-title">Валидация заголовков API-ключей (API Key Header Inspection)</strong><button type="button" class="term-close" aria-label="Закрыть">×</button></span><span class="term-desc">Инспекция наличия и формата криптографических клиентских ключей доступа на пограничном слое WAF.</span><span class="term-links"><a href="glossary.html#api-key-validation">В словарь понятий <svg class="icon" data-icon="book" viewBox="0 0 20 20" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2.6 3.8h4.8a2.6 2.6 0 0 1 2.6 2.6v10a2.2 2.2 0 0 0-2.2-1.8H2.6z"/><path d="M17.4 3.8h-4.8a2.6 2.6 0 0 0-2.6 2.6v10a2.2 2.2 0 0 1 2.2-1.8h5.2z"/></svg></a></span></span></span> и передав во внутренние микросервисы подтверждение прохождения WAF и определенную геолокацию клиента без повторного обращения к внешним MaxMind базам.</p>
     <pre><code>{
   "Name": "InjectSecurityHeadersOnAllow",
   "Priority": 90,
@@ -392,5 +392,7 @@ resource "aws_wafv2_web_acl_association" "api_gw_assoc" {
 
 </div>
 <script src="../assets/swa.js?v=1"></script>
+<script src="../assets/terms.js?v=1"></script>
+<script src="../assets/cp.js?v=1"></script>
 </body>
 </html>

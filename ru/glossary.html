@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Словарь понятий · devops-aws-waf · ai|</title>
 <!-- meta: built by tools/build-meta.py - do not edit by hand -->
-<meta name="description" content="Лид страницы: о чём она и кому нужна.">
+<meta name="description" content="Шестьдесят восемь ключевых понятий AWS WAFv2, инспекции сетевых пакетов L7, емкости WCU, управляемых сигнатур и антифрода.">
 <link rel="canonical" href="https://y-kolyada.github.io/aws-waf/ru/glossary.html">
 <link rel="alternate" hreflang="ru" href="https://y-kolyada.github.io/aws-waf/ru/glossary.html">
 <link rel="alternate" hreflang="en" href="https://y-kolyada.github.io/aws-waf/en/glossary.html">
@@ -15,12 +15,12 @@
 <meta property="og:type" content="article">
 <meta property="og:site_name" content="devops-aws-waf">
 <meta property="og:title" content="Словарь понятий">
-<meta property="og:description" content="Лид страницы: о чём она и кому нужна.">
+<meta property="og:description" content="Шестьдесят восемь ключевых понятий AWS WAFv2, инспекции сетевых пакетов L7, емкости WCU, управляемых сигнатур и антифрода.">
 <meta property="og:url" content="https://y-kolyada.github.io/aws-waf/ru/glossary.html">
 <meta property="og:locale" content="ru_RU">
 <meta name="twitter:card" content="summary">
 <link rel="icon" href="../assets/img/favicon.svg" type="image/svg+xml">
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"TechArticle","headline":"Словарь понятий","description":"Лид страницы: о чём она и кому нужна.","url":"https://y-kolyada.github.io/aws-waf/ru/glossary.html","inLanguage":"ru","isPartOf":{"@type":"WebSite","name":"devops-aws-waf","url":"https://y-kolyada.github.io/aws-waf/"}}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"DefinedTermSet","name":"Словарь понятий","url":"https://y-kolyada.github.io/aws-waf/ru/glossary.html","inLanguage":"ru","hasDefinedTerm":[{"@type":"DefinedTerm","name":"Список веб-контроля доступа (Web ACL)","description":"Основной конфигурационный ресурс AWS WAFv2, объединяющий упорядоченный набор правил инспекции сетевых запросов L7.","url":"https://y-kolyada.github.io/aws-waf/ru/glossary.html#web-acl"},{"@type":"DefinedTerm","name":"Единица емкости правил (Web ACL Capacity Unit, WCU)","description":"Метрическая единица вычислительной емкости правил в AWS WAFv2 с базовым лимитом 1500 единиц на Web ACL.","url":"https://y-kolyada.github.io/aws-waf/ru/glossary.html#wcu"},{"@type":"DefinedTerm","name":"Действие по умолчанию (Default Action)","description":"Результирующее действие Web ACL для веб-запросов, не попавших под условия ни одного из правил списка.","url":"https://y-kolyada.github.io/aws-waf/ru/glossary.html#default-action"},{"@type":"DefinedTerm","name":"Приоритет правила (Rule Priority)","description":"Целочисленный индекс, определяющий строгую последовательность оценки правил внутри Web ACL.","url":"https://y-kolyada.github.io/aws-waf/ru/glossary.html#rule-priority"},{"@type":"DefinedTerm","name":"Область видимости ресурса (Scope)","description":"Архитектурная область развертывания WAFv2, разграничивающая глобальные периферийные и региональные ресурсы.","url":"https://y-kolyada.github.io/aws-waf/ru/glossary.html#scope"},{"@type":"DefinedTerm","name":"Глобальная область CloudFront (CLOUDFRONT Scope)","description":"Периферийная область развертывания Web ACL для фильтрации трафика непосредственно на пограничных точках присутствия.","url":"https://y-kolyada.github.io/aws-waf/ru/glossary.html#cloudfront-scope"},{"@type":"DefinedTerm","name":"Региональная область развертывания (REGIONAL Scope)","description":"Локальная область развертывания Web ACL внутри конкретного географического региона AWS.","url":"https://y-kolyada.github.io/aws-waf/ru/glossary.html#regional-scope"},{"@type":"DefinedTerm","name":"Ассоциация ресурсов WAFv2 (Resource Association)","description":"Двусторонняя связка между экземпляром Web ACL и целевым сетевым ресурсом инфраструктуры AWS.","url":"https://y-kolyada.github.io/aws-waf/ru/glossary.html#resource-association"},{"@type":"DefinedTerm","name":"Интеграция WAF с балансировщиком ALB (ALB WAF Association)","description":"Механизм аппаратной фильтрации трафика на уровне L7 перед отправкой запросов в целевые группы ALB.","url":"https://y-kolyada.github.io/aws-waf/ru/glossary.html#alb-waf"},{"@type":"DefinedTerm","name":"Управляемые группы правил AWS (AWS Managed Rules, AMR)","description":"Готовые пакеты правил безопасности, разрабатываемые и непрерывно обновляемые исследовательской группой AWS Threat Intelligence.","url":"https://y-kolyada.github.io/aws-waf/ru/glossary.html#amrg"},{"@type":"DefinedTerm","name":"Базовый набор правил защиты (Common Rule Set, CRS)","description":"Флагманская управляемая группа правил AWS, закрывающая фундаментальные веб-уязвимости и векторы атак.","url":"https://y-kolyada.github.io/aws-waf/ru/glossary.html#crs"},{"@type":"DefinedTerm","name":"Переопределение действия правила (Rule Action Override)","description":"Механизм подмены терминального действия управляемого правила на пассивный подсчет (Count) для безопасного тестирования.","url":"https://y-kolyada.github.io/aws-waf/ru/glossary.html#rule-override"},{"@type":"DefinedTerm","name":"Режим подсчета (Count Mode)","description":"Нетерминальное действие WAF, фиксирующее срабатывание правила в метриках без прерывания обработки запроса.","url":"https://y-kolyada.github.io/aws-waf/ru/glossary.html#count-mode"},{"@type":"DefinedTerm","name":"Партнерские правила AWS Marketplace (Marketplace Rule Groups)","description":"Специализированные наборы правил от ведущих вендоров кибербезопасности, подключаемые по подписке через AWS Marketplace.","url":"https://y-kolyada.github.io/aws-waf/ru/glossary.html#marketplace-rules"},{"@type":"DefinedTerm","name":"Набор IP-адресов (IP Set)","description":"Оптимизированный справочник одиночных IP-адресов и подсетей CIDR для мгновенной фильтрации на пограничном слое.","url":"https://y-kolyada.github.io/aws-waf/ru/glossary.html#ip-set"},{"@type":"DefinedTerm","name":"Набор регулярных выражений (Regex Pattern Set)","description":"Коллекция скомпилированных шаблонов регулярных выражений для поиска сложных текстовых сигнатур в полях запроса.","url":"https://y-kolyada.github.io/aws-waf/ru/glossary.html#regex-set"},{"@type":"DefinedTerm","name":"Географическое соответствие (GeoMatch Statement)","description":"Предикат инспекции входящего IP-адреса на принадлежность к выбранным странам по стандарту ISO-3166.","url":"https://y-kolyada.github.io/aws-waf/ru/glossary.html#geomatch"},{"@type":"DefinedTerm","name":"Перенаправленный IP-адрес (Forwarded IP / XFF)","description":"Конфигурация извлечения реального адреса клиента из заголовков прокси-серверов при многослойной архитектуре.","url":"https://y-kolyada.github.io/aws-waf/ru/glossary.html#forwarded-ip"},{"@type":"DefinedTerm","name":"Пользовательское правило инспекции (Custom Rule)","description":"Инженерная декларация условий инспекции L7, связывающая предикаты с конкретными действиями безопасности.","url":"https://y-kolyada.github.io/aws-waf/ru/glossary.html#custom-rule"},{"@type":"DefinedTerm","name":"Ограничение частоты запросов (Rate-based Rule)","description":"Правило поведенческого контроля, отслеживающее частоту запросов в скользящем окне и блокирующее всплески трафика.","url":"https://y-kolyada.github.io/aws-waf/ru/glossary.html#rate-based-rule"},{"@type":"DefinedTerm","name":"Окно агрегации запросов (Evaluation Window)","description":"Временной интервал агрегации метрик в rate-based правилах: 60, 120 или 300 секунд.","url":"https://y-kolyada.github.io/aws-waf/ru/glossary.html#evaluation-window"},{"@type":"DefinedTerm","name":"Ограничивающее условие (Scope-down Statement)","description":"Вложенное логическое условие, сужающее область действия rate-based правила до целевых URL или методов.","url":"https://y-kolyada.github.io/aws-waf/ru/glossary.html#scope-down"},{"@type":"DefinedTerm","name":"Преобразование текста (Text Transformation)","description":"Алгоритмическая нормализация текстовых полей запроса перед сравнением со строковыми шаблонами и сигнатурами.","url":"https://y-kolyada.github.io/aws-waf/ru/glossary.html#text-transformation"},{"@type":"DefinedTerm","name":"Составное логическое условие (AND/OR/NOT Statement)","description":"Иерархическая логическая конструкция, объединяющая базовые предикаты инспекции в комплексные выражения.","url":"https://y-kolyada.github.io/aws-waf/ru/glossary.html#composite-statement"},{"@type":"DefinedTerm","name":"Действие блокировки (Block Action)","description":"Терминальное действие WAF, мгновенно прерывающее обработку запроса и возвращающее ошибку клиенту.","url":"https://y-kolyada.github.io/aws-waf/ru/glossary.html#action-block"},{"@type":"DefinedTerm","name":"Действие пропуска (Allow Action)","description":"Терминальное действие WAF, немедленно пропускающее запрос на защищаемый ресурс без дальнейшей инспекции.","url":"https://y-kolyada.github.io/aws-waf/ru/glossary.html#action-allow"},{"@type":"DefinedTerm","name":"Проверка CAPTCHA (CAPTCHA Action)","description":"Интерактивная визуальная или аудиальная загадка, требующая подтверждения присутствия человека в браузере.","url":"https://y-kolyada.github.io/aws-waf/ru/glossary.html#action-captcha"},{"@type":"DefinedTerm","name":"Молчаливая проверка браузера (Challenge Action)","description":"Фоновая неинтерактивная проверка клиентского браузера через исполнение JavaScript без показа головоломок.","url":"https://y-kolyada.github.io/aws-waf/ru/glossary.html#action-challenge"},{"@type":"DefinedTerm","name":"Пользовательский ответ (Custom Response)","description":"Механизм переопределения HTTP-кода, заголовков и тела ответа при блокировке запроса WAF.","url":"https://y-kolyada.github.io/aws-waf/ru/glossary.html#custom-response"},{"@type":"DefinedTerm","name":"Управление бот-трафиком (AWS WAF Bot Control)","description":"Интеллектуальный модуль детекции и категоризации автоматизированных агентов, поисковых роботов и вредоносных скраперов.","url":"https://y-kolyada.github.io/aws-waf/ru/glossary.html#bot-control"},{"@type":"DefinedTerm","name":"Защита от захвата аккаунтов (Account Takeover Prevention, ATP)","description":"Специализированная группа правил для предотвращения атак перебора скомпрометированных учетных данных (Credential Stuffing).","url":"https://y-kolyada.github.io/aws-waf/ru/glossary.html#atp"},{"@type":"DefinedTerm","name":"Защита от создания фиктивных аккаунтов (ACFP)","description":"Модуль противодействия массовой регистрации фейковых профилей, злоупотреблению промокодами и спам-активностям.","url":"https://y-kolyada.github.io/aws-waf/ru/glossary.html#acfp"},{"@type":"DefinedTerm","name":"Криптографический токен WAF (WAF Token)","description":"Зашифрованный токен сессии, подтверждающий успешное прохождение клиентской браузерной проверки Challenge или CAPTCHA.","url":"https://y-kolyada.github.io/aws-waf/ru/glossary.html#waf-token"},{"@type":"DefinedTerm","name":"Отпечаток TLS-клиента JA4 (JA4 Fingerprint)","description":"Современный метод профилирования сетевого стека клиента на основе параметров TLS ClientHello сообщения.","url":"https://y-kolyada.github.io/aws-waf/ru/glossary.html#ja4-fingerprint"},{"@type":"DefinedTerm","name":"Потоковая доставка логов через Kinesis Data Firehose","description":"Высокопроизводительный управляемый конвейер непрерывной буферизации и передачи журналов WAF в целевые хранилища.","url":"https://y-kolyada.github.io/aws-waf/ru/glossary.html#kinesis-firehose"},{"@type":"DefinedTerm","name":"Фильтрация журналов WAF (Logging Filter)","description":"Конфигурация предварительной фильтрации записей аудита перед их отправкой в конвейер доставки логов.","url":"https://y-kolyada.github.io/aws-waf/ru/glossary.html#logging-filter"},{"@type":"DefinedTerm","name":"Сокрытие конфиденциальных полей (Redacted Fields)","description":"Параметр конфигурации логирования, исключающий запись персональных и чувствительных данных в журналы.","url":"https://y-kolyada.github.io/aws-waf/ru/glossary.html#redacted-fields"},{"@type":"DefinedTerm","name":"Выборка запросов (Sampled Requests)","description":"Встроенный диагностический буфер WAF, хранящий репрезентативную выборку до 5000 последних запросов за 3 часа.","url":"https://y-kolyada.github.io/aws-waf/ru/glossary.html#sampled-requests"},{"@type":"DefinedTerm","name":"Метрики CloudWatch для WAF (CloudWatch Metrics)","description":"Статистические телеметрические ряды времени, отражающие интенсивность срабатывания правил безопасности.","url":"https://y-kolyada.github.io/aws-waf/ru/glossary.html#cloudwatch-metrics"},{"@type":"DefinedTerm","name":"Менеджер политик безопасности (AWS Firewall Manager, FMS)","description":"Сервис централизованного управления политиками безопасности в масштабах многоаккаунтной организации AWS.","url":"https://y-kolyada.github.io/aws-waf/ru/glossary.html#fms"},{"@type":"DefinedTerm","name":"Расширенная защита от DDoS (AWS Shield Advanced)","description":"Комплексная корпоративная подписка на защиту от распределенных атак отказа в обслуживании на всех уровнях модели OSI.","url":"https://y-kolyada.github.io/aws-waf/ru/glossary.html#shield-advanced"},{"@type":"DefinedTerm","name":"Поэтапное внедрение правил (Staged Rollout)","description":"Инженерная методология безопасного ввода правил безопасности в боевую эксплуатацию.","url":"https://y-kolyada.github.io/aws-waf/ru/glossary.html#staged-rollout"},{"@type":"DefinedTerm","name":"Ложное срабатывание правила (False Positive)","description":"Ошибочная блокировка легитимного пользовательского запроса эвристиками или сигнатурами безопасности.","url":"https://y-kolyada.github.io/aws-waf/ru/glossary.html#false-positive"},{"@type":"DefinedTerm","name":"Токен оптимистической блокировки (LockToken)","description":"Строковый токен управления параллелизмом, предотвращающий перезапись чужих изменений Web ACL.","url":"https://y-kolyada.github.io/aws-waf/ru/glossary.html#lock-token"},{"@type":"DefinedTerm","name":"Белый список доверенных адресов (IP Whitelist)","description":"Базовый сценарий ограничения доступа к ресурсам исключительно для авторизованных диапазонов корпоративной сети.","url":"https://y-kolyada.github.io/aws-waf/ru/glossary.html#ip-whitelist"},{"@type":"DefinedTerm","name":"Блокировка узлов анонимизации Tor (Tor Exit Nodes Blocking)","description":"Превентивное отсечение входящего трафика из сети анонимной маршрутизации Tor и публичных прокси-серверов.","url":"https://y-kolyada.github.io/aws-waf/ru/glossary.html#tor-blocking"},{"@type":"DefinedTerm","name":"Изоляция административных панелей (Admin Lockdown)","description":"Сценарий защиты критических интерфейсов управления веб-приложений от несанкционированного доступа из интернета.","url":"https://y-kolyada.github.io/aws-waf/ru/glossary.html#admin-lockdown"},{"@type":"DefinedTerm","name":"Ограничение размера тела запроса (Payload Size Limit)","description":"Правило контроля максимального допустимого объема входящего HTTP-тела для защиты от атак переполнения буфера.","url":"https://y-kolyada.github.io/aws-waf/ru/glossary.html#payload-limit"},{"@type":"DefinedTerm","name":"Контроль TLS-отпечатков JA3 (JA3 Fingerprinting)","description":"Метод идентификации автоматизированного клиентского софта на основе хэширования параметров рукопожатия TLS.","url":"https://y-kolyada.github.io/aws-waf/ru/glossary.html#ja3-hash"},{"@type":"DefinedTerm","name":"Лимитирование запросов аутентификации (Login Rate Limiting)","description":"Таргетированное ограничение частоты попыток входа в систему для защиты от перебора паролей.","url":"https://y-kolyada.github.io/aws-waf/ru/glossary.html#login-rate-limit"},{"@type":"DefinedTerm","name":"Валидация заголовков API-ключей (API Key Header Inspection)","description":"Инспекция наличия и формата криптографических клиентских ключей доступа на пограничном слое WAF.","url":"https://y-kolyada.github.io/aws-waf/ru/glossary.html#api-key-validation"},{"@type":"DefinedTerm","name":"Дашборд мониторинга WAF (WAF Monitoring Dashboard)","description":"Инженерная панель визуализации ключевых метрик здоровья периметра безопасности в реальном времени.","url":"https://y-kolyada.github.io/aws-waf/ru/glossary.html#waf-monitoring-dashboard"},{"@type":"DefinedTerm","name":"Автоматизация реагирования SOAR (SOAR Incident Response)","description":"Архитектура автоматического выявления инцидентов безопасности и мгновенного пополнения блокирующих IP-списков.","url":"https://y-kolyada.github.io/aws-waf/ru/glossary.html#soar-automation"},{"@type":"DefinedTerm","name":"Партиционирование логов WAF в Amazon Athena","description":"Оптимизация схемы хранения и секционирования структурированных логов WAF для высокоскоростного SQL-анализа.","url":"https://y-kolyada.github.io/aws-waf/ru/glossary.html#athena-partitioning"},{"@type":"DefinedTerm","name":"Канареечное развертывание политик WAF (Canary WAF Deployment)","description":"Метод минимизации радиуса поражения при развертывании глобальных изменений политик фильтрации.","url":"https://y-kolyada.github.io/aws-waf/ru/glossary.html#canary-waf"},{"@type":"DefinedTerm","name":"Оптимизация затрат WAF (WAF Cost Optimization)","description":"Комплекс инженерных мер по снижению операционных расходов на эксплуатацию L7-фильтрации.","url":"https://y-kolyada.github.io/aws-waf/ru/glossary.html#waf-cost-optimization"},{"@type":"DefinedTerm","name":"Дистрактор квалификационного теста (Distractor)","description":"Правдоподобный, но технически некорректный вариант ответа в сертификационных тестах AWS.","url":"https://y-kolyada.github.io/aws-waf/ru/glossary.html#distractor"},{"@type":"DefinedTerm","name":"Порядок обхода правил (Sequential Rule Evaluation)","description":"Базовый принцип линейной обработки условий в WAF от наименьшего приоритета к наибольшему.","url":"https://y-kolyada.github.io/aws-waf/ru/glossary.html#rule-priority-eval"},{"@type":"DefinedTerm","name":"Инспекция заголовков HTTP-запроса (Header Inspection)","description":"Механизм проверки наличия, точного совпадения или шаблонов значений в заголовках HTTP-клиента.","url":"https://y-kolyada.github.io/aws-waf/ru/glossary.html#header-inspection"},{"@type":"DefinedTerm","name":"Механизм ассоциации Web ACL с ресурсами (WAF Association)","description":"Сетевая модель привязки политик безопасности к точкам терминации прикладного трафика.","url":"https://y-kolyada.github.io/aws-waf/ru/glossary.html#waf-association"},{"@type":"DefinedTerm","name":"Время жизни иммунитета токена (Token Immunity Time)","description":"Параметр действия CAPTCHA или Challenge, задающий срок действия выданного клиенту криптографического токена.","url":"https://y-kolyada.github.io/aws-waf/ru/glossary.html#token-immunity-time"},{"@type":"DefinedTerm","name":"Метки запросов WAF (Rule Labels)","description":"Механизм аннотации запросов метаданными внутри конвейера обработки для межправилового взаимодействия.","url":"https://y-kolyada.github.io/aws-waf/ru/glossary.html#labels"},{"@type":"DefinedTerm","name":"Защита от атак ReDoS в WAF (ReDoS Mitigation)","description":"Инженерные ограничения синтаксиса и алгоритмов компиляции шаблонов WAF для защиты от катастрофического отката.","url":"https://y-kolyada.github.io/aws-waf/ru/glossary.html#regex-redos"},{"@type":"DefinedTerm","name":"Тревожные оповещения CloudWatch Alarms (CloudWatch Alarms)","description":"Автоматизированные триггеры мониторинга, срабатывающие при превышении порогов заблокированных запросов.","url":"https://y-kolyada.github.io/aws-waf/ru/glossary.html#cloudwatch-alarms"},{"@type":"DefinedTerm","name":"Эшелонированная веб-безопасность (Defense-in-Depth L3/L4/L7)","description":"Стратегический подход построения многоуровневой защиты инфраструктуры от периферии до ядра бэкенда.","url":"https://y-kolyada.github.io/aws-waf/ru/glossary.html#defense-in-depth"},{"@type":"DefinedTerm","name":"Корпоративное управление политиками WAF (Multi-Account Governance)","description":"Системный фреймворк контроля и стандартизации защитных мер в масштабах enterprise-организации.","url":"https://y-kolyada.github.io/aws-waf/ru/glossary.html#waf-governance"},{"@type":"DefinedTerm","name":"Соглашение об уровне надежности WAF (WAF Availability & Latency SLO)","description":"Количественные инженерные обязательства по доступности и накладной задержке конвейера фильтрации.","url":"https://y-kolyada.github.io/aws-waf/ru/glossary.html#waf-slo"},{"@type":"DefinedTerm","name":"Миграция политик WAF без простоя (Zero-Downtime Rule Migration)","description":"Методология безопасного обновления версий правил и архитектуры Web ACL без деградации доступности сервиса.","url":"https://y-kolyada.github.io/aws-waf/ru/glossary.html#zero-downtime-migration"}]}</script>
 <!-- /meta -->
 <link rel="stylesheet" href="../assets/style.css?v=1">
 <script>
@@ -94,10 +94,867 @@
 
   <main id="main">
     <h1>Словарь понятий</h1>
-    <p class="page-size" data-words="22">Слов: 22</p>
-    <p class="lead">Лид страницы: о чём она и кому нужна. Одно предложение, не длиннее 160 знаков.</p>
+    <p class="page-size" data-words="3786">Слов: 3786 · Понятий: 68</p>
+    <p class="lead">Шестьдесят восемь ключевых понятий AWS WAFv2, инспекции сетевых пакетов L7, емкости WCU, управляемых сигнатур и антифрода.</p>
 
-    <p>Текст этого раздела ещё не написан.</p>
+    <nav class="chips" aria-label="Быстрый переход по главам словаря">
+      <strong>Переход по главам:</strong>
+      <a href="#ch-01">01 · WCU (5)</a>
+      <a href="#ch-02">02 · Области (4)</a>
+      <a href="#ch-03">03 · AMR (5)</a>
+      <a href="#ch-04">04 · Правила (5)</a>
+      <a href="#ch-05">05 · Rate Limit (5)</a>
+      <a href="#ch-06">06 · Действия (5)</a>
+      <a href="#ch-07">07 · Боты (5)</a>
+      <a href="#ch-08">08 · Логи (5)</a>
+      <a href="#ch-09">09 · Аудит (5)</a>
+      <a href="#ch-10">10 · Noob (4)</a>
+      <a href="#ch-11">11 · Pro (4)</a>
+      <a href="#ch-12">12 · IGL (4)</a>
+      <a href="#ch-13">13 · Тесты (4)</a>
+      <a href="#ch-14">14 · Анализ (4)</a>
+      <a href="#ch-15">15 · Стратегия (4)</a>
+    </nav>
+
+    <h2 id="ch-01">01 · Архитектура и емкость WCU <a class="anchor-link" href="#ch-01">#</a></h2>
+    <div class="glossary-term" id="web-acl">
+      <h2>
+        <span class="glossary-title">Список веб-контроля доступа (Web ACL)</span>
+        <code class="glossary-object">WebACL · WAFv2 · Scope · DefaultAction · WCU</code>
+        <a class="anchor-link" href="#web-acl">#</a>
+      </h2>
+      <p class="glossary-lead">Основной конфигурационный ресурс AWS WAFv2, объединяющий упорядоченный набор правил инспекции сетевых запросов L7.</p>
+      <p>Web ACL привязывается к защищаемым ресурсам (CloudFront, ALB, API Gateway, AppSync, Cognito) или создается в глобальном скоупе CLOUDFRONT. Конфигурация вычисляет суммарную стоимость правил WCU и определяет действие по умолчанию DefaultAction для не совпавших запросов.</p>
+      <div class="glossary-meta">
+        <svg class="icon" data-icon="target" viewBox="0 0 20 20" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="10" cy="10" r="7.4"/><circle cx="10" cy="10" r="3.6"/><circle cx="10" cy="10" r="0.7" fill="currentColor"/></svg> <strong>Где встретилось:</strong> <a href="01.html">Глава 01 · Архитектура и WCU</a>, <a href="index.html">Посадочная страница</a>, <a href="navigator.html">Навигатор</a> </div>
+    </div>
+    <div class="glossary-term" id="wcu">
+      <h2>
+        <span class="glossary-title">Единица емкости правил (Web ACL Capacity Unit, WCU)</span>
+        <code class="glossary-object">WCU · Capacity · 1500 · Quota · Rule Cost</code>
+        <a class="anchor-link" href="#wcu">#</a>
+      </h2>
+      <p class="glossary-lead">Метрическая единица вычислительной емкости правил в AWS WAFv2 с базовым лимитом 1500 единиц на Web ACL.</p>
+      <p>Каждое условие, регулярное выражение или управляемая группа правил расходует строго фиксированное число WCU в зависимости от сложности вычислений. При превышении квоты 1500 WCU требуется подключение платной опции расширения лимитов до 5000 WCU через сервисную квоту AWS.</p>
+      <div class="glossary-meta">
+        <svg class="icon" data-icon="target" viewBox="0 0 20 20" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="10" cy="10" r="7.4"/><circle cx="10" cy="10" r="3.6"/><circle cx="10" cy="10" r="0.7" fill="currentColor"/></svg> <strong>Где встретилось:</strong> <a href="01.html">Глава 01 · Архитектура и WCU</a>, <a href="navigator.html">Навигатор</a> </div>
+    </div>
+    <div class="glossary-term" id="default-action">
+      <h2>
+        <span class="glossary-title">Действие по умолчанию (Default Action)</span>
+        <code class="glossary-object">DefaultAction · Allow · Block · Fallthrough</code>
+        <a class="anchor-link" href="#default-action">#</a>
+      </h2>
+      <p class="glossary-lead">Результирующее действие Web ACL для веб-запросов, не попавших под условия ни одного из правил списка.</p>
+      <p>В модели нулевого доверия (Zero Trust) действие по умолчанию конфигурируется как Block, пропуская только явно валидированный трафик. В открытых веб-сервисах чаще применяется Allow с блокировкой вредоносных сигнатур через приоритетные правила.</p>
+      <div class="glossary-meta">
+        <svg class="icon" data-icon="target" viewBox="0 0 20 20" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="10" cy="10" r="7.4"/><circle cx="10" cy="10" r="3.6"/><circle cx="10" cy="10" r="0.7" fill="currentColor"/></svg> <strong>Где встретилось:</strong> <a href="01.html">Глава 01 · Архитектура и WCU</a>
+      </div>
+    </div>
+    <div class="glossary-term" id="rule-priority">
+      <h2>
+        <span class="glossary-title">Приоритет правила (Rule Priority)</span>
+        <code class="glossary-object">Priority · 0..N · Evaluation Order · Short-Circuit</code>
+        <a class="anchor-link" href="#rule-priority">#</a>
+      </h2>
+      <p class="glossary-lead">Целочисленный индекс, определяющий строгую последовательность оценки правил внутри Web ACL.</p>
+      <p>Оценка выполняется строго по возрастанию индекса priority (0, 1, 2...). При срабатывании терминального действия (Allow, Block, CAPTCHA, Challenge) обработка цепочки немедленно прекращается, исключая выполнение нижестоящих правил.</p>
+      <div class="glossary-meta">
+        <svg class="icon" data-icon="target" viewBox="0 0 20 20" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="10" cy="10" r="7.4"/><circle cx="10" cy="10" r="3.6"/><circle cx="10" cy="10" r="0.7" fill="currentColor"/></svg> <strong>Где встретилось:</strong> <a href="01.html">Глава 01 · Архитектура и WCU</a>
+      </div>
+    </div>
+    <div class="glossary-term" id="scope">
+      <h2>
+        <span class="glossary-title">Область видимости ресурса (Scope)</span>
+        <code class="glossary-object">Scope · CLOUDFRONT · REGIONAL · us-east-1</code>
+        <a class="anchor-link" href="#scope">#</a>
+      </h2>
+      <p class="glossary-lead">Архитектурная область развертывания WAFv2, разграничивающая глобальные периферийные и региональные ресурсы.</p>
+      <p>Область CLOUDFRONT всегда управляется через точку входа us-east-1 и инспектирует трафик на краевых PoP. Область REGIONAL связывается с ресурсами внутри конкретного региона AWS (ALB, API Gateway, AppSync, User Pool Cognito).</p>
+      <div class="glossary-meta">
+        <svg class="icon" data-icon="target" viewBox="0 0 20 20" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="10" cy="10" r="7.4"/><circle cx="10" cy="10" r="3.6"/><circle cx="10" cy="10" r="0.7" fill="currentColor"/></svg> <strong>Где встретилось:</strong> <a href="01.html">Глава 01 · Архитектура и WCU</a>
+      </div>
+    </div>
+
+    <h2 id="ch-02">02 · Области видимости и ассоциации ресурсов <a class="anchor-link" href="#ch-02">#</a></h2>
+    <div class="glossary-term" id="cloudfront-scope">
+      <h2>
+        <span class="glossary-title">Глобальная область CloudFront (CLOUDFRONT Scope)</span>
+        <code class="glossary-object">CLOUDFRONT · Edge · Anycast · PoP · TLS Termination</code>
+        <a class="anchor-link" href="#cloudfront-scope">#</a>
+      </h2>
+      <p class="glossary-lead">Периферийная область развертывания Web ACL для фильтрации трафика непосредственно на пограничных точках присутствия.</p>
+      <p>Трафик инспектируется до передачи на серверы-источники, что защищает бэкенд от сетевых аномалий и L7-атак на пограничном слое Anycast. Конфигурация Web ACL требует указания региона us-east-1 в вызовах AWS API.</p>
+      <div class="glossary-meta">
+        <svg class="icon" data-icon="target" viewBox="0 0 20 20" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="10" cy="10" r="7.4"/><circle cx="10" cy="10" r="3.6"/><circle cx="10" cy="10" r="0.7" fill="currentColor"/></svg> <strong>Где встретилось:</strong> <a href="02.html">Глава 02 · Области и ассоциации</a>
+      </div>
+    </div>
+    <div class="glossary-term" id="regional-scope">
+      <h2>
+        <span class="glossary-title">Региональная область развертывания (REGIONAL Scope)</span>
+        <code class="glossary-object">REGIONAL · VPC · Regional ALB · API Gateway · AppSync</code>
+        <a class="anchor-link" href="#regional-scope">#</a>
+      </h2>
+      <p class="glossary-lead">Локальная область развертывания Web ACL внутри конкретного географического региона AWS.</p>
+      <p>Применяется для прямой защиты балансировщиков ALB, шлюзов REST/HTTP API Gateway, серверов GraphQL AppSync и пулов пользователей Amazon Cognito. Все операции управления выполняются в региональном эндпоинте соответствующего региона.</p>
+      <div class="glossary-meta">
+        <svg class="icon" data-icon="target" viewBox="0 0 20 20" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="10" cy="10" r="7.4"/><circle cx="10" cy="10" r="3.6"/><circle cx="10" cy="10" r="0.7" fill="currentColor"/></svg> <strong>Где встретилось:</strong> <a href="02.html">Глава 02 · Области и ассоциации</a>
+      </div>
+    </div>
+    <div class="glossary-term" id="resource-association">
+      <h2>
+        <span class="glossary-title">Ассоциация ресурсов WAFv2 (Resource Association)</span>
+        <code class="glossary-object">AssociateWebACL · DisassociateWebACL · ResourceArn</code>
+        <a class="anchor-link" href="#resource-association">#</a>
+      </h2>
+      <p class="glossary-lead">Двусторонняя связка между экземпляром Web ACL и целевым сетевым ресурсом инфраструктуры AWS.</p>
+      <p>К одному региональному ресурсу может быть привязан только один Web ACL, однако один Web ACL может обслуживать десятки однотипных ресурсов внутри одного региона, централизуя политики безопасности.</p>
+      <div class="glossary-meta">
+        <svg class="icon" data-icon="target" viewBox="0 0 20 20" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="10" cy="10" r="7.4"/><circle cx="10" cy="10" r="3.6"/><circle cx="10" cy="10" r="0.7" fill="currentColor"/></svg> <strong>Где встретилось:</strong> <a href="02.html">Глава 02 · Области и ассоциации</a>
+      </div>
+    </div>
+    <div class="glossary-term" id="alb-waf">
+      <h2>
+        <span class="glossary-title">Интеграция WAF с балансировщиком ALB (ALB WAF Association)</span>
+        <code class="glossary-object">ALB · Target Group · X-Amzn-Trace-Id · HTTP 403</code>
+        <a class="anchor-link" href="#alb-waf">#</a>
+      </h2>
+      <p class="glossary-lead">Механизм аппаратной фильтрации трафика на уровне L7 перед отправкой запросов в целевые группы ALB.</p>
+      <p>Балансировщик Application Load Balancer выполняет вызовы WAF инлайн в процессе разбора HTTP-заголовков. В случае блокировки ALB самостоятельно генерирует ответ 403 Forbidden без пробуждения контейнеров и инстансов бэкенда.</p>
+      <div class="glossary-meta">
+        <svg class="icon" data-icon="target" viewBox="0 0 20 20" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="10" cy="10" r="7.4"/><circle cx="10" cy="10" r="3.6"/><circle cx="10" cy="10" r="0.7" fill="currentColor"/></svg> <strong>Где встретилось:</strong> <a href="02.html">Глава 02 · Области и ассоциации</a>
+      </div>
+    </div>
+
+    <h2 id="ch-03">03 · Управляемые правила и сигнатуры <a class="anchor-link" href="#ch-03">#</a></h2>
+    <div class="glossary-term" id="amrg">
+      <h2>
+        <span class="glossary-title">Управляемые группы правил AWS (AWS Managed Rules, AMR)</span>
+        <code class="glossary-object">AWSManagedRules · Vendor · Signatures · Auto-Update</code>
+        <a class="anchor-link" href="#amrg">#</a>
+      </h2>
+      <p class="glossary-lead">Готовые пакеты правил безопасности, разрабатываемые и непрерывно обновляемые исследовательской группой AWS Threat Intelligence.</p>
+      <p>Включают сигнатурные базы для защиты от угроз из списка OWASP Top-10, уязвимостей CMS, эксплуатации известных вредоносных IP-адресов и ботнетов без необходимости ручного написания регулярных выражений.</p>
+      <div class="glossary-meta">
+        <svg class="icon" data-icon="target" viewBox="0 0 20 20" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="10" cy="10" r="7.4"/><circle cx="10" cy="10" r="3.6"/><circle cx="10" cy="10" r="0.7" fill="currentColor"/></svg> <strong>Где встретилось:</strong> <a href="03.html">Глава 03 · Управляемые правила</a>
+      </div>
+    </div>
+    <div class="glossary-term" id="crs">
+      <h2>
+        <span class="glossary-title">Базовый набор правил защиты (Common Rule Set, CRS)</span>
+        <code class="glossary-object">AWSManagedRulesCommonRuleSet · 700 WCU · OWASP · Core</code>
+        <a class="anchor-link" href="#crs">#</a>
+      </h2>
+      <p class="glossary-lead">Флагманская управляемая группа правил AWS, закрывающая фундаментальные веб-уязвимости и векторы атак.</p>
+      <p>Группа Common Rule Set инспектирует размеры тел запросов, блокирует попытки обхода путей LFI/RFI, инъекции команд ОС и аномальные заголовки. Потребляет 700 WCU и служит фундаментом для подавляющего большинства Web ACL.</p>
+      <div class="glossary-meta">
+        <svg class="icon" data-icon="target" viewBox="0 0 20 20" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="10" cy="10" r="7.4"/><circle cx="10" cy="10" r="3.6"/><circle cx="10" cy="10" r="0.7" fill="currentColor"/></svg> <strong>Где встретилось:</strong> <a href="03.html">Глава 03 · Управляемые правила</a>
+      </div>
+    </div>
+    <div class="glossary-term" id="rule-override">
+      <h2>
+        <span class="glossary-title">Переопределение действия правила (Rule Action Override)</span>
+        <code class="glossary-object">OverrideAction · RuleActionOverrides · Count · ExcludedRules</code>
+        <a class="anchor-link" href="#rule-override">#</a>
+      </h2>
+      <p class="glossary-lead">Механизм подмены терминального действия управляемого правила на пассивный подсчет (Count) для безопасного тестирования.</p>
+      <p>Позволяет изолировать отдельные правила внутри управляемой группы (например, SizeRestrictions_BODY), предотвращая ложные срабатывания (False Positives) на специфических клиентских нагрузках.</p>
+      <div class="glossary-meta">
+        <svg class="icon" data-icon="target" viewBox="0 0 20 20" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="10" cy="10" r="7.4"/><circle cx="10" cy="10" r="3.6"/><circle cx="10" cy="10" r="0.7" fill="currentColor"/></svg> <strong>Где встретилось:</strong> <a href="03.html">Глава 03 · Управляемые правила</a>
+      </div>
+    </div>
+    <div class="glossary-term" id="count-mode">
+      <h2>
+        <span class="glossary-title">Режим подсчета (Count Mode)</span>
+        <code class="glossary-object">Count · Non-Terminating · CloudWatch · Safe Rollout</code>
+        <a class="anchor-link" href="#count-mode">#</a>
+      </h2>
+      <p class="glossary-lead">Нетерминальное действие WAF, фиксирующее срабатывание правила в метриках без прерывания обработки запроса.</p>
+      <p>Применяется при первичном подключении новых правил и сигнатур для оценки потенциального влияния на легитимный пользовательский трафик в боевом контуре в течение 24-48 часов.</p>
+      <div class="glossary-meta">
+        <svg class="icon" data-icon="target" viewBox="0 0 20 20" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="10" cy="10" r="7.4"/><circle cx="10" cy="10" r="3.6"/><circle cx="10" cy="10" r="0.7" fill="currentColor"/></svg> <strong>Где встретилось:</strong> <a href="03.html">Глава 03 · Управляемые правила</a>
+      </div>
+    </div>
+    <div class="glossary-term" id="marketplace-rules">
+      <h2>
+        <span class="glossary-title">Партнерские правила AWS Marketplace (Marketplace Rule Groups)</span>
+        <code class="glossary-object">Marketplace · Fortinet · F5 · Cyber Security · Subscription</code>
+        <a class="anchor-link" href="#marketplace-rules">#</a>
+      </h2>
+      <p class="glossary-lead">Специализированные наборы правил от ведущих вендоров кибербезопасности, подключаемые по подписке через AWS Marketplace.</p>
+      <p>Предоставляют расширенную сигнатурную экспертизу по нишевым направлениям: расширенный анализ L7 DDoS, защита банковских API, поведенческий антифрод и сигнатуры атак нулевого дня.</p>
+      <div class="glossary-meta">
+        <svg class="icon" data-icon="target" viewBox="0 0 20 20" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="10" cy="10" r="7.4"/><circle cx="10" cy="10" r="3.6"/><circle cx="10" cy="10" r="0.7" fill="currentColor"/></svg> <strong>Где встретилось:</strong> <a href="03.html">Глава 03 · Управляемые правила</a>
+      </div>
+    </div>
+
+    <h2 id="ch-04">04 · Кастомные правила и инспекция пакетов <a class="anchor-link" href="#ch-04">#</a></h2>
+    <div class="glossary-term" id="ip-set">
+      <h2>
+        <span class="glossary-title">Набор IP-адресов (IP Set)</span>
+        <code class="glossary-object">IPSet · CIDR · IPv4 · IPv6 · WCU 1</code>
+        <a class="anchor-link" href="#ip-set">#</a>
+      </h2>
+      <p class="glossary-lead">Оптимизированный справочник одиночных IP-адресов и подсетей CIDR для мгновенной фильтрации на пограничном слое.</p>
+      <p>Поддерживает до десятков тысяч диапазонов IPv4/IPv6. Инспекция адреса источника через IPSetReferenceStatement потребляет всего 1 WCU, что делает ее наиболее эффективным средством отсечения вредоносных сетей.</p>
+      <div class="glossary-meta">
+        <svg class="icon" data-icon="target" viewBox="0 0 20 20" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="10" cy="10" r="7.4"/><circle cx="10" cy="10" r="3.6"/><circle cx="10" cy="10" r="0.7" fill="currentColor"/></svg> <strong>Где встретилось:</strong> <a href="04.html">Глава 04 · Кастомные правила</a>
+      </div>
+    </div>
+    <div class="glossary-term" id="regex-set">
+      <h2>
+        <span class="glossary-title">Набор регулярных выражений (Regex Pattern Set)</span>
+        <code class="glossary-object">RegexPatternSet · PCRE · RegexMatch · WCU Cost</code>
+        <a class="anchor-link" href="#regex-set">#</a>
+      </h2>
+      <p class="glossary-lead">Коллекция скомпилированных шаблонов регулярных выражений для поиска сложных текстовых сигнатур в полях запроса.</p>
+      <p>Применяется для верификации форматов токенов, UUID, специфических заголовков и параметров URI. Каждое совпадение через RegexPatternSetReferenceStatement расходует от 25 до 50 WCU в зависимости от объема входных данных.</p>
+      <div class="glossary-meta">
+        <svg class="icon" data-icon="target" viewBox="0 0 20 20" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="10" cy="10" r="7.4"/><circle cx="10" cy="10" r="3.6"/><circle cx="10" cy="10" r="0.7" fill="currentColor"/></svg> <strong>Где встретилось:</strong> <a href="04.html">Глава 04 · Кастомные правила</a>
+      </div>
+    </div>
+    <div class="glossary-term" id="geomatch">
+      <h2>
+        <span class="glossary-title">Географическое соответствие (GeoMatch Statement)</span>
+        <code class="glossary-object">GeoMatch · CountryCodes · ISO-3166 · Geolocation</code>
+        <a class="anchor-link" href="#geomatch">#</a>
+      </h2>
+      <p class="glossary-lead">Предикат инспекции входящего IP-адреса на принадлежность к выбранным странам по стандарту ISO-3166.</p>
+      <p>Позволяет реализовывать географические ограничения (Geo-blocking) для соблюдения нормативных требований (GDPR, экспортные ограничения) или блокировать трафик из регионов с аномально высоким уровнем атак.</p>
+      <div class="glossary-meta">
+        <svg class="icon" data-icon="target" viewBox="0 0 20 20" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="10" cy="10" r="7.4"/><circle cx="10" cy="10" r="3.6"/><circle cx="10" cy="10" r="0.7" fill="currentColor"/></svg> <strong>Где встретилось:</strong> <a href="04.html">Глава 04 · Кастомные правила</a>
+      </div>
+    </div>
+    <div class="glossary-term" id="forwarded-ip">
+      <h2>
+        <span class="glossary-title">Перенаправленный IP-адрес (Forwarded IP / XFF)</span>
+        <code class="glossary-object">ForwardedIPConfig · X-Forwarded-For · First · Fallback</code>
+        <a class="anchor-link" href="#forwarded-ip">#</a>
+      </h2>
+      <p class="glossary-lead">Конфигурация извлечения реального адреса клиента из заголовков прокси-серверов при многослойной архитектуре.</p>
+      <p>Позволяет правилам IPSet, Rate-based и GeoMatch инспектировать не адрес вышестоящего прокси (CDN или балансировщика), а значение заголовка X-Forwarded-For с опцией выбора первого или последнего адреса списка.</p>
+      <div class="glossary-meta">
+        <svg class="icon" data-icon="target" viewBox="0 0 20 20" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="10" cy="10" r="7.4"/><circle cx="10" cy="10" r="3.6"/><circle cx="10" cy="10" r="0.7" fill="currentColor"/></svg> <strong>Где встретилось:</strong> <a href="04.html">Глава 04 · Кастомные правила</a>
+      </div>
+    </div>
+    <div class="glossary-term" id="custom-rule">
+      <h2>
+        <span class="glossary-title">Пользовательское правило инспекции (Custom Rule)</span>
+        <code class="glossary-object">Rule · Statement · VisibilityConfig · Action</code>
+        <a class="anchor-link" href="#custom-rule">#</a>
+      </h2>
+      <p class="glossary-lead">Инженерная декларация условий инспекции L7, связывающая предикаты с конкретными действиями безопасности.</p>
+      <p>Позволяет проверять метод HTTP, путь URI, параметры строки запроса, заголовки, cookies и тело JSON с применением строгих цепочек преобразования текста и логических связок.</p>
+      <div class="glossary-meta">
+        <svg class="icon" data-icon="target" viewBox="0 0 20 20" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="10" cy="10" r="7.4"/><circle cx="10" cy="10" r="3.6"/><circle cx="10" cy="10" r="0.7" fill="currentColor"/></svg> <strong>Где встретилось:</strong> <a href="04.html">Глава 04 · Кастомные правила</a>
+      </div>
+    </div>
+
+    <h2 id="ch-05">05 · Условия, лимиты частоты и преобразования <a class="anchor-link" href="#ch-05">#</a></h2>
+    <div class="glossary-term" id="rate-based-rule">
+      <h2>
+        <span class="glossary-title">Ограничение частоты запросов (Rate-based Rule)</span>
+        <code class="glossary-object">RateBasedStatement · Limit · AggregateKey · Sliding Window</code>
+        <a class="anchor-link" href="#rate-based-rule">#</a>
+      </h2>
+      <p class="glossary-lead">Правило поведенческого контроля, отслеживающее частоту запросов в скользящем окне и блокирующее всплески трафика.</p>
+      <p>Позволяет ограничить количество обращений от одного IP-адреса, ключа сессии, заголовка или комбинации параметров. Порог лимитирования задается в диапазоне от 10 до нескольких миллионов запросов.</p>
+      <div class="glossary-meta">
+        <svg class="icon" data-icon="target" viewBox="0 0 20 20" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="10" cy="10" r="7.4"/><circle cx="10" cy="10" r="3.6"/><circle cx="10" cy="10" r="0.7" fill="currentColor"/></svg> <strong>Где встретилось:</strong> <a href="05.html">Глава 05 · Условия и агрегация</a>
+      </div>
+    </div>
+    <div class="glossary-term" id="evaluation-window">
+      <h2>
+        <span class="glossary-title">Окно агрегации запросов (Evaluation Window)</span>
+        <code class="glossary-object">EvaluationWindowSec · 60 · 120 · 300 · Sliding Window</code>
+        <a class="anchor-link" href="#evaluation-window">#</a>
+      </h2>
+      <p class="glossary-lead">Временной интервал агрегации метрик в rate-based правилах: 60, 120 или 300 секунд.</p>
+      <p>Определяет чувствительность детектора к всплескам трафика. Окно 60 секунд обеспечивает мгновенную реакцию на L7 DDoS и брутфорс, а окно 300 секунд сглаживает статистические флуктуации легитимных клиентов.</p>
+      <div class="glossary-meta">
+        <svg class="icon" data-icon="target" viewBox="0 0 20 20" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="10" cy="10" r="7.4"/><circle cx="10" cy="10" r="3.6"/><circle cx="10" cy="10" r="0.7" fill="currentColor"/></svg> <strong>Где встретилось:</strong> <a href="05.html">Глава 05 · Условия и агрегация</a>
+      </div>
+    </div>
+    <div class="glossary-term" id="scope-down">
+      <h2>
+        <span class="glossary-title">Ограничивающее условие (Scope-down Statement)</span>
+        <code class="glossary-object">ScopeDownStatement · Filter · Predicate · Selective Rate</code>
+        <a class="anchor-link" href="#scope-down">#</a>
+      </h2>
+      <p class="glossary-lead">Вложенное логическое условие, сужающее область действия rate-based правила до целевых URL или методов.</p>
+      <p>Предотвращает глобальное ограничение трафика на весь домен, активируя лимитирование частоты исключительно для чувствительных эндпоинтов, таких как /api/v1/auth/login или /checkout.</p>
+      <div class="glossary-meta">
+        <svg class="icon" data-icon="target" viewBox="0 0 20 20" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="10" cy="10" r="7.4"/><circle cx="10" cy="10" r="3.6"/><circle cx="10" cy="10" r="0.7" fill="currentColor"/></svg> <strong>Где встретилось:</strong> <a href="05.html">Глава 05 · Условия и агрегация</a>
+      </div>
+    </div>
+    <div class="glossary-term" id="text-transformation">
+      <h2>
+        <span class="glossary-title">Преобразование текста (Text Transformation)</span>
+        <code class="glossary-object">TextTransformation · LOWERCASE · URL_DECODE · NONE</code>
+        <a class="anchor-link" href="#text-transformation">#</a>
+      </h2>
+      <p class="glossary-lead">Алгоритмическая нормализация текстовых полей запроса перед сравнением со строковыми шаблонами и сигнатурами.</p>
+      <p>Предотвращает обход правил через манипуляции с регистром (LoWeRcAsE), множественное URL-кодирование (%2520), HTML-сущности и экранирование спецсимволов. Выполняется по строго заданному порядку приоритетов.</p>
+      <div class="glossary-meta">
+        <svg class="icon" data-icon="target" viewBox="0 0 20 20" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="10" cy="10" r="7.4"/><circle cx="10" cy="10" r="3.6"/><circle cx="10" cy="10" r="0.7" fill="currentColor"/></svg> <strong>Где встретилось:</strong> <a href="05.html">Глава 05 · Условия и агрегация</a>
+      </div>
+    </div>
+    <div class="glossary-term" id="composite-statement">
+      <h2>
+        <span class="glossary-title">Составное логическое условие (AND/OR/NOT Statement)</span>
+        <code class="glossary-object">AndStatement · OrStatement · NotStatement · Boolean</code>
+        <a class="anchor-link" href="#composite-statement">#</a>
+      </h2>
+      <p class="glossary-lead">Иерархическая логическая конструкция, объединяющая базовые предикаты инспекции в комплексные выражения.</p>
+      <p>Позволяет реализовывать сложные политики вида «запрос направлен к админ-панели AND IP не входит в белый список AND заголовок X-Internal-Key отсутствует», точно таргетируя защиту.</p>
+      <div class="glossary-meta">
+        <svg class="icon" data-icon="target" viewBox="0 0 20 20" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="10" cy="10" r="7.4"/><circle cx="10" cy="10" r="3.6"/><circle cx="10" cy="10" r="0.7" fill="currentColor"/></svg> <strong>Где встретилось:</strong> <a href="05.html">Глава 05 · Условия и агрегация</a>
+      </div>
+    </div>
+
+    <h2 id="ch-06">06 · Действия, CAPTCHA, Challenge и кастомные ответы <a class="anchor-link" href="#ch-06">#</a></h2>
+    <div class="glossary-term" id="action-block">
+      <h2>
+        <span class="glossary-title">Действие блокировки (Block Action)</span>
+        <code class="glossary-object">Block · HTTP 403 · Drop · Terminal Action</code>
+        <a class="anchor-link" href="#action-block">#</a>
+      </h2>
+      <p class="glossary-lead">Терминальное действие WAF, мгновенно прерывающее обработку запроса и возвращающее ошибку клиенту.</p>
+      <p>По умолчанию отдает HTTP-статус 403 Forbidden с пустым телом, защищая нижележащие прикладные сервера от паразитной нагрузки. Поддерживает настройку кастомных HTTP-кодов и пользовательских страниц ответа.</p>
+      <div class="glossary-meta">
+        <svg class="icon" data-icon="target" viewBox="0 0 20 20" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="10" cy="10" r="7.4"/><circle cx="10" cy="10" r="3.6"/><circle cx="10" cy="10" r="0.7" fill="currentColor"/></svg> <strong>Где встретилось:</strong> <a href="06.html">Глава 06 · Действия и ответы</a>
+      </div>
+    </div>
+    <div class="glossary-term" id="action-allow">
+      <h2>
+        <span class="glossary-title">Действие пропуска (Allow Action)</span>
+        <code class="glossary-object">Allow · Pass · Terminal · Bypass</code>
+        <a class="anchor-link" href="#action-allow">#</a>
+      </h2>
+      <p class="glossary-lead">Терминальное действие WAF, немедленно пропускающее запрос на защищаемый ресурс без дальнейшей инспекции.</p>
+      <p>Применяется для белых списков доверенных внутренних сервисов, мониторинговых систем и партнерских API, исключая ложные блокировки нижестоящими строгими эвристиками безопасности.</p>
+      <div class="glossary-meta">
+        <svg class="icon" data-icon="target" viewBox="0 0 20 20" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="10" cy="10" r="7.4"/><circle cx="10" cy="10" r="3.6"/><circle cx="10" cy="10" r="0.7" fill="currentColor"/></svg> <strong>Где встретилось:</strong> <a href="06.html">Глава 06 · Действия и ответы</a>
+      </div>
+    </div>
+    <div class="glossary-term" id="action-captcha">
+      <h2>
+        <span class="glossary-title">Проверка CAPTCHA (CAPTCHA Action)</span>
+        <code class="glossary-object">Captcha · Interactive Puzzle · ImmunityTime · Anti-Bot</code>
+        <a class="anchor-link" href="#action-captcha">#</a>
+      </h2>
+      <p class="glossary-lead">Интерактивная визуальная или аудиальная загадка, требующая подтверждения присутствия человека в браузере.</p>
+      <p>При успешном прохождении загадки клиенту выдается криптографически подписанный WAF Token, освобождающий браузер от повторных проверок на период ImmunityTime (от 60 до 259200 секунд).</p>
+      <div class="glossary-meta">
+        <svg class="icon" data-icon="target" viewBox="0 0 20 20" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="10" cy="10" r="7.4"/><circle cx="10" cy="10" r="3.6"/><circle cx="10" cy="10" r="0.7" fill="currentColor"/></svg> <strong>Где встретилось:</strong> <a href="06.html">Глава 06 · Действия и ответы</a>
+      </div>
+    </div>
+    <div class="glossary-term" id="action-challenge">
+      <h2>
+        <span class="glossary-title">Молчаливая проверка браузера (Challenge Action)</span>
+        <code class="glossary-object">Challenge · Silent JS · Telemetry · Proof of Work</code>
+        <a class="anchor-link" href="#action-challenge">#</a>
+      </h2>
+      <p class="glossary-lead">Фоновая неинтерактивная проверка клиентского браузера через исполнение JavaScript без показа головоломок.</p>
+      <p>Проверяет реальность среды выполнения JS, наличие аппаратных холстов Canvas, WebGL, структуру DOM и решает вычислительную задачу Proof-of-Work, отсекая автоматизированные скрипты и примитивных ботов.</p>
+      <div class="glossary-meta">
+        <svg class="icon" data-icon="target" viewBox="0 0 20 20" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="10" cy="10" r="7.4"/><circle cx="10" cy="10" r="3.6"/><circle cx="10" cy="10" r="0.7" fill="currentColor"/></svg> <strong>Где встретилось:</strong> <a href="06.html">Глава 06 · Действия и ответы</a>
+      </div>
+    </div>
+    <div class="glossary-term" id="custom-response">
+      <h2>
+        <span class="glossary-title">Пользовательский ответ (Custom Response)</span>
+        <code class="glossary-object">CustomResponseBody · ResponseHeaders · JSON · 429</code>
+        <a class="anchor-link" href="#custom-response">#</a>
+      </h2>
+      <p class="glossary-lead">Механизм переопределения HTTP-кода, заголовков и тела ответа при блокировке запроса WAF.</p>
+      <p>Позволяет возвращать клиентам стандартизированные ответы в формате application/json (например, код 429 Too Many Requests с описанием ошибки), сохраняя единообразие контракта мобильных и веб-приложений.</p>
+      <div class="glossary-meta">
+        <svg class="icon" data-icon="target" viewBox="0 0 20 20" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="10" cy="10" r="7.4"/><circle cx="10" cy="10" r="3.6"/><circle cx="10" cy="10" r="0.7" fill="currentColor"/></svg> <strong>Где встретилось:</strong> <a href="06.html">Глава 06 · Действия и ответы</a>
+      </div>
+    </div>
+
+    <h2 id="ch-07">07 · Интеллектуальная защита от ботов и антифрод <a class="anchor-link" href="#ch-07">#</a></h2>
+    <div class="glossary-term" id="bot-control">
+      <h2>
+        <span class="glossary-title">Управление бот-трафиком (AWS WAF Bot Control)</span>
+        <code class="glossary-object">AWSManagedRulesBotControlRuleSet · Common · Targeted · AI</code>
+        <a class="anchor-link" href="#bot-control">#</a>
+      </h2>
+      <p class="glossary-lead">Интеллектуальный модуль детекции и категоризации автоматизированных агентов, поисковых роботов и вредоносных скраперов.</p>
+      <p>Поддерживает базовый уровень Common (валидация верифицированных поисковиков Google/Bing) и продвинутый Targeted с машинным обучением, профилированием поведенческих паттернов и детекцией ротации IP-адресов.</p>
+      <div class="glossary-meta">
+        <svg class="icon" data-icon="target" viewBox="0 0 20 20" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="10" cy="10" r="7.4"/><circle cx="10" cy="10" r="3.6"/><circle cx="10" cy="10" r="0.7" fill="currentColor"/></svg> <strong>Где встретилось:</strong> <a href="07.html">Глава 07 · Защита от ботов</a>
+      </div>
+    </div>
+    <div class="glossary-term" id="atp">
+      <h2>
+        <span class="glossary-title">Защита от захвата аккаунтов (Account Takeover Prevention, ATP)</span>
+        <code class="glossary-object">AWSManagedRulesATPRuleSet · Credential Stuffing · Brute Force</code>
+        <a class="anchor-link" href="#atp">#</a>
+      </h2>
+      <p class="glossary-lead">Специализированная группа правил для предотвращения атак перебора скомпрометированных учетных данных (Credential Stuffing).</p>
+      <p>Анализирует эндпоинты аутентификации, сверяет логины и пароли с базами украденных учетных записей Dark Web, отслеживает коэффициенты неудачных попыток входа и аномальные источники сессий.</p>
+      <div class="glossary-meta">
+        <svg class="icon" data-icon="target" viewBox="0 0 20 20" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="10" cy="10" r="7.4"/><circle cx="10" cy="10" r="3.6"/><circle cx="10" cy="10" r="0.7" fill="currentColor"/></svg> <strong>Где встретилось:</strong> <a href="07.html">Глава 07 · Защита от ботов</a>
+      </div>
+    </div>
+    <div class="glossary-term" id="acfp">
+      <h2>
+        <span class="glossary-title">Защита от создания фиктивных аккаунтов (ACFP)</span>
+        <code class="glossary-object">AWSManagedRulesACFPRuleSet · Account Creation Fraud · Anti-Fraud</code>
+        <a class="anchor-link" href="#acfp">#</a>
+      </h2>
+      <p class="glossary-lead">Модуль противодействия массовой регистрации фейковых профилей, злоупотреблению промокодами и спам-активностям.</p>
+      <p>Инспектирует регистрационные формы, проверяет одноразовые почтовые домены, телефонные номера и сопоставляет скорость заполнения полей с физическими возможностями человека через клиентский SDK.</p>
+      <div class="glossary-meta">
+        <svg class="icon" data-icon="target" viewBox="0 0 20 20" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="10" cy="10" r="7.4"/><circle cx="10" cy="10" r="3.6"/><circle cx="10" cy="10" r="0.7" fill="currentColor"/></svg> <strong>Где встретилось:</strong> <a href="07.html">Глава 07 · Защита от ботов</a>
+      </div>
+    </div>
+    <div class="glossary-term" id="waf-token">
+      <h2>
+        <span class="glossary-title">Криптографический токен WAF (WAF Token)</span>
+        <code class="glossary-object">aws-waf-token · Cookie · Header · Encryption · HMAC</code>
+        <a class="anchor-link" href="#waf-token">#</a>
+      </h2>
+      <p class="glossary-lead">Зашифрованный токен сессии, подтверждающий успешное прохождение клиентской браузерной проверки Challenge или CAPTCHA.</p>
+      <p>Передается в cookie aws-waf-token или HTTP-заголовке x-amzn-waf-action-token. Проверяется на пограничных узлах WAF без обращения к базе данных, обеспечивая непрерывный доступ валидированным пользователям.</p>
+      <div class="glossary-meta">
+        <svg class="icon" data-icon="target" viewBox="0 0 20 20" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="10" cy="10" r="7.4"/><circle cx="10" cy="10" r="3.6"/><circle cx="10" cy="10" r="0.7" fill="currentColor"/></svg> <strong>Где встретилось:</strong> <a href="07.html">Глава 07 · Защита от ботов</a>
+      </div>
+    </div>
+    <div class="glossary-term" id="ja4-fingerprint">
+      <h2>
+        <span class="glossary-title">Отпечаток TLS-клиента JA4 (JA4 Fingerprint)</span>
+        <code class="glossary-object">JA4 · TLS Fingerprint · ClientHello · Cipher Suites · ALPN</code>
+        <a class="anchor-link" href="#ja4-fingerprint">#</a>
+      </h2>
+      <p class="glossary-lead">Современный метод профилирования сетевого стека клиента на основе параметров TLS ClientHello сообщения.</p>
+      <p>Позволяет идентифицировать автоматизированные библиотеки (cURL, Python Requests, Go-http-client) даже в том случае, когда скрипт подменяет заголовок User-Agent на реальный браузер Google Chrome.</p>
+      <div class="glossary-meta">
+        <svg class="icon" data-icon="target" viewBox="0 0 20 20" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="10" cy="10" r="7.4"/><circle cx="10" cy="10" r="3.6"/><circle cx="10" cy="10" r="0.7" fill="currentColor"/></svg> <strong>Где встретилось:</strong> <a href="07.html">Глава 07 · Защита от ботов</a>
+      </div>
+    </div>
+
+    <h2 id="ch-08">08 · Потоковое логирование, аудит и CloudWatch <a class="anchor-link" href="#ch-08">#</a></h2>
+    <div class="glossary-term" id="kinesis-firehose">
+      <h2>
+        <span class="glossary-title">Потоковая доставка логов через Kinesis Data Firehose</span>
+        <code class="glossary-object">aws-waf-logs-firehose · DirectPut · S3 · OpenSearch · Splunk</code>
+        <a class="anchor-link" href="#kinesis-firehose">#</a>
+      </h2>
+      <p class="glossary-lead">Высокопроизводительный управляемый конвейер непрерывной буферизации и передачи журналов WAF в целевые хранилища.</p>
+      <p>Принимает сотни тысяч событий в секунду, сжимает данные в формат GZIP или Parquet и складывает их в ведра Amazon S3, кластеры OpenSearch или сторонние SIEM-платформы (Splunk, Datadog) с задержкой до 60 секунд.</p>
+      <div class="glossary-meta">
+        <svg class="icon" data-icon="target" viewBox="0 0 20 20" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="10" cy="10" r="7.4"/><circle cx="10" cy="10" r="3.6"/><circle cx="10" cy="10" r="0.7" fill="currentColor"/></svg> <strong>Где встретилось:</strong> <a href="08.html">Глава 08 · Логи и телеметрия</a>
+      </div>
+    </div>
+    <div class="glossary-term" id="logging-filter">
+      <h2>
+        <span class="glossary-title">Фильтрация журналов WAF (Logging Filter)</span>
+        <code class="glossary-object">LoggingConfiguration · LoggingFilter · KEEP · DROP · Cost</code>
+        <a class="anchor-link" href="#logging-filter">#</a>
+      </h2>
+      <p class="glossary-lead">Конфигурация предварительной фильтрации записей аудита перед их отправкой в конвейер доставки логов.</p>
+      <p>Позволяет настроить правила отбора: например, сохранять (KEEP) исключительно заблокированные запросы (BLOCK, CAPTCHA, Challenge) и отбрасывать (DROP) миллионы легитимных обращений ALLOW, экономя бюджет на логирование.</p>
+      <div class="glossary-meta">
+        <svg class="icon" data-icon="target" viewBox="0 0 20 20" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="10" cy="10" r="7.4"/><circle cx="10" cy="10" r="3.6"/><circle cx="10" cy="10" r="0.7" fill="currentColor"/></svg> <strong>Где встретилось:</strong> <a href="08.html">Глава 08 · Логи и телеметрия</a>
+      </div>
+    </div>
+    <div class="glossary-term" id="redacted-fields">
+      <h2>
+        <span class="glossary-title">Сокрытие конфиденциальных полей (Redacted Fields)</span>
+        <code class="glossary-object">RedactedFields · PII · Authorization · Masking · Security</code>
+        <a class="anchor-link" href="#redacted-fields">#</a>
+      </h2>
+      <p class="glossary-lead">Параметр конфигурации логирования, исключающий запись персональных и чувствительных данных в журналы.</p>
+      <p>Обеспечивает маскирование содержимого заголовков Authorization, Cookie, параметров аутентификации и персональных данных (PII) в соответствии со стандартами безопасности PCI DSS, HIPAA и GDPR.</p>
+      <div class="glossary-meta">
+        <svg class="icon" data-icon="target" viewBox="0 0 20 20" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="10" cy="10" r="7.4"/><circle cx="10" cy="10" r="3.6"/><circle cx="10" cy="10" r="0.7" fill="currentColor"/></svg> <strong>Где встретилось:</strong> <a href="08.html">Глава 08 · Логи и телеметрия</a>
+      </div>
+    </div>
+    <div class="glossary-term" id="sampled-requests">
+      <h2>
+        <span class="glossary-title">Выборка запросов (Sampled Requests)</span>
+        <code class="glossary-object">GetSampledRequests · Console · Troubleshooting · 3 Hours</code>
+        <a class="anchor-link" href="#sampled-requests">#</a>
+      </h2>
+      <p class="glossary-lead">Встроенный диагностический буфер WAF, хранящий репрезентативную выборку до 5000 последних запросов за 3 часа.</p>
+      <p>Позволяет инженерам оперативно исследовать детали сработавших правил, просматривать заголовки, IP-адреса и причины блокировок непосредственно в консоли AWS без необходимости подключения тяжелых логов в S3.</p>
+      <div class="glossary-meta">
+        <svg class="icon" data-icon="target" viewBox="0 0 20 20" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="10" cy="10" r="7.4"/><circle cx="10" cy="10" r="3.6"/><circle cx="10" cy="10" r="0.7" fill="currentColor"/></svg> <strong>Где встретилось:</strong> <a href="08.html">Глава 08 · Логи и телеметрия</a>
+      </div>
+    </div>
+    <div class="glossary-term" id="cloudwatch-metrics">
+      <h2>
+        <span class="glossary-title">Метрики CloudWatch для WAF (CloudWatch Metrics)</span>
+        <code class="glossary-object">AWS/WAFV2 · BlockedRequests · AllowedRequests · MetricName</code>
+        <a class="anchor-link" href="#cloudwatch-metrics">#</a>
+      </h2>
+      <p class="glossary-lead">Статистические телеметрические ряды времени, отражающие интенсивность срабатывания правил безопасности.</p>
+      <p>Публикуются с гранулярностью в 1 минуту в пространстве имен AWS/WAFV2 по каждому правилу отдельно и по Web ACL в целом. Используются для построения аварийных алертов и мониторинговых дашбордов в CloudWatch.</p>
+      <div class="glossary-meta">
+        <svg class="icon" data-icon="target" viewBox="0 0 20 20" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="10" cy="10" r="7.4"/><circle cx="10" cy="10" r="3.6"/><circle cx="10" cy="10" r="0.7" fill="currentColor"/></svg> <strong>Где встретилось:</strong> <a href="08.html">Глава 08 · Логи и телеметрия</a>
+      </div>
+    </div>
+
+    <h2 id="ch-09">09 · Экономика WCU, Firewall Manager и аудит <a class="anchor-link" href="#ch-09">#</a></h2>
+    <div class="glossary-term" id="fms">
+      <h2>
+        <span class="glossary-title">Менеджер политик безопасности (AWS Firewall Manager, FMS)</span>
+        <code class="glossary-object">AWS Organizations · Central Security · Policy · Governance</code>
+        <a class="anchor-link" href="#fms">#</a>
+      </h2>
+      <p class="glossary-lead">Сервис централизованного управления политиками безопасности в масштабах многоаккаунтной организации AWS.</p>
+      <p>Автоматически распространяет эталонные Web ACL на все создаваемые балансировщики ALB, дистрибуции CloudFront и API Gateway во всех дочерних аккаунтах компании, выявляя и устраняя конфигурационный дрифт.</p>
+      <div class="glossary-meta">
+        <svg class="icon" data-icon="target" viewBox="0 0 20 20" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="10" cy="10" r="7.4"/><circle cx="10" cy="10" r="3.6"/><circle cx="10" cy="10" r="0.7" fill="currentColor"/></svg> <strong>Где встретилось:</strong> <a href="09.html">Глава 09 · Экономика и аудит</a>
+      </div>
+    </div>
+    <div class="glossary-term" id="shield-advanced">
+      <h2>
+        <span class="glossary-title">Расширенная защита от DDoS (AWS Shield Advanced)</span>
+        <code class="glossary-object">DDoS Mitigation · Cost Protection · SRT · Layer 3/4/7</code>
+        <a class="anchor-link" href="#shield-advanced">#</a>
+      </h2>
+      <p class="glossary-lead">Комплексная корпоративная подписка на защиту от распределенных атак отказа в обслуживании на всех уровнях модели OSI.</p>
+      <p>Включает круглосуточную поддержку команды AWS Shield Response Team (SRT), финансовую защиту от всплесков расходов при атаках (Cost Protection) и бесплатное использование стандартных Web ACL и правил WAF.</p>
+      <div class="glossary-meta">
+        <svg class="icon" data-icon="target" viewBox="0 0 20 20" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="10" cy="10" r="7.4"/><circle cx="10" cy="10" r="3.6"/><circle cx="10" cy="10" r="0.7" fill="currentColor"/></svg> <strong>Где встретилось:</strong> <a href="09.html">Глава 09 · Экономика и аудит</a>, <a href="navigator.html">Навигатор</a> </div>
+    </div>
+    <div class="glossary-term" id="staged-rollout">
+      <h2>
+        <span class="glossary-title">Поэтапное внедрение правил (Staged Rollout)</span>
+        <code class="glossary-object">Canary · Count-First · Staging · Production · Zero Outage</code>
+        <a class="anchor-link" href="#staged-rollout">#</a>
+      </h2>
+      <p class="glossary-lead">Инженерная методология безопасного ввода правил безопасности в боевую эксплуатацию.</p>
+      <p>Включает обязательные фазы: локальная валидация синтаксиса в CI/CD, развертывание в тестовом окружении, запуск в боевом контуре в режиме Count на 48 часов, аудит логов на предмет ложных срабатываний и перевод в Block.</p>
+      <div class="glossary-meta">
+        <svg class="icon" data-icon="target" viewBox="0 0 20 20" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="10" cy="10" r="7.4"/><circle cx="10" cy="10" r="3.6"/><circle cx="10" cy="10" r="0.7" fill="currentColor"/></svg> <strong>Где встретилось:</strong> <a href="09.html">Глава 09 · Экономика и аудит</a>, <a href="navigator.html">Навигатор</a> </div>
+    </div>
+    <div class="glossary-term" id="false-positive">
+      <h2>
+        <span class="glossary-title">Ложное срабатывание правила (False Positive)</span>
+        <code class="glossary-object">False Alarm · Legitimate Traffic · Exclusion · Tune</code>
+        <a class="anchor-link" href="#false-positive">#</a>
+      </h2>
+      <p class="glossary-lead">Ошибочная блокировка легитимного пользовательского запроса эвристиками или сигнатурами безопасности.</p>
+      <p>Возникает при наличии в теле запроса специфических символов (например, кавычек или тегов в тексте комментариев), требуя тюнинга правил через исключения RuleActionOverrides или добавления белых списков.</p>
+      <div class="glossary-meta">
+        <svg class="icon" data-icon="target" viewBox="0 0 20 20" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="10" cy="10" r="7.4"/><circle cx="10" cy="10" r="3.6"/><circle cx="10" cy="10" r="0.7" fill="currentColor"/></svg> <strong>Где встретилось:</strong> <a href="09.html">Глава 09 · Экономика и аудит</a>
+      </div>
+    </div>
+    <div class="glossary-term" id="lock-token">
+      <h2>
+        <span class="glossary-title">Токен оптимистической блокировки (LockToken)</span>
+        <code class="glossary-object">Concurrency · LockToken · UpdateWebACL · Race Condition</code>
+        <a class="anchor-link" href="#lock-token">#</a>
+      </h2>
+      <p class="glossary-lead">Строковый токен управления параллелизмом, предотвращающий перезапись чужих изменений Web ACL.</p>
+      <p>Передается в вызовах update-web-acl и гарантирует, что между операцией чтения конфигурации и ее обновлением другой администратор или процесс автоматизации не внес конкурирующих правок.</p>
+      <div class="glossary-meta">
+        <svg class="icon" data-icon="target" viewBox="0 0 20 20" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="10" cy="10" r="7.4"/><circle cx="10" cy="10" r="3.6"/><circle cx="10" cy="10" r="0.7" fill="currentColor"/></svg> <strong>Где встретилось:</strong> <a href="09.html">Глава 09 · Экономика и аудит</a>
+      </div>
+    </div>
+
+    <h2 id="ch-10">10 · Практические сценарии · Noob <a class="anchor-link" href="#ch-10">#</a></h2>
+    <div class="glossary-term" id="ip-whitelist">
+      <h2>
+        <span class="glossary-title">Белый список доверенных адресов (IP Whitelist)</span>
+        <code class="glossary-object">IPSet · Office VPN · Allow · Priority 0</code>
+        <a class="anchor-link" href="#ip-whitelist">#</a>
+      </h2>
+      <p class="glossary-lead">Базовый сценарий ограничения доступа к ресурсам исключительно для авторизованных диапазонов корпоративной сети.</p>
+      <p>Размещается на нулевом приоритете Web ACL с действием Allow, пропуская трафик разработчиков и администраторов в обход ресурсоемких сигнатурных и поведенческих проверок.</p>
+      <div class="glossary-meta">
+        <svg class="icon" data-icon="target" viewBox="0 0 20 20" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="10" cy="10" r="7.4"/><circle cx="10" cy="10" r="3.6"/><circle cx="10" cy="10" r="0.7" fill="currentColor"/></svg> <strong>Где встретилось:</strong> <a href="10.html">Глава 10 · Примеры · Noob</a>
+      </div>
+    </div>
+    <div class="glossary-term" id="tor-blocking">
+      <h2>
+        <span class="glossary-title">Блокировка узлов анонимизации Tor (Tor Exit Nodes Blocking)</span>
+        <code class="glossary-object">AWSManagedRulesAnonymousIpList · Tor · VPN · Proxy</code>
+        <a class="anchor-link" href="#tor-blocking">#</a>
+      </h2>
+      <p class="glossary-lead">Превентивное отсечение входящего трафика из сети анонимной маршрутизации Tor и публичных прокси-серверов.</p>
+      <p>Реализуется подключением управляемой группы AWSManagedRulesAnonymousIpListRuleSet, которая автоматически отслеживает актуальные выходные ноды Tor, блокируя анонимный вредоносный трафик.</p>
+      <div class="glossary-meta">
+        <svg class="icon" data-icon="target" viewBox="0 0 20 20" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="10" cy="10" r="7.4"/><circle cx="10" cy="10" r="3.6"/><circle cx="10" cy="10" r="0.7" fill="currentColor"/></svg> <strong>Где встретилось:</strong> <a href="10.html">Глава 10 · Примеры · Noob</a>
+      </div>
+    </div>
+    <div class="glossary-term" id="admin-lockdown">
+      <h2>
+        <span class="glossary-title">Изоляция административных панелей (Admin Lockdown)</span>
+        <code class="glossary-object">Admin Path · /admin · URI Inspection · 403 Forbidden</code>
+        <a class="anchor-link" href="#admin-lockdown">#</a>
+      </h2>
+      <p class="glossary-lead">Сценарий защиты критических интерфейсов управления веб-приложений от несанкционированного доступа из интернета.</p>
+      <p>Комбинирует проверку совпадения префикса пути /admin/* с проверкой принадлежности IP-адреса корпоративному пулу, возвращая 403 Forbidden всем неавторизованным клиентам.</p>
+      <div class="glossary-meta">
+        <svg class="icon" data-icon="target" viewBox="0 0 20 20" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="10" cy="10" r="7.4"/><circle cx="10" cy="10" r="3.6"/><circle cx="10" cy="10" r="0.7" fill="currentColor"/></svg> <strong>Где встретилось:</strong> <a href="10.html">Глава 10 · Примеры · Noob</a>
+      </div>
+    </div>
+    <div class="glossary-term" id="payload-limit">
+      <h2>
+        <span class="glossary-title">Ограничение размера тела запроса (Payload Size Limit)</span>
+        <code class="glossary-object">SizeConstraintStatement · Body · 8192 Bytes · Buffer Overflow</code>
+        <a class="anchor-link" href="#payload-limit">#</a>
+      </h2>
+      <p class="glossary-lead">Правило контроля максимального допустимого объема входящего HTTP-тела для защиты от атак переполнения буфера.</p>
+      <p>Блокирует запросы с размером полезной нагрузки свыше заданного лимита (например, 8 КБ для поисковых форм или 64 КБ для JSON API), отсекая аномальные дампы данных на входе в систему.</p>
+      <div class="glossary-meta">
+        <svg class="icon" data-icon="target" viewBox="0 0 20 20" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="10" cy="10" r="7.4"/><circle cx="10" cy="10" r="3.6"/><circle cx="10" cy="10" r="0.7" fill="currentColor"/></svg> <strong>Где встретилось:</strong> <a href="10.html">Глава 10 · Примеры · Noob</a>
+      </div>
+    </div>
+
+    <h2 id="ch-11">11 · Практические сценарии · Pro <a class="anchor-link" href="#ch-11">#</a></h2>
+    <div class="glossary-term" id="ja3-hash">
+      <h2>
+        <span class="glossary-title">Контроль TLS-отпечатков JA3 (JA3 Fingerprinting)</span>
+        <code class="glossary-object">JA3 · MD5 · SSL Fingerprint · Scraper Detection</code>
+        <a class="anchor-link" href="#ja3-hash">#</a>
+      </h2>
+      <p class="glossary-lead">Метод идентификации автоматизированного клиентского софта на основе хэширования параметров рукопожатия TLS.</p>
+      <p>Позволяет отсекать заказные скраперы и ботов на уровне кастомных заголовков CloudFront (CloudFront-Viewer-JA3-Fingerprint), даже если атакующие постоянно меняют IP-адреса и прокси-пулы.</p>
+      <div class="glossary-meta">
+        <svg class="icon" data-icon="target" viewBox="0 0 20 20" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="10" cy="10" r="7.4"/><circle cx="10" cy="10" r="3.6"/><circle cx="10" cy="10" r="0.7" fill="currentColor"/></svg> <strong>Где встретилось:</strong> <a href="11.html">Глава 11 · Примеры · Pro</a>
+      </div>
+    </div>
+    <div class="glossary-term" id="login-rate-limit">
+      <h2>
+        <span class="glossary-title">Лимитирование запросов аутентификации (Login Rate Limiting)</span>
+        <code class="glossary-object">RateBased · /login · Scope-Down · Brute Force Protection</code>
+        <a class="anchor-link" href="#login-rate-limit">#</a>
+      </h2>
+      <p class="glossary-lead">Таргетированное ограничение частоты попыток входа в систему для защиты от перебора паролей.</p>
+      <p>Конфигурирует 60-секундное окно агрегации и строгий порог в 10-20 запросов исключительно для маршрута /api/v1/auth/login, не затрагивая просмотр каталога и статических страниц сервиса.</p>
+      <div class="glossary-meta">
+        <svg class="icon" data-icon="target" viewBox="0 0 20 20" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="10" cy="10" r="7.4"/><circle cx="10" cy="10" r="3.6"/><circle cx="10" cy="10" r="0.7" fill="currentColor"/></svg> <strong>Где встретилось:</strong> <a href="11.html">Глава 11 · Примеры · Pro</a>
+      </div>
+    </div>
+    <div class="glossary-term" id="api-key-validation">
+      <h2>
+        <span class="glossary-title">Валидация заголовков API-ключей (API Key Header Inspection)</span>
+        <code class="glossary-object">Header · x-api-key · Exact Match · Regex · 401 Unauthorized</code>
+        <a class="anchor-link" href="#api-key-validation">#</a>
+      </h2>
+      <p class="glossary-lead">Инспекция наличия и формата криптографических клиентских ключей доступа на пограничном слое WAF.</p>
+      <p>Отсекает неавторизованные вызовы API с некорректными форматами ключей до их попадания в ресурсоемкие бессерверные функции AWS Lambda или контейнеры Amazon ECS.</p>
+      <div class="glossary-meta">
+        <svg class="icon" data-icon="target" viewBox="0 0 20 20" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="10" cy="10" r="7.4"/><circle cx="10" cy="10" r="3.6"/><circle cx="10" cy="10" r="0.7" fill="currentColor"/></svg> <strong>Где встретилось:</strong> <a href="11.html">Глава 11 · Примеры · Pro</a>
+      </div>
+    </div>
+    <div class="glossary-term" id="waf-monitoring-dashboard">
+      <h2>
+        <span class="glossary-title">Дашборд мониторинга WAF (WAF Monitoring Dashboard)</span>
+        <code class="glossary-object">CloudWatch Dashboard · Telemetry · Block Ratio · Alarms</code>
+        <a class="anchor-link" href="#waf-monitoring-dashboard">#</a>
+      </h2>
+      <p class="glossary-lead">Инженерная панель визуализации ключевых метрик здоровья периметра безопасности в реальном времени.</p>
+      <p>Отображает динамику разрешенных и заблокированных запросов, распределение по странам, топ сработавших правил и долю запросов, прошедших испытания CAPTCHA и Challenge.</p>
+      <div class="glossary-meta">
+        <svg class="icon" data-icon="target" viewBox="0 0 20 20" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="10" cy="10" r="7.4"/><circle cx="10" cy="10" r="3.6"/><circle cx="10" cy="10" r="0.7" fill="currentColor"/></svg> <strong>Где встретилось:</strong> <a href="11.html">Глава 11 · Примеры · Pro</a>
+      </div>
+    </div>
+
+    <h2 id="ch-12">12 · Практические сценарии · IGL <a class="anchor-link" href="#ch-12">#</a></h2>
+    <div class="glossary-term" id="soar-automation">
+      <h2>
+        <span class="glossary-title">Автоматизация реагирования SOAR (SOAR Incident Response)</span>
+        <code class="glossary-object">SOAR · Security Automation · Lambda · EventBridge · Auto-Block</code>
+        <a class="anchor-link" href="#soar-automation">#</a>
+      </h2>
+      <p class="glossary-lead">Архитектура автоматического выявления инцидентов безопасности и мгновенного пополнения блокирующих IP-списков.</p>
+      <p>При анализе аномалий в CloudWatch или GuardDuty событие передается в EventBridge, функция Lambda вычисляет адреса атакующих ботнетов и динамически обновляет IPSet без участия человека.</p>
+      <div class="glossary-meta">
+        <svg class="icon" data-icon="target" viewBox="0 0 20 20" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="10" cy="10" r="7.4"/><circle cx="10" cy="10" r="3.6"/><circle cx="10" cy="10" r="0.7" fill="currentColor"/></svg> <strong>Где встретилось:</strong> <a href="12.html">Глава 12 · Примеры · IGL</a>
+      </div>
+    </div>
+    <div class="glossary-term" id="athena-partitioning">
+      <h2>
+        <span class="glossary-title">Партиционирование логов WAF в Amazon Athena</span>
+        <code class="glossary-object">Athena · Partition Projection · S3 Logs · BigData Analytics</code>
+        <a class="anchor-link" href="#athena-partitioning">#</a>
+      </h2>
+      <p class="glossary-lead">Оптимизация схемы хранения и секционирования структурированных логов WAF для высокоскоростного SQL-анализа.</p>
+      <p>Использование механизма Partition Projection по году, месяцу, дню и часу исключает ресурсоемкие операции MSCK REPAIR TABLE и сокращает время выполнения запросов расследования атак с минут до секунд.</p>
+      <div class="glossary-meta">
+        <svg class="icon" data-icon="target" viewBox="0 0 20 20" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="10" cy="10" r="7.4"/><circle cx="10" cy="10" r="3.6"/><circle cx="10" cy="10" r="0.7" fill="currentColor"/></svg> <strong>Где встретилось:</strong> <a href="12.html">Глава 12 · Примеры · IGL</a>
+      </div>
+    </div>
+    <div class="glossary-term" id="canary-waf">
+      <h2>
+        <span class="glossary-title">Канареечное развертывание политик WAF (Canary WAF Deployment)</span>
+        <code class="glossary-object">Canary · Weight · Route53 · Staging WebACL · Blast Radius</code>
+        <a class="anchor-link" href="#canary-waf">#</a>
+      </h2>
+      <p class="glossary-lead">Метод минимизации радиуса поражения при развертывании глобальных изменений политик фильтрации.</p>
+      <p>Включает маршрутизацию 5-10% реального трафика на тестовую дистрибуцию CloudFront или балансировщик с новым Web ACL для верификации влияния на конверсию до полного глобального релиза.</p>
+      <div class="glossary-meta">
+        <svg class="icon" data-icon="target" viewBox="0 0 20 20" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="10" cy="10" r="7.4"/><circle cx="10" cy="10" r="3.6"/><circle cx="10" cy="10" r="0.7" fill="currentColor"/></svg> <strong>Где встретилось:</strong> <a href="12.html">Глава 12 · Примеры · IGL</a>
+      </div>
+    </div>
+    <div class="glossary-term" id="waf-cost-optimization">
+      <h2>
+        <span class="glossary-title">Оптимизация затрат WAF (WAF Cost Optimization)</span>
+        <code class="glossary-object">FinOps · Cost Allocation · WCU Budget · CloudFront Edge</code>
+        <a class="anchor-link" href="#waf-cost-optimization">#</a>
+      </h2>
+      <p class="glossary-lead">Комплекс инженерных мер по снижению операционных расходов на эксплуатацию L7-фильтрации.</p>
+      <p>Включает агрегацию правил в Rule Groups для исключения дублирования WCU, строгую фильтрацию логов Logging Filter (DROP легитимных) и подключение AWS Shield Advanced при масштабе более 50 Web ACL.</p>
+      <div class="glossary-meta">
+        <svg class="icon" data-icon="target" viewBox="0 0 20 20" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="10" cy="10" r="7.4"/><circle cx="10" cy="10" r="3.6"/><circle cx="10" cy="10" r="0.7" fill="currentColor"/></svg> <strong>Где встретилось:</strong> <a href="12.html">Глава 12 · Примеры · IGL</a>
+      </div>
+    </div>
+
+    <h2 id="ch-13">13 · Банк квалификационных вопросов · Noob <a class="anchor-link" href="#ch-13">#</a></h2>
+    <div class="glossary-term" id="distractor">
+      <h2>
+        <span class="glossary-title">Дистрактор квалификационного теста (Distractor)</span>
+        <code class="glossary-object">Distractor · Assessment · Certification · Anti-Pattern</code>
+        <a class="anchor-link" href="#distractor">#</a>
+      </h2>
+      <p class="glossary-lead">Правдоподобный, но технически некорректный вариант ответа в сертификационных тестах AWS.</p>
+      <p>Формулируется на основе типичных заблуждений начинающих инженеров: например, утверждение о возможности привязки нескольких Web ACL к одному ALB или путаница между действиями Count и Block.</p>
+      <div class="glossary-meta">
+        <svg class="icon" data-icon="target" viewBox="0 0 20 20" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="10" cy="10" r="7.4"/><circle cx="10" cy="10" r="3.6"/><circle cx="10" cy="10" r="0.7" fill="currentColor"/></svg> <strong>Где встретилось:</strong> <a href="13.html">Глава 13 · Вопросы · Noob</a>
+      </div>
+    </div>
+    <div class="glossary-term" id="rule-priority-eval">
+      <h2>
+        <span class="glossary-title">Порядок обхода правил (Sequential Rule Evaluation)</span>
+        <code class="glossary-object">Priority Order · First Match · Stop Processing · Zero First</code>
+        <a class="anchor-link" href="#rule-priority-eval">#</a>
+      </h2>
+      <p class="glossary-lead">Базовый принцип линейной обработки условий в WAF от наименьшего приоритета к наибольшему.</p>
+      <p>Знание этого принципа позволяет избегать архитектурных ошибок, когда общее блокирующее правило случайно перекрывает вышестоящий белый список доверенных IP-адресов.</p>
+      <div class="glossary-meta">
+        <svg class="icon" data-icon="target" viewBox="0 0 20 20" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="10" cy="10" r="7.4"/><circle cx="10" cy="10" r="3.6"/><circle cx="10" cy="10" r="0.7" fill="currentColor"/></svg> <strong>Где встретилось:</strong> <a href="13.html">Глава 13 · Вопросы · Noob</a>
+      </div>
+    </div>
+    <div class="glossary-term" id="header-inspection">
+      <h2>
+        <span class="glossary-title">Инспекция заголовков HTTP-запроса (Header Inspection)</span>
+        <code class="glossary-object">FieldToMatch · SingleHeader · AllHeaders · MatchCriteria</code>
+        <a class="anchor-link" href="#header-inspection">#</a>
+      </h2>
+      <p class="glossary-lead">Механизм проверки наличия, точного совпадения или шаблонов значений в заголовках HTTP-клиента.</p>
+      <p>Является основой для валидации токенов авторизации, верификации происхождения запроса (Origin, Referer) и выявления аномальных заголовков автоматизированных сканеров.</p>
+      <div class="glossary-meta">
+        <svg class="icon" data-icon="target" viewBox="0 0 20 20" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="10" cy="10" r="7.4"/><circle cx="10" cy="10" r="3.6"/><circle cx="10" cy="10" r="0.7" fill="currentColor"/></svg> <strong>Где встретилось:</strong> <a href="13.html">Глава 13 · Вопросы · Noob</a>
+      </div>
+    </div>
+    <div class="glossary-term" id="waf-association">
+      <h2>
+        <span class="glossary-title">Механизм ассоциации Web ACL с ресурсами (WAF Association)</span>
+        <code class="glossary-object">Association · 1:1 Resource · 1:N WebACL · ARN Binding</code>
+        <a class="anchor-link" href="#waf-association">#</a>
+      </h2>
+      <p class="glossary-lead">Сетевая модель привязки политик безопасности к точкам терминации прикладного трафика.</p>
+      <p>Каждый сетевой ресурс (ALB, API Gateway, AppSync) может быть ассоциирован только с одним Web ACL в каждый момент времени, что исключает конфликты несовместимых наборов правил.</p>
+      <div class="glossary-meta">
+        <svg class="icon" data-icon="target" viewBox="0 0 20 20" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="10" cy="10" r="7.4"/><circle cx="10" cy="10" r="3.6"/><circle cx="10" cy="10" r="0.7" fill="currentColor"/></svg> <strong>Где встретилось:</strong> <a href="13.html">Глава 13 · Вопросы · Noob</a>
+      </div>
+    </div>
+
+    <h2 id="ch-14">14 · Банк квалификационных вопросов · Pro <a class="anchor-link" href="#ch-14">#</a></h2>
+    <div class="glossary-term" id="token-immunity-time">
+      <h2>
+        <span class="glossary-title">Время жизни иммунитета токена (Token Immunity Time)</span>
+        <code class="glossary-object">ImmunityTime · 60..259200s · WAF Token · Client Experience</code>
+        <a class="anchor-link" href="#token-immunity-time">#</a>
+      </h2>
+      <p class="glossary-lead">Параметр действия CAPTCHA или Challenge, задающий срок действия выданного клиенту криптографического токена.</p>
+      <p>Оптимальный подбор интервала (например, 300-600 секунд) исключает раздражение легитимных пользователей повторными капчами, сохраняя устойчивую защиту от повторного использования токена скриптами.</p>
+      <div class="glossary-meta">
+        <svg class="icon" data-icon="target" viewBox="0 0 20 20" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="10" cy="10" r="7.4"/><circle cx="10" cy="10" r="3.6"/><circle cx="10" cy="10" r="0.7" fill="currentColor"/></svg> <strong>Где встретилось:</strong> <a href="14.html">Глава 14 · Вопросы · Pro</a>
+      </div>
+    </div>
+    <div class="glossary-term" id="labels">
+      <h2>
+        <span class="glossary-title">Метки запросов WAF (Rule Labels)</span>
+        <code class="glossary-object">RuleLabels · Namespace · CustomLabels · MatchLabels</code>
+        <a class="anchor-link" href="#labels">#</a>
+      </h2>
+      <p class="glossary-lead">Механизм аннотации запросов метаданными внутри конвейера обработки для межправилового взаимодействия.</p>
+      <p>Правило может присвоить запросу метку (например, awswaf:managed:aws:bot-control:bot:name:googlebot), а последующие кастомные правила могут использовать предикат MatchLabels для тонкого ветвления логики.</p>
+      <div class="glossary-meta">
+        <svg class="icon" data-icon="target" viewBox="0 0 20 20" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="10" cy="10" r="7.4"/><circle cx="10" cy="10" r="3.6"/><circle cx="10" cy="10" r="0.7" fill="currentColor"/></svg> <strong>Где встретилось:</strong> <a href="14.html">Глава 14 · Вопросы · Pro</a>
+      </div>
+    </div>
+    <div class="glossary-term" id="regex-redos">
+      <h2>
+        <span class="glossary-title">Защита от атак ReDoS в WAF (ReDoS Mitigation)</span>
+        <code class="glossary-object">ReDoS · Regular Expression Denial of Service · Catastrophic Backtracking</code>
+        <a class="anchor-link" href="#regex-redos">#</a>
+      </h2>
+      <p class="glossary-lead">Инженерные ограничения синтаксиса и алгоритмов компиляции шаблонов WAF для защиты от катастрофического отката.</p>
+      <p>Движок AWS WAF строго валидирует регулярные выражения в RegexPatternSet, блокируя потенциально опасные конструкции с вложенными квантификаторами, способные вызвать зависание инспекции пакетов.</p>
+      <div class="glossary-meta">
+        <svg class="icon" data-icon="target" viewBox="0 0 20 20" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="10" cy="10" r="7.4"/><circle cx="10" cy="10" r="3.6"/><circle cx="10" cy="10" r="0.7" fill="currentColor"/></svg> <strong>Где встретилось:</strong> <a href="14.html">Глава 14 · Вопросы · Pro</a>
+      </div>
+    </div>
+    <div class="glossary-term" id="cloudwatch-alarms">
+      <h2>
+        <span class="glossary-title">Тревожные оповещения CloudWatch Alarms (CloudWatch Alarms)</span>
+        <code class="glossary-object">Alarm · SNS · Threshold · PagerDuty · Incident</code>
+        <a class="anchor-link" href="#cloudwatch-alarms">#</a>
+      </h2>
+      <p class="glossary-lead">Автоматизированные триггеры мониторинга, срабатывающие при превышении порогов заблокированных запросов.</p>
+      <p>Оповещают дежурную группу инженеров и SOC через каналы SNS, PagerDuty или Slack о начале распределенной атаки или возникновении всплеска ложных срабатываний после релиза новых правил.</p>
+      <div class="glossary-meta">
+        <svg class="icon" data-icon="target" viewBox="0 0 20 20" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="10" cy="10" r="7.4"/><circle cx="10" cy="10" r="3.6"/><circle cx="10" cy="10" r="0.7" fill="currentColor"/></svg> <strong>Где встретилось:</strong> <a href="14.html">Глава 14 · Вопросы · Pro</a>
+      </div>
+    </div>
+
+    <h2 id="ch-15">15 · Банк квалификационных вопросов · IGL <a class="anchor-link" href="#ch-15">#</a></h2>
+    <div class="glossary-term" id="defense-in-depth">
+      <h2>
+        <span class="glossary-title">Эшелонированная веб-безопасность (Defense-in-Depth L3/L4/L7)</span>
+        <code class="glossary-object">Layered Security · Route53 · CloudFront · WAF · Security Groups</code>
+        <a class="anchor-link" href="#defense-in-depth">#</a>
+      </h2>
+      <p class="glossary-lead">Стратегический подход построения многоуровневой защиты инфраструктуры от периферии до ядра бэкенда.</p>
+      <p>Предполагает фильтрацию L3/L4 атак на пограничном слое Anycast через AWS Shield, L7-инспекцию веб-запросов в AWS WAF, изоляцию сети через Security Groups в VPC и взаимную TLS-аутентификацию микросервисов.</p>
+      <div class="glossary-meta">
+        <svg class="icon" data-icon="target" viewBox="0 0 20 20" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="10" cy="10" r="7.4"/><circle cx="10" cy="10" r="3.6"/><circle cx="10" cy="10" r="0.7" fill="currentColor"/></svg> <strong>Где встретилось:</strong> <a href="15.html">Глава 15 · Вопросы · IGL</a>, <a href="index.html">Посадочная страница</a> </div>
+    </div>
+    <div class="glossary-term" id="waf-governance">
+      <h2>
+        <span class="glossary-title">Корпоративное управление политиками WAF (Multi-Account Governance)</span>
+        <code class="glossary-object">Governance · Landing Zone · Security Baseline · Compliance</code>
+        <a class="anchor-link" href="#waf-governance">#</a>
+      </h2>
+      <p class="glossary-lead">Системный фреймворк контроля и стандартизации защитных мер в масштабах enterprise-организации.</p>
+      <p>Опирается на связку AWS Organizations, AWS Control Tower и Firewall Manager, гарантируя непреложное соблюдение требований аудита (SOC 2, ISO 27001, PCI DSS) без задержек продуктовых релизов.</p>
+      <div class="glossary-meta">
+        <svg class="icon" data-icon="target" viewBox="0 0 20 20" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="10" cy="10" r="7.4"/><circle cx="10" cy="10" r="3.6"/><circle cx="10" cy="10" r="0.7" fill="currentColor"/></svg> <strong>Где встретилось:</strong> <a href="15.html">Глава 15 · Вопросы · IGL</a>
+      </div>
+    </div>
+    <div class="glossary-term" id="waf-slo">
+      <h2>
+        <span class="glossary-title">Соглашение об уровне надежности WAF (WAF Availability & Latency SLO)</span>
+        <code class="glossary-object">SLO · SLI · SLA · Error Budget · Availability 99.99%</code>
+        <a class="anchor-link" href="#waf-slo">#</a>
+      </h2>
+      <p class="glossary-lead">Количественные инженерные обязательства по доступности и накладной задержке конвейера фильтрации.</p>
+      <p>Фиксирует допустимый порог добавленной задержки инспекции WAF (не более 1-3 мс для статических правил и до 15 мс для сложных бот-эвристик) и метрики доступности сервиса на уровне 99.99%.</p>
+      <div class="glossary-meta">
+        <svg class="icon" data-icon="target" viewBox="0 0 20 20" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="10" cy="10" r="7.4"/><circle cx="10" cy="10" r="3.6"/><circle cx="10" cy="10" r="0.7" fill="currentColor"/></svg> <strong>Где встретилось:</strong> <a href="15.html">Глава 15 · Вопросы · IGL</a>, <a href="navigator.html">Навигатор</a> </div>
+    </div>
+    <div class="glossary-term" id="zero-downtime-migration">
+      <h2>
+        <span class="glossary-title">Миграция политик WAF без простоя (Zero-Downtime Rule Migration)</span>
+        <code class="glossary-object">Migration · Parallel WebACL · LockToken · Blue-Green WAF</code>
+        <a class="anchor-link" href="#zero-downtime-migration">#</a>
+      </h2>
+      <p class="glossary-lead">Методология безопасного обновления версий правил и архитектуры Web ACL без деградации доступности сервиса.</p>
+      <p>Реализуется через развертывание параллельного Web ACL, синхронизацию состояния через Infrastructure-as-Code (Terraform) и бесшовное переключение ассоциации ресурсов без разрыва пользовательских сессий.</p>
+      <div class="glossary-meta">
+        <svg class="icon" data-icon="target" viewBox="0 0 20 20" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="10" cy="10" r="7.4"/><circle cx="10" cy="10" r="3.6"/><circle cx="10" cy="10" r="0.7" fill="currentColor"/></svg> <strong>Где встретилось:</strong> <a href="15.html">Глава 15 · Вопросы · IGL</a>
+      </div>
+    </div>
   
 
     <footer>

@@ -94,7 +94,7 @@
 
   <main id="main">
     <h1>Практический справочник-ассессмент по AWS WAF для инженера</h1>
-    <p class="page-size" data-words="1910">Слов: 1910</p>
+    <p class="page-size" data-words="1963">Слов: 1963</p>
     <p class="lead">Эшелонированная защита L7-периметра в AWS: архитектура Web ACL, управляемые и кастомные правила, противодействие ботам (Bot Control) и 150 вопросов квалификационного ассессмента. Проверяемые утверждения, интеграция с CloudFront, ALB и API Gateway, три уровня зрелости инженера.</p>
 
     <div class="box key" id="key-idea">
@@ -122,7 +122,7 @@
       <ul>
         <li><strong>Уровень Noob (Начинающий специалист):</strong> Создает вручную в веб-консоли AWS базовое правило Rate-based rule, ограничивающее 100 запросов за 5 минут по IP-адресу клиента. Не учитывает наличие заголовка X-Forwarded-For за прокси-серверами, блокирует крупные корпоративные NAT-шлюзы и мобильные подсети вместе с легитимными пользователями. Не настраивает логирование заблокированного трафика в CloudWatch и не знает текущий расход емкости WCU. При первых жалобах пользователей в панике отключает правило целиком.</li>
         <li><strong>Уровень Pro (Профессиональный инженер):</strong> Описывает Web ACL в виде инфраструктурного кода (Terraform / OpenTofu). Подключает управляемый набор AWSManagedRulesBotControlRuleSet в режиме проверки (Count mode) для снятия фоновой метрики. Разделяет лимиты запросов по составному ключу (URI /api/v1/auth/login + заголовок Authorization или сессионная Cookie). Настраивает переопределение вердиктов (OverrideAction), чтобы блокировать только высокорисковые аномалии, и организует выгрузку логов в Amazon Kinesis Data Firehose с маскированием паролей в теле запроса (RedactedFields). При росте нагрузки анализирует сэмплированные запросы (Sampled Requests) и метрики ложных срабатываний в CloudWatch.</li>
-        <li><strong>Уровень IGL (In-Game Leader / Внутриигровой лидер):</strong> Проектирует эшелонированный периметр безопасности всей организации: активирует модуль AWS WAF Fraud Control (Account Takeover Prevention - ATP) с глубокой валидацией полезной нагрузки и интеграцией Client SDK на фронтенде для генерации криптографических токенов через Silent JavaScript Challenge. Внедряет автоматическую политику AWS Firewall Manager для синхронизации единого базового набора правил на тысячи учетных записей AWS Organizations. Заранее закладывает финансовый бюджет WCU и проектирует бессерверный конвейер автоблокировки распределенных ботнетов через Amazon Athena и AWS Lambda на основе поведенческого скоринга аномалий. Управляет стоимостью запросов и обеспечивает непрерывность бизнеса при глобальных атаках.</li>
+        <li><strong>Уровень IGL (In-Game Leader / Внутриигровой лидер):</strong> Проектирует <span class="term"><button type="button" class="term-btn" aria-expanded="false">эшелонированный периметр безопасности (Defense-in-Depth)</button><span class="term-card" role="tooltip" hidden><span class="term-header"><strong class="term-title">Эшелонированная веб-безопасность (Defense-in-Depth L3/L4/L7)</strong><button type="button" class="term-close" aria-label="Закрыть">×</button></span><span class="term-desc">Стратегический подход построения многоуровневой защиты инфраструктуры от периферии до ядра бэкенда.</span><span class="term-links"><a href="glossary.html#defense-in-depth">В словарь понятий <svg class="icon" data-icon="book" viewBox="0 0 20 20" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2.6 3.8h4.8a2.6 2.6 0 0 1 2.6 2.6v10a2.2 2.2 0 0 0-2.2-1.8H2.6z"/><path d="M17.4 3.8h-4.8a2.6 2.6 0 0 0-2.6 2.6v10a2.2 2.2 0 0 1 2.2-1.8h5.2z"/></svg></a></span></span></span> всей организации: активирует модуль AWS WAF Fraud Control (Account Takeover Prevention - ATP) с глубокой валидацией полезной нагрузки и интеграцией Client SDK на фронтенде для генерации криптографических токенов через Silent JavaScript Challenge. Внедряет автоматическую политику AWS Firewall Manager для синхронизации единого базового набора правил на тысячи учетных записей AWS Organizations. Заранее закладывает финансовый бюджет WCU и проектирует бессерверный конвейер автоблокировки распределенных ботнетов через Amazon Athena и AWS Lambda на основе поведенческого скоринга аномалий. Управляет стоимостью запросов и обеспечивает непрерывность бизнеса при глобальных атаках.</li>
       </ul>
     </div>
 
@@ -185,9 +185,9 @@
     <div class="box">
       <h3>Блок 4 · Квалификационный банк вопросов (Темы 13-15)</h3>
       <ul>
-        <li><a href="13.html">13 · Вопросы · Noob:</a> 50 фундаментальных вопросов по терминологии WAFv2, областям видимости, базовым действиям и элементарным правилам.</li>
-        <li><a href="14.html">14 · Вопросы · Pro:</a> 50 углубленных вопросов по rate-limiting, потоковому логированию, настройке управляемых групп правил и анализу инцидентов.</li>
-        <li><a href="15.html">15 · Вопросы · IGL:</a> 50 системных архитектурных вопросов по enterprise-управлению через Firewall Manager, тюнингу ATP/ACFP, оптимизации бюджетов WCU и защите глобальных сервисов.</li>
+        <li><a href="13.html">13 · Вопросы · Noob:</a> 50 фундаментальных вопросов по анатомии WAFv2, Web ACL, WCU, ассоциациям с ALB и CloudFront, терминальным действиям Allow/Block/Captcha/Challenge, базовым сигнатурам CRS и диагностике через Sampled Requests.</li>
+        <li><a href="14.html">14 · Вопросы · Pro:</a> 50 углубленных инженерных вопросов по составным ключам Rate Limiting, модулю Bot Control и JA4-отпечаткам, защите эндпоинтов входа через ATP/ACFP, потоковому логированию Kinesis Firehose и написанию IaC-манифестов Terraform.</li>
+        <li><a href="15.html">15 · Вопросы · IGL:</a> 50 системных архитектурных вопросов по enterprise-управлению через Firewall Manager, защите от распределенных DDoS в связке с Shield Advanced, оптимизации FinOps-бюджетов WCU, бессерверному SOAR-реагированию и надежности WAF SLO.</li>
       </ul>
     </div>
 
@@ -224,5 +224,7 @@
 </div>
 </div>
 <script src="../assets/swa.js?v=1"></script>
+<script src="../assets/terms.js?v=1"></script>
+<script src="../assets/cp.js?v=1"></script>
 </body>
 </html>

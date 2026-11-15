@@ -94,8 +94,8 @@
 
   <main id="main">
     <h1>Примеры · Noob</h1>
-    <p class="page-size" data-words="1006">Слов: 1006</p>
-    <p class="lead">Шесть вводных боевых сценариев AWS WAFv2 для начинающего инженера: защита от атак OWASP Top 10 через управляемые правила, изоляция панели администрирования по белому списку IP, географическая блокировка, базовый Rate Limiting формы входа, кастомный ответ 429 JSON и экспорт логов в Amazon S3.</p>
+    <p class="page-size" data-words="1111">Слов: 1111</p>
+    <p class="lead">Шесть вводных боевых сценариев AWS WAFv2 для начинающего инженера: защита от атак OWASP Top 10 через управляемые правила, изоляция панели администрирования по <span class="term"><button type="button" class="term-btn" aria-expanded="false">белому списку IP-адресов (IP Whitelist)</button><span class="term-card" role="tooltip" hidden><span class="term-header"><strong class="term-title">Белый список доверенных адресов (IP Whitelist)</strong><button type="button" class="term-close" aria-label="Закрыть">×</button></span><span class="term-desc">Базовый сценарий ограничения доступа к ресурсам исключительно для авторизованных диапазонов корпоративной сети.</span><span class="term-links"><a href="glossary.html#ip-whitelist">В словарь понятий <svg class="icon" data-icon="book" viewBox="0 0 20 20" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2.6 3.8h4.8a2.6 2.6 0 0 1 2.6 2.6v10a2.2 2.2 0 0 0-2.2-1.8H2.6z"/><path d="M17.4 3.8h-4.8a2.6 2.6 0 0 0-2.6 2.6v10a2.2 2.2 0 0 1 2.2-1.8h5.2z"/></svg></a></span></span></span>, географическая блокировка, базовый Rate Limiting формы входа, кастомный ответ 429 JSON и экспорт логов в Amazon S3.</p>
 
     <div class="box key" id="key-idea">
       <h2>Главная мысль страницы <a class="anchor-link" href="#key-idea" aria-label="ссылка на этот блок">#</a></h2>
@@ -104,7 +104,7 @@
     </div>
 
     <h2 id="scenario-1">1 · Базовая защита веб-приложения от OWASP Top 10 через AWS Managed Rules <a class="anchor-link" href="#scenario-1">#</a></h2>
-    <p><strong>Задача:</strong> Защитить публичное веб-приложение на базе CloudFront или ALB от распространенных уязвимостей (SQL-инъекции, межсайтовый скриптинг XSS, LFI/RFI) с использованием стандартных управляемых наборов правил AWS Managed Rules с минимальным бюджетом WCU.</p>
+    <p><strong>Задача:</strong> Защитить публичное веб-приложение на базе CloudFront или ALB от распространенных уязвимостей (SQL-инъекции, межсайтовый скриптинг XSS, LFI/RFI, <span class="term"><button type="button" class="term-btn" aria-expanded="false">ограничение размера тела запроса (Payload Size Limit)</button><span class="term-card" role="tooltip" hidden><span class="term-header"><strong class="term-title">Ограничение размера тела запроса (Payload Size Limit)</strong><button type="button" class="term-close" aria-label="Закрыть">×</button></span><span class="term-desc">Правило контроля максимального допустимого объема входящего HTTP-тела для защиты от атак переполнения буфера.</span><span class="term-links"><a href="glossary.html#payload-limit">В словарь понятий <svg class="icon" data-icon="book" viewBox="0 0 20 20" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2.6 3.8h4.8a2.6 2.6 0 0 1 2.6 2.6v10a2.2 2.2 0 0 0-2.2-1.8H2.6z"/><path d="M17.4 3.8h-4.8a2.6 2.6 0 0 0-2.6 2.6v10a2.2 2.2 0 0 1 2.2-1.8h5.2z"/></svg></a></span></span></span>) с использованием стандартных управляемых наборов правил AWS Managed Rules с минимальным бюджетом WCU.</p>
     <pre><code>{
   "Name": "AWS-AWSManagedRulesCommonRuleSet",
   "Priority": 10,
@@ -129,7 +129,7 @@
     </div>
 
     <h2 id="scenario-2">2 · Блокировка нежелательных стран по Geo-IP с белым списком офиса <a class="anchor-link" href="#scenario-2">#</a></h2>
-    <p><strong>Задача:</strong> Заблокировать весь трафик из стран с высокой вредоносной активностью, гарантировав беспрепятственный доступ для удаленных сотрудников и зарубежных филиалов компании.</p>
+    <p><strong>Задача:</strong> Заблокировать весь трафик из стран с высокой вредоносной активностью и <span class="term"><button type="button" class="term-btn" aria-expanded="false">выходных узлов сети Tor (Tor Exit Nodes)</button><span class="term-card" role="tooltip" hidden><span class="term-header"><strong class="term-title">Блокировка узлов анонимизации Tor (Tor Exit Nodes Blocking)</strong><button type="button" class="term-close" aria-label="Закрыть">×</button></span><span class="term-desc">Превентивное отсечение входящего трафика из сети анонимной маршрутизации Tor и публичных прокси-серверов.</span><span class="term-links"><a href="glossary.html#tor-blocking">В словарь понятий <svg class="icon" data-icon="book" viewBox="0 0 20 20" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2.6 3.8h4.8a2.6 2.6 0 0 1 2.6 2.6v10a2.2 2.2 0 0 0-2.2-1.8H2.6z"/><path d="M17.4 3.8h-4.8a2.6 2.6 0 0 0-2.6 2.6v10a2.2 2.2 0 0 1 2.2-1.8h5.2z"/></svg></a></span></span></span>, гарантировав беспрепятственный доступ для удаленных сотрудников и зарубежных филиалов компании.</p>
     <pre><code>{
   "Name": "BlockSpecificCountriesExceptOffice",
   "Priority": 20,
@@ -166,7 +166,7 @@
       <strong>Почему так:</strong> Логический оператор <code>AndStatement</code> объединяет условие совпадения страны <code>GeoMatchStatement</code> с отрицанием <code>NotStatement</code> принадлежности IP-адреса белому списку <code>IPSetReferenceStatement</code>. Если запрос приходит из указанной страны, но IP-адрес входит в пул <code>OfficeAllowedIPs</code>, отрицание возвращает false, условие AND не выполняется, и запрос беспрепятственно передается дальше. При работе через CloudFront определение геолокации выполняется по реальному адресу TCP-соединения, исключая возможность спуфинга заголовка X-Forwarded-For внешними клиентами.
     </div>
 
-    <h2 id="scenario-3">3 · Защита административного интерфейса (/admin) по белому списку IP <a class="anchor-link" href="#scenario-3">#</a></h2>
+    <h2 id="scenario-3">3 · Защита административного интерфейса (/admin) по <span class="term"><button type="button" class="term-btn" aria-expanded="false">изоляции административных панелей (Admin Lockdown)</button><span class="term-card" role="tooltip" hidden><span class="term-header"><strong class="term-title">Изоляция административных панелей (Admin Lockdown)</strong><button type="button" class="term-close" aria-label="Закрыть">×</button></span><span class="term-desc">Сценарий защиты критических интерфейсов управления веб-приложений от несанкционированного доступа из интернета.</span><span class="term-links"><a href="glossary.html#admin-lockdown">В словарь понятий <svg class="icon" data-icon="book" viewBox="0 0 20 20" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2.6 3.8h4.8a2.6 2.6 0 0 1 2.6 2.6v10a2.2 2.2 0 0 0-2.2-1.8H2.6z"/><path d="M17.4 3.8h-4.8a2.6 2.6 0 0 0-2.6 2.6v10a2.2 2.2 0 0 1 2.2-1.8h5.2z"/></svg></a></span></span></span> <a class="anchor-link" href="#scenario-3">#</a></h2>
     <p><strong>Задача:</strong> Полностью закрыть доступ к административной панели <code>/admin</code> для всего внешнего интернета, разрешив обращения исключительно с фиксированных корпоративных VPN-шлюзов.</p>
     <pre><code>{
   "Name": "RestrictAdminAccessToCorporateVPN",
@@ -374,5 +374,7 @@
 
 </div>
 <script src="../assets/swa.js?v=1"></script>
+<script src="../assets/terms.js?v=1"></script>
+<script src="../assets/cp.js?v=1"></script>
 </body>
 </html>

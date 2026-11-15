@@ -94,7 +94,7 @@
 
   <main id="main">
     <h1>Примеры · IGL</h1>
-    <p class="page-size" data-words="1097">Слов: 1097</p>
+    <p class="page-size" data-words="1200">Слов: 1200</p>
     <p class="lead">Шесть высших архитектурных сценариев AWS WAFv2 для лидера инженерной системы (In-Game Leader): динамическое отражение распределенного L7 DDoS через Silent Challenge, самовосстанавливающийся конвейер блокировки IP на базе Athena и Lambda, емкость 5000 WCU, политики Firewall Manager и GitOps-пайплайны.</p>
 
     <div class="box key" id="key-idea">
@@ -157,7 +157,7 @@
     </div>
 
     <h2 id="scenario-2">2 · Автоматическая нейтрализация вредоносных IP через Athena, Lambda и динамический IP Set <a class="anchor-link" href="#scenario-2">#</a></h2>
-    <p><strong>Задача:</strong> Построить самовосстанавливающийся бессерверный контур безопасности: по расписанию анализировать журналы WAF в S3 через Amazon Athena, выявлять адреса с аномальным количеством блокировок и автоматически добавлять их в динамический список <code>BlacklistIPSet</code> со сроком жизни бана 4 часа.</p>
+    <p><strong>Задача:</strong> Построить самовосстанавливающийся бессерверный <span class="term"><button type="button" class="term-btn" aria-expanded="false">контур автоматизации реагирования SOAR (SOAR Incident Response)</button><span class="term-card" role="tooltip" hidden><span class="term-header"><strong class="term-title">Автоматизация реагирования SOAR (SOAR Incident Response)</strong><button type="button" class="term-close" aria-label="Закрыть">×</button></span><span class="term-desc">Архитектура автоматического выявления инцидентов безопасности и мгновенного пополнения блокирующих IP-списков.</span><span class="term-links"><a href="glossary.html#soar-automation">В словарь понятий <svg class="icon" data-icon="book" viewBox="0 0 20 20" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2.6 3.8h4.8a2.6 2.6 0 0 1 2.6 2.6v10a2.2 2.2 0 0 0-2.2-1.8H2.6z"/><path d="M17.4 3.8h-4.8a2.6 2.6 0 0 0-2.6 2.6v10a2.2 2.2 0 0 1 2.2-1.8h5.2z"/></svg></a></span></span></span>: по расписанию с применением <span class="term"><button type="button" class="term-btn" aria-expanded="false">партиционирования аналитических логов WAF в Athena</button><span class="term-card" role="tooltip" hidden><span class="term-header"><strong class="term-title">Партиционирование логов WAF в Amazon Athena</strong><button type="button" class="term-close" aria-label="Закрыть">×</button></span><span class="term-desc">Оптимизация схемы хранения и секционирования структурированных логов WAF для высокоскоростного SQL-анализа.</span><span class="term-links"><a href="glossary.html#athena-partitioning">В словарь понятий <svg class="icon" data-icon="book" viewBox="0 0 20 20" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2.6 3.8h4.8a2.6 2.6 0 0 1 2.6 2.6v10a2.2 2.2 0 0 0-2.2-1.8H2.6z"/><path d="M17.4 3.8h-4.8a2.6 2.6 0 0 0-2.6 2.6v10a2.2 2.2 0 0 1 2.2-1.8h5.2z"/></svg></a></span></span></span> анализировать журналы WAF в S3 через Amazon Athena, выявлять адреса с аномальным количеством блокировок и автоматически добавлять их в динамический список <code>BlacklistIPSet</code> со сроком жизни бана 4 часа.</p>
     <pre><code>import boto3, os, time
 
 waf = boto3.client('wafv2')
@@ -196,7 +196,7 @@ def lambda_handler(event, context):
     </div>
 
     <h2 id="scenario-3">3 · Расширение емкости Web ACL до 5000 WCU с FinOps-профилированием правил <a class="anchor-link" href="#scenario-3">#</a></h2>
-    <p><strong>Задача:</strong> Развернуть комплексный эшелонированный Web ACL емкостью 2700 WCU (превышающий базовый лимит 1500 WCU) для критического финтех-портала, оптимизировав затраты на инспекцию трафика и распределение приоритетов.</p>
+    <p><strong>Задача:</strong> Развернуть комплексный эшелонированный Web ACL емкостью 2700 WCU (превышающий базовый лимит 1500 WCU) для критического финтех-портала, выполнив <span class="term"><button type="button" class="term-btn" aria-expanded="false">оптимизацию затрат на эксплуатацию WAF (Cost Optimization)</button><span class="term-card" role="tooltip" hidden><span class="term-header"><strong class="term-title">Оптимизация затрат WAF (WAF Cost Optimization)</strong><button type="button" class="term-close" aria-label="Закрыть">×</button></span><span class="term-desc">Комплекс инженерных мер по снижению операционных расходов на эксплуатацию L7-фильтрации.</span><span class="term-links"><a href="glossary.html#waf-cost-optimization">В словарь понятий <svg class="icon" data-icon="book" viewBox="0 0 20 20" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2.6 3.8h4.8a2.6 2.6 0 0 1 2.6 2.6v10a2.2 2.2 0 0 0-2.2-1.8H2.6z"/><path d="M17.4 3.8h-4.8a2.6 2.6 0 0 0-2.6 2.6v10a2.2 2.2 0 0 1 2.2-1.8h5.2z"/></svg></a></span></span></span> на инспекцию трафика и распределение приоритетов.</p>
     <pre><code># Конфигурация расширенного пула Web ACL емкостью 2700 WCU в Terraform:
 resource "aws_wafv2_web_acl" "enterprise_large_wcu" {
   name        = "enterprise-large-wcu-webacl"
@@ -338,7 +338,7 @@ aws shield update-application-layer-automatic-response \
     </div>
 
     <h2 id="scenario-6">6 · GitOps пайплайн тестирования WAF правил с канареечным аудитом и валидацией WCU <a class="anchor-link" href="#scenario-6">#</a></h2>
-    <p><strong>Задача:</strong> Настроить автоматизированный CI/CD пайплайн в GitHub Actions для валидации манифестов WAF: статический расчет бюджета WCU, линтинг синтаксиса через CLI skeleton и двухнедельный канареечный запуск правил с меткой аудита до перехода в режим блокировки.</p>
+    <p><strong>Задача:</strong> Настроить автоматизированный CI/CD пайплайн в GitHub Actions для валидации манифестов WAF: статический расчет бюджета WCU, линтинг синтаксиса через CLI skeleton и двухнедельный запуск с использованием <span class="term"><button type="button" class="term-btn" aria-expanded="false">канареечного развертывания политик (Canary WAF Deployment)</button><span class="term-card" role="tooltip" hidden><span class="term-header"><strong class="term-title">Канареечное развертывание политик WAF (Canary WAF Deployment)</strong><button type="button" class="term-close" aria-label="Закрыть">×</button></span><span class="term-desc">Метод минимизации радиуса поражения при развертывании глобальных изменений политик фильтрации.</span><span class="term-links"><a href="glossary.html#canary-waf">В словарь понятий <svg class="icon" data-icon="book" viewBox="0 0 20 20" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2.6 3.8h4.8a2.6 2.6 0 0 1 2.6 2.6v10a2.2 2.2 0 0 0-2.2-1.8H2.6z"/><path d="M17.4 3.8h-4.8a2.6 2.6 0 0 0-2.6 2.6v10a2.2 2.2 0 0 1 2.2-1.8h5.2z"/></svg></a></span></span></span> с меткой аудита до перехода в режим блокировки.</p>
     <pre><code>name: WAF GitOps Governance Pipeline
 
 on:
@@ -394,5 +394,7 @@ jobs:
 
 </div>
 <script src="../assets/swa.js?v=1"></script>
+<script src="../assets/terms.js?v=1"></script>
+<script src="../assets/cp.js?v=1"></script>
 </body>
 </html>
