@@ -41,6 +41,7 @@ for lang in LANGS:
             continue
         nav = NAV.search(open(os.path.join(lang, name), encoding='utf-8').read())
         if not nav:
+            bad.append('%s/%s: отсутствует обязательное главное меню <nav class="contents">' % (lang, name))
             continue
         checked += 1
         for num, title in ITEM.findall(nav.group(0)):
