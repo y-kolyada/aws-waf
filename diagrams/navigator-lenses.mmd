@@ -1,7 +1,19 @@
 flowchart TD
-    Nav["Инженерный навигатор WAFv2"] --> Found["Фундамент: Компоненты & Код"]
-    Nav --> Eco["Экосистема: Cloud, AI & DevOps"]
-    Found --> Matrix["Линзы устойчивости и надежности"]
-    Eco --> SRE["SRE Метрики & WAF SLO"]
-    Matrix --> Core["Архитектурное ядро Web ACL & WCU"]
-    SRE --> Core
+    subgraph Row1["Фундамент"]
+        L1["1. Core"]
+        L2["2. Code"]
+        L3["3. Strength"]
+    end
+    Row1 --> Hub["Ядро WAFv2: Web ACL & WCU"]
+    Hub --> Row2["Контекст"]
+    subgraph Row2["Контекст"]
+        L4["4. Limits"]
+        L5["5. Ecosys"]
+        L6["6. AI Lens"]
+    end
+    Row2 --> Row3["Эксплуатация"]
+    subgraph Row3["Эксплуатация"]
+        L7["7. Cloud"]
+        L8["8. DevOps"]
+        L9["9. SRE"]
+    end

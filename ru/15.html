@@ -94,7 +94,7 @@
 
   <main id="main">
     <h1>Вопросы · IGL</h1>
-    <p class="page-size" data-words="3129">Слов: 3129</p>
+    <p class="page-size" data-words="3136">Слов: 3136</p>
     <p class="lead">Пятьдесят высших квалификационных вопросов технического собеседования по AWS WAFv2 для лидера инженерной системы (In-Game Leader): корпоративный Firewall Manager, автоматическое отражение атак Shield Advanced, FinOps-моделирование, SRE-практики и отказоустойчивость.</p>
 
     <div class="box key" id="key-idea">
@@ -103,48 +103,49 @@
     </div>
 
     <div class="box figure">
-      <svg viewBox="0 0 320 224" style="max-width:320px;height:auto;display:block;margin:0 auto" role="img" aria-label="Схема стратегических компетенций In-Game Leader: Firewall Manager, Shield Advanced, FinOps и SLO">
-  <rect x="30" y="8" width="260" height="26" rx="4" fill="currentColor" fill-opacity="0.05" stroke="currentColor" stroke-width="1.2"/>
-  <text x="160" y="25" text-anchor="middle" font-size="12" fill="currentColor">Аттестация IGL: 50 вопросов</text>
+      <svg viewBox="0 0 320 230" style="max-width:320px;height:auto;display:block;margin:0 auto" role="img" aria-label="Схема централизованного управления политиками WAF через AWS Firewall Manager в организации">
+  <rect x="20" y="8" width="280" height="34" rx="4" fill="currentColor" fill-opacity="0.08" stroke="currentColor" stroke-width="1.4"/>
+  <text x="160" y="24" text-anchor="middle" font-size="12" font-weight="bold" fill="currentColor">AWS Organizations &amp; FMS Admin</text>
+  <text x="160" y="36" text-anchor="middle" font-size="12" opacity="0.75" fill="currentColor">Централизованные политики WAF</text>
 
-  <path d="M 160 34 L 160 48 L 85 48 L 85 60" fill="none" stroke="currentColor" stroke-width="1.4"/>
-  <polygon points="85,68 81,60 89,60" fill="currentColor"/>
+  <line x1="59" y1="42" x2="59" y2="70" stroke="currentColor" stroke-width="1.4"/>
+  <polygon points="59,78 55,70 63,70" fill="currentColor"/>
 
-  <path d="M 160 34 L 160 48 L 235 48 L 235 60" fill="none" stroke="currentColor" stroke-width="1.4"/>
-  <polygon points="235,68 231,60 239,60" fill="currentColor"/>
+  <line x1="160" y1="42" x2="160" y2="70" stroke="currentColor" stroke-width="1.4"/>
+  <polygon points="160,78 156,70 164,70" fill="currentColor"/>
 
-  <rect x="15" y="66" width="140" height="36" rx="4" fill="currentColor" fill-opacity="0.08" stroke="currentColor" stroke-width="1.2"/>
-  <text x="85" y="82" text-anchor="middle" font-size="12" font-weight="bold" fill="currentColor">Firewall Manager</text>
-  <text x="85" y="95" text-anchor="middle" font-size="12" opacity="0.75" fill="currentColor">Политики FMS</text>
+  <line x1="261" y1="42" x2="261" y2="70" stroke="currentColor" stroke-width="1.4"/>
+  <polygon points="261,78 257,70 265,70" fill="currentColor"/>
 
-  <rect x="165" y="66" width="140" height="36" rx="4" fill="currentColor" fill-opacity="0.08" stroke="currentColor" stroke-width="1.2"/>
-  <text x="235" y="82" text-anchor="middle" font-size="12" font-weight="bold" fill="currentColor">Shield Advanced</text>
-  <text x="235" y="95" text-anchor="middle" font-size="12" opacity="0.75" fill="currentColor">DDoS Protection</text>
+  <rect x="12" y="78" width="94" height="74" rx="4" fill="currentColor" fill-opacity="0.05" stroke="currentColor" stroke-width="1.2"/>
+  <text x="59" y="96" text-anchor="middle" font-size="12" font-weight="bold" fill="currentColor">Аккаунт A</text>
+  <text x="59" y="114" text-anchor="middle" font-size="12" fill="currentColor">Frontend</text>
+  <text x="59" y="132" text-anchor="middle" font-size="12" opacity="0.75" fill="currentColor">CloudFront</text>
 
-  <line x1="85" y1="102" x2="85" y2="114" stroke="currentColor" stroke-width="1.4"/>
-  <polygon points="85,122 81,114 89,114" fill="currentColor"/>
+  <rect x="113" y="78" width="94" height="74" rx="4" fill="currentColor" fill-opacity="0.05" stroke="currentColor" stroke-width="1.2"/>
+  <text x="160" y="96" text-anchor="middle" font-size="12" font-weight="bold" fill="currentColor">Аккаунт B</text>
+  <text x="160" y="114" text-anchor="middle" font-size="12" fill="currentColor">Banking API</text>
+  <text x="160" y="132" text-anchor="middle" font-size="12" opacity="0.75" fill="currentColor">ALB + Bots</text>
 
-  <line x1="235" y1="102" x2="235" y2="114" stroke="currentColor" stroke-width="1.4"/>
-  <polygon points="235,122 231,114 239,114" fill="currentColor"/>
+  <rect x="214" y="78" width="94" height="74" rx="4" fill="currentColor" fill-opacity="0.05" stroke="currentColor" stroke-width="1.2"/>
+  <text x="261" y="96" text-anchor="middle" font-size="12" font-weight="bold" fill="currentColor">Аккаунт C</text>
+  <text x="261" y="114" text-anchor="middle" font-size="12" fill="currentColor">Services</text>
+  <text x="261" y="132" text-anchor="middle" font-size="12" opacity="0.75" fill="currentColor">API Gateway</text>
 
-  <rect x="15" y="120" width="140" height="38" rx="4" fill="currentColor" fill-opacity="0.05" stroke="currentColor" stroke-width="1.2"/>
-  <text x="85" y="136" text-anchor="middle" font-size="12" fill="currentColor">FinOps и бюджет</text>
-  <text x="85" y="150" text-anchor="middle" font-size="12" opacity="0.75" fill="currentColor">WCU Budgeting</text>
+  <line x1="59" y1="152" x2="59" y2="164" stroke="currentColor" stroke-width="1.4"/>
+  <polygon points="59,172 55,164 63,164" fill="currentColor"/>
 
-  <rect x="165" y="120" width="140" height="38" rx="4" fill="currentColor" fill-opacity="0.05" stroke="currentColor" stroke-width="1.2"/>
-  <text x="235" y="136" text-anchor="middle" font-size="12" fill="currentColor">SRE Надежность</text>
-  <text x="235" y="150" text-anchor="middle" font-size="12" opacity="0.75" fill="currentColor">WAF Availability SLO</text>
+  <line x1="160" y1="152" x2="160" y2="164" stroke="currentColor" stroke-width="1.4"/>
+  <polygon points="160,172 156,164 164,164" fill="currentColor"/>
 
-  <line x1="85" y1="158" x2="85" y2="170" stroke="currentColor" stroke-width="1.4"/>
-  <polygon points="85,178 81,170 89,170" fill="currentColor"/>
+  <line x1="261" y1="152" x2="261" y2="164" stroke="currentColor" stroke-width="1.4"/>
+  <polygon points="261,172 257,164 265,164" fill="currentColor"/>
 
-  <line x1="235" y1="158" x2="235" y2="170" stroke="currentColor" stroke-width="1.4"/>
-  <polygon points="235,178 231,170 239,170" fill="currentColor"/>
-
-  <rect x="25" y="176" width="270" height="34" rx="4" fill="currentColor" fill-opacity="0.08" stroke="currentColor" stroke-width="1.4"/>
-  <text x="160" y="197" text-anchor="middle" font-size="12" font-weight="bold" fill="currentColor">Роль Principal Security Architect</text>
-</svg>
-      <p class="dim">Схема 16. Системное лидерство IGL: корпоративное управление и SRE-практики.</p>
+  <rect x="20" y="172" width="280" height="38" rx="4" fill="currentColor" fill-opacity="0.08" stroke="currentColor" stroke-width="1.4"/>
+  <text x="160" y="189" text-anchor="middle" font-size="12" font-weight="bold" fill="currentColor">Роль Principal Security Architect (IGL)</text>
+  <text x="160" y="202" text-anchor="middle" font-size="12" opacity="0.75" fill="currentColor">FinOps оптимизация и SLO 99.99%</text>
+      </svg>
+      <p class="dim">Схема 16. Корпоративное управление безопасностью: AWS Firewall Manager и мультиаккаунт.</p>
     </div>
 
     <h2 id="part1">1 · Enterprise-архитектура и AWS Firewall Manager (1-10) <a class="anchor-link" href="#part1">#</a></h2>

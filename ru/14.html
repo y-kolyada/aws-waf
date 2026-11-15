@@ -94,7 +94,7 @@
 
   <main id="main">
     <h1>Вопросы · Pro</h1>
-    <p class="page-size" data-words="2740">Слов: 2740</p>
+    <p class="page-size" data-words="2745">Слов: 2745</p>
     <p class="lead">Пятьдесят углубленных вопросов технического собеседования по AWS WAFv2 для инженера уровня Pro: составной Rate Limiting, защита от ботов, ATP, оптимизация затрат через LoggingFilter и Infrastructure as Code в Terraform.</p>
 
     <div class="box key" id="key-idea">
@@ -103,48 +103,49 @@
     </div>
 
     <div class="box figure">
-      <svg viewBox="0 0 320 224" style="max-width:320px;height:auto;display:block;margin:0 auto" role="img" aria-label="Схема направлений аттестации инженера уровня Pro: Bot Control, ATP, логирование и Terraform">
-  <rect x="30" y="8" width="260" height="26" rx="4" fill="currentColor" fill-opacity="0.05" stroke="currentColor" stroke-width="1.2"/>
-  <text x="160" y="25" text-anchor="middle" font-size="12" fill="currentColor">Аттестация Pro: 50 вопросов</text>
+      <svg viewBox="0 0 320 230" style="max-width:320px;height:auto;display:block;margin:0 auto" role="img" aria-label="Схема сетевой структуры компетенций уровня Pro: боты, антифрод, логи и автоматизация">
+  <rect x="30" y="8" width="260" height="30" rx="4" fill="currentColor" fill-opacity="0.05" stroke="currentColor" stroke-width="1.2"/>
+  <text x="160" y="27" text-anchor="middle" font-size="12" font-weight="bold" fill="currentColor">1. Bot Control &amp; JA4 (1-10)</text>
 
-  <path d="M 160 34 L 160 48 L 85 48 L 85 60" fill="none" stroke="currentColor" stroke-width="1.4"/>
-  <polygon points="85,68 81,60 89,60" fill="currentColor"/>
+  <line x1="82" y1="38" x2="82" y2="58" stroke="currentColor" stroke-width="1.4"/>
+  <polygon points="82,66 78,58 86,58" fill="currentColor"/>
 
-  <path d="M 160 34 L 160 48 L 235 48 L 235 60" fill="none" stroke="currentColor" stroke-width="1.4"/>
-  <polygon points="235,68 231,60 239,60" fill="currentColor"/>
+  <line x1="237" y1="38" x2="237" y2="58" stroke="currentColor" stroke-width="1.4"/>
+  <polygon points="237,66 233,58 241,58" fill="currentColor"/>
 
-  <rect x="15" y="66" width="140" height="36" rx="4" fill="currentColor" fill-opacity="0.08" stroke="currentColor" stroke-width="1.2"/>
-  <text x="85" y="82" text-anchor="middle" font-size="12" font-weight="bold" fill="currentColor">Bot Control &amp; JA4</text>
-  <text x="85" y="95" text-anchor="middle" font-size="12" opacity="0.75" fill="currentColor">Поведенческий анализ</text>
+  <rect x="15" y="66" width="135" height="40" rx="4" fill="currentColor" fill-opacity="0.05" stroke="currentColor" stroke-width="1.2"/>
+  <text x="82" y="82" text-anchor="middle" font-size="12" font-weight="bold" fill="currentColor">2. ATP Антифрод</text>
+  <text x="82" y="96" text-anchor="middle" font-size="12" opacity="0.75" fill="currentColor">Защита (11-20)</text>
 
-  <rect x="165" y="66" width="140" height="36" rx="4" fill="currentColor" fill-opacity="0.08" stroke="currentColor" stroke-width="1.2"/>
-  <text x="235" y="82" text-anchor="middle" font-size="12" font-weight="bold" fill="currentColor">Антифрод ATP / ACFP</text>
-  <text x="235" y="95" text-anchor="middle" font-size="12" opacity="0.75" fill="currentColor">Защита логина</text>
+  <rect x="170" y="66" width="135" height="40" rx="4" fill="currentColor" fill-opacity="0.05" stroke="currentColor" stroke-width="1.2"/>
+  <text x="237" y="82" text-anchor="middle" font-size="12" font-weight="bold" fill="currentColor">3. S3 &amp; Firehose</text>
+  <text x="237" y="96" text-anchor="middle" font-size="12" opacity="0.75" fill="currentColor">Логи (21-30)</text>
 
-  <line x1="85" y1="102" x2="85" y2="114" stroke="currentColor" stroke-width="1.4"/>
-  <polygon points="85,122 81,114 89,114" fill="currentColor"/>
+  <line x1="82" y1="106" x2="82" y2="116" stroke="currentColor" stroke-width="1.4"/>
+  <polygon points="82,124 78,116 86,116" fill="currentColor"/>
 
-  <line x1="235" y1="102" x2="235" y2="114" stroke="currentColor" stroke-width="1.4"/>
-  <polygon points="235,122 231,114 239,114" fill="currentColor"/>
+  <line x1="237" y1="106" x2="237" y2="116" stroke="currentColor" stroke-width="1.4"/>
+  <polygon points="237,124 233,116 241,116" fill="currentColor"/>
 
-  <rect x="15" y="120" width="140" height="38" rx="4" fill="currentColor" fill-opacity="0.05" stroke="currentColor" stroke-width="1.2"/>
-  <text x="85" y="136" text-anchor="middle" font-size="12" fill="currentColor">Логи Firehose &amp; S3</text>
-  <text x="85" y="150" text-anchor="middle" font-size="12" opacity="0.75" fill="currentColor">Маскирование PII</text>
+  <rect x="20" y="124" width="280" height="40" rx="4" fill="currentColor" fill-opacity="0.08" stroke="currentColor" stroke-width="1.4"/>
+  <text x="160" y="141" text-anchor="middle" font-size="12" font-weight="bold" fill="currentColor">Инженерный хаб Pro (WAF)</text>
+  <text x="160" y="155" text-anchor="middle" font-size="12" opacity="0.75" fill="currentColor">Синтез правил и автоматизации</text>
 
-  <rect x="165" y="120" width="140" height="38" rx="4" fill="currentColor" fill-opacity="0.05" stroke="currentColor" stroke-width="1.2"/>
-  <text x="235" y="136" text-anchor="middle" font-size="12" fill="currentColor">IaC Terraform</text>
-  <text x="235" y="150" text-anchor="middle" font-size="12" opacity="0.75" fill="currentColor">CI/CD Quality Gates</text>
+  <line x1="82" y1="164" x2="82" y2="174" stroke="currentColor" stroke-width="1.4"/>
+  <polygon points="82,182 78,174 86,174" fill="currentColor"/>
 
-  <line x1="85" y1="158" x2="85" y2="170" stroke="currentColor" stroke-width="1.4"/>
-  <polygon points="85,178 81,170 89,170" fill="currentColor"/>
+  <line x1="237" y1="164" x2="237" y2="174" stroke="currentColor" stroke-width="1.4"/>
+  <polygon points="237,182 233,174 241,174" fill="currentColor"/>
 
-  <line x1="235" y1="158" x2="235" y2="170" stroke="currentColor" stroke-width="1.4"/>
-  <polygon points="235,178 231,170 239,170" fill="currentColor"/>
+  <rect x="15" y="182" width="135" height="38" rx="4" fill="currentColor" fill-opacity="0.05" stroke="currentColor" stroke-width="1.2"/>
+  <text x="82" y="198" text-anchor="middle" font-size="12" font-weight="bold" fill="currentColor">Правила 31-40</text>
+  <text x="82" y="211" text-anchor="middle" font-size="12" opacity="0.75" fill="currentColor">ByteMatch / Regex</text>
 
-  <rect x="25" y="176" width="270" height="34" rx="4" fill="currentColor" fill-opacity="0.08" stroke="currentColor" stroke-width="1.4"/>
-  <text x="160" y="197" text-anchor="middle" font-size="12" font-weight="bold" fill="currentColor">Сертификационный уровень AWS Security</text>
-</svg>
-      <p class="dim">Схема 15. Профиль компетенций Pro: поведенческий контроль и автоматизация.</p>
+  <rect x="170" y="182" width="135" height="38" rx="4" fill="currentColor" fill-opacity="0.05" stroke="currentColor" stroke-width="1.2"/>
+  <text x="237" y="198" text-anchor="middle" font-size="12" font-weight="bold" fill="currentColor">IaC 41-50</text>
+  <text x="237" y="211" text-anchor="middle" font-size="12" opacity="0.75" fill="currentColor">Terraform Gates</text>
+      </svg>
+      <p class="dim">Схема 15. Сетевая топология компетенций инженера Pro: перекрестные связи пяти доменов.</p>
     </div>
 
     <h2 id="part1">1 · Rate Limiting и сложная агрегация ключей (1-10) <a class="anchor-link" href="#part1">#</a></h2>

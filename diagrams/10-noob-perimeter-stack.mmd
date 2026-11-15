@@ -1,4 +1,5 @@
-flowchart TD
-    Traffic["Публичный сетевой трафик"] --> P0["IP Set: Офис & VPN (Allow)"]
-    P0 --> Tor["Блокировка Tor & Geo (Block)"]
-    Tor --> CRS["Управляемый CRS + /admin блок"]
+flowchart LR
+    S1["1. IP Allowlist"] --> S2["2. Tor / Geo IP"]
+    S2 --> S3["3. AWS CRS"]
+    S3 --> S4["4. Size Limit"]
+    S4 --> Goal["5. Изоляция /admin"]

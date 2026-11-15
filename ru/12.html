@@ -94,7 +94,7 @@
 
   <main id="main">
     <h1>Примеры · IGL</h1>
-    <p class="page-size" data-words="1232">Слов: 1232</p>
+    <p class="page-size" data-words="1240">Слов: 1240</p>
     <p class="lead">Шесть высших архитектурных сценариев AWS WAFv2 для лидера инженерной системы (In-Game Leader): динамическое отражение распределенного L7 DDoS через Silent Challenge, самовосстанавливающийся конвейер блокировки IP на базе Athena и Lambda, емкость 5000 WCU, политики Firewall Manager и GitOps-пайплайны.</p>
 
     <div class="box key" id="key-idea">
@@ -103,30 +103,39 @@
     </div>
 
     <div class="box figure">
-      <svg viewBox="0 0 320 220" style="max-width:320px;height:auto;display:block;margin:0 auto" role="img" aria-label="Схема автономного контура реагирования SOAR на базе Athena, EventBridge и динамических IPSet">
-  <rect x="35" y="8" width="250" height="26" rx="4" fill="currentColor" fill-opacity="0.05" stroke="currentColor" stroke-width="1.2"/>
-  <text x="160" y="25" text-anchor="middle" font-size="12" fill="currentColor">Аномальный всплеск L7-атаки (4xx/5xx)</text>
+      <svg viewBox="0 0 320 230" style="max-width:320px;height:auto;display:block;margin:0 auto" role="img" aria-label="Схема замкнутого цикла SOAR: обнаружение атаки, анализ в Athena, динамический бан в IPSet">
+  <rect x="35" y="8" width="250" height="32" rx="4" fill="currentColor" fill-opacity="0.08" stroke="currentColor" stroke-width="1.4"/>
+  <text x="160" y="24" text-anchor="middle" font-size="12" font-weight="bold" fill="currentColor">1. Всплеск L7-атаки</text>
+  <text x="160" y="35" text-anchor="middle" font-size="12" opacity="0.75" fill="currentColor">Аномалия 4xx / 5xx</text>
 
-  <line x1="160" y1="34" x2="160" y2="48" stroke="currentColor" stroke-width="1.4"/>
-  <polygon points="160,56 156,48 164,48" fill="currentColor"/>
+  <line x1="240" y1="40" x2="240" y2="68" stroke="currentColor" stroke-width="1.4"/>
+  <polygon points="240,76 236,68 244,68" fill="currentColor"/>
 
-  <rect x="30" y="54" width="260" height="30" rx="4" fill="currentColor" fill-opacity="0.08" stroke="currentColor" stroke-width="1.2"/>
-  <text x="160" y="73" text-anchor="middle" font-size="12" fill="currentColor">CloudWatch Metric Alarm + EventBridge</text>
+  <rect x="175" y="76" width="135" height="42" rx="4" fill="currentColor" fill-opacity="0.05" stroke="currentColor" stroke-width="1.2"/>
+  <text x="242" y="94" text-anchor="middle" font-size="12" font-weight="bold" fill="currentColor">2. EventBridge</text>
+  <text x="242" y="108" text-anchor="middle" font-size="12" opacity="0.75" fill="currentColor">Триггер события</text>
 
-  <line x1="160" y1="84" x2="160" y2="100" stroke="currentColor" stroke-width="1.4"/>
-  <polygon points="160,108 156,100 164,100" fill="currentColor"/>
+  <line x1="242" y1="118" x2="242" y2="142" stroke="currentColor" stroke-width="1.4"/>
+  <polygon points="242,150 238,142 246,142" fill="currentColor"/>
 
-  <rect x="25" y="106" width="270" height="32" rx="4" fill="currentColor" fill-opacity="0.05" stroke="currentColor" stroke-width="1.2"/>
-  <text x="160" y="126" text-anchor="middle" font-size="12" fill="currentColor">AWS Lambda + Партиции логов в Athena</text>
+  <rect x="30" y="150" width="260" height="38" rx="4" fill="currentColor" fill-opacity="0.08" stroke="currentColor" stroke-width="1.4"/>
+  <text x="160" y="167" text-anchor="middle" font-size="12" font-weight="bold" fill="currentColor">3. Lambda + Athena SQL</text>
+  <text x="160" y="180" text-anchor="middle" font-size="12" opacity="0.75" fill="currentColor">Выявление IP атакующих ботов</text>
 
-  <line x1="160" y1="138" x2="160" y2="154" stroke="currentColor" stroke-width="1.4"/>
-  <polygon points="160,162 156,154 164,154" fill="currentColor"/>
+  <line x1="75" y1="150" x2="75" y2="124" stroke="currentColor" stroke-width="1.4"/>
+  <polygon points="75,116 71,124 79,124" fill="currentColor"/>
 
-  <rect x="20" y="160" width="280" height="36" rx="4" fill="currentColor" fill-opacity="0.08" stroke="currentColor" stroke-width="1.4"/>
-  <text x="160" y="178" text-anchor="middle" font-size="12" font-weight="bold" fill="currentColor">Динамический бан в WAF IPSet</text>
-  <text x="160" y="192" text-anchor="middle" font-size="12" opacity="0.75" fill="currentColor">Автоматическое снятие (TTL 4h)</text>
-</svg>
-      <p class="dim">Схема 13. Автоматизированный контур SOAR и реагирование на L7-инциденты.</p>
+  <rect x="10" y="76" width="135" height="40" rx="4" fill="currentColor" fill-opacity="0.05" stroke="currentColor" stroke-width="1.2"/>
+  <text x="77" y="93" text-anchor="middle" font-size="12" font-weight="bold" fill="currentColor">4. Бан в IPSet</text>
+  <text x="77" y="107" text-anchor="middle" font-size="12" opacity="0.75" fill="currentColor">TTL авто-снятие</text>
+
+  <line x1="75" y1="76" x2="75" y2="46" stroke="currentColor" stroke-width="1.4"/>
+  <polygon points="75,40 71,46 79,46" fill="currentColor"/>
+
+  <rect x="30" y="198" width="260" height="24" rx="4" fill="currentColor" fill-opacity="0.08" stroke="currentColor" stroke-width="1.2"/>
+  <text x="160" y="214" text-anchor="middle" font-size="12" fill="currentColor">MTTR менее 60 секунд без участия дежурного</text>
+      </svg>
+      <p class="dim">Схема 13. Автономный контур реагирования SOAR: замкнутый цикл самовосстановления.</p>
     </div>
 
     <h2 id="scenario-1">1 · Отражение распределенной L7 DDoS-атаки через каскадное действие Challenge <a class="anchor-link" href="#scenario-1">#</a></h2>

@@ -105,32 +105,41 @@
     </div>
 
     <div class="box figure">
-      <svg viewBox="0 0 320 220" style="max-width:320px;height:auto;display:block;margin:0 auto" role="img" aria-label="Схема трехуровневого защитного периметра AWS WAFv2: CloudFront Edge, региональные ресурсы VPC и телеметрия">
-  <rect x="50" y="8" width="220" height="26" rx="4" fill="currentColor" fill-opacity="0.05" stroke="currentColor" stroke-width="1.2"/>
-  <text x="160" y="25" text-anchor="middle" font-size="12" fill="currentColor">Клиент (Anycast DNS)</text>
+      <svg viewBox="0 0 320 230" style="max-width:320px;height:auto;display:block;margin:0 auto" role="img" aria-label="Схема эшелонированного периметра AWS WAF: CloudFront, ALB, API Gateway и Shield Advanced">
+  <rect x="30" y="8" width="260" height="26" rx="4" fill="currentColor" fill-opacity="0.05" stroke="currentColor" stroke-width="1.2"/>
+  <text x="160" y="25" text-anchor="middle" font-size="12" fill="currentColor">Входящий интернет-трафик</text>
 
   <line x1="160" y1="34" x2="160" y2="46" stroke="currentColor" stroke-width="1.4"/>
   <polygon points="160,54 156,46 164,46" fill="currentColor"/>
 
-  <rect x="40" y="52" width="240" height="34" rx="4" fill="currentColor" fill-opacity="0.08" stroke="currentColor" stroke-width="1.4"/>
-  <text x="160" y="68" text-anchor="middle" font-size="12" font-weight="bold" fill="currentColor">CloudFront Anycast PoP</text>
-  <text x="160" y="80" text-anchor="middle" font-size="12" opacity="0.75" fill="currentColor">TCP/TLS терминация • L7 WAF</text>
+  <rect x="30" y="54" width="260" height="34" rx="4" fill="currentColor" fill-opacity="0.08" stroke="currentColor" stroke-width="1.4"/>
+  <text x="160" y="70" text-anchor="middle" font-size="12" font-weight="bold" fill="currentColor">CloudFront Edge PoP (Global WAF)</text>
+  <text x="160" y="82" text-anchor="middle" font-size="12" opacity="0.75" fill="currentColor">Фильтрация атак на периферии сети</text>
 
-  <line x1="160" y1="86" x2="160" y2="100" stroke="currentColor" stroke-width="1.4"/>
-  <polygon points="160,108 156,100 164,100" fill="currentColor"/>
+  <path d="M 160 88 L 160 102 L 85 102 L 85 114" fill="none" stroke="currentColor" stroke-width="1.4"/>
+  <polygon points="85,122 81,114 89,114" fill="currentColor"/>
 
-  <rect x="30" y="106" width="260" height="36" rx="4" fill="currentColor" fill-opacity="0.05" stroke="currentColor" stroke-width="1.2"/>
-  <text x="160" y="122" text-anchor="middle" font-size="12" font-weight="bold" fill="currentColor">Regional VPC: ALB &amp; API Gateway</text>
-  <text x="160" y="136" text-anchor="middle" font-size="12" opacity="0.75" fill="currentColor">Локальная фильтрация L7 правил</text>
+  <path d="M 160 88 L 160 102 L 235 102 L 235 114" fill="none" stroke="currentColor" stroke-width="1.4"/>
+  <polygon points="235,122 231,114 239,114" fill="currentColor"/>
 
-  <line x1="160" y1="142" x2="160" y2="158" stroke="currentColor" stroke-width="1.4"/>
-  <polygon points="160,166 156,158 164,158" fill="currentColor"/>
+  <rect x="15" y="122" width="140" height="42" rx="4" fill="currentColor" fill-opacity="0.05" stroke="currentColor" stroke-width="1.2"/>
+  <text x="85" y="140" text-anchor="middle" font-size="12" font-weight="bold" fill="currentColor">ALB + WAF</text>
+  <text x="85" y="154" text-anchor="middle" font-size="12" opacity="0.75" fill="currentColor">Контейнеры EKS</text>
 
-  <rect x="25" y="164" width="270" height="38" rx="4" fill="currentColor" fill-opacity="0.08" stroke="currentColor" stroke-width="1.4"/>
-  <text x="160" y="180" text-anchor="middle" font-size="12" font-weight="bold" fill="currentColor">Аналитика: CloudWatch &amp; S3</text>
-  <text x="160" y="194" text-anchor="middle" font-size="12" opacity="0.75" fill="currentColor">Kinesis Firehose • Athena SQL</text>
-</svg>
-      <p class="dim">Схема 1. Эшелонированный периметр AWS WAFv2: Anycast Edge, Regional VPC и аналитика.</p>
+  <rect x="165" y="122" width="140" height="42" rx="4" fill="currentColor" fill-opacity="0.05" stroke="currentColor" stroke-width="1.2"/>
+  <text x="235" y="140" text-anchor="middle" font-size="12" font-weight="bold" fill="currentColor">API Gateway</text>
+  <text x="235" y="154" text-anchor="middle" font-size="12" opacity="0.75" fill="currentColor">Lambda функции</text>
+
+  <line x1="85" y1="164" x2="85" y2="178" stroke="currentColor" stroke-width="1.4"/>
+  <polygon points="85,186 81,178 89,178" fill="currentColor"/>
+
+  <line x1="235" y1="164" x2="235" y2="178" stroke="currentColor" stroke-width="1.4"/>
+  <polygon points="235,186 231,178 239,178" fill="currentColor"/>
+
+  <rect x="30" y="186" width="260" height="32" rx="4" fill="currentColor" fill-opacity="0.08" stroke="currentColor" stroke-width="1.4"/>
+  <text x="160" y="206" text-anchor="middle" font-size="12" font-weight="bold" fill="currentColor">AWS Shield Advanced (L3/L4/L7 DDoS)</text>
+      </svg>
+      <p class="dim">Схема 1. Архитектура эшелонированного периметра: Edge PoP CloudFront, региональные VPC и AWS Shield.</p>
     </div>
 
     <h2 id="purpose">Для кого этот курс <a class="anchor-link" href="#purpose">#</a></h2>

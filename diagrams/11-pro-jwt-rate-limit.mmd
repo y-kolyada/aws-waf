@@ -1,6 +1,6 @@
 flowchart TD
-    API["Запрос к /api/v1/auth"] --> Val["Валидация x-api-key & JA3"]
-    Val --> ATP["ATP Проверка утечек паролей"]
-    ATP --> Res{"Результат ATP"}
-    Res -->|Утечка| Deny["401 / Сброс пароля"]
-    Res -->|Чисто| Allow["Allow + Context Headers"]
+    Q1["1. JWT Rate Limit"] --> Hub["Ядро WAFv2 Pro"]
+    Q2["2. ATP Антифрод"] --> Hub
+    Q3["3. PII Редактирование"] --> Hub
+    Q4["4. CI/CD & Terraform"] --> Hub
+    Hub --> Spec["Стандарт AWS Security Specialty"]

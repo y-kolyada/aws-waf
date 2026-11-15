@@ -94,7 +94,7 @@
 
   <main id="main">
     <h1>Действия и ответы</h1>
-    <p class="page-size" data-words="1159">Слов: 1159</p>
+    <p class="page-size" data-words="1162">Слов: 1162</p>
     <p class="lead">Полная механика вердиктов AWS WAFv2: терминирующие действия Allow и Block, нетерминирующий аудит Count, поведенческие испытания CAPTCHA и Challenge, модификация заголовков InsertHeaders и кастомные JSON-ответы 403/429.</p>
 
     <div class="box key" id="key-idea">
@@ -103,48 +103,45 @@
     </div>
 
     <div class="box figure">
-      <svg viewBox="0 0 320 224" style="max-width:320px;height:auto;display:block;margin:0 auto" role="img" aria-label="Схема дерева принятия решений по действиям WAFv2: Allow, Block, Count, Captcha и Challenge">
-  <rect x="35" y="8" width="250" height="26" rx="4" fill="currentColor" fill-opacity="0.05" stroke="currentColor" stroke-width="1.2"/>
-  <text x="160" y="25" text-anchor="middle" font-size="12" fill="currentColor">Срабатывание правила (Rule Match)</text>
+      <svg viewBox="0 0 320 230" style="max-width:320px;height:auto;display:block;margin:0 auto" role="img" aria-label="Схема пяти вариантов вердикта правил WAF: Allow, Block, Count, CAPTCHA, Challenge">
+  <rect x="30" y="8" width="260" height="30" rx="4" fill="currentColor" fill-opacity="0.08" stroke="currentColor" stroke-width="1.4"/>
+  <text x="160" y="27" text-anchor="middle" font-size="12" font-weight="bold" fill="currentColor">Срабатывание правила WAFv2</text>
 
-  <path d="M 160 34 L 160 48 L 75 48 L 75 60" fill="none" stroke="currentColor" stroke-width="1.4"/>
-  <polygon points="75,68 71,60 79,60" fill="currentColor"/>
+  <line x1="59" y1="38" x2="59" y2="58" stroke="currentColor" stroke-width="1.4"/>
+  <polygon points="59,66 55,58 63,58" fill="currentColor"/>
 
-  <path d="M 160 34 L 160 48 L 245 48 L 245 60" fill="none" stroke="currentColor" stroke-width="1.4"/>
-  <polygon points="245,68 241,60 249,60" fill="currentColor"/>
+  <line x1="160" y1="38" x2="160" y2="58" stroke="currentColor" stroke-width="1.4"/>
+  <polygon points="160,66 156,58 164,58" fill="currentColor"/>
 
-  <rect x="10" y="66" width="130" height="36" rx="4" fill="currentColor" fill-opacity="0.08" stroke="currentColor" stroke-width="1.2"/>
-  <text x="75" y="82" text-anchor="middle" font-size="12" font-weight="bold" fill="currentColor">Allow / Block</text>
-  <text x="75" y="95" text-anchor="middle" font-size="12" opacity="0.75" fill="currentColor">Терминальные</text>
+  <line x1="261" y1="38" x2="261" y2="58" stroke="currentColor" stroke-width="1.4"/>
+  <polygon points="261,66 257,58 265,58" fill="currentColor"/>
 
-  <rect x="180" y="66" width="130" height="36" rx="4" fill="currentColor" fill-opacity="0.08" stroke="currentColor" stroke-width="1.2"/>
-  <text x="245" y="82" text-anchor="middle" font-size="12" font-weight="bold" fill="currentColor">Captcha / Challenge</text>
-  <text x="245" y="95" text-anchor="middle" font-size="12" opacity="0.75" fill="currentColor">Испытания</text>
+  <rect x="12" y="66" width="94" height="92" rx="4" fill="currentColor" fill-opacity="0.05" stroke="currentColor" stroke-width="1.2"/>
+  <text x="59" y="84" text-anchor="middle" font-size="12" font-weight="bold" fill="currentColor">Терминал</text>
+  <text x="59" y="104" text-anchor="middle" font-size="12" fill="currentColor">Allow</text>
+  <text x="59" y="122" text-anchor="middle" font-size="12" fill="currentColor">Block 403</text>
+  <text x="59" y="142" text-anchor="middle" font-size="12" opacity="0.75" fill="currentColor">Финал</text>
 
-  <line x1="75" y1="102" x2="75" y2="114" stroke="currentColor" stroke-width="1.4"/>
-  <polygon points="75,122 71,114 79,114" fill="currentColor"/>
+  <rect x="113" y="66" width="94" height="92" rx="4" fill="currentColor" fill-opacity="0.05" stroke="currentColor" stroke-width="1.2"/>
+  <text x="160" y="84" text-anchor="middle" font-size="12" font-weight="bold" fill="currentColor">Метрика</text>
+  <text x="160" y="104" text-anchor="middle" font-size="12" fill="currentColor">Count</text>
+  <text x="160" y="122" text-anchor="middle" font-size="12" fill="currentColor">RuleLabel</text>
+  <text x="160" y="142" text-anchor="middle" font-size="12" opacity="0.75" fill="currentColor">Пропуск</text>
 
-  <line x1="245" y1="102" x2="245" y2="114" stroke="currentColor" stroke-width="1.4"/>
-  <polygon points="245,122 241,114 249,114" fill="currentColor"/>
+  <rect x="214" y="66" width="94" height="92" rx="4" fill="currentColor" fill-opacity="0.05" stroke="currentColor" stroke-width="1.2"/>
+  <text x="261" y="84" text-anchor="middle" font-size="12" font-weight="bold" fill="currentColor">Челлендж</text>
+  <text x="261" y="104" text-anchor="middle" font-size="12" fill="currentColor">CAPTCHA</text>
+  <text x="261" y="122" text-anchor="middle" font-size="12" fill="currentColor">Challenge</text>
+  <text x="261" y="142" text-anchor="middle" font-size="12" opacity="0.75" fill="currentColor">JS токен</text>
 
-  <rect x="10" y="120" width="130" height="38" rx="4" fill="currentColor" fill-opacity="0.05" stroke="currentColor" stroke-width="1.2"/>
-  <text x="75" y="136" text-anchor="middle" font-size="12" fill="currentColor">Ответ клиенту</text>
-  <text x="75" y="150" text-anchor="middle" font-size="12" opacity="0.75" fill="currentColor">200 / 403 / 429</text>
+  <line x1="160" y1="158" x2="160" y2="174" stroke="currentColor" stroke-width="1.4"/>
+  <polygon points="160,182 156,174 164,174" fill="currentColor"/>
 
-  <rect x="180" y="120" width="130" height="38" rx="4" fill="currentColor" fill-opacity="0.05" stroke="currentColor" stroke-width="1.2"/>
-  <text x="245" y="136" text-anchor="middle" font-size="12" fill="currentColor">Проверка токена</text>
-  <text x="245" y="150" text-anchor="middle" font-size="12" opacity="0.75" fill="currentColor">WAF Token Valid?</text>
-
-  <line x1="75" y1="158" x2="75" y2="170" stroke="currentColor" stroke-width="1.4"/>
-  <polygon points="75,178 71,170 79,170" fill="currentColor"/>
-
-  <line x1="245" y1="158" x2="245" y2="170" stroke="currentColor" stroke-width="1.4"/>
-  <polygon points="245,178 241,170 249,170" fill="currentColor"/>
-
-  <rect x="30" y="176" width="260" height="34" rx="4" fill="currentColor" fill-opacity="0.08" stroke="currentColor" stroke-width="1.4"/>
-  <text x="160" y="197" text-anchor="middle" font-size="12" font-weight="bold" fill="currentColor">Централизованный аудит в CloudWatch</text>
-</svg>
-      <p class="dim">Схема 7. Матрица вердиктов Action: терминирующие действия и браузерные испытания.</p>
+  <rect x="20" y="182" width="280" height="34" rx="4" fill="currentColor" fill-opacity="0.08" stroke="currentColor" stroke-width="1.4"/>
+  <text x="160" y="198" text-anchor="middle" font-size="12" font-weight="bold" fill="currentColor">Пять вердиктов действий правил</text>
+  <text x="160" y="210" text-anchor="middle" font-size="12" opacity="0.75" fill="currentColor">Управление доступом на уровне L7</text>
+      </svg>
+      <p class="dim">Схема 7. Дерево пяти терминальных и нетерминальных действий правил Web ACL.</p>
     </div>
 
     <h2 id="actions-overview">1 · Модель действий и логика терминации <a class="anchor-link" href="#actions-overview">#</a></h2>

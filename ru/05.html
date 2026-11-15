@@ -94,7 +94,7 @@
 
   <main id="main">
     <h1>Условия и агрегация</h1>
-    <p class="page-size" data-words="1201">Слов: 1201</p>
+    <p class="page-size" data-words="1210">Слов: 1210</p>
     <p class="lead">Сложная комбинаторная логика и динамический контроль частоты: Rate-based правила, агрегация по ключам (IP, Headers, Cookies, Query), логические операторы AND/OR/NOT, фильтры сужения Scope-down и конвейер нормализации текста.</p>
 
     <div class="box key" id="key-idea">
@@ -103,37 +103,39 @@
     </div>
 
     <div class="box figure">
-      <svg viewBox="0 0 320 220" style="max-width:320px;height:auto;display:block;margin:0 auto" role="img" aria-label="Схема скользящего окна лимитирования частоты запросов с сужением Scope-down и составными ключами">
-  <rect x="40" y="8" width="240" height="26" rx="4" fill="currentColor" fill-opacity="0.05" stroke="currentColor" stroke-width="1.2"/>
-  <text x="160" y="25" text-anchor="middle" font-size="12" fill="currentColor">Поток клиентских запросов</text>
+      <svg viewBox="0 0 320 230" style="max-width:320px;height:auto;display:block;margin:0 auto" role="img" aria-label="Схема замкнутого контура скользящего окна Rate Limiting с порогом и автоматическим снятием блокировки">
+  <rect x="35" y="8" width="250" height="30" rx="4" fill="currentColor" fill-opacity="0.08" stroke="currentColor" stroke-width="1.4"/>
+  <text x="160" y="24" text-anchor="middle" font-size="12" font-weight="bold" fill="currentColor">Поток запросов (IP / JWT)</text>
+  <text x="160" y="35" text-anchor="middle" font-size="12" opacity="0.75" fill="currentColor">Окна 60с - 600с</text>
 
-  <line x1="160" y1="34" x2="160" y2="44" stroke="currentColor" stroke-width="1.4"/>
-  <polygon points="160,52 156,44 164,44" fill="currentColor"/>
+  <line x1="240" y1="38" x2="240" y2="68" stroke="currentColor" stroke-width="1.4"/>
+  <polygon points="240,76 236,68 244,68" fill="currentColor"/>
 
-  <rect x="25" y="50" width="270" height="30" rx="4" fill="currentColor" fill-opacity="0.08" stroke="currentColor" stroke-width="1.2"/>
-  <text x="160" y="69" text-anchor="middle" font-size="12" fill="currentColor">Фильтр ScopeDownStatement (/api/login)</text>
+  <rect x="175" y="76" width="135" height="42" rx="4" fill="currentColor" fill-opacity="0.05" stroke="currentColor" stroke-width="1.2"/>
+  <text x="242" y="94" text-anchor="middle" font-size="12" font-weight="bold" fill="currentColor">Скользящее окно</text>
+  <text x="242" y="108" text-anchor="middle" font-size="12" opacity="0.75" fill="currentColor">Агрегация ключей</text>
 
-  <line x1="160" y1="80" x2="160" y2="92" stroke="currentColor" stroke-width="1.4"/>
-  <polygon points="160,100 156,92 164,92" fill="currentColor"/>
+  <line x1="242" y1="118" x2="242" y2="142" stroke="currentColor" stroke-width="1.4"/>
+  <polygon points="242,150 238,142 246,142" fill="currentColor"/>
 
-  <rect x="20" y="98" width="280" height="32" rx="4" fill="currentColor" fill-opacity="0.05" stroke="currentColor" stroke-width="1.4"/>
-  <text x="160" y="118" text-anchor="middle" font-size="12" font-weight="bold" fill="currentColor">Скользящее окно 60s: Ключ IP + Session</text>
+  <rect x="30" y="150" width="260" height="36" rx="4" fill="currentColor" fill-opacity="0.08" stroke="currentColor" stroke-width="1.4"/>
+  <text x="160" y="167" text-anchor="middle" font-size="12" font-weight="bold" fill="currentColor">Сравнение с порогом (Rate Limit)</text>
+  <text x="160" y="179" text-anchor="middle" font-size="12" opacity="0.75" fill="currentColor">Превышение лимита (100 req/5m)</text>
 
-  <path d="M 160 130 L 160 144 L 85 144 L 85 156" fill="none" stroke="currentColor" stroke-width="1.4"/>
-  <polygon points="85,164 81,156 89,156" fill="currentColor"/>
+  <line x1="75" y1="150" x2="75" y2="124" stroke="currentColor" stroke-width="1.4"/>
+  <polygon points="75,116 71,124 79,124" fill="currentColor"/>
 
-  <path d="M 160 130 L 160 144 L 235 144 L 235 156" fill="none" stroke="currentColor" stroke-width="1.4"/>
-  <polygon points="235,164 231,156 239,156" fill="currentColor"/>
+  <rect x="10" y="76" width="135" height="40" rx="4" fill="currentColor" fill-opacity="0.05" stroke="currentColor" stroke-width="1.2"/>
+  <text x="77" y="93" text-anchor="middle" font-size="12" font-weight="bold" fill="currentColor">Block / CAPTCHA</text>
+  <text x="77" y="107" text-anchor="middle" font-size="12" opacity="0.75" fill="currentColor">Временный бан</text>
 
-  <rect x="15" y="162" width="140" height="38" rx="4" fill="currentColor" fill-opacity="0.08" stroke="currentColor" stroke-width="1.2"/>
-  <text x="85" y="178" text-anchor="middle" font-size="12" font-weight="bold" fill="currentColor">&lt; 50 запросов</text>
-  <text x="85" y="192" text-anchor="middle" font-size="12" opacity="0.75" fill="currentColor">Пропуск Allow</text>
+  <line x1="75" y1="76" x2="75" y2="44" stroke="currentColor" stroke-width="1.4"/>
+  <polygon points="75,38 71,44 79,44" fill="currentColor"/>
 
-  <rect x="165" y="162" width="140" height="38" rx="4" fill="currentColor" fill-opacity="0.08" stroke="currentColor" stroke-width="1.2"/>
-  <text x="235" y="178" text-anchor="middle" font-size="12" font-weight="bold" fill="currentColor">&gt;= 50 запросов</text>
-  <text x="235" y="192" text-anchor="middle" font-size="12" opacity="0.75" fill="currentColor">Блокировка 429</text>
-</svg>
-      <p class="dim">Схема 6. Динамическое скользящее окно Rate-based правила и составной ключ.</p>
+  <rect x="30" y="196" width="260" height="24" rx="4" fill="currentColor" fill-opacity="0.08" stroke="currentColor" stroke-width="1.2"/>
+  <text x="160" y="212" text-anchor="middle" font-size="12" fill="currentColor">Автоматический сброс после паузы</text>
+      </svg>
+      <p class="dim">Схема 6. Замкнутый контур скользящего окна Rate Limiting с петлей восстановления.</p>
     </div>
 
     <h2 id="rate-limiting">1 · Динамическое ограничение частоты: RateBasedStatement и скользящее окно <a class="anchor-link" href="#rate-limiting">#</a></h2>

@@ -94,7 +94,7 @@
 
   <main id="main">
     <h1>Защита от ботов</h1>
-    <p class="page-size" data-words="1233">Слов: 1233</p>
+    <p class="page-size" data-words="1232">Слов: 1232</p>
     <p class="lead">Интеллектуальное противодействие автоматизированным атакам: архитектура AWS WAF Bot Control (Common и Targeted), защита учетных записей ATP и ACFP, клиентские SDK для сбора аппаратной телеметрии и криптографическая валидация WAF Token.</p>
 
     <div class="box key" id="key-idea">
@@ -103,37 +103,32 @@
     </div>
 
     <div class="box figure">
-      <svg viewBox="0 0 320 220" style="max-width:320px;height:auto;display:block;margin:0 auto" role="img" aria-label="Схема процесса верификации бот-трафика: JavaScript SDK, Challenge и выдача криптографического токена">
-  <rect x="40" y="8" width="240" height="26" rx="4" fill="currentColor" fill-opacity="0.05" stroke="currentColor" stroke-width="1.2"/>
-  <text x="160" y="25" text-anchor="middle" font-size="12" fill="currentColor">Клиентский браузер + WAF SDK</text>
+      <svg viewBox="0 0 320 220" style="max-width:320px;height:auto;display:block;margin:0 auto" role="img" aria-label="Схема протокола Silent Challenge в виде диаграммы пошагового обмена сообщениями">
+  <rect x="10" y="15" width="80" height="190" rx="4" fill="currentColor" fill-opacity="0.05" stroke="currentColor" stroke-width="1.2"/>
+  <text x="50" y="34" text-anchor="middle" font-size="12" font-weight="bold" fill="currentColor">Клиент</text>
+  <text x="50" y="48" text-anchor="middle" font-size="12" opacity="0.75" fill="currentColor">JS SDK</text>
 
-  <line x1="160" y1="34" x2="160" y2="44" stroke="currentColor" stroke-width="1.4"/>
-  <polygon points="160,52 156,44 164,44" fill="currentColor"/>
+  <rect x="230" y="15" width="80" height="190" rx="4" fill="currentColor" fill-opacity="0.08" stroke="currentColor" stroke-width="1.4"/>
+  <text x="270" y="34" text-anchor="middle" font-size="12" font-weight="bold" fill="currentColor">AWS WAF</text>
+  <text x="270" y="48" text-anchor="middle" font-size="12" opacity="0.75" fill="currentColor">Edge Filter</text>
 
-  <rect x="25" y="50" width="270" height="32" rx="4" fill="currentColor" fill-opacity="0.08" stroke="currentColor" stroke-width="1.2"/>
-  <text x="160" y="70" text-anchor="middle" font-size="12" fill="currentColor">Фоновая телеметрия: Proof-of-Work &amp; JA4</text>
+  <line x1="90" y1="65" x2="222" y2="65" stroke="currentColor" stroke-width="1.4"/>
+  <polygon points="230,65 222,61 222,69" fill="currentColor"/>
+  <text x="160" y="58" text-anchor="middle" font-size="12" fill="currentColor">1. GET /app</text>
 
-  <line x1="160" y1="82" x2="160" y2="94" stroke="currentColor" stroke-width="1.4"/>
-  <polygon points="160,102 156,94 164,94" fill="currentColor"/>
+  <line x1="230" y1="100" x2="98" y2="100" stroke="currentColor" stroke-width="1.4"/>
+  <polygon points="90,100 98,96 98,104" fill="currentColor"/>
+  <text x="160" y="93" text-anchor="middle" font-size="12" fill="currentColor">2. 202 Challenge</text>
 
-  <rect x="25" y="100" width="270" height="32" rx="4" fill="currentColor" fill-opacity="0.05" stroke="currentColor" stroke-width="1.4"/>
-  <text x="160" y="120" text-anchor="middle" font-size="12" font-weight="bold" fill="currentColor">WAF Bot Control (Targeted)</text>
+  <line x1="90" y1="135" x2="222" y2="135" stroke="currentColor" stroke-width="1.4"/>
+  <polygon points="230,135 222,131 222,139" fill="currentColor"/>
+  <text x="160" y="128" text-anchor="middle" font-size="12" fill="currentColor">3. Токен PoW</text>
 
-  <path d="M 160 132 L 160 146 L 85 146 L 85 158" fill="none" stroke="currentColor" stroke-width="1.4"/>
-  <polygon points="85,166 81,158 89,158" fill="currentColor"/>
-
-  <path d="M 160 132 L 160 146 L 235 146 L 235 158" fill="none" stroke="currentColor" stroke-width="1.4"/>
-  <polygon points="235,166 231,158 239,158" fill="currentColor"/>
-
-  <rect x="15" y="164" width="140" height="38" rx="4" fill="currentColor" fill-opacity="0.08" stroke="currentColor" stroke-width="1.2"/>
-  <text x="85" y="180" text-anchor="middle" font-size="12" font-weight="bold" fill="currentColor">Робот / Скрапер</text>
-  <text x="85" y="194" text-anchor="middle" font-size="12" opacity="0.75" fill="currentColor">Блокировка 403</text>
-
-  <rect x="165" y="164" width="140" height="38" rx="4" fill="currentColor" fill-opacity="0.08" stroke="currentColor" stroke-width="1.2"/>
-  <text x="235" y="180" text-anchor="middle" font-size="12" fill="currentColor">Чистый трафик</text>
-  <text x="235" y="194" text-anchor="middle" font-size="12" opacity="0.75" fill="currentColor">Токен WAF Token</text>
-</svg>
-      <p class="dim">Схема 8. Поведенческий анализ Bot Control и генерация токена WAF Token.</p>
+  <line x1="230" y1="170" x2="98" y2="170" stroke="currentColor" stroke-width="1.4"/>
+  <polygon points="90,170 98,166 98,174" fill="currentColor"/>
+  <text x="160" y="163" text-anchor="middle" font-size="12" fill="currentColor">4. 200 OK (Доступ)</text>
+      </svg>
+      <p class="dim">Схема 8. Пошаговый протокол Silent Challenge: JavaScript SDK и выдача крипто-токена.</p>
     </div>
 
     <h2 id="bot-control-architecture">1 · Архитектура Bot Control: уровни Common и Targeted <a class="anchor-link" href="#bot-control-architecture">#</a></h2>

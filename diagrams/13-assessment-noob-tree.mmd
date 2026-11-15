@@ -1,7 +1,8 @@
 flowchart TD
-    Bank["Банк Noob: 50 вопросов"] --> Core["WAFv2 Core & WCU"]
-    Bank --> Act["Actions & Associations"]
-    Core --> Rules["Синтаксис правил & IPSet"]
-    Act --> Sample["Диагностика SampledRequests"]
-    Rules --> Result["Готовность Junior Cloud Security"]
-    Sample --> Result
+    Bank["Банк Noob: 50 вопросов"] --> N1["Web ACL (1-10)"]
+    Bank --> N2["Scopes (11-20)"]
+    Bank --> N3["Правила (21-30)"]
+    N1 --> N4["Сэмплы (31-40)"]
+    N3 --> N5["IPSet (41-50)"]
+    N4 --> Goal["Junior Cloud Security"]
+    N5 --> Goal

@@ -94,7 +94,7 @@
 
   <main id="main">
     <h1>Архитектура и WCU</h1>
-    <p class="page-size" data-words="1257">Слов: 1257</p>
+    <p class="page-size" data-words="1278">Слов: 1278</p>
     <p class="lead">Фундамент WAFv2: структура Web ACL, правила первого уровня, группы правил, модель потребления WCU (1500 базовый лимит, расширение до 5000), порядок сопоставления правил (evaluation flow) и вердикт по умолчанию (Default Action).</p>
 
     <div class="box key" id="key-idea">
@@ -103,35 +103,47 @@
     </div>
 
     <div class="box figure">
-      <svg viewBox="0 0 320 230" style="max-width:320px;height:auto;display:block;margin:0 auto" role="img" aria-label="Схема конвейера вычисления правил Web ACL от Priority 0 до вердикта по умолчанию с учетом квоты WCU">
-  <rect x="50" y="8" width="220" height="26" rx="4" fill="currentColor" fill-opacity="0.05" stroke="currentColor" stroke-width="1.2"/>
-  <text x="160" y="25" text-anchor="middle" font-size="12" fill="currentColor">Входящий HTTP-запрос</text>
+      <svg viewBox="0 0 320 230" style="max-width:320px;height:auto;display:block;margin:0 auto" role="img" aria-label="Схема каскадного конвейера приоритетов правил и шкалы бюджета емкости WCU">
+  <rect x="10" y="10" width="165" height="32" rx="4" fill="currentColor" fill-opacity="0.08" stroke="currentColor" stroke-width="1.2"/>
+  <text x="92" y="26" text-anchor="middle" font-size="12" font-weight="bold" fill="currentColor">Priority 0: IPSet</text>
+  <text x="92" y="38" text-anchor="middle" font-size="12" opacity="0.75" fill="currentColor">Белый список (1 WCU)</text>
 
-  <line x1="160" y1="34" x2="160" y2="44" stroke="currentColor" stroke-width="1.4"/>
-  <polygon points="160,52 156,44 164,44" fill="currentColor"/>
+  <line x1="92" y1="42" x2="92" y2="52" stroke="currentColor" stroke-width="1.4"/>
+  <polygon points="92,60 88,52 96,52" fill="currentColor"/>
 
-  <rect x="40" y="50" width="240" height="28" rx="4" fill="currentColor" fill-opacity="0.08" stroke="currentColor" stroke-width="1.2"/>
-  <text x="160" y="68" text-anchor="middle" font-size="12" fill="currentColor">Priority 0: Белый IPSet (1 WCU)</text>
+  <rect x="10" y="60" width="165" height="32" rx="4" fill="currentColor" fill-opacity="0.05" stroke="currentColor" stroke-width="1.2"/>
+  <text x="92" y="76" text-anchor="middle" font-size="12" font-weight="bold" fill="currentColor">Priority 10: CRS</text>
+  <text x="92" y="88" text-anchor="middle" font-size="12" opacity="0.75" fill="currentColor">Managed CRS (700 WCU)</text>
 
-  <line x1="160" y1="78" x2="160" y2="88" stroke="currentColor" stroke-width="1.4"/>
-  <polygon points="160,96 156,88 164,88" fill="currentColor"/>
+  <line x1="92" y1="92" x2="92" y2="102" stroke="currentColor" stroke-width="1.4"/>
+  <polygon points="92,110 88,102 96,102" fill="currentColor"/>
 
-  <rect x="35" y="94" width="250" height="28" rx="4" fill="currentColor" fill-opacity="0.05" stroke="currentColor" stroke-width="1.2"/>
-  <text x="160" y="112" text-anchor="middle" font-size="12" fill="currentColor">Priority 10: Пакет CRS (700 WCU)</text>
+  <rect x="10" y="110" width="165" height="32" rx="4" fill="currentColor" fill-opacity="0.08" stroke="currentColor" stroke-width="1.2"/>
+  <text x="92" y="126" text-anchor="middle" font-size="12" font-weight="bold" fill="currentColor">Priority 20: Rate</text>
+  <text x="92" y="138" text-anchor="middle" font-size="12" opacity="0.75" fill="currentColor">Rate Limit (10 WCU)</text>
 
-  <line x1="160" y1="122" x2="160" y2="132" stroke="currentColor" stroke-width="1.4"/>
-  <polygon points="160,140 156,132 164,132" fill="currentColor"/>
+  <line x1="92" y1="142" x2="92" y2="152" stroke="currentColor" stroke-width="1.4"/>
+  <polygon points="92,160 88,152 96,152" fill="currentColor"/>
 
-  <rect x="40" y="138" width="240" height="28" rx="4" fill="currentColor" fill-opacity="0.08" stroke="currentColor" stroke-width="1.2"/>
-  <text x="160" y="156" text-anchor="middle" font-size="12" fill="currentColor">Priority 20: Rate Limit (10 WCU)</text>
+  <rect x="10" y="160" width="165" height="32" rx="4" fill="currentColor" fill-opacity="0.05" stroke="currentColor" stroke-width="1.4"/>
+  <text x="92" y="180" text-anchor="middle" font-size="12" font-weight="bold" fill="currentColor">DefaultAction</text>
 
-  <line x1="160" y1="166" x2="160" y2="178" stroke="currentColor" stroke-width="1.4"/>
-  <polygon points="160,186 156,178 164,178" fill="currentColor"/>
+  <line x1="175" y1="76" x2="187" y2="76" stroke="currentColor" stroke-width="1.4"/>
+  <polygon points="195,76 187,72 187,80" fill="currentColor"/>
 
-  <rect x="45" y="184" width="230" height="30" rx="4" fill="currentColor" fill-opacity="0.05" stroke="currentColor" stroke-width="1.2"/>
-  <text x="160" y="203" text-anchor="middle" font-size="12" font-weight="bold" fill="currentColor">DefaultAction: Allow / Block</text>
-</svg>
-      <p class="dim">Схема 2. Конвейер последовательной оценки правил Web ACL и емкость WCU.</p>
+  <rect x="195" y="10" width="115" height="182" rx="4" fill="currentColor" fill-opacity="0.06" stroke="currentColor" stroke-width="1.4"/>
+  <text x="252" y="30" text-anchor="middle" font-size="12" font-weight="bold" fill="currentColor">Бюджет WCU</text>
+  <text x="252" y="52" text-anchor="middle" font-size="12" opacity="0.75" fill="currentColor">Лимит: 1500</text>
+  <text x="252" y="80" text-anchor="middle" font-size="12" fill="currentColor">В сумме:</text>
+  <text x="252" y="98" text-anchor="middle" font-size="12" font-weight="bold" fill="currentColor">711 WCU</text>
+  <text x="252" y="126" text-anchor="middle" font-size="12" opacity="0.75" fill="currentColor">Запас: 789</text>
+  <text x="252" y="152" text-anchor="middle" font-size="12" opacity="0.75" fill="currentColor">Макс: 5000</text>
+  <text x="252" y="176" text-anchor="middle" font-size="12" font-weight="bold" fill="currentColor">В норме</text>
+
+  <rect x="10" y="198" width="300" height="24" rx="4" fill="currentColor" fill-opacity="0.08" stroke="currentColor" stroke-width="1.2"/>
+  <text x="160" y="214" text-anchor="middle" font-size="12" fill="currentColor">Строгий порядок: от Priority 0 до N</text>
+      </svg>
+      <p class="dim">Схема 2. Каскад приоритетов правил Web ACL и шкала бюджета емкости WCU.</p>
     </div>
 
     <h2 id="anatomy">1 · Анатомия WAFv2: сущности Web ACL, Rule и Rule Group <a class="anchor-link" href="#anatomy">#</a></h2>

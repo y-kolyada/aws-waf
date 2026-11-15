@@ -1,4 +1,6 @@
 flowchart TD
-    Client["Клиент (Anycast DNS)"] --> Edge["CloudFront Anycast PoP"]
-    Edge --> Regional["Regional VPC: ALB & API Gateway"]
-    Regional --> Telemetry["Телеметрия: CloudWatch & S3"]
+    Traffic["Интернет-трафик"] --> CF["CloudFront Edge PoP (Global WAF)"]
+    CF --> ALB["ALB + Regional WAF (EKS)"]
+    CF --> APIGW["API Gateway + WAF (Lambda)"]
+    ALB --> Shield["AWS Shield Advanced (L3/L4/L7)"]
+    APIGW --> Shield

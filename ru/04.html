@@ -94,7 +94,7 @@
 
   <main id="main">
     <h1>Кастомные правила</h1>
-    <p class="page-size" data-words="1146">Слов: 1146</p>
+    <p class="page-size" data-words="1160">Слов: 1160</p>
     <p class="lead">Разработка пользовательских правил фильтрации: наборы IP-адресов (IP Sets IPv4/IPv6), регулярные выражения (Regex Pattern Sets), геолокация Geo Match, поиск строковых шаблонов ByteMatch и ограничения размера SizeConstraint.</p>
 
     <div class="box key" id="key-idea">
@@ -103,40 +103,42 @@
     </div>
 
     <div class="box figure">
-      <svg viewBox="0 0 320 224" style="max-width:320px;height:auto;display:block;margin:0 auto" role="img" aria-label="Схема конвейера инспекции кастомного правила WAFv2 с нормализацией текста и предикатами">
-  <rect x="30" y="8" width="260" height="28" rx="4" fill="currentColor" fill-opacity="0.05" stroke="currentColor" stroke-width="1.2"/>
-  <text x="160" y="26" text-anchor="middle" font-size="12" fill="currentColor">Извлечение FieldToMatch (URI/Headers)</text>
+      <svg viewBox="0 0 320 230" style="max-width:320px;height:auto;display:block;margin:0 auto" role="img" aria-label="Схема конвейера инспекции кастомных правил: FieldToMatch, нормализация, предикаты и вердикт">
+  <rect x="25" y="8" width="270" height="28" rx="4" fill="currentColor" fill-opacity="0.05" stroke="currentColor" stroke-width="1.2"/>
+  <text x="160" y="26" text-anchor="middle" font-size="12" fill="currentColor">1. FieldToMatch (URI / Headers / Body)</text>
 
-  <line x1="160" y1="36" x2="160" y2="48" stroke="currentColor" stroke-width="1.4"/>
-  <polygon points="160,56 156,48 164,48" fill="currentColor"/>
+  <line x1="160" y1="36" x2="160" y2="50" stroke="currentColor" stroke-width="1.4"/>
+  <polygon points="160,58 156,50 164,50" fill="currentColor"/>
 
-  <rect x="25" y="54" width="270" height="30" rx="4" fill="currentColor" fill-opacity="0.08" stroke="currentColor" stroke-width="1.4"/>
-  <text x="160" y="73" text-anchor="middle" font-size="12" font-weight="bold" fill="currentColor">Нормализация: URL_DECODE &amp; LOWERCASE</text>
+  <rect x="20" y="58" width="280" height="34" rx="4" fill="currentColor" fill-opacity="0.08" stroke="currentColor" stroke-width="1.4"/>
+  <text x="160" y="74" text-anchor="middle" font-size="12" font-weight="bold" fill="currentColor">2. Нормализация (LOWER + URL_DECODE)</text>
+  <text x="160" y="86" text-anchor="middle" font-size="12" opacity="0.75" fill="currentColor">Канонизация для защиты от обхода</text>
 
-  <path d="M 160 84 L 160 98 L 85 98 L 85 110" fill="none" stroke="currentColor" stroke-width="1.4"/>
-  <polygon points="85,118 81,110 89,110" fill="currentColor"/>
+  <path d="M 160 92 L 160 106 L 85 106 L 85 114" fill="none" stroke="currentColor" stroke-width="1.4"/>
+  <polygon points="85,122 81,114 89,114" fill="currentColor"/>
 
-  <path d="M 160 84 L 160 98 L 235 98 L 235 110" fill="none" stroke="currentColor" stroke-width="1.4"/>
-  <polygon points="235,118 231,110 239,110" fill="currentColor"/>
+  <path d="M 160 92 L 160 106 L 235 106 L 235 114" fill="none" stroke="currentColor" stroke-width="1.4"/>
+  <polygon points="235,122 231,114 239,114" fill="currentColor"/>
 
-  <rect x="15" y="116" width="140" height="38" rx="4" fill="currentColor" fill-opacity="0.05" stroke="currentColor" stroke-width="1.2"/>
-  <text x="85" y="132" text-anchor="middle" font-size="12" fill="currentColor">IPSet / GeoMatch</text>
-  <text x="85" y="146" text-anchor="middle" font-size="12" opacity="0.75" fill="currentColor">Стоимость 1 WCU</text>
+  <rect x="15" y="122" width="140" height="38" rx="4" fill="currentColor" fill-opacity="0.05" stroke="currentColor" stroke-width="1.2"/>
+  <text x="85" y="138" text-anchor="middle" font-size="12" font-weight="bold" fill="currentColor">Byte / Regex</text>
+  <text x="85" y="152" text-anchor="middle" font-size="12" opacity="0.75" fill="currentColor">Поиск шаблона</text>
 
-  <rect x="165" y="116" width="140" height="38" rx="4" fill="currentColor" fill-opacity="0.05" stroke="currentColor" stroke-width="1.2"/>
-  <text x="235" y="132" text-anchor="middle" font-size="12" fill="currentColor">Regex / ByteMatch</text>
-  <text x="235" y="146" text-anchor="middle" font-size="12" opacity="0.75" fill="currentColor">Стоимость 25 WCU</text>
+  <rect x="165" y="122" width="140" height="38" rx="4" fill="currentColor" fill-opacity="0.05" stroke="currentColor" stroke-width="1.2"/>
+  <text x="235" y="138" text-anchor="middle" font-size="12" font-weight="bold" fill="currentColor">IPSet / Geo</text>
+  <text x="235" y="152" text-anchor="middle" font-size="12" opacity="0.75" fill="currentColor">Списочный фильтр</text>
 
-  <line x1="85" y1="154" x2="85" y2="168" stroke="currentColor" stroke-width="1.4"/>
+  <line x1="85" y1="160" x2="85" y2="168" stroke="currentColor" stroke-width="1.4"/>
   <polygon points="85,176 81,168 89,168" fill="currentColor"/>
 
-  <line x1="235" y1="154" x2="235" y2="168" stroke="currentColor" stroke-width="1.4"/>
+  <line x1="235" y1="160" x2="235" y2="168" stroke="currentColor" stroke-width="1.4"/>
   <polygon points="235,176 231,168 239,168" fill="currentColor"/>
 
-  <rect x="30" y="174" width="260" height="34" rx="4" fill="currentColor" fill-opacity="0.08" stroke="currentColor" stroke-width="1.4"/>
-  <text x="160" y="195" text-anchor="middle" font-size="12" font-weight="bold" fill="currentColor">Терминальный вердикт правила Action</text>
-</svg>
-      <p class="dim">Схема 5. Конвейер инспекции кастомного правила: FieldToMatch и предикаты.</p>
+  <rect x="25" y="176" width="270" height="36" rx="4" fill="currentColor" fill-opacity="0.08" stroke="currentColor" stroke-width="1.4"/>
+  <text x="160" y="193" text-anchor="middle" font-size="12" font-weight="bold" fill="currentColor">4. Логика And / Or / Not -> Action</text>
+  <text x="160" y="206" text-anchor="middle" font-size="12" opacity="0.75" fill="currentColor">Терминальный вердикт или Count</text>
+      </svg>
+      <p class="dim">Схема 5. Четырехуровневый конвейер инспекции: от извлечения полей до логических предикатов.</p>
     </div>
 
     <h2 id="ip-sets">1 · Наборы сетевых адресов: IP Sets и спецификация CIDR <a class="anchor-link" href="#ip-sets">#</a></h2>

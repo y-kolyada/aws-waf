@@ -1,5 +1,10 @@
 flowchart TD
-    Req["Входящий HTTP-запрос"] --> P0["Priority 0: IPSet (1 WCU)"]
-    P0 --> P10["Priority 10: CRS (700 WCU)"]
-    P10 --> P20["Priority 20: RateLimit (10 WCU)"]
-    P20 --> Def["DefaultAction: Allow / Block"]
+    subgraph Cascade["Каскад приоритетов"]
+        P0["Priority 0: IPSet (1 WCU)"] --> P10["Priority 10: CRS (700 WCU)"]
+        P10 --> P20["Priority 20: Rate (10 WCU)"]
+        P20 --> Def["DefaultAction: Allow / Block"]
+    end
+    subgraph Meter["Бюджет емкости"]
+        WCU["Использовано 711 / 1500 WCU"]
+    end
+    Cascade -.-> Meter

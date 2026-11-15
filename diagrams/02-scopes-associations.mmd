@@ -1,7 +1,7 @@
 flowchart TD
-    API["WAFv2 Control Plane"] --> CF["Scope CLOUDFRONT"]
-    API --> REG["Scope REGIONAL"]
-    CF --> Edge["CloudFront Anycast PoP"]
-    REG --> ALB["ALB & API Gateway VPC"]
-    Edge --> Backend["Целевой бэкенд"]
-    ALB --> Backend
+    API["WAFv2 Control Plane API"] --> CF["Scope CLOUDFRONT (us-east-1)"]
+    API --> REG["Scope REGIONAL (Локальный регион)"]
+    CF --> Edge["Edge PoP Anycast"]
+    REG --> Target["ALB, API Gateway, Cognito"]
+    Edge --> Backend["Целевой бэкенд в VPC"]
+    Target --> Backend

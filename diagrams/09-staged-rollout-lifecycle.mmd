@@ -1,4 +1,4 @@
 flowchart TD
-    S1["Стадия 1: Count режим (7-14 дней)"] --> S2["Стадия 2: Аудит Sampled Requests"]
-    S2 --> S3["Стадия 3: Канарейка rule:candidate"]
-    S3 --> S4["Стадия 4: Enforce Block (LockToken)"]
+    S1["1. Развертывание в Count (7-14 дней)"] --> S2["2. Анализ Sampled Requests"]
+    S2 --> S3["3. Канареечный тест (Canary)"]
+    S3 --> S4["4. Enforce Block (LockToken)"]

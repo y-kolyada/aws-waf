@@ -94,7 +94,7 @@
 
   <main id="main">
     <h1>Навигатор</h1>
-    <p class="page-size" data-words="1261">Слов: 1261</p>
+    <p class="page-size" data-words="1265">Слов: 1265</p>
     <p class="lead">Матрица сквозных инженерных линз AWS WAFv2: компоненты, код, сила, слабости, экосистема, AI, облака, DevOps и SRE с перекрестными связями глав курса.</p>
 
     <div class="box key" id="key-idea">
@@ -103,48 +103,66 @@
     </div>
 
     <div class="box figure">
-      <svg viewBox="0 0 320 226" style="max-width:320px;height:auto;display:block;margin:0 auto" role="img" aria-label="Схема трансверсальной матрицы девяти инженерных линз вокруг ядра WAFv2">
-  <rect x="45" y="8" width="230" height="26" rx="4" fill="currentColor" fill-opacity="0.05" stroke="currentColor" stroke-width="1.2"/>
-  <text x="160" y="25" text-anchor="middle" font-size="12" fill="currentColor">Инженерный навигатор WAFv2</text>
+      <svg viewBox="0 0 320 240" style="max-width:320px;height:auto;display:block;margin:0 auto" role="img" aria-label="Схема аналитической матрицы 3x3 девяти инженерных линз вокруг ядра WAFv2">
+  <rect x="15" y="8" width="90" height="32" rx="4" fill="currentColor" fill-opacity="0.05" stroke="currentColor" stroke-width="1.2"/>
+  <text x="60" y="28" text-anchor="middle" font-size="12" font-weight="bold" fill="currentColor">1. Core</text>
 
-  <path d="M 160 34 L 160 48 L 75 48 L 75 60" fill="none" stroke="currentColor" stroke-width="1.4"/>
-  <polygon points="75,68 71,60 79,60" fill="currentColor"/>
+  <rect x="115" y="8" width="90" height="32" rx="4" fill="currentColor" fill-opacity="0.05" stroke="currentColor" stroke-width="1.2"/>
+  <text x="160" y="28" text-anchor="middle" font-size="12" font-weight="bold" fill="currentColor">2. Code</text>
 
-  <path d="M 160 34 L 160 48 L 245 48 L 245 60" fill="none" stroke="currentColor" stroke-width="1.4"/>
-  <polygon points="245,68 241,60 249,60" fill="currentColor"/>
+  <rect x="215" y="8" width="90" height="32" rx="4" fill="currentColor" fill-opacity="0.05" stroke="currentColor" stroke-width="1.2"/>
+  <text x="260" y="28" text-anchor="middle" font-size="12" font-weight="bold" fill="currentColor">3. Strength</text>
 
-  <rect x="10" y="66" width="135" height="36" rx="4" fill="currentColor" fill-opacity="0.08" stroke="currentColor" stroke-width="1.2"/>
-  <text x="77" y="82" text-anchor="middle" font-size="12" font-weight="bold" fill="currentColor">Фундамент ядра</text>
-  <text x="77" y="95" text-anchor="middle" font-size="12" opacity="0.75" fill="currentColor">Компоненты &amp; Код</text>
+  <line x1="60" y1="40" x2="60" y2="52" stroke="currentColor" stroke-width="1.4"/>
+  <polygon points="60,60 56,52 64,52" fill="currentColor"/>
 
-  <rect x="175" y="66" width="135" height="36" rx="4" fill="currentColor" fill-opacity="0.08" stroke="currentColor" stroke-width="1.2"/>
-  <text x="242" y="82" text-anchor="middle" font-size="12" font-weight="bold" fill="currentColor">Экосистема WAF</text>
-  <text x="242" y="95" text-anchor="middle" font-size="12" opacity="0.75" fill="currentColor">Cloud &amp; DevOps</text>
+  <line x1="160" y1="40" x2="160" y2="52" stroke="currentColor" stroke-width="1.4"/>
+  <polygon points="160,60 156,52 164,52" fill="currentColor"/>
 
-  <line x1="75" y1="102" x2="75" y2="114" stroke="currentColor" stroke-width="1.4"/>
-  <polygon points="75,122 71,114 79,114" fill="currentColor"/>
+  <line x1="260" y1="40" x2="260" y2="52" stroke="currentColor" stroke-width="1.4"/>
+  <polygon points="260,60 256,52 264,52" fill="currentColor"/>
 
-  <line x1="245" y1="102" x2="245" y2="114" stroke="currentColor" stroke-width="1.4"/>
-  <polygon points="245,122 241,114 249,114" fill="currentColor"/>
+  <rect x="20" y="60" width="280" height="38" rx="4" fill="currentColor" fill-opacity="0.08" stroke="currentColor" stroke-width="1.4"/>
+  <text x="160" y="77" text-anchor="middle" font-size="12" font-weight="bold" fill="currentColor">Ядро WAFv2: Web ACL &amp; WCU</text>
+  <text x="160" y="91" text-anchor="middle" font-size="12" opacity="0.75" fill="currentColor">Трансверсальный синтез по 9 линзам</text>
 
-  <rect x="10" y="120" width="135" height="38" rx="4" fill="currentColor" fill-opacity="0.05" stroke="currentColor" stroke-width="1.2"/>
-  <text x="77" y="136" text-anchor="middle" font-size="12" fill="currentColor">Сила и границы</text>
-  <text x="77" y="150" text-anchor="middle" font-size="12" opacity="0.75" fill="currentColor">Shield &amp; ReDoS</text>
+  <line x1="60" y1="98" x2="60" y2="110" stroke="currentColor" stroke-width="1.4"/>
+  <polygon points="60,118 56,110 64,110" fill="currentColor"/>
 
-  <rect x="175" y="120" width="135" height="38" rx="4" fill="currentColor" fill-opacity="0.05" stroke="currentColor" stroke-width="1.2"/>
-  <text x="242" y="136" text-anchor="middle" font-size="12" fill="currentColor">SRE и надежность</text>
-  <text x="242" y="150" text-anchor="middle" font-size="12" opacity="0.75" fill="currentColor">Метрики и SLO</text>
+  <line x1="160" y1="98" x2="160" y2="110" stroke="currentColor" stroke-width="1.4"/>
+  <polygon points="160,118 156,110 164,110" fill="currentColor"/>
 
-  <line x1="75" y1="158" x2="75" y2="170" stroke="currentColor" stroke-width="1.4"/>
-  <polygon points="75,178 71,170 79,170" fill="currentColor"/>
+  <line x1="260" y1="98" x2="260" y2="110" stroke="currentColor" stroke-width="1.4"/>
+  <polygon points="260,118 256,110 264,110" fill="currentColor"/>
 
-  <line x1="245" y1="158" x2="245" y2="170" stroke="currentColor" stroke-width="1.4"/>
-  <polygon points="245,178 241,170 249,170" fill="currentColor"/>
+  <rect x="15" y="118" width="90" height="32" rx="4" fill="currentColor" fill-opacity="0.05" stroke="currentColor" stroke-width="1.2"/>
+  <text x="60" y="138" text-anchor="middle" font-size="12" font-weight="bold" fill="currentColor">4. Limits</text>
 
-  <rect x="30" y="176" width="260" height="34" rx="4" fill="currentColor" fill-opacity="0.08" stroke="currentColor" stroke-width="1.4"/>
-  <text x="160" y="197" text-anchor="middle" font-size="12" font-weight="bold" fill="currentColor">Архитектурное ядро Web ACL</text>
-</svg>
-      <p class="dim">Схема 17. Девять инженерных линз вокруг архитектурного ядра AWS WAFv2.</p>
+  <rect x="115" y="118" width="90" height="32" rx="4" fill="currentColor" fill-opacity="0.05" stroke="currentColor" stroke-width="1.2"/>
+  <text x="160" y="138" text-anchor="middle" font-size="12" font-weight="bold" fill="currentColor">5. Ecosys</text>
+
+  <rect x="215" y="118" width="90" height="32" rx="4" fill="currentColor" fill-opacity="0.05" stroke="currentColor" stroke-width="1.2"/>
+  <text x="260" y="138" text-anchor="middle" font-size="12" font-weight="bold" fill="currentColor">6. AI Lens</text>
+
+  <line x1="60" y1="150" x2="60" y2="166" stroke="currentColor" stroke-width="1.4"/>
+  <polygon points="60,174 56,166 64,166" fill="currentColor"/>
+
+  <line x1="160" y1="150" x2="160" y2="166" stroke="currentColor" stroke-width="1.4"/>
+  <polygon points="160,174 156,166 164,166" fill="currentColor"/>
+
+  <line x1="260" y1="150" x2="260" y2="166" stroke="currentColor" stroke-width="1.4"/>
+  <polygon points="260,174 256,166 264,166" fill="currentColor"/>
+
+  <rect x="15" y="174" width="90" height="32" rx="4" fill="currentColor" fill-opacity="0.05" stroke="currentColor" stroke-width="1.2"/>
+  <text x="60" y="194" text-anchor="middle" font-size="12" font-weight="bold" fill="currentColor">7. Cloud</text>
+
+  <rect x="115" y="174" width="90" height="32" rx="4" fill="currentColor" fill-opacity="0.05" stroke="currentColor" stroke-width="1.2"/>
+  <text x="160" y="194" text-anchor="middle" font-size="12" font-weight="bold" fill="currentColor">8. DevOps</text>
+
+  <rect x="215" y="174" width="90" height="32" rx="4" fill="currentColor" fill-opacity="0.05" stroke="currentColor" stroke-width="1.2"/>
+  <text x="260" y="194" text-anchor="middle" font-size="12" font-weight="bold" fill="currentColor">9. SRE</text>
+      </svg>
+      <p class="dim">Схема 17. Матрица 3x3 девяти инженерных линз вокруг архитектурного ядра WAFv2.</p>
     </div>
 
     <h2 id="lens-components">1 · Компоненты (Components) <a class="anchor-link" href="#lens-components">#</a></h2>

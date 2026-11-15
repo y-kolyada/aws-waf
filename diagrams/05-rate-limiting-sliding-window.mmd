@@ -1,6 +1,5 @@
 flowchart TD
-    Traffic["Поток клиентских запросов"] --> Scope["ScopeDownStatement: /api/login"]
-    Scope --> Window["Окно 60s (Ключ: IP+Session)"]
-    Window --> Decision{"Порог 50 запросов"}
-    Decision -->|Норма| Pass["Пропуск Allow"]
-    Decision -->|Превышение| Block["Блокировка HTTP 429"]
+    Req["Запросы: IP / JWT Key"] --> Win["Скользящее окно (60-600с)"]
+    Win --> Comp{"Сравнение с лимитом"}
+    Comp -->|Превышен| Block["Block / CAPTCHA (Бан)"]
+    Block -->|Снижение частоты| Req

@@ -1,6 +1,7 @@
-flowchart TD
-    Client["Клиентский браузер + SDK"] --> Telemetry["Proof-of-Work & JA4 телеметрия"]
-    Telemetry --> WAF["WAF Bot Control Classifier"]
-    WAF --> Result{"Классификация"}
-    Result -->|Робот| Block["Блокировка 403"]
-    Result -->|Человек| Token["Выдача aws-waf-token"]
+sequenceDiagram
+    participant Browser as Клиент (JS SDK)
+    participant WAF as AWS WAF Edge
+    Browser->>WAF: 1. GET /app (Первый запрос)
+    WAF-->>Browser: 2. 202 Challenge + PoW Script
+    Browser->>WAF: 3. Решение PoW + aws-waf-token
+    WAF-->>Browser: 4. 200 OK (Immunity Time 300s)
